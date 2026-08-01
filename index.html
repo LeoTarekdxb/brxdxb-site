@@ -451,10 +451,12 @@ body::after {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px;
 }
 .ind-card {
-  padding: 28px; border: 1px solid var(--border); border-radius: 14px;
+  display: block; padding: 28px; border: 1px solid var(--border); border-radius: 14px;
   background: var(--dark2); transition: all 0.25s; position: relative;
+  text-decoration: none; color: inherit;
 }
 .ind-card:hover { border-color: rgba(255,255,255,0.1); }
+a.ind-card.live-link:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-2px); }
 .ind-card.featured { border-color: rgba(201,168,76,0.25); background: rgba(201,168,76,0.04); }
 .ind-icon { font-size: 28px; margin-bottom: 14px; display: block; }
 .ind-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
@@ -616,6 +618,7 @@ footer p { font-size: 12px; color: var(--gray); }
     <a href="#lab" data-en="The Lab" data-ar="المختبر">The Lab</a>
     <a href="#proof" data-en="Proof Case" data-ar="قصة نجاح">Proof Case</a>
     <a href="#industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+    <a href="/flow/" data-en="BRX Flow" data-ar="BRX Flow">BRX Flow</a>
     <a href="#vision" data-en="Vision 2026" data-ar="رؤية 2026">Vision 2026</a>
   </div>
 
@@ -774,6 +777,9 @@ footer p { font-size: 12px; color: var(--gray); }
           <span class="tag">WhatsApp</span><span class="tag">Bitrix24</span>
           <span class="tag">6 Languages</span><span class="tag">Telegram</span><span class="tag">Excel</span>
         </div>
+        <p style="margin-top:14px">
+          <a href="/flow/real-estate.html" style="color:inherit;opacity:.9;text-decoration:underline;text-underline-offset:3px" data-en="Get this for your business — BRX Flow →" data-ar="احصل عليه لعملك — BRX Flow ←">Get this for your business — BRX Flow →</a>
+        </p>
       </div>
 
       
@@ -781,8 +787,8 @@ footer p { font-size: 12px; color: var(--gray); }
         <span class="agent-status s-live" data-en="Live Now" data-ar="مباشر الآن">Live Now</span>
         <span class="agent-icon">📈</span>
         <h3 data-en="Autonomous Trading Agent" data-ar="وكيل التداول الذاتي">Autonomous Trading Agent</h3>
-        <p data-en="Screens 6,000 US stocks through a 7-gate investment framework, operates a simulated $100,000 portfolio autonomously 24/7 — trailing stops, drawdown circuit breakers, and every decision published to a live public journal. Discipline as a product; never promises returns." data-ar="يفحص 6,000 سهم أمريكي عبر إطار استثماري من 7 بوابات، ويتداول ذاتياً على حساب تجريبي بقيمة 100,000 دولار على مدار الساعة — بأوامر وقف متحركة وقواطع حماية، مع نشر كل قرار في سجل علني مباشر. الانضباط كمنتج؛ دون أي وعود بالأرباح.">
-          Screens 6,000 US stocks through a 7-gate investment framework, operates a simulated $100,000 portfolio autonomously 24/7 — trailing stops, drawdown circuit breakers, and every decision published to a live public journal. Discipline as a product; never promises returns.
+        <p data-en="Screens 6,000 US stocks through a 7-gate investment framework, trades a $100,000 paper account autonomously 24/7 — trailing stops, drawdown circuit breakers, and every decision published to a live public journal. Discipline as a product; never promises returns." data-ar="يفحص 6,000 سهم أمريكي عبر إطار استثماري من 7 بوابات، ويتداول ذاتياً على حساب تجريبي بقيمة 100,000 دولار على مدار الساعة — بأوامر وقف متحركة وقواطع حماية، مع نشر كل قرار في سجل علني مباشر. الانضباط كمنتج؛ دون أي وعود بالأرباح.">
+          Screens 6,000 US stocks through a 7-gate investment framework, trades a $100,000 paper account autonomously 24/7 — trailing stops, drawdown circuit breakers, and every decision published to a live public journal. Discipline as a product; never promises returns.
         </p>
         <div class="agent-tags">
           <span class="tag">Alpaca</span><span class="tag">Claude AI</span>
@@ -791,7 +797,7 @@ footer p { font-size: 12px; color: var(--gray); }
         <p style="margin-top:14px">
           <a href="https://leo-stock-agent.netlify.app" target="_blank" rel="noopener" style="color:inherit;opacity:.9;text-decoration:underline;text-underline-offset:3px" data-en="Watch it trade live →" data-ar="← شاهده يتداول مباشرة">Watch it trade live →</a>
           &nbsp;·&nbsp;
-          <a href="/agent.html" style="color:inherit;opacity:.9;text-decoration:underline;text-underline-offset:3px" data-en="Plans &amp; subscriptions →" data-ar="← احصل على وكيلك — 29$/شهر">Get your own — $29/mo →</a>
+          <a href="https://brx-trading-agent.netlify.app" target="_blank" rel="noopener" style="color:inherit;opacity:.9;text-decoration:underline;text-underline-offset:3px" data-en="Get your own — $29/mo →" data-ar="← احصل على وكيلك — 29$/شهر">Get your own — $29/mo →</a>
         </p>
       </div>
 
@@ -921,36 +927,36 @@ footer p { font-size: 12px; color: var(--gray); }
     <h2 class="t-display" data-en="Any workflow with a pattern<br>can be automated." data-ar="أي سير عمل ذو نمط<br>يمكن أتمتته.">Any workflow with a pattern<br>can be automated.</h2>
   </div>
   <div class="ind-grid">
-    <div class="ind-card featured reveal">
+    <a class="ind-card featured live-link reveal" href="/flow/real-estate.html">
       <span class="ind-icon">🏡</span>
       <h3 data-en="Real Estate" data-ar="العقارات">Real Estate</h3>
       <p data-en="Lead qualification, multilingual WhatsApp, follow-ups, morning briefings, CRM automation. Proven live with Dubai's top agencies." data-ar="تأهيل العملاء وواتساب متعدد اللغات والمتابعات والإحاطات الصباحية وأتمتة CRM. مثبت مع كبرى وكالات دبي.">Lead qualification, multilingual WhatsApp, follow-ups, morning briefings, CRM automation. Proven live with Dubai's top agencies.</p>
-      <span class="ind-badge live" data-en="Live" data-ar="مباشر">Live</span>
-    </div>
-    <div class="ind-card reveal reveal-d1">
+      <span class="ind-badge live" data-en="Live · Get BRX Flow →" data-ar="مباشر · احصل على BRX Flow ←">Live · Get BRX Flow →</span>
+    </a>
+    <a class="ind-card live-link reveal reveal-d1" href="/flow/legal.html">
       <span class="ind-icon">⚖️</span>
       <h3 data-en="Legal & Professional Services" data-ar="القانون والخدمات المهنية">Legal & Professional Services</h3>
       <p data-en="Contract review, clause extraction, document summarisation, client intake, deadline alerts in Arabic and English." data-ar="مراجعة العقود واستخراج البنود وتلخيص الوثائق وتسجيل العملاء وتنبيهات المواعيد النهائية.">Contract review, clause extraction, document summarisation, client intake, deadline alerts in Arabic and English.</p>
-      <span class="ind-badge soon">Q3 2026</span>
-    </div>
-    <div class="ind-card reveal reveal-d2">
+      <span class="ind-badge soon" data-en="BRX Flow →" data-ar="BRX Flow ←">BRX Flow →</span>
+    </a>
+    <a class="ind-card live-link reveal reveal-d2" href="/flow/hospitality.html">
       <span class="ind-icon">🏨</span>
       <h3 data-en="Hospitality & Tourism" data-ar="الضيافة والسياحة">Hospitality & Tourism</h3>
       <p data-en="Guest journey automation, pre-arrival, upsell, post-stay follow-up in 6 languages — built for UAE's international clientele." data-ar="أتمتة تجربة الضيوف وما قبل الوصول والبيع التكميلي والمتابعة بعد الإقامة بـ6 لغات.">Guest journey automation, pre-arrival, upsell, post-stay follow-up in 6 languages — built for UAE's international clientele.</p>
-      <span class="ind-badge soon">Q3 2026</span>
-    </div>
+      <span class="ind-badge soon" data-en="BRX Flow →" data-ar="BRX Flow ←">BRX Flow →</span>
+    </a>
     <div class="ind-card reveal">
       <span class="ind-icon">💰</span>
       <h3 data-en="Finance & Wealth Management" data-ar="المال وإدارة الثروات">Finance & Wealth Management</h3>
       <p data-en="Portfolio reporting, compliance alerts, client briefings, and anomaly detection — without manual analyst hours." data-ar="تقارير المحافظ وتنبيهات الامتثال وإحاطات العملاء واكتشاف الشذوذات — دون ساعات تحليل يدوية.">Portfolio reporting, compliance alerts, client briefings, and anomaly detection — without manual analyst hours.</p>
       <span class="ind-badge soon">Q4 2026</span>
     </div>
-    <div class="ind-card reveal reveal-d1">
+    <a class="ind-card live-link reveal reveal-d1" href="/flow/healthcare.html">
       <span class="ind-icon">🏥</span>
       <h3 data-en="Healthcare & Wellness" data-ar="الرعاية الصحية والعافية">Healthcare & Wellness</h3>
       <p data-en="Appointment scheduling, no-show recovery, prescription reminders, and patient satisfaction follow-up in Arabic and English." data-ar="جدولة المواعيد واسترداد حالات الغياب وتذكيرات الوصفات ومتابعة رضا المرضى.">Appointment scheduling, no-show recovery, prescription reminders, and patient satisfaction follow-up in Arabic and English.</p>
-      <span class="ind-badge soon">Q4 2026</span>
-    </div>
+      <span class="ind-badge soon" data-en="BRX Flow →" data-ar="BRX Flow ←">BRX Flow →</span>
+    </a>
     <div class="ind-card reveal reveal-d2">
       <span class="ind-icon">🎓</span>
       <h3 data-en="Education & Training" data-ar="التعليم والتدريب">Education & Training</h3>

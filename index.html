@@ -930,11 +930,61 @@ footer p { font-size: 12px; color: var(--gray); }
     <p class="section-sub" data-en="Autonomous agent infrastructure that measures what actually decides profit — payoff geometry and transaction costs — and refuses any rule that cannot survive them. Self-hosted. You keep your keys." data-ar="بنية وكلاء ذاتية التشغيل تقيس ما يحسم الربح فعلاً — هندسة العائد وتكاليف التداول — وترفض أي قاعدة لا تصمد أمامهما. تعمل على جهازك، وتحتفظ بمفاتيحك.">Autonomous agent infrastructure that measures what actually decides profit — payoff geometry and transaction costs — and refuses any rule that cannot survive them. Self-hosted. You keep your keys.</p>
   </div>
 
+  <div class="reveal" style="max-width:900px;margin:0 auto 40px;text-align:center">
+    <h3 style="margin-bottom:10px" data-en="One agent, one job. That's the whole design." data-ar="وكيل واحد، مهمة واحدة. هذا هو التصميم بأكمله.">One agent, one job. That's the whole design.</h3>
+    <p style="opacity:.75" data-en="Seven independent agents, each doing exactly one job — measured against each other, never blended into ambiguity." data-ar="سبعة وكلاء مستقلين، كل منهم يؤدي مهمة واحدة بالضبط — يُقاس كل منهم مقابل الآخرين، ولا يُخلط أحدهم بغيره في غموض.">Seven independent agents, each doing exactly one job — measured against each other, never blended into ambiguity.</p>
+  </div>
+
+  <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:44px">
+    <div class="ind-card">
+      <span class="ind-icon">📡</span>
+      <h3 data-en="Pattern Reader" data-ar="قارئ الأنماط">Pattern Reader</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Measurement" data-ar="القياس">Measurement</p>
+      <p data-en="Measures what actually drives the asset — recalculated every run, never assumed." data-ar="يقيس ما يحرّك الأصل فعلاً — يُعاد حسابه في كل دورة، لا يُفترض أبداً.">Measures what actually drives the asset — recalculated every run, never assumed.</p>
+    </div>
+    <div class="ind-card">
+      <span class="ind-icon">🚧</span>
+      <h3 data-en="Barrier Test" data-ar="اختبار الحواجز">Barrier Test</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Validation" data-ar="التحقّق">Validation</p>
+      <p data-en="Does the target arrive before the stop, after every real cost? Thousands of trades answer that, not one." data-ar="هل يصل الهدف قبل وقف الخسارة، بعد كل تكلفة حقيقية؟ آلاف الصفقات تجيب، لا صفقة واحدة.">Does the target arrive before the stop, after every real cost? Thousands of trades answer that, not one.</p>
+    </div>
+    <div class="ind-card">
+      <span class="ind-icon">⚖️</span>
+      <h3 data-en="Edge Engine" data-ar="محرّك الأفضلية">Edge Engine</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Judgement" data-ar="الحكم">Judgement</p>
+      <p data-en="Converts win rate and payoff into expected value. Rejects any rule below breakeven." data-ar="يحوّل نسبة الربح والعائد إلى قيمة متوقعة، ويرفض أي قاعدة دون خط التعادل.">Converts win rate and payoff into expected value. Rejects any rule below breakeven.</p>
+    </div>
+    <div class="ind-card">
+      <span class="ind-icon">🧪</span>
+      <h3 data-en="Strategy Lab" data-ar="مختبر الاستراتيجيات">Strategy Lab</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Experiment" data-ar="التجربة">Experiment</p>
+      <p data-en="11 variants tested on live prices, three real cost models, parameters fixed in advance." data-ar="١١ متغيّراً على أسعار حيّة، بثلاثة نماذج تكلفة فعلية، ومعايير محددة مسبقاً.">11 variants tested on live prices, three real cost models, parameters fixed in advance.</p>
+    </div>
+    <div class="ind-card">
+      <span class="ind-icon">🛡️</span>
+      <h3 data-en="Risk Guard" data-ar="حارس المخاطر">Risk Guard</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Control" data-ar="التحكّم">Control</p>
+      <p data-en="Lives outside the strategy code, so a scoring bug can never disable the stop." data-ar="يعمل خارج شيفرة الاستراتيجية، فلا يستطيع خلل في التقييم تعطيل الحماية.">Lives outside the strategy code, so a scoring bug can never disable the stop.</p>
+    </div>
+    <div class="ind-card">
+      <span class="ind-icon">🩺</span>
+      <h3 data-en="Self-Healer &amp; Watchdog" data-ar="المعالج الذاتي والحارس الخارجي">Self-Healer &amp; Watchdog</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Assurance" data-ar="الضمان">Assurance</p>
+      <p data-en="Hunts plausible-but-wrong states, not just crashes — judged by heartbeat, not uptime." data-ar="يلاحق الحالات المعقولة لكن الخاطئة، لا الانهيارات فقط — يُقاس بالنبض لا بوقت التشغيل.">Hunts plausible-but-wrong states, not just crashes — judged by heartbeat, not uptime.</p>
+    </div>
+    <div class="ind-card">
+      <span class="ind-icon">📒</span>
+      <h3 data-en="FIFO Ledger" data-ar="دفتر FIFO">FIFO Ledger</h3>
+      <p style="font-size:11px;letter-spacing:1px;text-transform:uppercase;opacity:.55;margin-bottom:8px" data-en="Accounting" data-ar="المحاسبة">Accounting</p>
+      <p data-en="Bought X, sold X, made or lost Y. A position that hasn't sold hasn't made money." data-ar="اشتريتَ كذا، بعتَ كذا، ربحتَ أو خسرتَ كذا. والمركز الذي لم يُبَع لم يربح شيئاً.">Bought X, sold X, made or lost Y. A position that hasn't sold hasn't made money.</p>
+    </div>
+  </div>
+
   <div class="ind-grid" style="margin-bottom:34px">
     <div class="ind-card reveal">
       <span class="ind-icon">📐</span>
       <h3 data-en="Foundations · $99" data-ar="الأساسيات · ‎$99">Foundations · $99</h3>
-      <p data-en="System architecture, the scoring model, the risk rails, and the complete incident ledger — 14 documented failures and the rule each one produced." data-ar="بنية النظام، ونموذج التقييم، وحواجز المخاطر، وسجل الأعطال كاملاً — ١٤ عطلاً موثّقاً والقاعدة التي أنتجها كل منها.">System architecture, the scoring model, the risk rails, and the complete incident ledger — 14 documented failures and the rule each one produced.</p>
+      <p data-en="System architecture, the scoring model, the risk rails, and the complete incident ledger — 10 documented failures and the rule each one produced." data-ar="بنية النظام، ونموذج التقييم، وحواجز المخاطر، وسجل الأعطال كاملاً — ١٠ أعطال موثّقة والقاعدة التي أنتجها كل منها.">System architecture, the scoring model, the risk rails, and the complete incident ledger — 10 documented failures and the rule each one produced.</p>
       <a class="ind-badge live" href="#terminal-buy" data-en="Get Foundations →" data-ar="احصل عليها ←">Get Foundations →</a>
     </div>
     <div class="ind-card featured reveal reveal-d1">

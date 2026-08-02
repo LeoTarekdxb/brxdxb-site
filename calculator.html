@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breakeven Win-Rate Calculator — BRX Terminal</title>
+<meta name="description" content="Plug in your own win rate, average win and average loss. See instantly whether your trading strategy is mathematically profitable — the same formula behind the BRX whitepaper.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:   #000000;
+  --dark:    #08090D;
+  --dark2:   #0E1018;
+  --dark3:   #141720;
+  --gold:    #C9A84C;
+  --gold2:   #E8C96A;
+  --gold-dim:rgba(201,168,76,0.12);
+  --white:   #FFFFFF;
+  --gray:    #6B7280;
+  --gray2:   #9CA3AF;
+  --border:  rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.10);
+  --green:   #22C55E;
+  --green-dim: rgba(34,197,94,0.1);
+  --red:     #F0564A;
+  --red-dim: rgba(240,86,74,0.1);
+  --en-font: 'Syne', 'Inter', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--en-font); background: var(--black); color: var(--white);
+  line-height: 1.5; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 620px; margin: 0 auto; padding: 60px 24px 100px; }
+.logo { display:flex; align-items:center; gap:10px; margin-bottom: 50px; text-decoration:none; color:var(--white); }
+.logo-mark { width:28px; height:28px; background: repeating-conic-gradient(var(--gold) 0% 25%, transparent 0% 50%) 50% / 10px 10px; border-radius: 4px; }
+.logo b { font-weight: 800; letter-spacing: 1px; font-size: 15px; }
+.eyebrow { color: var(--gold); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 18px; }
+h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 16px; }
+.sub { color: var(--gray2); font-size: 16.5px; line-height: 1.6; max-width: 520px; margin-bottom: 40px; }
+
+.panel { border: 1px solid var(--border2); border-radius: 16px; padding: 28px; background: var(--dark2); margin-bottom: 24px; }
+.field { margin-bottom: 22px; }
+.field:last-child { margin-bottom: 0; }
+.field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.field label { font-size: 14px; font-weight: 600; color: var(--white); }
+.field .val { font-family: ui-monospace, 'SF Mono', monospace; font-size: 15px; color: var(--gold); font-weight: 700; }
+input[type=range] {
+  width: 100%; height: 6px; border-radius: 999px; -webkit-appearance: none;
+  background: var(--dark3); outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--gold); cursor: pointer; border: 3px solid var(--black);
+}
+input[type=range]::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--gold);
+  cursor: pointer; border: 3px solid var(--black);
+}
+
+.result { border-radius: 16px; padding: 28px; margin-bottom: 24px; transition: all 0.2s; }
+.result.pos { background: var(--green-dim); border: 1px solid rgba(34,197,94,0.3); }
+.result.neg { background: var(--red-dim); border: 1px solid rgba(240,86,74,0.3); }
+.result-head { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+.result.pos .result-head { color: var(--green); }
+.result.neg .result-head { color: var(--red); }
+.result-verdict { font-size: 22px; font-weight: 800; margin-bottom: 18px; line-height: 1.35; }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.result-stat .k { font-size: 12px; color: var(--gray2); margin-bottom: 4px; }
+.result-stat .v { font-family: ui-monospace, 'SF Mono', monospace; font-size: 19px; font-weight: 700; }
+
+.bridge { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 8px; }
+.bridge p { color: var(--gray2); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
+.bridge p b { color: var(--white); }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary, .btn-ghost {
+  display: inline-block; padding: 14px 22px; border-radius: 10px; font-size: 14.5px;
+  font-weight: 700; text-decoration: none; font-family: var(--en-font); transition: all 0.2s;
+}
+.btn-primary { background: var(--gold); color: var(--black); }
+.btn-primary:hover { background: var(--gold2); }
+.btn-ghost { border: 1px solid var(--border2); color: var(--white); }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }
+
+.legal { font-size: 12px; color: var(--gray); line-height: 1.7; margin-top: 36px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="logo" href="/">
+    <span class="logo-mark"></span>
+    <b>BRX·DXB</b>
+  </a>
+
+  <div class="eyebrow">Breakeven Win-Rate Calculator</div>
+  <h1>Is your strategy actually profitable? Do the math BRX had to learn the hard way.</h1>
+  <p class="sub">Enter your real numbers. This is the exact formula from the whitepaper — breakeven win rate = 1 ÷ (1 + reward:risk). No signup, no tracking, just the arithmetic.</p>
+
+  <div class="panel">
+    <div class="field">
+      <div class="field-head"><label>Your actual win rate</label><span class="val" id="winRateVal">50%</span></div>
+      <input type="range" id="winRate" min="1" max="99" value="50" step="1">
+    </div>
+    <div class="field">
+      <div class="field-head"><label>Average win (%)</label><span class="val" id="avgWinVal">1.0%</span></div>
+      <input type="range" id="avgWin" min="0.1" max="10" value="1.0" step="0.1">
+    </div>
+    <div class="field">
+      <div class="field-head"><label>Average loss (%)</label><span class="val" id="avgLossVal">1.0%</span></div>
+      <input type="range" id="avgLoss" min="0.1" max="10" value="1.0" step="0.1">
+    </div>
+  </div>
+
+  <div class="result pos" id="resultBox">
+    <div class="result-head" id="resultHead">VERDICT</div>
+    <div class="result-verdict" id="resultVerdict">—</div>
+    <div class="result-grid">
+      <div class="result-stat"><div class="k">Reward:risk ratio</div><div class="v" id="rrrOut">—</div></div>
+      <div class="result-stat"><div class="k">Breakeven win rate needed</div><div class="v" id="breakevenOut">—</div></div>
+      <div class="result-stat"><div class="k">Your win rate</div><div class="v" id="yourWinOut">—</div></div>
+      <div class="result-stat"><div class="k">Expected value / trade</div><div class="v" id="evOut">—</div></div>
+    </div>
+  </div>
+
+  <div class="bridge">
+    <p id="bridgeText"><b>This is the same gap</b> the whitepaper measures: a trader with an 82.3% win rate needed 87% to break even. Nothing was wrong with his read on the market — the payoff geometry was upside down.</p>
+    <div class="btn-row">
+      <a class="btn-primary" href="/get-whitepaper.html">Get the free whitepaper →</a>
+      <a class="btn-ghost" href="/#terminal-buy">See the full system →</a>
+    </div>
+  </div>
+
+  <p class="legal">This calculator illustrates a mathematical relationship (breakeven win rate = 1 ÷ (1 + reward:risk)) using numbers you enter. It is not investment advice, a projection, or a guarantee of any trading outcome. Past performance does not indicate future results. BRX Technologies L.L.C, DIFC, Dubai.</p>
+
+</div>
+
+<script>
+const winRate = document.getElementById('winRate');
+const avgWin = document.getElementById('avgWin');
+const avgLoss = document.getElementById('avgLoss');
+const winRateVal = document.getElementById('winRateVal');
+const avgWinVal = document.getElementById('avgWinVal');
+const avgLossVal = document.getElementById('avgLossVal');
+const resultBox = document.getElementById('resultBox');
+const resultHead = document.getElementById('resultHead');
+const resultVerdict = document.getElementById('resultVerdict');
+const rrrOut = document.getElementById('rrrOut');
+const breakevenOut = document.getElementById('breakevenOut');
+const yourWinOut = document.getElementById('yourWinOut');
+const evOut = document.getElementById('evOut');
+
+function fmtPct(x) { return x.toFixed(1) + '%'; }
+
+function recompute() {
+  const wr = parseFloat(winRate.value) / 100;
+  const aw = parseFloat(avgWin.value);
+  const al = parseFloat(avgLoss.value);
+
+  winRateVal.textContent = winRate.value + '%';
+  avgWinVal.textContent = aw.toFixed(1) + '%';
+  avgLossVal.textContent = al.toFixed(1) + '%';
+
+  const rrr = aw / al;
+  const breakeven = 1 / (1 + rrr);
+  const ev = (wr * aw) - ((1 - wr) * al);
+  const gap = wr - breakeven;
+
+  rrrOut.textContent = rrr.toFixed(2);
+  breakevenOut.textContent = fmtPct(breakeven * 100);
+  yourWinOut.textContent = fmtPct(wr * 100);
+  evOut.textContent = (ev >= 0 ? '+' : '') + ev.toFixed(3) + '%';
+
+  if (ev >= 0) {
+    resultBox.className = 'result pos';
+    resultHead.textContent = 'POSITIVE EXPECTED VALUE';
+    resultVerdict.textContent = `Your numbers clear breakeven by ${fmtPct(Math.abs(gap) * 100)}. Over many trades, this shape of edge compounds.`;
+  } else {
+    resultBox.className = 'result neg';
+    resultHead.textContent = 'NEGATIVE EXPECTED VALUE';
+    resultVerdict.textContent = `You need ${fmtPct(Math.abs(gap) * 100)} more win rate to break even at this reward:risk — or fix the geometry instead.`;
+  }
+}
+
+[winRate, avgWin, avgLoss].forEach(el => el.addEventListener('input', recompute));
+recompute();
+</script>
+</body>
+</html>

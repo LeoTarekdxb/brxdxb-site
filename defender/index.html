@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head><script src="demo.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Defender">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Defender Switch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&display=swap">
+<link rel="stylesheet" href="dark.css">
+<style>
+header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.mark{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(160deg,#1b2540,#131b30);border:1px solid var(--hair)}
+.mark svg{width:18px;height:18px}
+header.top b{font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:-.01em;display:block}
+header.top span{font-size:11.5px;color:var(--faint)}
+
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--card-2);border:1px solid var(--hair);border-radius:14px;padding:5px;margin-bottom:16px}
+.tab{appearance:none;border:0;background:none;color:var(--muted);font:700 14px var(--ui);padding:11px 8px;border-radius:10px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:7px}
+.tab .d{width:7px;height:7px;border-radius:50%;background:var(--faint)}
+.tab .d.on{background:var(--live);box-shadow:0 0 8px var(--live-glow)}
+.tab[aria-selected="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 6px 16px -8px rgba(0,0,0,.6)}
+
+.hero{background:var(--card);border:1px solid var(--hair);border-radius:22px;padding:22px 18px 20px;text-align:center;margin-bottom:12px;transition:border-color .3s,box-shadow .3s}
+.hero.on{border-color:rgba(34,197,94,.5);box-shadow:0 14px 40px -18px var(--live-glow)}
+.kicker{font-family:var(--disp);font-weight:800;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.hero h1{font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:-.02em;margin:6px 0 16px}
+/* the big switch */
+.big{--w:176px;--h:76px;--p:7px;position:relative;width:var(--w);height:var(--h);margin:0 auto;border-radius:999px;border:1px solid var(--hair);
+  background:var(--track);box-shadow:inset 0 3px 8px rgba(0,0,0,.55);cursor:pointer;transition:background .35s;display:block;padding:0;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.big .k{position:absolute;top:var(--p);left:var(--p);width:calc(var(--h) - var(--p)*2);height:calc(var(--h) - var(--p)*2);border-radius:50%;
+  background:radial-gradient(120% 120% at 30% 25%,#fff,#f5f8ff 60%,#d7deec);box-shadow:0 4px 10px rgba(0,0,0,.45);transition:left .4s cubic-bezier(.34,1.56,.64,1)}
+.big .t{position:absolute;top:0;bottom:0;display:flex;align-items:center;font-family:var(--disp);font-weight:900;font-size:17px;letter-spacing:.1em}
+.big .t.on{left:26px;color:#fff;opacity:0}.big .t.of{right:24px;color:var(--faint)}
+.big.on{background:linear-gradient(180deg,#1f7a3f,#15662f);box-shadow:0 6px 22px -6px var(--live-glow)}
+.big.on .k{left:calc(var(--w) - var(--h) + var(--p))}
+.big.on .t.on{opacity:1}.big.on .t.of{opacity:0}
+.big[aria-busy="true"]{opacity:.6}
+.state{margin-top:14px;font-size:14px;color:var(--muted);line-height:1.45;min-height:40px}
+.state b{color:var(--ink)}
+
+.now{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:14px 16px;margin-bottom:12px;display:flex;gap:12px;align-items:center}
+.now .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:18px;background:rgba(148,163,184,.1);flex:none}
+.now.live .ic{background:rgba(34,197,94,.15);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(34,197,94,0),0 0 0 0 rgba(34,197,94,.3)}}
+.now .l{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.now .v{font-weight:650;font-size:15px}
+.now .s{font-size:12.5px;color:var(--muted)}
+
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.chip{background:var(--card);border:1px solid var(--hair);border-radius:15px;padding:11px 13px}
+.chip .l{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.chip .v{font-family:var(--disp);font-weight:800;font-size:18px;margin-top:2px}
+.v.ok{color:var(--live)}.v.bad{color:var(--crit)}.v.warn{color:var(--off)}
+
+.panel{background:var(--card);border:1px solid var(--hair);border-radius:18px;padding:6px 16px;margin-bottom:12px}
+.panel h3{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
+.it{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--hair);font-size:13.5px}
+.it:first-of-type{border-top:0}
+.it .r{color:var(--muted);font-size:12.5px;text-align:right;white-space:nowrap}
+.it .r.ok{color:var(--live)}
+.links{display:grid;gap:8px;margin-top:4px}
+.links a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--ink);background:var(--card-2);
+  border:1px solid var(--hair);border-radius:14px;padding:13px 15px;font-weight:650;font-size:14px}
+.links a span{color:var(--faint);font-weight:500;font-size:12px}
+.note{font-size:11.5px;color:var(--faint);text-align:center;margin-top:14px;line-height:1.5}
+.empty{color:var(--faint);font-size:13px;padding:10px 0}
+:focus-visible{outline:2px solid var(--live);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5 4 5.6v5.2c0 4.7 3.2 8.4 8 10.7 4.8-2.3 8-6 8-10.7V5.6L12 2.5Z" stroke="#7f8ca8" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.6 12.2 2.3 2.3 4.5-4.6" stroke="#22c55e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <div><b>BRX Defender</b><span id="gline">Checking the Galaxy…</span></div>
+    <a class="pill" href="call.html">Calls →</a>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-crm" aria-selected="true"><span class="d" id="d-crm"></span>CRM leads</button>
+    <button class="tab" role="tab" id="tab-owners" aria-selected="false"><span class="d" id="d-owners"></span>Owners</button>
+  </div>
+
+  <main id="main"></main>
+  <p class="note">These switches only start and stop phone calls from the Galaxy. Nothing here writes to the CRM.</p>
+</div>
+<nav class="tabbar" aria-label="Sections">
+  <a href="index.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>Switch</a>
+  <a href="call.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Calls</a>
+  <a href="index.html?tab=owners"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21V6l8-3 8 3v15M9 21v-4h6v4M8 9h.01M12 9h.01M16 9h.01M8 13h.01M12 13h.01M16 13h.01"/></svg>Owners</a>
+  <a href="board.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Board</a>
+</nav>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let tab=(new URLSearchParams(location.search).get("tab"))||(()=>{try{return localStorage.getItem("ctl.tab")||"crm"}catch(e){return "crm"}})(), S=null, busy=false;
+const hm=ts=>{ if(!ts) return ""; const m=String(ts).match(/(\d\d:\d\d)/); return m?m[1]:"" };
+const listName=p=>(p||"").split("/").pop().replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+
+function gal(g){
+  if(!g) return "";
+  return g.online ? `Galaxy online · ${g.how==="usb"?"USB":"WiFi"}${g.battery!=null?" · "+g.battery+"%":""}` : "Galaxy not connected";
+}
+function render(){
+  if(!S) return;
+  const g=S.galaxy;
+  $("#gline").textContent=gal(g);
+  $("#d-crm").classList.toggle("on",S.crm.on); $("#d-owners").classList.toggle("on",S.owners.on);
+  $("#tab-crm").setAttribute("aria-selected",tab==="crm"); $("#tab-owners").setAttribute("aria-selected",tab==="owners");
+  const T = tab==="crm" ? S.crm : S.owners, on=T.on;
+  let stateTxt, nowCard="", body="";
+  if(tab==="crm"){
+    stateTxt = !on ? "Off. The Galaxy won't call any CRM lead."
+      : !g.online ? `<b>On, but the Galaxy isn't connected.</b> ${esc(g.say||"")}`
+      : T.dialing ? "<b>Calling your CRM leads now.</b> Owners wait until it's done."
+      : "<b>On.</b> It starts the next lead that's inside their calling hours.";
+    nowCard = `<div class="now ${T.dialing?"live":""}"><div class="ic">${T.dialing?"📞":"⏸"}</div><div>
+      <div class="l">${T.dialing?"Dialling":"Right now"}</div><div class="v">${T.dialing?"CRM lead calls in progress":on?"Waiting for the next callable lead":"Idle"}</div>
+      <div class="s">Heads-up card arrives on your iPhone 10s before each call</div></div></div>`;
+    body = `<div class="row">
+      <div class="chip"><div class="l">Dying now</div><div class="v ${T.critical?"bad":"ok"}">${T.total?T.critical:"—"}</div></div>
+      <div class="chip"><div class="l">Leads watched</div><div class="v">${T.total||"—"}</div></div></div>
+      <div class="panel"><h3>Open</h3><div class="links" style="margin-bottom:12px">
+        <a href="board.html">Lead board <span>who's dying first →</span></a>
+        <a href="board.html">All CRM leads <span>→</span></a>
+        <a href="https://portal.prov.ae/en/crm/leads" target="_blank" rel="noopener">Real CRM portal <span>↗</span></a></div></div>`;
+  }else{
+    const n=T.now||{};
+    stateTxt = !on ? "Off. The Galaxy won't call any owner."
+      : !g.online ? `<b>On, but the Galaxy isn't connected.</b> ${esc(g.say||"")}`
+      : S.crm.dialing ? "<b>On — waiting.</b> CRM leads are being called first."
+      : `<b>Calling owners</b> from ${esc(listName(T.list))}.`;
+    const live=n.active;
+    nowCard = `<div class="now ${live?"live":""}"><div class="ic">${live?"📞":"🏢"}</div><div>
+      <div class="l">${live?(n.state==="ringing"?"Ringing in 10s":"On the call"):"Right now"}</div>
+      <div class="v">${live?esc(n.owner):esc(n.msg||"Idle")}</div>
+      <div class="s">${live?esc(n.phone||"")+" · "+esc(listName(n.list)):esc(listName(T.list))}</div></div></div>`;
+    const last=(T.last||[]).map(c=>`<div class="it"><span>${esc(c.owner)}</span><span class="r ${c.result==="talked"?"ok":""}">${esc(c.result)} · ${hm(c.ts)}</span></div>`).join("");
+    body = `<div class="panel"><h3>Last calls</h3>${last||'<div class="empty">No owner calls yet today.</div>'}</div>
+      <div class="panel"><h3>Open</h3><div class="links" style="margin-bottom:12px">
+        <a href="index.html?tab=owners">Owner call list <span>pick a building →</span></a>
+        <a href="https://owner-atlas-dubai.netlify.app/" target="_blank" rel="noopener">Owner Atlas <span>every building ↗</span></a></div></div>`;
+  }
+  $("#main").innerHTML = `<section class="hero ${on?"on":""}">
+      <div class="kicker">${tab==="crm"?"CRM lead calling":"Owner calling"}</div>
+      <h1>${on?"Calling is ON":"Calling is OFF"}</h1>
+      <button class="big ${on?"on":""}" id="sw" role="switch" aria-checked="${on}" aria-label="${tab==="crm"?"CRM lead calling":"Owner calling"}" ${busy?'aria-busy="true"':""}>
+        <span class="t on">ON</span><span class="t of">OFF</span><span class="k"></span></button>
+      <div class="state">${stateTxt}</div></section>${nowCard}${body}`;
+  $("#sw").onclick=flip;
+}
+async function load(){
+  try{ const r=await fetch("/api/ctl",{cache:"no-store"}); if(r.ok){ S=await r.json(); render(); } }catch(e){}
+}
+async function flip(){
+  if(busy||!S) return; busy=true; render();
+  const want=!(tab==="crm"?S.crm.on:S.owners.on);
+  try{ navigator.vibrate&&navigator.vibrate(want?[14,30]:18) }catch(e){}
+  try{ const r=await fetch("/api/ctl",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({which:tab,on:want})});
+       if(r.ok) S=await r.json(); }catch(e){}
+  busy=false; render();
+}
+function setTab(t){ tab=t; try{localStorage.setItem("ctl.tab",t)}catch(e){} render(); }
+$("#tab-crm").onclick=()=>setTab("crm"); $("#tab-owners").onclick=()=>setTab("owners");
+load(); setInterval(load,5000);
+</script>
+</body>
+</html>

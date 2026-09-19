@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head><script src="demo.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Defender">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Defender Calls</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&display=swap">
+<link rel="stylesheet" href="dark.css">
+<style>
+.lab{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:18px 2px 9px;display:flex;justify-content:space-between}
+.lab.now{color:var(--live)}
+.lab span{font-family:var(--ui);letter-spacing:0;text-transform:none;font-weight:500}
+.pc{background:var(--card);border:1px solid var(--hair);border-radius:20px;padding:16px;margin-bottom:12px}
+.pc.big{border-color:rgba(34,197,94,.55);box-shadow:0 0 0 1px rgba(34,197,94,.2),0 14px 36px -16px var(--live-glow)}
+.ph{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.pn{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.01em;line-height:1.15}
+.pc.big .pn{font-size:25px}
+.pl{font-size:12.5px;color:var(--muted);margin-top:4px}.pl b{color:var(--ink);font-weight:650}
+.pd{text-align:right;flex:none}
+.pd .st{font-size:11.5px;color:var(--muted)}
+.pd .lf{font-family:var(--disp);font-weight:800;font-size:17px;font-variant-numeric:tabular-nums;margin-top:2px}
+.lf.crit{color:var(--crit)}.lf.warn{color:var(--off)}.lf.ok{color:var(--live)}
+.say{margin:13px 0 4px;padding:12px 14px;border-radius:14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.22);font-size:15px;line-height:1.45}
+.pc:not(.big) .say{font-size:13.5px}
+.ln{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--hair);font-size:13.5px;line-height:1.45}
+.ln:first-of-type{border-top:0}
+.ln i{font-style:normal;flex:none;width:20px;text-align:center}
+.ln .k{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.ln .nt{display:block;margin-top:3px}
+.ln .nt small{color:var(--faint)}
+.ln strong{color:var(--off);font-weight:700}
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.cta a{text-align:center;text-decoration:none;font-weight:700;font-size:14px;padding:12px;border-radius:13px}
+.cta .p{background:var(--live);color:#04210f}.cta .g{background:var(--card-2);color:var(--ink);border:1px solid var(--hair)}
+.wait{background:var(--card);border:1px dashed var(--hair);border-radius:20px;padding:22px 16px;text-align:center;color:var(--muted);font-size:14px}
+.wait b{display:block;color:var(--ink);font-family:var(--disp);font-size:17px;margin-bottom:4px}
+.more{display:block;width:100%;margin-top:4px;padding:12px;border-radius:14px;border:1px solid var(--hair);background:var(--card-2);color:var(--muted);font:600 13.5px var(--ui);cursor:pointer}
+details.pc summary{list-style:none;cursor:pointer}
+details.pc summary::-webkit-details-marker{display:none}
+details.pc[open] .chev{transform:rotate(180deg)}
+.chev{color:var(--faint);transition:transform .2s;font-size:12px;margin-left:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5 4 5.6v5.2c0 4.7 3.2 8.4 8 10.7 4.8-2.3 8-6 8-10.7V5.6L12 2.5Z" stroke="#7f8ca8" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.6 12.2 2.3 2.3 4.5-4.6" stroke="#22c55e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <div><b>CRM calls</b><span id="gline">Loading…</span></div>
+    <a class="pill" id="crmpill" href="index.html">…</a>
+  </header>
+  <main id="main"><div class="wait"><b>Loading your leads…</b>The first load reads the CRM and takes a few seconds.</div></main>
+</div>
+<nav class="tabbar" aria-label="Sections">
+  <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="7" width="19" height="10" rx="5"/><circle cx="16.5" cy="12" r="3"/></svg>Switch</a>
+  <a href="call.html" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Calls</a>
+  <a href="index.html?tab=owners"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 21V6l8-3 8 3v15M9 21v-4h6v4M8 9h.01M12 9h.01M16 9h.01M8 13h.01M12 13h.01M16 13h.01"/></svg>Owners</a>
+  <a href="board.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Board</a>
+</nav>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const day=iso=>iso?new Date(iso).toLocaleDateString("en-GB",{day:"numeric",month:"short",timeZone:"Asia/Dubai"}):"";
+const dur=n=>n>=60?Math.floor(n/60)+"m "+String(n%60).padStart(2,"0")+"s":n+"s";
+const left=m=>m==null?"":m<60?Math.round(m)+"m":m<1440?Math.floor(m/60)+"h "+String(Math.round(m%60)).padStart(2,"0"):Math.floor(m/1440)+"d";
+const band=p=>p.left==null?"":p.crit&&p.left<=p.crit*.5?"crit":p.crit&&p.left<=p.crit?"warn":"ok";
+let lastNow=null, showAll=false;
+
+function card(p,big){
+  const hist=p.last_talk?`Last real talk ${day(p.last_talk.ts)} (${dur(p.last_talk.dur)}) · ${p.calls} calls`
+    : p.calls?`Called ${p.calls}× — <strong>never had a real talk yet</strong>`:`<strong>First call ever</strong>`;
+  const notes=(p.notes||[]).slice(0,big?4:2).map(n=>`<span class="nt">${esc(n.text)} <small>· ${day(n.ts)}</small></span>`).join("");
+  const inner=`
+    <div class="say">“${esc(p.opener)}”</div>
+    ${p.want?`<div class="ln"><i>🏠</i><div><span class="k">Wants</span>${esc(p.want)}</div></div>`:""}
+    <div class="ln"><i>📞</i><div><span class="k">History</span>${hist}</div></div>
+    ${notes?`<div class="ln"><i>📝</i><div><span class="k">Notes</span>${notes}</div></div>`:""}
+    <div class="cta">${p.phone?`<a class="p" href="tel:${esc(p.phone)}">Call</a>`:"<span></span>"}<a class="g" href="${esc(p.portal_url||"https://portal.prov.ae/en/crm/leads")}" target="_blank" rel="noopener">Open in CRM</a></div>`;
+  const head=`<div class="ph"><div><div class="pn">${esc(p.name)}</div>
+      <div class="pl">${esc(p.phone)}${p.local?` · their time <b>${p.local}</b>`:""}${p.country?" · "+esc(p.country):""}</div></div>
+      <div class="pd"><div class="st">${esc(p.stage||"")}</div>${p.left!=null?`<div class="lf ${band(p)}">${left(p.left)} left</div>`:""}</div></div>`;
+  return big?`<section class="pc big">${head}${inner}</section>`
+            :`<details class="pc" data-id="${esc(p.id)}"><summary>${head}</summary>${inner}</details>`;
+}
+async function load(){
+  let d; try{ const r=await fetch("/api/prep",{cache:"no-store"}); if(!r.ok) return; d=await r.json(); }catch(e){ return; }
+  const g=d.galaxy||{};
+  $("#gline").textContent=g.online?`Galaxy online · ${g.how==="usb"?"USB":"WiFi"}${g.battery!=null?" · "+g.battery+"%":""}`:"Galaxy not connected";
+  const pill=$("#crmpill"); pill.textContent=d.crm_on?"● Calling ON":"Calling OFF"; pill.classList.toggle("on",!!d.crm_on);
+  if(d.now&&d.now.name!==lastNow){ lastNow=d.now.name; try{navigator.vibrate&&navigator.vibrate([20,40,20])}catch(e){} }
+  const open=new Set([...document.querySelectorAll("details.pc[open]")].map(x=>x.dataset.id));
+  const nx=showAll?d.next:d.next.slice(0,3);
+  $("#main").innerHTML=`
+    <div class="lab now">${d.now?"● Calling now":"Calling now"}</div>
+    ${d.now?card(d.now,true):`<div class="wait"><b>${d.crm_on?"Waiting for the next call":"Calling is off"}</b>${d.crm_on?"The lead's card appears here the moment the Galaxy rings them.":"Turn it on from the Switch tab."}</div>`}
+    <div class="lab">Next up <span>${d.dialer_order?"in dialling order":"most urgent first"}</span></div>
+    ${nx.map(p=>card(p,false)).join("")||'<div class="wait">Nobody to call right now.</div>'}
+    ${d.next.length>3?`<button class="more" id="more">${showAll?"Show fewer":"Show all "+d.next.length}</button>`:""}`;
+  document.querySelectorAll("details.pc").forEach(x=>{ if(open.has(x.dataset.id)) x.open=true; });
+  const m=$("#more"); if(m) m.onclick=()=>{showAll=!showAll;load();};
+}
+load(); setInterval(load,6000);
+</script>
+</body>
+</html>

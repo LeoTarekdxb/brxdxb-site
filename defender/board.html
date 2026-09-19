@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><script src="demo.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0e1a">
+<title>BRX Defender — Board</title><link rel="stylesheet" href="_shell.css"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Defender"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script defer src="power.js"></script><script defer src="tabbar.js"></script></head><body>
+<div class="app"><div class="side"><div class="logo"><svg width="30" height="30" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="22" fill="#2F4960"/><path d="M32 28h22c11 0 18 6 18 15 0 6-3 10-8 12 6 2 10 7 10 14 0 9-7 15-19 15H32V28zm20 26c5 0 8-2 8-6s-3-6-8-6h-8v12h8zm2 26c6 0 9-3 9-7s-3-7-9-7h-10v14h10z" fill="#fff"/></svg> <span><b>BRX</b>DEFENDER</span></div>
+<a class="on" href="board.html"><span class="i">◧</span> Home</a>
+<div class="grp">CRM</div>
+<a class="NAV_LEADS" href="leads.html"><span class="i">☰</span> Leads</a>
+<a class="NAV_POOL" href="pool.html"><span class="i">◇</span> Lead Pool</a>
+<div class="grp">Reference</div>
+<a target="_blank" href="https://portal.prov.ae/en/home"><span class="i">↗</span> Real portal</a>
+<div class="ro">● READ-ONLY mirror<br>Writes nothing to the CRM. Every action you do by hand in the real portal.</div></div>
+<div class="main"><div class="top"><h1>Leads board</h1><div class="sub" id="sub">· live</div></div>
+<div class="body kb-body">
+<div id="paused"></div>
+<div class="kb-kpis" id="kpis"></div>
+<div class="kb-tools"><input id="q" type="search" placeholder="Search name, phone, project…"><button id="onlycrit" class="kb-toggle" aria-pressed="false">Dying only</button></div>
+<div class="kb" id="kb"></div>
+<div class="foot" id="foot"></div>
+</div></div></div>
+<style>
+.kb-body{padding-bottom:18px}
+.kb-kpis{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none}
+.kb-kpi{flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 13px;min-width:104px}
+.kb-kpi b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.kb-kpi span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.kb-kpi b.bad{color:var(--bad)}.kb-kpi b.ok{color:var(--ok)}
+.kb-kpi a{color:var(--primary);font-size:12px;font-weight:600;text-decoration:none}
+.kb-tools{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.kb-tools input[type=search]{flex:1;min-width:180px;max-width:380px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;background:#fff}
+.kb-toggle{font:600 13px inherit;border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:999px;padding:8px 14px;cursor:pointer}.kb-toggle[aria-pressed=true]{background:var(--badBg);color:var(--bad);border-color:var(--bad)}.kb-chk{font-size:13px;color:var(--ink2);display:inline-flex;gap:6px;align-items:center;white-space:nowrap}.kb-chk input{width:auto!important;margin:0}
+.kb{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;align-items:flex-start}
+.col{flex:0 0 272px;background:#F1EEE8;border-radius:14px;padding:8px;scroll-snap-align:start;max-height:calc(100vh - 230px);display:flex;flex-direction:column}
+.col h3{display:flex;justify-content:space-between;align-items:center;margin:2px 4px 8px;font-size:13px;font-weight:700;color:var(--ink)}
+.col h3 i{font-style:normal;width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:7px}
+.col h3 small{font-weight:600;color:var(--ink2);background:#fff;border-radius:999px;padding:1px 8px;font-size:11.5px}
+.col .list{overflow-y:auto;display:flex;flex-direction:column;gap:7px;padding:1px}
+.c{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;text-decoration:none;color:var(--ink);border-left:3px solid transparent}
+.c.crit{border-left-color:var(--bad)}.c.warn{border-left-color:var(--warn)}
+.c .n{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-size:13.5px;line-height:1.25}
+.c .n span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c .t{flex:none;font-size:11px;font-weight:700;border-radius:999px;padding:1px 7px;background:var(--okBg);color:var(--ok);font-variant-numeric:tabular-nums}
+.c.crit .t{background:var(--badBg);color:var(--bad)}.c.warn .t{background:var(--warnBg);color:var(--warn)}
+.c .m{font-size:12px;color:var(--ink2);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c.lost{opacity:.85;border-left-color:#8A97AD}.c.lost .t{background:#EEF0F4;color:#5C667A}
+.more{font-size:12px;color:var(--ink2);text-align:center;padding:6px;cursor:pointer}
+@media (max-width:760px){.col{flex-basis:84vw;max-height:none}.main .top h1{font-size:18px}}
+</style>
+<script>
+const q=id=>document.getElementById(id);
+const ORDER=["New Lead","No Answer","Contacted","Qualified","Options Sent","Scheduled (Viewing/meeting)","Done (Viewing/meeting)","Offers / Final Negotiations","Purchase on Hold For Now"];
+const COLOR={"New Lead":"#2E86DE","No Answer":"#E67E22","Contacted":"#8E44AD","Qualified":"#16A085","Options Sent":"#2980B9","Scheduled (Viewing/meeting)":"#27AE60","Done (Viewing/meeting)":"#1E7D46","Offers / Final Negotiations":"#C0392B","Purchase on Hold For Now":"#7F8C8D"};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const left=m=>m==null?"paused":m<60?Math.round(m)+"m":m<1440?Math.floor(m/60)+"h":Math.floor(m/1440)+"d";
+const cls=l=>l.left_min==null?"":l.in_crit?"crit":(l.crit_min&&l.left_min<=l.crit_min*3?"warn":"");
+const money=b=>b?("AED "+(b>=1e6?(Math.round(b/1e5)/10)+"M":Math.round(b/1e3)+"K")):"";
+const ago=t=>{const h=(Date.now()/1000-t)/3600;return h<1?Math.round(h*60)+"m ago":h<48?Math.round(h)+"h ago":Math.round(h/24)+"d ago"};
+let D=null,L=null,open=new Set();
+function card(l){return `<a class="c ${cls(l)}" href="${esc(l.portal_url)}" target="_blank" rel="noopener"><div class="n"><span>${esc(l.name)}</span><span class="t">${left(l.left_min)}</span></div>
+ <div class="m">${esc([l.project||l.developer,l.country,money(+l.budget)].filter(Boolean).join(" · ")||l.phone||"—")}</div></a>`;}
+function lostCard(g){return `<a class="c lost" href="https://portal.prov.ae/en/crm/leads/${esc(g.id)}" target="_blank" rel="noopener"><div class="n"><span>${esc(g.name)}</span><span class="t">${g.status==="reassigned"?"moved":g.status==="lost"?"lost":"gone"}</span></div>
+ <div class="m">${esc([g.stage,g.phone,ago(g.status_at)].filter(Boolean).join(" · "))}</div></a>`;}
+function draw(){
+ if(!D) return;
+ const term=q("q").value.toLowerCase(), oc=q("onlycrit").getAttribute("aria-pressed")==="true";
+ const f=l=>(!term||[l.name,l.phone,l.project,l.developer,l.country].join(" ").toLowerCase().includes(term))&&(!oc||l.in_crit);
+ const by={}; D.leads.filter(f).forEach(l=>(by[l.stage]=by[l.stage]||[]).push(l));
+ const cols=ORDER.filter(s=>by[s]).concat(Object.keys(by).filter(s=>!ORDER.includes(s)));
+ let html=cols.map(s=>{const a=by[s].sort((x,y)=>(x.left_min??1e9)-(y.left_min??1e9)); const cap=open.has(s)?a.length:40;
+  return `<section class="col"><h3><span><i style="background:${COLOR[s]||"#8A97AD"}"></i>${esc(s)}</span><small>${a.length}</small></h3>
+   <div class="list">${a.slice(0,cap).map(card).join("")}${a.length>cap?`<div class="more" data-s="${esc(s)}">+ ${a.length-cap} more</div>`:""}</div></section>`}).join("");
+ if(L){const g=L.gone.filter(x=>!term||[x.name,x.phone].join(" ").toLowerCase().includes(term));
+  html+=`<section class="col"><h3><span><i style="background:#8A97AD"></i>Lost / reassigned</span><small>${g.length}</small></h3><div class="list">${g.slice(0,open.has("_lost")?g.length:40).map(lostCard).join("")}${g.length>40&&!open.has("_lost")?`<div class="more" data-s="_lost">+ ${g.length-40} more</div>`:""}</div></section>`;}
+ q("kb").innerHTML=html;
+ q("kb").querySelectorAll(".more").forEach(m=>m.onclick=()=>{open.add(m.dataset.s);draw();});
+}
+async function load(){
+ const [d,l]=await Promise.all([fetch('/api/board',{cache:'no-store'}).then(r=>r.json()),fetch('/api/ledger',{cache:'no-store'}).then(r=>r.json()).catch(()=>null)]);
+ D=d;L=l;
+ q('paused').innerHTML=d.power?'':'<div class="paused"><b>Live reading is OFF.</b> Figures are frozen at the last read. Tap OFF (top-right) to turn it back on.</div>';
+ q('sub').textContent='· '+d.total+' leads · updated '+(d.age_s==null?'—':Math.round(d.age_s/60)+'m ago');
+ const today=new Date(Date.now()+4*3600e3).toISOString().slice(0,10), t=(l&&l.per_day[today])||{assigned:0,lost:0};
+ q('kpis').innerHTML=[[d.total,'On your board',''],[d.in_crit,'Dying now',d.in_crit?'bad':'ok'],['+'+t.assigned,'New today',''],['−'+t.lost,'Lost today',t.lost?'bad':'ok']]
+  .map(x=>`<div class="kb-kpi"><b class="${x[2]}">${x[0]}</b><span>${x[1]}</span></div>`).join('')
+  +`<div class="kb-kpi"><b>${l?((l.counts.lost||0)+(l.counts.reassigned||0)):"—"}</b><span>Lost ever (kept)</span></div>`;
+ draw();
+ q('foot').innerHTML='Read-only mirror of your Provident board. Every lead that arrives, moves stage, is lost or reassigned is kept in <b>Leo_Master_Leads.xlsx</b> (Downloads on the Mac mini), updated every 5 minutes.';
+}
+q("q").oninput=draw; q("onlycrit").onclick=()=>{const b=q("onlycrit");b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")!=="true");draw();};
+window.__brxReload=load;load();setInterval(load,60000);
+</script></body></html>

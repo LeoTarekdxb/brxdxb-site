@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRX·DXB — No lead waits until morning.</title>
+<meta name="description" content="An AI agent that answers every new brokerage enquiry within minutes, in the buyer's language, through the night — and hands your desk a ranked briefing at 9am. Built and proven on a live Dubai pipeline.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* neutrals — warm-biased, printed-paper */
+  --paper:#FCFBF8;
+  --paper-2:#F4F2EC;
+  --ink:#16150F;
+  --ink-soft:#4B4941;
+  --ink-mute:#77746A;
+  --rule:#DEDACE;
+  --rule-strong:#BFBAAA;
+  /* dark band */
+  --night:#14130E;
+  --night-ink:#F2F0E8;
+  --night-mute:#918D80;
+  --night-rule:rgba(242,240,232,.16);
+  /* the one accent: the dot */
+  --gold:#A9811F;
+  --gold-on-night:#D7B054;
+
+  --display:'Newsreader',Georgia,'Times New Roman',serif;
+  --body:'Hanken Grotesk',ui-sans-serif,system-ui,-apple-system,'Helvetica Neue',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;
+  --s7:48px;--s8:64px;--s9:96px;--s10:128px;
+  --wrap:1200px;
+  --gut:32px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+a{color:inherit}
+::selection{background:#EDE3C6;color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.band{border-top:1px solid var(--rule)}
+section{padding:var(--s9) 0}
+
+h1,h2,h3,blockquote{font-family:var(--display);font-weight:400;letter-spacing:-.012em}
+h1{font-size:clamp(40px,6.4vw,78px);line-height:1.02;letter-spacing:-.028em}
+h2{font-size:clamp(30px,4.2vw,50px);line-height:1.06;letter-spacing:-.02em;max-width:19ch}
+h3{font-size:22px;line-height:1.22}
+p{max-width:62ch}
+
+.label{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-mute);
+}
+.label .dot{color:var(--gold)}
+.sec-head{
+  display:grid;grid-template-columns:200px 1fr;gap:var(--s6);
+  align-items:baseline;padding-bottom:var(--s6);
+}
+.lede{font-size:clamp(18px,1.55vw,20px);color:var(--ink-soft);max-width:52ch}
+
+/* --- actions --- */
+.action{
+  display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;
+  text-decoration:none;background:var(--ink);color:var(--paper);
+  padding:15px 26px;border:1px solid var(--ink);border-radius:2px;
+  transition:background .18s ease,color .18s ease;
+}
+.action:hover{background:transparent;color:var(--ink)}
+.action.on-night{background:var(--night-ink);color:var(--night);border-color:var(--night-ink)}
+.action.on-night:hover{background:transparent;color:var(--night-ink)}
+.action.ghost{background:transparent;color:var(--ink);border-color:var(--rule-strong)}
+.action.ghost:hover{border-color:var(--ink)}
+.quiet{
+  font-size:16px;color:var(--ink-soft);text-decoration:none;
+  border-bottom:1px solid var(--rule-strong);padding-bottom:2px;
+  transition:border-color .18s ease,color .18s ease;
+}
+.quiet:hover{color:var(--ink);border-color:var(--ink)}
+
+/* --- masthead --- */
+.masthead{border-bottom:1px solid var(--rule);background:var(--paper)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s5);height:76px}
+.brand{
+  font-family:var(--display);font-size:21px;font-weight:500;letter-spacing:.01em;
+  text-decoration:none;white-space:nowrap;
+}
+.brand .dot{color:var(--gold)}
+.mast-nav{display:flex;gap:var(--s6)}
+.mast-nav a{
+  font-size:15px;color:var(--ink-soft);text-decoration:none;
+  border-bottom:1px solid transparent;padding-bottom:2px;
+}
+.mast-nav a:hover{color:var(--ink);border-color:var(--gold)}
+.mast-cta{font-size:15px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+
+/* --- hero --- */
+#hero{padding:var(--s9) 0 var(--s8)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s8);align-items:start}
+.hero-kicker{margin-bottom:var(--s5)}
+h1 .fig{font-style:italic;font-weight:400}
+.hero-lede{margin:var(--s5) 0 var(--s6);font-size:clamp(18px,1.6vw,21px);color:var(--ink-soft);max-width:46ch}
+.hero-acts{display:flex;align-items:center;gap:var(--s5);flex-wrap:wrap}
+.hero-foot{
+  margin-top:var(--s7);padding-top:var(--s4);border-top:1px solid var(--rule);
+  font-size:14px;color:var(--ink-mute);max-width:44ch;
+}
+
+/* --- overnight log --- */
+.log{border:1px solid var(--rule);background:#fff}
+.log-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:var(--s4);
+  padding:14px var(--s5);border-bottom:1px solid var(--rule);flex-wrap:wrap;
+}
+.log-head .t{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.log-head .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-mute);text-transform:uppercase}
+.log ol{list-style:none}
+.log li{
+  display:grid;grid-template-columns:62px 1fr;gap:var(--s4);
+  padding:15px var(--s5);border-top:1px solid var(--rule);
+}
+.log li:first-child{border-top:0}
+.log time{font-family:var(--mono);font-size:13px;color:var(--ink-mute);padding-top:2px}
+.log .ev{font-size:15.5px;line-height:1.45}
+.log .src{
+  display:block;margin-top:4px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);
+}
+.log li.mark .ev::before{
+  content:"";display:inline-block;width:5px;height:5px;background:var(--gold);
+  margin-right:9px;vertical-align:.32em;
+}
+.log-foot{
+  padding:13px var(--s5);border-top:1px solid var(--rule);background:var(--paper-2);
+  font-size:13px;color:var(--ink-mute);
+}
+
+/* --- figures --- */
+.figs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.fig-cell{padding:var(--s6) var(--s5) var(--s6) 0;border-right:1px solid var(--rule)}
+.fig-cell:last-child{border-right:0}
+.fig-cell:not(:first-child){padding-left:var(--s5)}
+.fig-n{
+  font-family:var(--display);font-size:clamp(42px,5vw,62px);line-height:1;
+  letter-spacing:-.03em;
+}
+.fig-n sup{font-size:.34em;vertical-align:.9em;letter-spacing:0;font-family:var(--body);color:var(--ink-soft)}
+.fig-l{margin-top:var(--s3);font-size:15px;color:var(--ink-soft);max-width:22ch}
+.figs-note{margin-top:var(--s5);font-size:13.5px;color:var(--ink-mute)}
+
+/* --- losses (editorial list) --- */
+.losses{border-top:1px solid var(--ink)}
+.loss{
+  display:grid;grid-template-columns:76px 1fr 1fr;gap:var(--s6);
+  padding:var(--s6) 0;border-bottom:1px solid var(--rule);align-items:start;
+}
+.loss .idx{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;padding-top:8px}
+.loss p{color:var(--ink-soft);font-size:16.5px;max-width:48ch}
+
+/* --- sequence --- */
+.seq{border-top:1px solid var(--ink)}
+.step{
+  display:grid;grid-template-columns:76px 210px 1fr;gap:var(--s6);
+  padding:var(--s6) 0;border-bottom:1px solid var(--rule);align-items:baseline;
+}
+.step .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink-mute)}
+.step .k b{color:var(--gold);font-weight:500}
+.step h3{letter-spacing:-.015em}
+.step p{color:var(--ink-soft);font-size:16.5px;max-width:52ch}
+
+/* --- dark band / founder note --- */
+#note{background:var(--night);color:var(--night-ink);padding:var(--s10) 0}
+#note .label{color:var(--night-mute)}
+#note .label .dot{color:var(--gold-on-night)}
+.pull{
+  font-family:var(--display);font-size:clamp(25px,3.3vw,42px);line-height:1.24;
+  letter-spacing:-.018em;max-width:26ch;margin:var(--s5) 0 var(--s6);
+}
+.pull em{font-style:italic;color:#fff}
+.attrib{display:flex;align-items:center;gap:var(--s3);font-size:14.5px;color:var(--night-mute)}
+.attrib .bar{width:28px;height:1px;background:var(--gold-on-night);flex:0 0 auto}
+.attrib b{color:var(--night-ink);font-weight:600}
+.note-grid{display:grid;grid-template-columns:200px 1fr;gap:var(--s6)}
+
+/* --- pricing table --- */
+.table-scroll{width:100%}
+table{width:100%;border-collapse:collapse;text-align:left}
+caption{text-align:left;font-size:14px;color:var(--ink-mute);padding-bottom:var(--s5)}
+thead th{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-mute);padding:0 var(--s5) 12px 0;
+  border-bottom:1px solid var(--ink);vertical-align:bottom;
+}
+tbody th,tbody td{padding:var(--s6) var(--s5) var(--s6) 0;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody th{font-family:var(--display);font-size:24px;font-weight:500;letter-spacing:-.01em;width:19%}
+td.who{color:var(--ink-soft);font-size:15.5px;width:21%}
+td.price{width:20%}
+td.price .amt{font-family:var(--display);font-size:29px;letter-spacing:-.02em;line-height:1.1;display:block}
+td.price .per{display:block;margin-top:5px;font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-mute)}
+td.incl{font-size:15.5px;color:var(--ink-soft);width:26%}
+td.incl ul{list-style:none}
+td.incl li{padding-left:16px;position:relative;margin-bottom:6px}
+td.incl li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:1px;background:var(--rule-strong)}
+td.act{width:14%}
+td.act a{font-size:15px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+tr.recommend th::after{
+  content:"Most brokerages";display:block;margin-top:6px;font-family:var(--mono);
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);
+}
+.price-note{margin-top:var(--s5);font-size:14.5px;color:var(--ink-mute);max-width:70ch}
+
+/* --- commitments --- */
+.commits{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s7);border-top:1px solid var(--ink);padding-top:var(--s6)}
+.commit .n{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em}
+.commit h3{font-size:20px;margin:var(--s3) 0 var(--s2)}
+.commit p{font-size:15.5px;color:var(--ink-soft)}
+
+/* --- close --- */
+#close{padding:var(--s10) 0}
+#close h2{max-width:16ch}
+#close .lede{margin-top:var(--s5)}
+.close-acts{display:flex;align-items:center;gap:var(--s5);flex-wrap:wrap;margin-top:var(--s7)}
+.close-meta{
+  margin-top:var(--s7);padding-top:var(--s4);border-top:1px solid var(--rule);
+  display:flex;gap:var(--s6);flex-wrap:wrap;font-size:14.5px;color:var(--ink-mute);
+}
+.close-meta a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+.close-meta a:hover{color:var(--ink);border-color:var(--ink)}
+
+/* --- footer --- */
+footer{border-top:1px solid var(--rule);padding:var(--s7) 0 var(--s6);background:var(--paper-2)}
+.foot{display:flex;justify-content:space-between;gap:var(--s6);flex-wrap:wrap;align-items:flex-start}
+.foot-links{display:flex;gap:var(--s6);flex-wrap:wrap;font-size:14px}
+.foot-links a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent}
+.foot-links a:hover{color:var(--ink);border-color:var(--ink)}
+.foot-legal{margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-mute);display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap}
+
+/* --- motion budget: one settle on load, nothing else --- */
+@media (prefers-reduced-motion:no-preference){
+  .log li{animation:settle .5s ease-out both}
+  .log li:nth-child(1){animation-delay:.05s}
+  .log li:nth-child(2){animation-delay:.14s}
+  .log li:nth-child(3){animation-delay:.23s}
+  .log li:nth-child(4){animation-delay:.32s}
+  .log li:nth-child(5){animation-delay:.41s}
+  .log li:nth-child(6){animation-delay:.50s}
+  @keyframes settle{from{opacity:0}to{opacity:1}}
+}
+
+/* --- responsive --- */
+@media (max-width:1000px){
+  :root{--gut:24px}
+  .hero-grid{grid-template-columns:1fr;gap:var(--s7)}
+  .sec-head,.note-grid{grid-template-columns:1fr;gap:var(--s4)}
+  .figs{grid-template-columns:1fr 1fr}
+  .fig-cell{border-bottom:1px solid var(--rule)}
+  .fig-cell:nth-child(2n){border-right:0}
+  .fig-cell:nth-child(2n+1){padding-left:0}
+  .fig-cell:nth-child(n+3){border-bottom:0}
+  .loss{grid-template-columns:56px 1fr}
+  .loss h3{grid-column:2}
+  .loss p{grid-column:2;margin-top:var(--s3)}
+  .step{grid-template-columns:56px 1fr}
+  .step .k{grid-column:1}
+  .step h3{grid-column:2}
+  .step p{grid-column:2;margin-top:var(--s3)}
+  .commits{grid-template-columns:1fr;gap:var(--s6)}
+}
+@media (max-width:760px){
+  :root{--gut:16px}
+  section{padding:var(--s8) 0}
+  #note,#close{padding:var(--s8) 0}
+  .mast-nav{display:none}
+  .masthead .wrap{height:64px}
+  /* pricing table -> stacked records */
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  table,tbody,tr,tbody th,tbody td{display:block;width:auto}
+  tbody tr{border-bottom:1px solid var(--ink);padding:var(--s5) 0}
+  tbody tr:first-child{border-top:1px solid var(--ink)}
+  tbody th,tbody td{border-bottom:0;padding:0 0 var(--s4) 0}
+  tbody td::before{
+    content:attr(data-label);display:block;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px;
+  }
+  td.who,td.price,td.incl,td.act{width:auto}
+  .log li{grid-template-columns:54px 1fr;gap:var(--s3);padding:14px var(--s4)}
+  .log-head,.log-foot{padding-left:var(--s4);padding-right:var(--s4)}
+}
+@media (max-width:420px){
+  body{font-size:16px}
+  h1{font-size:clamp(33px,9.4vw,44px)}
+  .hero-acts{gap:var(--s4)}
+  .action{padding:14px 20px;font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/v3/">BRX<span class="dot">·</span>DXB</a>
+    <nav class="mast-nav" aria-label="Sections">
+      <a href="#where">Where deals are lost</a>
+      <a href="#sequence">What it does</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="mast-cta" href="https://calendly.com/leo-khatib" target="_blank" rel="noopener">Book a 15-minute call</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="label hero-kicker">Lead agent <span class="dot">·</span> Dubai brokerages</p>
+      <h1>No lead waits<br>until <span class="fig">morning</span>.</h1>
+      <p class="hero-lede">An enquiry lands at 23:04. Your desk reads it at 09:00. BRX puts an agent on your pipeline that answers within minutes — in the buyer's own language, at any hour — and hands you a ranked briefing before you open your laptop.</p>
+      <div class="hero-acts">
+        <a class="action" href="https://calendly.com/leo-khatib" target="_blank" rel="noopener">Book a 15-minute call</a>
+        <a class="quiet" href="#pricing">See pricing</a>
+      </div>
+      <p class="hero-foot">Fifteen minutes, on your pipeline as it runs today. You leave knowing whether this fits, how long it takes and what it costs.</p>
+    </div>
+
+    <figure class="log" aria-labelledby="log-title">
+      <figcaption class="log-head">
+        <span class="t" id="log-title">Overnight log <span class="dot" style="color:var(--gold)">·</span> 23:00–09:00</span>
+        <span class="n">Illustrative — not client data</span>
+      </figcaption>
+      <ol>
+        <li class="mark">
+          <time datetime="23:04">23:04</time>
+          <span class="ev">Enquiry received — 2-bed, Dubai Marina<span class="src">Portal</span></span>
+        </li>
+        <li>
+          <time datetime="23:06">23:06</time>
+          <span class="ev">Reply sent in the buyer's language<span class="src">WhatsApp · 2 min after enquiry</span></span>
+        </li>
+        <li>
+          <time datetime="23:20">23:20</time>
+          <span class="ev">Scored high intent — budget stated, viewing requested<span class="src">Scoring</span></span>
+        </li>
+        <li class="mark">
+          <time datetime="02:41">02:41</time>
+          <span class="ev">Second enquiry received — off-plan, payment plan asked<span class="src">Portal</span></span>
+        </li>
+        <li>
+          <time datetime="02:43">02:43</time>
+          <span class="ev">Reply sent with the payment plan attached<span class="src">WhatsApp · 2 min after enquiry</span></span>
+        </li>
+        <li>
+          <time datetime="09:00">09:00</time>
+          <span class="ev">Briefing delivered — both leads ranked, ready to call<span class="src">Morning brief</span></span>
+        </li>
+      </ol>
+      <p class="log-foot">A representative night. Times and details are illustrative; no client data is shown.</p>
+    </figure>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section id="figures" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Measured <span class="dot">·</span> 01</p>
+      <h2>What it did on a live pipeline, before anyone else could buy it.</h2>
+    </div>
+    <div class="figs">
+      <div class="fig-cell">
+        <div class="fig-n">&lt;5<sup>min</sup></div>
+        <p class="fig-l">From new enquiry to first reply sent</p>
+      </div>
+      <div class="fig-cell">
+        <div class="fig-n">6</div>
+        <p class="fig-l">Languages answered natively, matched to the buyer</p>
+      </div>
+      <div class="fig-cell">
+        <div class="fig-n">0</div>
+        <p class="fig-l">Leads left uncontacted across three weeks live</p>
+      </div>
+      <div class="fig-cell">
+        <div class="fig-n">24<sup>/7</sup></div>
+        <p class="fig-l">Running with no one watching the queue</p>
+      </div>
+    </div>
+    <p class="figs-note">Measured over three weeks on the founder's own live Dubai brokerage pipeline. Your numbers will depend on your lead volume and sources.</p>
+  </div>
+</section>
+
+<!-- WHERE DEALS ARE LOST -->
+<section id="where" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">The leak <span class="dot">·</span> 02</p>
+      <h2>Where the deals actually go.</h2>
+    </div>
+    <div class="losses">
+      <article class="loss">
+        <span class="idx">01</span>
+        <h3>They cool overnight</h3>
+        <p>A portal enquiry lands at 23:00. An agent opens it at 09:00. By then a faster desk has already called, and a real buyer looks like a dead lead. Nothing was wrong with the lead — only the hours.</p>
+      </article>
+      <article class="loss">
+        <span class="idx">02</span>
+        <h3>The language is wrong</h3>
+        <p>An Arabic, Russian or Chinese buyer receives a generic English message. It reads like a blast, so it is ignored, and the file is closed on someone who was ready to transact.</p>
+      </article>
+      <article class="loss">
+        <span class="idx">03</span>
+        <h3>The second touch never happens</h3>
+        <p>The follow-up two days later is the one that converts. It goes out when a person remembers it — and your best agents are on calls, not watching a queue. The pipeline leaks quietly, every day.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SEQUENCE -->
+<section id="sequence" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">The sequence <span class="dot">·</span> 03</p>
+      <h2>Four things, in this order, every night.</h2>
+    </div>
+    <div class="seq">
+      <article class="step">
+        <span class="k"><b>01</b> Answers</span>
+        <h3>Within minutes, at any hour</h3>
+        <p>Every new enquiry in your CRM gets a personal reply in under five minutes, in the buyer's own language — 03:00 or 15:00, weekend or holiday.</p>
+      </article>
+      <article class="step">
+        <span class="k"><b>02</b> Scores</span>
+        <h3>Ranks who is worth the call</h3>
+        <p>Each lead is scored on stated intent and budget from the reply it gets back, so the morning starts with the handful that can close rather than the whole queue.</p>
+      </article>
+      <article class="step">
+        <span class="k"><b>03</b> Follows up</span>
+        <h3>Keeps the thread alive</h3>
+        <p>The follow-up goes out on schedule, in the right language, whether or not anyone remembered it — and stops the moment a human takes over the conversation.</p>
+      </article>
+      <article class="step">
+        <span class="k"><b>04</b> Briefs you</span>
+        <h3>Before you open your laptop</h3>
+        <p>One briefing each morning: what came in overnight, what was answered, who is worth calling first. Full visibility, nothing for your agents to learn.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER NOTE (the one dark band) -->
+<section id="note">
+  <div class="wrap note-grid">
+    <p class="label">Founder's note <span class="dot">·</span> 04</p>
+    <div>
+      <blockquote class="pull">“I didn't build this in a lab and hope. I ran it on <em>my own live pipeline</em> first — three weeks, every new lead answered inside five minutes, in six languages — before I let anyone else near it.”</blockquote>
+      <p class="attrib"><span class="bar" aria-hidden="true"></span> <b>Leo Khatib</b> — Co-founder, BRX</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Pricing <span class="dot">·</span> 05</p>
+      <h2>One flat monthly fee. Messaging included.</h2>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <caption>All prices in AED, billed monthly. The number you see is the number you pay — no per-message billing.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Plan</th>
+            <th scope="col">Who it's for</th>
+            <th scope="col">Price</th>
+            <th scope="col">What's included</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Solo</th>
+            <td class="who" data-label="Who it's for">One agent running their own pipeline</td>
+            <td class="price" data-label="Price"><span class="amt">AED 249</span><span class="per">per month</span></td>
+            <td class="incl" data-label="What's included">
+              <ul>
+                <li>Up to 500 conversations a month</li>
+                <li>Lead scoring and a daily briefing</li>
+                <li>Automated follow-up</li>
+                <li>Works with the CRM you already run</li>
+              </ul>
+            </td>
+            <td class="act" data-label="Action"><a href="https://wa.me/971566030347?text=I%27d%20like%20to%20start%20the%20Solo%20plan" target="_blank" rel="noopener">Start solo</a></td>
+          </tr>
+          <tr class="recommend">
+            <th scope="row">Team</th>
+            <td class="who" data-label="Who it's for">A brokerage desk of five agents or more</td>
+            <td class="price" data-label="Price"><span class="amt">AED 199</span><span class="per">per agent, per month</span></td>
+            <td class="incl" data-label="What's included">
+              <ul>
+                <li>Everything in Solo</li>
+                <li>Manager view across every agent</li>
+                <li>Portal enquiries synced in</li>
+                <li>Priority number and support</li>
+              </ul>
+            </td>
+            <td class="act" data-label="Action"><a href="https://calendly.com/leo-khatib" target="_blank" rel="noopener">Book a call</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Multi-branch</th>
+            <td class="who" data-label="Who it's for">Franchises and developer sales teams</td>
+            <td class="price" data-label="Price"><span class="amt">On application</span><span class="per">scoped per branch</span></td>
+            <td class="incl" data-label="What's included">
+              <ul>
+                <li>Reporting across branches</li>
+                <li>Custom integrations</li>
+                <li>Dedicated onboarding, live in 48 hours</li>
+                <li>Volume messaging pricing fixed up front</li>
+              </ul>
+            </td>
+            <td class="act" data-label="Action"><a href="https://calendly.com/leo-khatib" target="_blank" rel="noopener">Talk to us</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">Live in 48 hours. Cancel any month, in writing, with no exit fee.</p>
+  </div>
+</section>
+
+<!-- COMMITMENTS -->
+<section id="commitments" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Terms <span class="dot">·</span> 06</p>
+      <h2>Three things we commit to in writing.</h2>
+    </div>
+    <div class="commits">
+      <article class="commit">
+        <span class="n">01</span>
+        <h3>It works inside the CRM you already run</h3>
+        <p>No migration, no second system, no new screen for your agents. The work appears where they already look.</p>
+      </article>
+      <article class="commit">
+        <span class="n">02</span>
+        <h3>Flat monthly fee, cancel anytime</h3>
+        <p>No setup charge, no annual lock-in, no per-message surprise at the end of a busy month.</p>
+      </article>
+      <article class="commit">
+        <span class="n">03</span>
+        <h3>One switch turns it off</h3>
+        <p>You can stop every outbound message instantly, for one agent or the whole desk. The agent never speaks for you without that control in your hands.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section id="close" class="band">
+  <div class="wrap">
+    <h2>Bring one night of your pipeline. We'll tell you what it costs you.</h2>
+    <p class="lede">Fifteen minutes. Walk us through how enquiries reach your desk today, and you'll leave knowing whether an agent fits, how fast it goes live, and the exact monthly number.</p>
+    <div class="close-acts">
+      <a class="action" href="https://calendly.com/leo-khatib" target="_blank" rel="noopener">Book a 15-minute call</a>
+      <a class="quiet" href="https://wa.me/971566030347?text=Hi%2C%20a%20question%20about%20the%20BRX%20lead%20agent" target="_blank" rel="noopener">Ask a question on WhatsApp</a>
+    </div>
+    <p class="close-meta">
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+      <a href="https://wa.me/971566030347" target="_blank" rel="noopener">+971 56 603 0347</a>
+      <span>DIFC, Dubai, UAE</span>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="brand">BRX<span class="dot">·</span>DXB</span>
+        <p style="margin-top:8px;font-size:13.5px;color:var(--ink-mute);max-width:34ch">AI agents that run the repetitive work, so your people do the work that closes.</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#sequence">What it does</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://calendly.com/leo-khatib" target="_blank" rel="noopener">Book a call</a>
+        <a href="mailto:leo@brxdxb.com">Contact</a>
+        <a href="/v2/terminal.html">BRX Terminal</a>
+      </nav>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 BRX Technologies L.L.C</span>
+      <span>DIFC, Dubai, UAE</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

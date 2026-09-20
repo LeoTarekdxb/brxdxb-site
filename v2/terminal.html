@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRX Terminal — Autonomous trading infrastructure you run yourself</title>
+<meta name="description" content="Self-hosted autonomous trading agent infrastructure. Measures payoff geometry and real transaction costs, rejects any rule that can't survive them. You keep your keys. Read the whitepaper before you buy.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,18,400;1,18,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0A0C; --ink-2:#101014; --ink-3:#16161C;
+  --gold:#C9A84C; --gold-2:#E8C96A;
+  --gold-soft:rgba(201,168,76,.12); --gold-line:rgba(201,168,76,.28);
+  --paper:#F4F1EA; --muted:#A29C90; --muted-2:#78736A;
+  --line:rgba(244,241,234,.09); --line-2:rgba(244,241,234,.15);
+  --display:'Syne',ui-sans-serif,system-ui,sans-serif;
+  --body:'Hanken Grotesk',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  --serif:'Newsreader',Georgia,serif;
+  --sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-6:24px;--sp-8:32px;--sp-12:48px;--sp-16:64px;--sp-24:96px;--sp-32:128px;
+  --r:10px;--r-card:16px;--wrap:1120px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--body);background:var(--ink);color:var(--paper);line-height:1.6;font-size:17px;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:inherit}svg{display:block}
+::selection{background:var(--gold);color:#000}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--sp-8)}
+.section{padding:var(--sp-24) 0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-4)}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.06}
+.rule{height:1px;background:var(--line);border:0;max-width:var(--wrap);margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:15px;text-decoration:none;border-radius:var(--r);transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;border:1px solid transparent;line-height:1}
+.btn-gold{background:var(--gold);color:#0A0A0C;padding:13px 22px}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px);box-shadow:0 10px 34px rgba(201,168,76,.22)}
+.btn-ghost{border-color:var(--line-2);color:var(--paper);padding:13px 22px;background:rgba(244,241,234,.03)}
+.btn-ghost:hover{border-color:var(--gold-line);background:rgba(244,241,234,.06)}
+.btn-sm{padding:10px 18px;font-size:14px}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(10,10,12,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;max-width:var(--wrap);margin:0 auto;padding:0 var(--sp-8)}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:18px}
+.brand .dot{color:var(--gold)}
+.back{font-size:14px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--paper)}
+
+#hero{position:relative;padding:calc(var(--sp-32) + 20px) 0 var(--sp-16);overflow:hidden}
+#hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 55% at 88% 0%,rgba(201,168,76,.10),transparent 60%)}
+.hero-in{position:relative;z-index:1;max-width:820px}
+.chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--gold-line);background:var(--gold-soft);padding:7px 15px;border-radius:100px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--gold-2);margin-bottom:var(--sp-8)}
+h1{font-size:clamp(38px,6vw,72px);margin-bottom:var(--sp-6)}
+.hero-sub{font-size:clamp(17px,1.9vw,21px);color:var(--muted);max-width:56ch;margin-bottom:var(--sp-8)}
+.hero-sub strong{color:var(--paper);font-weight:600}
+.hero-cta{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+
+.lead-quote{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,32px);line-height:1.4;max-width:24ch;color:var(--paper)}
+.lead-quote b{font-style:normal;font-weight:500;color:var(--gold-2)}
+.sub-note{color:var(--muted);max-width:60ch;margin-top:var(--sp-6);font-size:16px}
+
+.grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-top:var(--sp-12)}
+.card{padding:var(--sp-8) var(--sp-6);border:1px solid var(--line);border-radius:var(--r-card);background:var(--ink-2)}
+.card .kind{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--sp-3)}
+.card h3{font-size:18px;margin-bottom:var(--sp-3);letter-spacing:-.01em}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.55}
+
+#pricing{background:var(--ink-2);border-block:1px solid var(--line)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-4);margin-top:var(--sp-12)}
+.plan{display:flex;flex-direction:column;padding:var(--sp-8);border:1px solid var(--line);border-radius:var(--r-card);background:var(--ink-3)}
+.plan.feat{border-color:var(--gold-line);background:linear-gradient(180deg,rgba(201,168,76,.07),var(--ink-3))}
+.plan .tier{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.plan.feat .tier{color:var(--gold)}
+.plan .amt{font-family:var(--display);font-size:38px;font-weight:800;margin:var(--sp-3) 0 var(--sp-4);letter-spacing:-.02em}
+.plan p{font-size:14.5px;color:var(--muted);line-height:1.55;flex:1;margin-bottom:var(--sp-6)}
+.plan .btn{justify-content:center;width:100%;margin-top:auto}
+
+.buy{max-width:900px;margin:var(--sp-16) auto 0;padding:var(--sp-8);border:1px solid var(--line-2);border-radius:var(--r-card);background:rgba(244,241,234,.03)}
+.buy h3{font-size:22px;margin-bottom:var(--sp-3)}
+.buy p{color:var(--muted);margin-bottom:var(--sp-6)}
+.buy .row{display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-6)}
+.pay{font-size:13.5px;color:var(--muted-2)}
+
+.disclaimer{max-width:900px;margin:var(--sp-12) auto 0;padding:var(--sp-8);border:1px solid var(--line);border-radius:var(--r-card);background:var(--ink-2)}
+.disclaimer h4{font-family:var(--body);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--sp-4);font-weight:700}
+.disclaimer p{font-size:13px;color:var(--muted-2);line-height:1.7}
+
+footer{border-top:1px solid var(--line);padding:var(--sp-12) 0;font-size:13px;color:var(--muted-2)}
+.foot{display:flex;justify-content:space-between;gap:var(--sp-6);flex-wrap:wrap}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.06s}.reveal.d2{transition-delay:.12s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){.nav .back{display:none}.grid-cards,.price-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap,.nav{padding-left:var(--sp-4);padding-right:var(--sp-4)}.section{padding:var(--sp-16) 0}}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="/v2/" aria-label="BRX·DXB home">
+      <svg width="30" height="24" viewBox="0 0 38 30" fill="none" aria-hidden="true" focusable="false">
+        <rect x="0" y="0" width="17" height="8" rx="1.5" fill="#C9A84C"/>
+        <rect x="19" y="0" width="19" height="8" rx="1.5" fill="#C9A84C" opacity="0.55"/>
+        <rect x="0" y="11" width="9" height="8" rx="1.5" fill="#C9A84C" opacity="0.4"/>
+        <rect x="11" y="11" width="17" height="8" rx="1.5" fill="#C9A84C"/>
+        <rect x="30" y="11" width="8" height="8" rx="1.5" fill="#C9A84C" opacity="0.4"/>
+        <rect x="0" y="22" width="17" height="8" rx="1.5" fill="#C9A84C" opacity="0.55"/>
+        <rect x="19" y="22" width="19" height="8" rx="1.5" fill="#C9A84C"/>
+      </svg>
+      <span>BRX<span class="dot">·</span>DXB</span>
+    </a>
+    <a class="back" href="/v2/">← Back to BRX for brokerages</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="hero">
+  <div class="wrap hero-in">
+    <span class="chip">BRX Terminal · Self-hosted · You keep your keys</span>
+    <h1>A trader won 82% of his trades and lost money anyway.</h1>
+    <p class="hero-sub">BRX Terminal is autonomous trading-agent infrastructure that measures what actually decides profit — <strong>payoff geometry and transaction costs</strong> — and refuses any rule that can't survive them. It runs on your machine. You hold your own keys and your own funds.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="/BRX_Strategy_Whitepaper_EN.pdf">Read the whitepaper (free) ↓</a>
+      <a class="btn btn-ghost" href="https://dash.brxdxb.com" target="_blank" rel="noopener">See a live instance →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow reveal">The design</p>
+    <blockquote class="lead-quote reveal">One agent, <b>one job.</b> That's the whole design.</blockquote>
+    <p class="sub-note reveal">Seven independent agents, each doing exactly one job — measured against each other, never blended into ambiguity.</p>
+    <div class="grid-cards">
+      <div class="card reveal"><div class="kind">Measurement</div><h3>Pattern Reader</h3><p>Measures what actually drives the asset — recalculated every run, never assumed.</p></div>
+      <div class="card reveal d1"><div class="kind">Validation</div><h3>Barrier Test</h3><p>Does the target arrive before the stop, after every real cost? Thousands of trades answer that, not one.</p></div>
+      <div class="card reveal d2"><div class="kind">Judgement</div><h3>Edge Engine</h3><p>Converts win rate and payoff into expected value. Rejects any rule below breakeven.</p></div>
+      <div class="card reveal"><div class="kind">Experiment</div><h3>Strategy Lab</h3><p>11 variants tested on live prices, three real cost models, parameters fixed in advance.</p></div>
+      <div class="card reveal d1"><div class="kind">Control</div><h3>Risk Guard</h3><p>Lives outside the strategy code, so a scoring bug can never disable the stop.</p></div>
+      <div class="card reveal d2"><div class="kind">Assurance</div><h3>Self-Healer &amp; Watchdog</h3><p>Hunts plausible-but-wrong states, not just crashes — judged by heartbeat, not uptime.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <div class="wrap">
+    <p class="eyebrow reveal">What you get</p>
+    <h2 class="reveal" style="font-size:clamp(28px,4vw,44px);max-width:22ch">Buy the knowledge, or the whole system.</h2>
+    <div class="price-grid">
+      <div class="plan reveal">
+        <div class="tier">Foundations</div>
+        <div class="amt">$99</div>
+        <p>System architecture, the scoring model, the risk rails, and the complete incident ledger — 10 documented failures and the rule each one produced.</p>
+        <a class="btn btn-ghost" href="mailto:leo@brxdxb.com?subject=BRX%20Terminal%20-%20Foundations">Get Foundations</a>
+      </div>
+      <div class="plan feat reveal d1">
+        <div class="tier">Practitioner · most popular</div>
+        <div class="amt">$199</div>
+        <p>Everything in Foundations, plus execution patterns, self-healing design, FIFO profit accounting, and the barrier-test method used to validate every rule before it sees money.</p>
+        <a class="btn btn-gold" href="mailto:leo@brxdxb.com?subject=BRX%20Terminal%20-%20Practitioner">Get Practitioner</a>
+      </div>
+      <div class="plan reveal d2">
+        <div class="tier">Complete</div>
+        <div class="amt">$399</div>
+        <p>Everything above, plus full source code, the signal engine with source grading, the strategy library, the setup script and the deployment guide.</p>
+        <a class="btn btn-ghost" href="mailto:leo@brxdxb.com?subject=BRX%20Terminal%20-%20Complete">Get Complete</a>
+      </div>
+    </div>
+
+    <div class="buy reveal">
+      <h3>Read it before you buy it</h3>
+      <p>The full strategy whitepaper is free — the measurements, the incident ledger, and the ten rules. 3,787 tested trades across gold, silver, Bitcoin and Ethereum. Prefer a hosted, hands-off version? A live instance runs from $29/mo.</p>
+      <div class="row">
+        <a class="btn btn-gold" href="/BRX_Strategy_Whitepaper_EN.pdf">Whitepaper (English) ↓</a>
+        <a class="btn btn-ghost" href="/BRX_Strategy_Whitepaper_AR.pdf">الورقة البيضاء (عربي) ↓</a>
+        <a class="btn btn-ghost" href="https://brx-trading-agent.netlify.app" target="_blank" rel="noopener">Hosted instance — $29/mo →</a>
+      </div>
+      <p class="pay">Payment: Visa · Mastercard · Amex · Apple Pay · Google Pay. Priced in USD. Delivered as source code and documentation — self-hosted, no custody of funds, no hosted version required. 30-day refund, no questions.</p>
+    </div>
+
+    <div class="disclaimer reveal">
+      <h4>Important — please read</h4>
+      <p>BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction, projection or guarantee of financial return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 BRX·DXB · BRX Technologies L.L.C · DIFC, Dubai</span>
+    <span><a href="/v2/">BRX for brokerages</a> · <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a></span>
+  </div>
+</footer>
+
+<script>
+var header=document.getElementById('site-header');
+addEventListener('scroll',function(){header.classList.toggle('scrolled',scrollY>40)},{passive:true});
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var items=document.querySelectorAll('.reveal');
+if(reduce||!('IntersectionObserver'in window)){items.forEach(function(el){el.classList.add('in')});}
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});items.forEach(function(el){io.observe(el)});}
+</script>
+</body>
+</html>

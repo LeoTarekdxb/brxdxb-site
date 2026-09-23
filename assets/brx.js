@@ -81,8 +81,8 @@
   var fine = window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (fine) {
     var dot = document.createElement('div'); dot.className = 'cursor'; dot.setAttribute('aria-hidden', 'true');
-    dot.innerHTML = '<span></span>'; document.body.appendChild(dot);
-    var lbl = dot.firstChild, mx = -100, my = -100, dx = -100, dy = -100, moving = false;
+    dot.innerHTML = '<i></i><span></span>'; document.body.appendChild(dot);
+    var lbl = dot.lastChild, mx = -100, my = -100, dx = -100, dy = -100, moving = false;
     document.addEventListener('pointermove', function (e) {
       mx = e.clientX; my = e.clientY; dot.classList.add('is-live');
       if (!moving) { moving = true; requestAnimationFrame(follow); }

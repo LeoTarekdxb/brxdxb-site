@@ -53,7 +53,7 @@ html[lang="ar"] .hero h1 { font-size: clamp(38px, 5.4vw, 80px); line-height: 1.2
 .scr .top { display: flex; justify-content: space-between; font-weight: 700; font-size: 11px; color: var(--ink3); margin-bottom: 18px; }
 .scr .mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; }
 .scr .av { position: relative; width: 78px; height: 78px; border-radius: 50%; background: var(--g); color: var(--ink); display: flex; align-items: center; justify-content: center; font: 700 24px/1 var(--display); margin-bottom: 10px; }
-.scr .av.grey { background: #E6E9E1; color: #8A9083; }
+.scr .av.grey { background: #E6E9E1; color: #4F5649; }
 .scr .av i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--g); opacity: 0; }
 .scr.on .av.ring i { animation: ring 1.8s cubic-bezier(.2,.7,.3,1) infinite; }
 .scr.on .av.ring i + i { animation-delay: .6s; }
@@ -79,7 +79,7 @@ html[lang="ar"] .hero h1 { font-size: clamp(38px, 5.4vw, 80px); line-height: 1.2
 .beats-copy { position: relative; padding-inline-start: 40px; }
 .beats-rail { position: absolute; inset-inline-start: 0; top: 6px; bottom: 6px; width: 3px; background: #E6E9E1; border-radius: 2px; overflow: hidden; }
 .beats-rail i { position: absolute; inset: 0; background: var(--g); transform-origin: top; transform: scaleY(.25); }
-.beats-kicker { font: 700 15px/1.3 var(--en); color: var(--ink3); margin-bottom: 28px; }
+.beats-kicker { font: 700 15px/1.3 var(--en); letter-spacing: 0; color: var(--ink3); margin-bottom: 28px; }
 .beat .t { font: 700 15px/1 var(--en); font-variant-numeric: tabular-nums; color: var(--ink3); margin-bottom: 18px; display: block; }
 .beat h3 { font: 700 clamp(30px, 3.6vw, 54px)/1.04 var(--display); letter-spacing: -.03em; max-width: 14ch; }
 html[lang="ar"] .beat h3 { font-family: var(--ar); line-height: 1.35; letter-spacing: 0; }
@@ -307,7 +307,7 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
   <div class="beats-in">
     <div class="beats-copy">
       <div class="beats-rail" aria-hidden="true"><i id="rail"></i></div>
-      <p class="beats-kicker" data-en="One lead, start to finish" data-ar="عميل واحد، من البداية إلى النهاية">One lead, start to finish</p>
+      <h2 class="beats-kicker" data-en="One lead, start to finish" data-ar="عميل واحد، من البداية إلى النهاية">One lead, start to finish</h2>
       <ol class="beats-list" style="list-style:none">
         <li class="beat on" data-i="0">
           <span class="t">21:05</span>

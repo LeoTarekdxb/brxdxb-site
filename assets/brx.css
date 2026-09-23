@@ -159,8 +159,8 @@ html[dir="rtl"] .sheet a.sheet-link::after { content: "←"; }
 
 /* ── Cards ──────────────────────────────── */
 .card {
-  background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--g);
-  border-radius: var(--r); padding: 28px; position: relative;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 14px; padding: 28px; position: relative;
 }
 .card h3 { margin-bottom: 8px; }
 .card p { font-size: 15px; color: var(--ink3); line-height: 1.65; }
@@ -175,7 +175,7 @@ a.card:hover { border-color: var(--g); }
 .status--soon { background: var(--bg2); color: var(--ink3); border: 1px solid var(--line); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
 .tag { font-size: 12px; padding: 3px 10px; border-radius: 2px; background: var(--g-soft); color: var(--g-ink); border: 1px solid #D8E5C0; }
-.card--featured { border-color: var(--g); border-top-width: 3px; }
+.card--featured { border-color: var(--g); box-shadow: inset 0 0 0 1px var(--g); }
 .card .price { font-family: var(--display); font-size: clamp(28px, 3vw, 40px); font-weight: 600; letter-spacing: -.02em; color: var(--ink); line-height: 1.1; margin: 8px 0 4px; font-variant-numeric: tabular-nums; }
 .card .price small { font-size: 14px; color: var(--ink3); font-weight: 400; }
 .card ul { list-style: none; margin: 18px 0 24px; }
@@ -196,7 +196,7 @@ html[dir="rtl"] .stat .n, html[dir="rtl"] .price { direction: ltr; text-align: r
 .stat .l { font-size: 13px; color: var(--ink3); margin-top: 10px; line-height: 1.45; }
 
 /* ── Report table ───────────────────────── */
-.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: #fff; }
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
 table.tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
 .tbl caption { text-align: start; font-size: 12px; color: var(--ink3); padding: 12px 20px; caption-side: bottom; border-top: 1px solid var(--line); background: var(--bg2); }
 .tbl thead th { background: var(--g); color: var(--ink); font-size: 13px; font-weight: 700; text-align: start; padding: 14px 20px; letter-spacing: .02em; }
@@ -206,7 +206,7 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
 .tbl tbody tr:nth-child(even) td, .tbl tbody tr:nth-child(even) th { background: #FAFBF8; }
 
 /* ── Log card (light) ───────────────────── */
-.log { background: var(--bg2); border: 1px solid var(--line); border-inline-start: 3px solid var(--g); border-radius: var(--r); overflow: hidden; }
+.log { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .log-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 20px; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 700; color: var(--ink3); }
 .log-head b { color: var(--g-ink); }
 .log ol { list-style: none; margin: 0; padding: 10px 20px 14px; direction: ltr; }
@@ -223,15 +223,6 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
 .step h4 { margin-bottom: 4px; }
 .step p { font-size: 15px; color: var(--ink3); }
 
-/* ── Ticker ─────────────────────────────── */
-.ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg2); overflow: hidden; padding: 14px 0; }
-.ticker-track { display: flex; width: max-content; animation: tick 48s linear infinite; }
-html[dir="rtl"] .ticker-track { animation-name: tick-rtl; }
-@keyframes tick { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-@keyframes tick-rtl { from { transform: translateX(0) } to { transform: translateX(50%) } }
-.ticker-item { display: inline-flex; align-items: center; gap: 14px; padding: 0 28px; font-size: 13px; font-weight: 600; color: var(--ink3); white-space: nowrap; }
-.ticker-item::before { content: ""; width: 6px; height: 6px; background: var(--g); flex: none; }
-
 /* ── Founders / CTA ─────────────────────── */
 .founders { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
 .founder { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
@@ -247,7 +238,7 @@ html[dir="rtl"] .founder .contact { text-align: right; }
 .founder .btn-row { margin-top: 18px; }
 
 /* ── Footer ─────────────────────────────── */
-.site-foot { background: var(--bg2); border-top: 4px solid var(--g); padding: 36px 0; }
+.site-foot { background: var(--bg2); border-top: 1px solid var(--line); padding: 36px 0; }
 .foot-in { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; }
 .foot-in p { font-size: 13px; color: var(--ink3); }
 .foot-in .foot-links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; }
@@ -311,10 +302,12 @@ html[dir="rtl"] .founder .contact { text-align: right; }
 }
 
 /* ── Cursor dot + magnetic (pointer: fine only, motion allowed) ── */
-.cursor { position: fixed; left: 0; top: 0; z-index: 400; pointer-events: none; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--g); opacity: 0; transition: width .25s cubic-bezier(.2,.9,.3,1.2), height .25s cubic-bezier(.2,.9,.3,1.2), margin .25s, opacity .2s, background .2s; display: flex; align-items: center; justify-content: center; font: 700 12px/1 var(--display); color: var(--ink); letter-spacing: .02em; }
-.cursor span { opacity: 0; transition: opacity .15s; }
+.cursor { position: fixed; left: 0; top: 0; z-index: 400; pointer-events: none; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: var(--g); opacity: 0; transition: opacity .2s; display: flex; align-items: center; justify-content: center; font: 700 12px/1 var(--display); color: var(--ink); letter-spacing: .02em; }
+.cursor i { position: absolute; inset: 0; border-radius: 50%; background: var(--g); transform: scale(.16); transition: transform .3s cubic-bezier(.2,.9,.3,1.2); }
+.cursor span { position: relative; opacity: 0; transition: opacity .15s; }
 .cursor.is-live { opacity: 1; }
-.cursor.is-big { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+.cursor { background: transparent; }
+.cursor.is-big i { transform: scale(1); }
 .cursor.is-big span { opacity: 1; }
 @media (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor { display: none; } }
 

@@ -36,7 +36,7 @@ html[lang="ar"] .ld-hero h1 { line-height: 1.3; }
 .ld-wall { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; display: block; }
 .ld-hero h1 .l1, .ld-hero h1 .l2 { display: block; }
 .ld-hero .btn--ghost { background: #fff; }
-.switch-card { padding: 32px; box-shadow: 0 30px 60px -36px rgba(40,70,10,.5); }
+.switch-card { padding: 32px; border: 0; box-shadow: 0 30px 60px -36px rgba(40,70,10,.5); }
 .switch-row { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .card .sw-state { font: 600 clamp(22px, 2.2vw, 30px)/1.2 var(--display); letter-spacing: -.02em; color: var(--ink); margin-top: 24px; }
 .sw-state b { font-weight: 700; }
@@ -44,12 +44,12 @@ html[lang="ar"] .ld-hero h1 { line-height: 1.3; }
 .sw-feed li { display: grid; grid-template-columns: 58px 1fr auto; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px dashed var(--line); font-size: 14px; }
 .sw-feed time { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--ink3); direction: ltr; }
 .sw-feed .st { font-size: 11px; font-weight: 700; color: #2F5409; background: var(--g-soft); padding: 3px 9px; border-radius: 999px; }
-.switch-card:not(.on) .sw-feed li { color: #8A9083; }
-.switch-card:not(.on) .sw-feed .st { background: #EEF0EA; color: #8A9083; text-decoration: line-through; }
+.switch-card:not(.on) .sw-feed li { color: #5F665A; }
+.switch-card:not(.on) .sw-feed .st { background: #EEF0EA; color: #4F5649; text-decoration: line-through; }
 .card .sw-note { font-size: 12px; color: var(--ink3); margin-top: 16px; }
 
 /* How it works: 4 steps as a flow */
-.flow4 { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 3px solid var(--g); }
+.flow4 { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); }
 .flow4 li { list-style: none; padding: 28px 28px 8px 0; position: relative; }
 .flow4 li + li { padding-inline-start: 28px; border-inline-start: 1px solid var(--line); }
 .flow4 .k { font-size: 13px; font-weight: 700; color: var(--g-ink); display: block; margin-bottom: 14px; }
@@ -57,10 +57,10 @@ html[lang="ar"] .ld-hero h1 { line-height: 1.3; }
 .flow4 p { font-size: 15px; color: var(--ink3); }
 
 /* Commercials */
-.trial { font-size: clamp(48px, 8vw, 112px); font-weight: 300; line-height: .98; letter-spacing: -.02em; color: var(--ink); }
-.trial em { font-style: normal; color: var(--g); }
+.trial { font-family: var(--display); font-size: clamp(44px, 7vw, 100px); font-weight: 700; line-height: 1.02; letter-spacing: -.02em; color: var(--ink); }
+.trial em { font-style: normal; color: var(--ink); background: var(--g); border-radius: 999px; padding: 0 .28em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 html[lang="ar"] .trial { line-height: 1.25; letter-spacing: 0; }
-.setup { font-size: 10px; line-height: 1.6; color: var(--ink3); margin-top: 20px; max-width: 60ch; }
+.setup { font-size: 12px; line-height: 1.6; color: var(--ink3); margin-top: 20px; max-width: 60ch; }
 .card .resell { font-size: 19px; font-weight: 300; color: var(--ink); margin-top: 8px; max-width: 34ch; }
 .resell b { font-weight: 600; }
 .chart { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: end; height: 300px; border-bottom: 2px solid var(--ink); margin-top: 36px; padding: 0 4px; }

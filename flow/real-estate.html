@@ -362,6 +362,10 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
     <div class="lead-done" id="leadDone" hidden>
       <h3 data-en="Got it. We'll be in touch within 24 hours." data-ar="وصلنا. سنتواصل معك خلال 24 ساعة.">Got it. We'll be in touch within 24 hours.</h3>
       <p data-en="Want to talk sooner? Message either founder below." data-ar="تريد التحدث أسرع؟ راسل أيّاً من المؤسسَين أدناه.">Want to talk sooner? Message either founder below.</p>
+      <div class="btn-row" id="payRow" hidden style="margin-top:18px">
+        <a class="btn btn--ink" id="payBtn" href="#" target="_blank" rel="noopener" data-en="Skip the wait — pay the set-up (AED 50,000)" data-ar="تجاوز الانتظار — ادفع التجهيز (50,000 درهم)">Skip the wait — pay the set-up (AED 50,000)</a>
+        <span class="note" data-en="Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included." data-ar="دفع آمن عبر Stripe. يشمل Mac mini وشاشة المكتب والهاتف ورموز الذكاء الاصطناعي للسنة الأولى.">Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included.</span>
+      </div>
     </div>
 <!-- founders:start -->
 <div class="founders">
@@ -435,7 +439,10 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 (function () {
   var LEAD_ENDPOINT = "https://defender.brxdxb.com/api/lead";
+  // Stripe Payment Link for the AED 50,000 set-up. Empty = button stays hidden.
+  var STRIPE_SETUP_URL = "";
   var form = document.getElementById('leadForm'); if (!form) return;
+  if (STRIPE_SETUP_URL) { document.getElementById('payBtn').href = STRIPE_SETUP_URL; document.getElementById('payRow').hidden = false; }
   var done = document.getElementById('leadDone');
   var err = document.getElementById('lf-err');
   var btn = document.getElementById('lf-submit');

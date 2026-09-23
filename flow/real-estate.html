@@ -23,33 +23,29 @@
 /* Lead Defence page only */
 .ld-hero { padding: 88px 0 96px; }
 .ld-hero .split { align-items: center; grid-template-columns: 1.15fr .85fr; }
-.ld-hero h1 { font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05; font-weight: 300; }
+.ld-hero .lede { color: var(--ink); }
+.ld-hero h1 { font-size: clamp(30px, 3.4vw, 50px); line-height: 1.04; font-weight: 700; letter-spacing: -.035em; }
 .ld-hero h1 span { display: block; }
 .ld-hero h1 .g { color: var(--g); }
 html[lang="ar"] .ld-hero h1 { line-height: 1.3; }
 
 /* The switch visual */
-.switch-card { padding: 32px; }
-.switch-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
-.switch-row h3 { font-size: 15px; font-weight: 700; color: var(--ink3); }
-.sw {
-  position: relative; width: 112px; height: 52px; border-radius: 26px; border: 0; cursor: pointer; flex: none;
-  background: var(--g); transition: background .25s;
-}
-.sw::before { content: attr(data-on); position: absolute; inset-inline-start: 18px; top: 50%; transform: translateY(-50%); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
-.sw::after { content: ""; position: absolute; top: 6px; inset-inline-end: 6px; width: 40px; height: 40px; border-radius: 50%; background: #fff; transition: inset-inline-end .25s; }
-.sw[aria-checked="false"] { background: #BDBDBD; }
-.sw[aria-checked="false"]::before { content: attr(data-off); inset-inline-start: auto; inset-inline-end: 18px; }
-.sw[aria-checked="false"]::after { inset-inline-end: 66px; }
-.card .sw-state { font-size: clamp(26px, 2.6vw, 34px); font-weight: 300; color: var(--ink); margin-top: 24px; line-height: 1.2; }
-.sw-state b { font-weight: 400; color: var(--g-ink); }
-.off .sw-state b { color: var(--ink3); }
+.ld-hero { position: relative; isolation: isolate; overflow: hidden; }
+.ld-hero .wake-veil { position: absolute; inset: 0; z-index: -2; background: #fff; }
+.ld-hero.is-on .wake-veil { background: #D6E8B2; }
+.ld-wall { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; display: block; }
+.ld-hero h1 .l1, .ld-hero h1 .l2 { display: block; }
+.ld-hero .btn--ghost { background: #fff; }
+.switch-card { padding: 32px; box-shadow: 0 30px 60px -36px rgba(40,70,10,.5); }
+.switch-row { padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.card .sw-state { font: 600 clamp(22px, 2.2vw, 30px)/1.2 var(--display); letter-spacing: -.02em; color: var(--ink); margin-top: 24px; }
+.sw-state b { font-weight: 700; }
 .sw-feed { list-style: none; margin-top: 20px; }
 .sw-feed li { display: grid; grid-template-columns: 58px 1fr auto; gap: 12px; align-items: center; padding: 11px 0; border-top: 1px dashed var(--line); font-size: 14px; }
-.sw-feed time { font-family: var(--mono); font-size: 12px; color: #777; direction: ltr; }
-.sw-feed .st { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--g-ink); }
-.off .sw-feed li { color: #999; }
-.off .sw-feed .st { color: #999; text-decoration: line-through; }
+.sw-feed time { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--ink3); direction: ltr; }
+.sw-feed .st { font-size: 11px; font-weight: 700; color: #2F5409; background: var(--g-soft); padding: 3px 9px; border-radius: 999px; }
+.switch-card:not(.on) .sw-feed li { color: #8A9083; }
+.switch-card:not(.on) .sw-feed .st { background: #EEF0EA; color: #8A9083; text-decoration: line-through; }
 .card .sw-note { font-size: 12px; color: var(--ink3); margin-top: 16px; }
 
 /* How it works: 4 steps as a flow */
@@ -134,33 +130,33 @@ html[lang="ar"] .trial { line-height: 1.25; letter-spacing: 0; }
 <main id="main">
 
 <!-- ═══ HERO ═══ -->
-<section class="ld-hero">
+<section class="ld-hero" id="ldHero" data-wake>
+  <div class="wake-veil" aria-hidden="true"></div>
+  <canvas class="ld-wall" data-wake-wall aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="split">
       <div>
-        <p class="eyebrow" data-en="Lead Defence · for real-estate agencies" data-ar="حماية العملاء · لوكالات العقارات">Lead Defence · for real-estate agencies</p>
         <h1>
-          <span data-en="Every lead called, texted and emailed." data-ar="كل عميل يُتّصل به ويُراسَل ويُرسَل له بريد.">Every lead called, texted and emailed.</span>
-          <span class="g" data-en="In their language. In their daytime." data-ar="بلغته. وفي ساعات نهاره.">In their language. In their daytime.</span>
+          <span class="l1"><span data-en="Every lead called, texted and emailed." data-ar="كل عميل يُتّصل به ويُراسَل ويُرسَل له بريد.">Every lead called, texted and emailed.</span></span>
+          <span class="l2" data-en="In their language. In their daytime." data-ar="بلغته. وفي ساعات نهاره.">In their language. In their daytime.</span>
         </h1>
-        <p class="lede" data-en="Leads go cold while your agents sleep, sit in viewings or chase another deal. Lead Defence works every lead on your desk the moment it lands — and hands the live conversation to your agent." data-ar="يبرد العملاء بينما ينام وكلاؤك أو ينشغلون بمعاينة أو صفقة أخرى. تعمل «حماية العملاء» على كل عميل لحظة وصوله — ثم تُسلّم المحادثة الحيّة لوكيلك.">Leads go cold while your agents sleep, sit in viewings or chase another deal. Lead Defence works every lead on your desk the moment it lands — and hands the live conversation to your agent.</p>
+        <p class="lede" data-en="Leads go cold while your agents sleep, sit in viewings or chase another deal. Lead Defence works every lead the moment it lands, then hands the live conversation to your agent." data-ar="يبرد العملاء بينما ينام وكلاؤك أو ينشغلون بمعاينة أو صفقة أخرى. تعمل «حماية العملاء» على كل عميل لحظة وصوله، ثم تُسلّم المحادثة الحيّة لوكيلك.">Leads go cold while your agents sleep, sit in viewings or chase another deal. Lead Defence works every lead the moment it lands, then hands the live conversation to your agent.</p>
         <div class="btn-row">
-          <a class="btn" href="#cta" data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</a>
+          <a class="btn btn--ink" href="#cta" data-magnetic data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</a>
           <a class="btn btn--ghost" href="#safety" data-en="See the safety rules" data-ar="اطّلع على قواعد الأمان">See the safety rules</a>
         </div>
       </div>
 
       <div class="card switch-card" id="switchCard">
         <div class="switch-row">
-          <h3 id="swLabel" data-en="Your desk switch" data-ar="مفتاح مكتبك">Your desk switch</h3>
-          <button class="sw" id="sw" type="button" role="switch" aria-checked="true" aria-labelledby="swLabel" data-on="ON" data-off="OFF"></button>
+          <button class="bigswitch" type="button" role="switch" aria-checked="false" data-wake-switch data-cursor="switch" aria-label="Your desk switch" data-en-aria="Your desk switch" data-ar-aria="مفتاح مكتبك"><span class="knob"></span></button>
         </div>
         <p class="sw-state" id="swState" aria-live="polite"></p>
         <ol class="sw-feed" id="swFeed">
-          <li><time>10:02</time><span data-en="New lead — call placed" data-ar="عميل جديد — تم الاتصال">New lead — call placed</span><span class="st" data-en="Calling" data-ar="اتصال">Calling</span></li>
-          <li><time>10:03</time><span data-en="No answer — text in Russian" data-ar="لا رد — رسالة بالروسية">No answer — text in Russian</span><span class="st" data-en="Texted" data-ar="رسالة">Texted</span></li>
+          <li><time>10:02</time><span data-en="New lead, call placed" data-ar="عميل جديد، تم الاتصال">New lead, call placed</span><span class="st" data-en="Calling" data-ar="اتصال">Calling</span></li>
+          <li><time>10:03</time><span data-en="No answer, text in Russian" data-ar="لا رد، رسالة بالروسية">No answer, text in Russian</span><span class="st" data-en="Texted" data-ar="رسالة">Texted</span></li>
           <li><time>10:04</time><span data-en="Email with the listing" data-ar="بريد مع العقار">Email with the listing</span><span class="st" data-en="Emailed" data-ar="بريد">Emailed</span></li>
-          <li><time>13:40</time><span data-en="Lead calls back — agent takes it" data-ar="العميل يعاود الاتصال — الوكيل يتولّى">Lead calls back — agent takes it</span><span class="st" data-en="Handed over" data-ar="تم التسليم">Handed over</span></li>
+          <li><time>13:40</time><span data-en="Lead calls back, agent takes it" data-ar="العميل يعاود الاتصال، الوكيل يتولّى">Lead calls back, agent takes it</span><span class="st" data-en="Handed over" data-ar="تم التسليم">Handed over</span></li>
         </ol>
         <p class="sw-note" data-en="Tap the switch. Illustrative sequence." data-ar="اضغط المفتاح. تسلسل توضيحي.">Tap the switch. Illustrative sequence.</p>
       </div>
@@ -348,28 +344,23 @@ html[lang="ar"] .trial { line-height: 1.25; letter-spacing: 0; }
 <script src="/assets/brx.js" defer></script>
 <!-- foot:end -->
 
+<script src="/assets/wake.js" defer></script>
 <script>
-(function () {
-  var sw = document.getElementById('sw'), card = document.getElementById('switchCard'), state = document.getElementById('swState');
+document.addEventListener('DOMContentLoaded', function () {
+  var hero = document.getElementById('ldHero'), card = document.getElementById('switchCard'), state = document.getElementById('swState');
+  var wake = new BRXWake(hero, { seed: 4, alpha: 0.95, mortar: 0.08, duration: 2200, cols: function (w) { return w < 700 ? 22 : 40; } });
   var S = {
-    en: { on: '<b>ON</b> — calling, texting, emailing every new lead.', off: '<b>OFF</b> — everything stops within 2 minutes.' },
-    ar: { on: '<b>تشغيل</b> — اتصال ورسائل وبريد لكل عميل جديد.', off: '<b>إيقاف</b> — يتوقف كل شيء خلال دقيقتين.' }
+    en: { on: '<b>On.</b> Calling, texting and emailing every new lead.', off: '<b>Off.</b> Everything stops within 2 minutes.' },
+    ar: { on: '<b>تشغيل.</b> اتصال ورسائل وبريد لكل عميل جديد.', off: '<b>إيقاف.</b> يتوقف كل شيء خلال دقيقتين.' }
   };
-  var lang = 'en';
-  function render() {
-    var on = sw.getAttribute('aria-checked') === 'true';
-    card.classList.toggle('off', !on);
-    state.innerHTML = S[lang][on ? 'on' : 'off'];
-    sw.setAttribute('data-on', lang === 'ar' ? 'تشغيل' : 'ON');
-    sw.setAttribute('data-off', lang === 'ar' ? 'إيقاف' : 'OFF');
-  }
-  sw.addEventListener('click', function () {
-    sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
-    render();
-  });
-  window.onLangChange = function (l) { lang = l === 'ar' ? 'ar' : 'en'; render(); };
+  function render() { var l = document.documentElement.lang === 'ar' ? 'ar' : 'en'; card.classList.toggle('on', wake.on); state.innerHTML = S[l][wake.on ? 'on' : 'off']; }
+  hero.addEventListener('brx:switch', render);
+  window.onLangChange = render;
   render();
-})();
+  // first scroll flips it on, like the homepage
+  var once = function () { if (window.scrollY > 40) { wake.set(true, 'scroll'); window.removeEventListener('scroll', once); } };
+  window.addEventListener('scroll', once, { passive: true });
+});
 </script>
 </body>
 </html>

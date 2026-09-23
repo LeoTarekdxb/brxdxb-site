@@ -1,157 +1,132 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get the BRX Strategy Whitepaper — Free</title>
+<title>Get the BRX Strategy Whitepaper — Free | BRX·DXB</title>
 <meta name="description" content="A trader won 82% of his trades and lost money anyway. Get the free whitepaper that explains why, and the system that fixes it.">
+<!-- head:start -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/brx.css">
+<link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>document.documentElement.classList.add('js')</script>
+<!-- head:end -->
 <style>
-:root {
-  --black:   #000000;
-  --dark:    #08090D;
-  --dark2:   #0E1018;
-  --dark3:   #141720;
-  --gold:    #C9A84C;
-  --gold2:   #E8C96A;
-  --gold-dim:rgba(201,168,76,0.12);
-  --white:   #FFFFFF;
-  --gray:    #6B7280;
-  --gray2:   #9CA3AF;
-  --border:  rgba(255,255,255,0.06);
-  --border2: rgba(255,255,255,0.10);
-  --green:   #22C55E;
-  --red:     #F0564A;
-  --en-font: 'Syne', 'Inter', sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--en-font); background: var(--black); color: var(--white);
-  line-height: 1.5; -webkit-font-smoothing: antialiased;
-}
-.wrap { max-width: 620px; margin: 0 auto; padding: 60px 24px 100px; }
-.logo { display:flex; align-items:center; gap:10px; margin-bottom: 60px; text-decoration:none; color:var(--white); }
-.logo-mark { width:28px; height:28px; background: repeating-conic-gradient(var(--gold) 0% 25%, transparent 0% 50%) 50% / 10px 10px; border-radius: 4px; }
-.logo b { font-weight: 800; letter-spacing: 1px; font-size: 15px; }
-.eyebrow { color: var(--gold); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 18px; }
-h1 { font-size: clamp(32px, 5vw, 46px); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px; }
-.sub { color: var(--gray2); font-size: 17px; line-height: 1.6; max-width: 520px; margin-bottom: 40px; }
-.sub b { color: var(--white); }
-
-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
-input {
-  background: var(--dark2); border: 1px solid var(--border2); border-radius: 10px;
-  padding: 16px 18px; font-size: 16px; color: var(--white); font-family: var(--en-font);
-}
-input::placeholder { color: var(--gray); }
-input:focus { outline: none; border-color: var(--gold); }
-button[type=submit] {
-  background: var(--gold); color: var(--black); border: none; border-radius: 10px;
-  padding: 17px 24px; font-size: 16px; font-weight: 700; font-family: var(--en-font);
-  cursor: pointer; transition: all 0.2s;
-}
-button[type=submit]:hover { background: var(--gold2); }
-button[type=submit]:disabled { opacity: 0.6; cursor: default; }
-
-.fineprint { font-size: 12.5px; color: var(--gray); line-height: 1.7; }
-
-#error { display:none; color: var(--red); font-size: 14px; margin-top: -4px; margin-bottom: 8px; }
-
+.wp { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; }
+form { display: flex; flex-direction: column; gap: 14px; }
+form label { font-size: 14px; font-weight: 600; color: var(--ink); }
+form input { width: 100%; margin-top: 6px; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--ghost); border-radius: var(--r); padding: 13px 14px; }
+form input:focus { outline: 2px solid var(--g2); outline-offset: 1px; border-color: var(--g); }
+form .btn { width: 100%; min-height: 52px; font-size: 16px; }
+form .btn:disabled { opacity: .6; cursor: default; }
+#error { display: none; color: #B3261E; font-size: 14px; }
 #success { display: none; }
-#success .ok-badge {
-  display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.1);
-  border: 1px solid rgba(34,197,94,0.3); color: var(--green); font-size: 14px; font-weight: 600;
-  padding: 8px 16px; border-radius: 999px; margin-bottom: 24px;
-}
-.dl-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
-.btn-primary, .btn-ghost {
-  display: inline-block; padding: 14px 22px; border-radius: 10px; font-size: 14.5px;
-  font-weight: 700; text-decoration: none; font-family: var(--en-font); transition: all 0.2s;
-}
-.btn-primary { background: var(--gold); color: var(--black); }
-.btn-primary:hover { background: var(--gold2); }
-.btn-ghost { border: 1px solid var(--border2); color: var(--white); }
-.btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }
-
-.divider { height: 1px; background: var(--border); margin: 48px 0; }
-
-.pricing-head { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-.pricing-sub { color: var(--gray2); font-size: 14.5px; margin-bottom: 28px; }
-.tier {
-  border: 1px solid var(--border2); border-radius: 14px; padding: 24px; margin-bottom: 14px;
-  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
-}
-.tier.featured { border-color: rgba(201,168,76,0.35); background: var(--gold-dim); }
-.tier h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.tier p { font-size: 13px; color: var(--gray2); max-width: 340px; }
-.tier a { flex-shrink: 0; }
-
-.legal { font-size: 12px; color: var(--gray); line-height: 1.7; margin-top: 40px; }
+.ok { display: inline-block; font-size: 13px; font-weight: 700; color: #fff; background: var(--g); padding: 6px 12px; border-radius: 2px; margin-bottom: 20px; }
+.tier { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.tier + .tier { margin-top: 16px; }
+.tier p { max-width: 46ch; }
+@media (max-width: 960px) { .wp { grid-template-columns: 1fr; gap: 32px; } }
 </style>
 </head>
-<body>
-<div class="wrap">
-
-  <a class="logo" href="/">
-    <span class="logo-mark"></span>
-    <b>BRX·DXB</b>
-  </a>
-
-  <div id="gate">
-    <div class="eyebrow">BRX Terminal — Free Whitepaper</div>
-    <h1>A trader won 82% of his trades and lost money anyway.</h1>
-    <p class="sub">Get the full strategy whitepaper — <b>the measurements, the incident ledger, and the ten rules</b>. 3,787 tested trades across gold, silver, Bitcoin and Ethereum. Free, no strings.</p>
-
-    <form id="leadForm">
-      <input type="text" name="name" id="nameInput" placeholder="Name" required>
-      <input type="email" name="email" id="emailInput" placeholder="Email" required>
-      <div id="error"></div>
-      <button type="submit" id="submitBtn">Send me the whitepaper →</button>
-    </form>
-    <p class="fineprint">We'll only use this to send the whitepaper and occasional BRX Terminal updates. No spam, unsubscribe anytime.</p>
+<body data-page="terminal">
+<!-- nav:start -->
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+<header class="site-nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+      <a href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+      <a href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+      <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+      <a href="/#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button type="button" id="btn-ar" onclick="setLang('ar')" aria-pressed="false" lang="ar">AR</button>
+      </div>
+      <a class="btn btn--sm nav-cta" href="/#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+      <button class="burger" id="burger" type="button" aria-controls="sheet" aria-expanded="false" aria-label="Menu" data-en-aria="Menu" data-ar-aria="القائمة"><span></span><span></span><span></span></button>
+    </div>
   </div>
-
-  <div id="success">
-    <span class="ok-badge">✓ You're in — here's your whitepaper</span>
-    <div class="dl-row">
-      <a class="btn-primary" href="/BRX_Strategy_Whitepaper_EN.pdf" target="_blank">Whitepaper (English) ↓</a>
-      <a class="btn-ghost" href="/BRX_Strategy_Whitepaper_AR.pdf" target="_blank">الورقة البيضاء (عربي) ↓</a>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="pricing-head">Ready for the full system?</div>
-    <p class="pricing-sub">Self-hosted. You keep your keys. One-time price, no subscription.</p>
-
-    <div class="tier">
-      <div>
-        <h3>Foundations · $99</h3>
-        <p>Architecture, scoring model, risk rails, complete incident ledger.</p>
-      </div>
-      <a class="btn-ghost" href="/#terminal-buy">Get Foundations →</a>
-    </div>
-    <div class="tier featured">
-      <div>
-        <h3>Practitioner · $199</h3>
-        <p>Everything above, plus execution patterns, self-healing design, FIFO accounting, barrier-test method.</p>
-      </div>
-      <a class="btn-primary" href="/#terminal-buy">Get Practitioner →</a>
-    </div>
-    <div class="tier">
-      <div>
-        <h3>Complete · $399</h3>
-        <p>Everything above, plus full source code, signal engine, strategy library, setup + deploy guide.</p>
-      </div>
-      <a class="btn-ghost" href="/#terminal-buy">Get Complete →</a>
-    </div>
-
-    <p class="legal">BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction, projection or guarantee of financial return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results.</p>
-  </div>
-
+</header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet-link" href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+  <a class="sheet-link" href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+  <a class="sheet-link" href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+  <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+  <a class="sheet-link" href="/#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  <a class="btn" href="/#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+  <p class="fine" data-en="BRX · DIFC, Dubai" data-ar="BRX · مركز دبي المالي العالمي، دبي">BRX · DIFC, Dubai</p>
 </div>
+<!-- nav:end -->
+
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/#terminal" data-en="Terminal" data-ar="المحطة">Terminal</a> / <span data-en="Whitepaper" data-ar="الورقة البيضاء">Whitepaper</span></p>
+    <div id="gate" class="wp">
+      <div>
+        <p class="eyebrow" data-en="BRX Terminal · free whitepaper" data-ar="محطة BRX · ورقة بيضاء مجانية">BRX Terminal · free whitepaper</p>
+        <h1 class="display--xl" data-en="A trader won 82% of his trades and lost money anyway." data-ar="متداول ربح ٨٢٪ من صفقاته وخسر ماله رغم ذلك.">A trader won 82% of his trades and lost money anyway.</h1>
+        <p class="lede" data-en="Get the full strategy whitepaper — the measurements, the incident ledger and the ten rules. 3,787 tested trades across gold, silver, Bitcoin and Ethereum. Free." data-ar="احصل على الورقة البيضاء الكاملة — القياسات وسجل الأعطال والقواعد العشر. ٣٬٧٨٧ صفقة مُختبَرة عبر الذهب والفضة والبيتكوين والإيثيريوم. مجاناً.">Get the full strategy whitepaper — the measurements, the incident ledger and the ten rules. 3,787 tested trades across gold, silver, Bitcoin and Ethereum. Free.</p>
+      </div>
+      <div class="card">
+        <form id="leadForm">
+          <label><span data-en="Name" data-ar="الاسم">Name</span><input type="text" name="name" id="nameInput" autocomplete="name" required></label>
+          <label><span data-en="Email" data-ar="البريد الإلكتروني">Email</span><input type="email" name="email" id="emailInput" autocomplete="email" required></label>
+          <div id="error" role="alert"></div>
+          <button class="btn" type="submit" id="submitBtn" data-en="Send me the whitepaper" data-ar="أرسل لي الورقة البيضاء">Send me the whitepaper</button>
+        </form>
+        <p class="fine" style="margin-top:14px" data-en="We use this only to send the whitepaper and occasional BRX Terminal updates. No spam, unsubscribe anytime. Your email never goes into a URL." data-ar="نستخدم هذا فقط لإرسال الورقة البيضاء وتحديثات محطة BRX من حين لآخر. لا رسائل مزعجة، ويمكنك إلغاء الاشتراك متى شئت.">We use this only to send the whitepaper and occasional BRX Terminal updates. No spam, unsubscribe anytime. Your email never goes into a URL.</p>
+      </div>
+    </div>
+
+    <div id="success">
+      <span class="ok" data-en="You're in — here's your whitepaper" data-ar="تم — هذه ورقتك البيضاء">You're in — here's your whitepaper</span>
+      <h1 class="display--xl" data-en="Read it before you buy anything." data-ar="اقرأها قبل أن تشتري أي شيء.">Read it before you buy anything.</h1>
+      <div class="btn-row">
+        <a class="btn" href="/BRX_Strategy_Whitepaper_EN.pdf" target="_blank" data-en="Whitepaper (English) ↓" data-ar="الورقة البيضاء (إنجليزي) ↓">Whitepaper (English) ↓</a>
+        <a class="btn btn--ghost" href="/BRX_Strategy_Whitepaper_AR.pdf" target="_blank" lang="ar">الورقة البيضاء (عربي) ↓</a>
+      </div>
+      <div style="margin-top:64px">
+        <p class="eyebrow" data-en="Ready for the full system?" data-ar="جاهز للنظام الكامل؟">Ready for the full system?</p>
+        <p class="lede" style="margin:0 0 28px" data-en="Self-hosted. You keep your keys. One-time price, no subscription." data-ar="يعمل على جهازك. تحتفظ بمفاتيحك. سعر لمرة واحدة، دون اشتراك.">Self-hosted. You keep your keys. One-time price, no subscription.</p>
+        <div class="card tier"><div><h3 data-en="Foundations · $99" data-ar="الأساسيات · $99">Foundations · $99</h3><p data-en="Architecture, scoring model, risk rails, complete incident ledger." data-ar="البنية ونموذج التقييم وحواجز المخاطر وسجل الأعطال كاملاً.">Architecture, scoring model, risk rails, complete incident ledger.</p></div><a class="btn btn--ghost" href="/#terminal-buy" data-en="Get Foundations" data-ar="احصل عليها">Get Foundations</a></div>
+        <div class="card card--featured tier"><div><h3 data-en="Practitioner · $199" data-ar="الممارس · $199">Practitioner · $199</h3><p data-en="Everything above, plus execution patterns, self-healing design, FIFO accounting, barrier-test method." data-ar="كل ما سبق، إضافة إلى أنماط التنفيذ والمعالجة الذاتية ومحاسبة FIFO ومنهج اختبار الحواجز.">Everything above, plus execution patterns, self-healing design, FIFO accounting, barrier-test method.</p></div><a class="btn" href="/#terminal-buy" data-en="Get Practitioner" data-ar="احصل عليها">Get Practitioner</a></div>
+        <div class="card tier"><div><h3 data-en="Complete · $399" data-ar="الكاملة · $399">Complete · $399</h3><p data-en="Everything above, plus full source code, signal engine, strategy library, setup and deploy guide." data-ar="كل ما سبق، إضافة إلى الشيفرة المصدرية الكاملة ومحرّك الإشارات ومكتبة الاستراتيجيات ودليل الإعداد والنشر.">Everything above, plus full source code, signal engine, strategy library, setup and deploy guide.</p></div><a class="btn btn--ghost" href="/#terminal-buy" data-en="Get Complete" data-ar="احصل عليها">Get Complete</a></div>
+        <p class="fine" style="margin-top:28px" data-en="BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction, projection or guarantee of financial return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results." data-ar="محطة BRX برنامج مُرخَّص لك وتشغّله بنفسك. وهو ليس نصيحة استثمارية ولا إدارة محافظ ولا وساطة مالية ولا خدمة مُدارة، ولا تحتفظ BRX Technologies L.L.C بأموال العملاء أو أصولهم أو بيانات دخولهم. ولا يمثّل أي مما ورد هنا تنبؤاً أو ضماناً بعائد مالي. ينطوي التداول على مخاطر خسارة جسيمة قد تصل إلى خسارة رأس المال بالكامل. والأداء السابق لا يدل على النتائج المستقبلية.">BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction, projection or guarantee of financial return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- foot:start -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <p data-en="AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ذكاء اصطناعي يتولّون العمل المتكرر، يُبنون ويعملون في دبي. © 2026 BRX Technologies.">AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies.</p>
+    <div class="foot-links">
+      <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+      <span class="muted" data-en="DIFC, Dubai" data-ar="مركز دبي المالي العالمي، دبي">DIFC, Dubai</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/brx.js" defer></script>
+<!-- foot:end -->
 
 <script>
 const form = document.getElementById('leadForm');
@@ -168,7 +143,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   errorEl.style.display = 'none';
   btn.disabled = true;
-  btn.textContent = 'Sending…';
+  btn.textContent = document.documentElement.lang === 'ar' ? 'جارٍ الإرسال…' : 'Sending…';
 
   const payload = {
     name: document.getElementById('nameInput').value,
@@ -199,7 +174,7 @@ form.addEventListener('submit', async (e) => {
     errorEl.textContent = "Something went wrong — try again, or email leo@brxdxb.com directly.";
     errorEl.style.display = 'block';
     btn.disabled = false;
-    btn.textContent = 'Send me the whitepaper →';
+    btn.textContent = document.documentElement.lang === 'ar' ? 'أرسل لي الورقة البيضاء' : 'Send me the whitepaper';
   }
 });
 </script>

@@ -1,139 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>BRX Agents — Subscriptions | BRX DXB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRX Agents — Subscriptions | BRX·DXB</title>
 <meta name="description" content="Subscribe to BRX autonomous AI agents — software that works 24/7 on your infrastructure, with your keys. By BRX Technologies, DIFC.">
+<!-- head:start -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/brx.css">
+<link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>document.documentElement.classList.add('js')</script>
+<!-- head:end -->
 <style>
-  :root{--bg:#07070B;--surface:#0D0D14;--card:#12121B;--border:#20202E;
-        --gold:#C9A84C;--gold2:#E8C96A;--gold-dim:rgba(201,168,76,0.12);
-        --text:#EAEAF2;--muted:#8A8AA0;}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,'Inter','Segoe UI',sans-serif;line-height:1.7;font-weight:300}
-  .w{max-width:1000px;margin:0 auto;padding:0 24px}
-  nav{position:sticky;top:0;z-index:50;background:rgba(7,7,11,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:16px 0}
-  nav .w{display:flex;align-items:center;justify-content:space-between}
-  .logo{color:var(--gold);letter-spacing:.4em;text-transform:uppercase;font-size:15px;text-decoration:none}
-  nav a.back{color:var(--muted);font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
-  nav a.back:hover{color:var(--gold)}
-  header{padding:80px 0 40px;text-align:center}
-  .eyebrow{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);opacity:.8}
-  h1{font-size:clamp(30px,5vw,44px);font-weight:300;margin:16px 0 12px}
-  header p{color:var(--muted);max-width:56ch;margin:0 auto;font-size:15px}
-  section{padding:40px 0}
-  h2{font-size:22px;font-weight:300;margin-bottom:6px}
-  .sub{color:var(--muted);font-size:13.5px;margin-bottom:26px;max-width:64ch}
-  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-  .tier{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:26px;display:flex;flex-direction:column}
-  .tier.hot{border-color:var(--gold)}
-  .tier .tag{font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
-  .tier h3{font-size:17px;font-weight:400;margin:10px 0 2px}
-  .price{font-size:34px;font-weight:300;margin:10px 0 2px}
-  .price small{font-size:13px;color:var(--muted)}
-  .aed{color:var(--muted);font-size:12px;margin-bottom:14px}
-  ul{list-style:none;margin:0 0 22px;flex:1}
-  li{padding:7px 0;border-bottom:1px solid var(--border);color:var(--muted);font-size:13px}
-  li::before{content:"— ";color:var(--gold)}
-  .cta{display:block;text-align:center;padding:13px;border:1px solid var(--gold);color:var(--gold);
-       text-decoration:none;font-size:11px;letter-spacing:.25em;text-transform:uppercase;border-radius:6px;transition:.25s}
-  .cta:hover{background:var(--gold);color:var(--bg)}
-  .cta.solid{background:var(--gold);color:var(--bg)}
-  .cta.solid:hover{background:var(--gold2)}
-  .note{border:1px solid var(--border);border-left:2px solid var(--gold);background:var(--surface);
-        border-radius:8px;padding:20px 24px;margin:44px 0;font-size:13px;color:var(--muted);line-height:1.9}
-  .note b{color:var(--text);font-weight:500}
-  footer{border-top:1px solid var(--border);padding:36px 0 60px;color:var(--muted);font-size:11.5px;line-height:1.8}
-  footer a{color:var(--gold);text-decoration:none}
+.tier-sub { font-size: 13px; color: var(--ink3); margin-bottom: 4px; }
+.agent-sec + .agent-sec { border-top: 1px solid var(--line); }
 </style>
 </head>
-<body>
-<nav><div class="w">
-  <a class="logo" href="/">BRX·DXB</a>
-  <a class="back" href="/#lab">← Back to The Lab</a>
-</div></nav>
-
-<header class="w">
-  <p class="eyebrow">Agent Subscriptions</p>
-  <h1>Your AI workforce, on subscription.</h1>
-  <p>Every BRX agent is software you own the keys to — deployed on your infrastructure,
-  working 24/7, reporting to your Telegram. No shared servers. No access to your funds or data by us. Cancel anytime.</p>
+<body data-page="lab">
+<!-- nav:start -->
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+<header class="site-nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+      <a href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+      <a href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+      <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+      <a href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button type="button" id="btn-ar" onclick="setLang('ar')" aria-pressed="false" lang="ar">AR</button>
+      </div>
+      <a class="btn btn--sm nav-cta" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+      <button class="burger" id="burger" type="button" aria-controls="sheet" aria-expanded="false" aria-label="Menu" data-en-aria="Menu" data-ar-aria="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
 </header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet-link" href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+  <a class="sheet-link" href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+  <a class="sheet-link" href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+  <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+  <a class="sheet-link" href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  <a class="btn" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+  <p class="fine" data-en="BRX · DIFC, Dubai" data-ar="BRX · مركز دبي المالي العالمي، دبي">BRX · DIFC, Dubai</p>
+</div>
+<!-- nav:end -->
 
-<section class="w" id="trading-agent">
-  <h2>Autonomous Trading Agent</h2>
-  <p class="sub">A software agent that screens markets through a 7-gate decision framework, manages a
-  <b>simulated $100,000 portfolio</b> around the clock, applies mechanical risk rules (stop-losses,
-  trailing stops, drawdown circuit breakers), and journals every decision to a live dashboard and your
-  Telegram. Ships simulation-first by design.</p>
-  <div class="tiers">
-    <div class="tier">
-      <span class="tag">Starter</span><h3>Agent</h3>
-      <div class="price">$29<small>/month</small></div><div class="aed">≈ AED 109/month</div>
-      <ul><li>Full agent software + setup guide</li><li>7-gate framework, all thresholds yours</li>
-      <li>Simulated $100k portfolio (real market data)</li><li>Live dashboard + Telegram reporting</li><li>Updates included</li></ul>
-      <a class="cta" data-stripe="starter" href="https://wa.me/971566030347?text=BRX%20Agent%20Starter">Subscribe</a>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <p class="crumb"><a href="/#lab" data-en="Agents" data-ar="الوكلاء">Agents</a> / <span data-en="Subscriptions" data-ar="الاشتراكات">Subscriptions</span></p>
+    <p class="eyebrow" data-en="Agent subscriptions" data-ar="اشتراكات الوكلاء">Agent subscriptions</p>
+    <h1 class="display--xl" data-en="Your AI workforce, on subscription." data-ar="فريق عملك الذكي، باشتراك.">Your AI workforce, on subscription.</h1>
+    <p class="lede" data-en="Every BRX agent is software you hold the keys to — on your infrastructure, working 24/7, reporting to your Telegram. No shared servers. No access to your funds or data by us. Cancel anytime." data-ar="كل وكيل من BRX برنامج تملك مفاتيحه — على بنيتك، يعمل 24/7 ويرفع تقاريره إلى تيليغرام. لا خوادم مشتركة. لا وصول لنا إلى أموالك أو بياناتك. ألغِ متى شئت.">Every BRX agent is software you hold the keys to — on your infrastructure, working 24/7, reporting to your Telegram. No shared servers. No access to your funds or data by us. Cancel anytime.</p>
+  </div>
+</section>
+
+<section class="sec sec--alt agent-sec" id="trading-agent">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-en="Autonomous Trading Agent" data-ar="وكيل التداول الذاتي">Autonomous Trading Agent</p>
+      <h2 class="display" data-en="Discipline you can run yourself." data-ar="انضباط تشغّله بنفسك.">Discipline you can run yourself.</h2>
+      <p class="lede" data-en="Screens markets through a 7-gate framework, manages a simulated $100,000 portfolio around the clock, applies mechanical risk rules and journals every decision to a live dashboard and your Telegram. Ships simulation-first by design." data-ar="يفحص الأسواق عبر إطار من 7 بوابات، ويدير محفظة محاكاة بقيمة 100,000 دولار على مدار الساعة، ويطبّق قواعد مخاطر آلية، ويسجّل كل قرار في لوحة مباشرة وعلى تيليغرام. يبدأ بوضع المحاكاة افتراضياً.">Screens markets through a 7-gate framework, manages a simulated $100,000 portfolio around the clock, applies mechanical risk rules and journals every decision to a live dashboard and your Telegram. Ships simulation-first by design.</p>
     </div>
-    <div class="tier hot">
-      <span class="tag">Most Popular</span><h3>Agent Pro</h3>
-      <div class="price">$79<small>/month</small></div><div class="aed">≈ AED 289/month</div>
-      <ul><li>Everything in Starter</li><li>Crypto sleeve + institutional flow signals</li>
-      <li>Autopilot or approval mode</li><li>Priority WhatsApp support</li><li>Monthly strategy review call</li></ul>
-      <a class="cta solid" data-stripe="pro" href="https://wa.me/971566030347?text=BRX%20Agent%20Pro">Subscribe</a>
-    </div>
-    <div class="tier">
-      <span class="tag">White Glove</span><h3>Concierge</h3>
-      <div class="price">$199<small>/month</small></div><div class="aed">≈ AED 729/month</div>
-      <ul><li>Everything in Pro</li><li>We install &amp; maintain it for you</li>
-      <li>Custom universe &amp; thresholds</li><li>Direct line to the builders</li><li>DIFC-based onboarding session</li></ul>
-      <a class="cta" data-stripe="concierge" href="https://wa.me/971566030347?text=BRX%20Concierge">Talk to us</a>
+    <div class="grid-3">
+      <article class="card card-stack reveal">
+        <span class="meta" data-en="Starter · Agent" data-ar="البداية · الوكيل">Starter · Agent</span>
+        <div class="price">$29 <small data-en="/month" data-ar="/شهرياً">/month</small></div>
+        <p class="tier-sub" data-en="≈ AED 109/month" data-ar="≈ 109 درهم شهرياً">≈ AED 109/month</p>
+        <ul><li data-en="Full agent software + setup guide" data-ar="برنامج الوكيل كاملاً + دليل الإعداد">Full agent software + setup guide</li><li data-en="7-gate framework, all thresholds yours" data-ar="إطار 7 بوابات، وكل الحدود لك">7-gate framework, all thresholds yours</li><li data-en="Simulated $100k portfolio (real market data)" data-ar="محفظة محاكاة 100 ألف دولار (بيانات سوق حقيقية)">Simulated $100k portfolio (real market data)</li><li data-en="Live dashboard + Telegram reporting" data-ar="لوحة مباشرة + تقارير تيليغرام">Live dashboard + Telegram reporting</li><li data-en="Updates included" data-ar="التحديثات مشمولة">Updates included</li></ul>
+        <a class="btn btn--ghost" data-stripe="starter" href="https://wa.me/971558917770?text=BRX%20Agent%20Starter" data-en="Subscribe" data-ar="اشترك">Subscribe</a>
+      </article>
+      <article class="card card--featured card-stack reveal">
+        <span class="meta" data-en="Most popular · Agent Pro" data-ar="الأكثر طلباً · الوكيل الاحترافي">Most popular · Agent Pro</span>
+        <div class="price">$79 <small data-en="/month" data-ar="/شهرياً">/month</small></div>
+        <p class="tier-sub" data-en="≈ AED 289/month" data-ar="≈ 289 درهم شهرياً">≈ AED 289/month</p>
+        <ul><li data-en="Everything in Starter" data-ar="كل ما في البداية">Everything in Starter</li><li data-en="Crypto sleeve + institutional flow signals" data-ar="شريحة عملات رقمية + إشارات تدفق مؤسسي">Crypto sleeve + institutional flow signals</li><li data-en="Autopilot or approval mode" data-ar="وضع تلقائي أو بموافقة">Autopilot or approval mode</li><li data-en="Priority WhatsApp support" data-ar="دعم واتساب بأولوية">Priority WhatsApp support</li><li data-en="Monthly strategy review call" data-ar="مكالمة مراجعة شهرية للاستراتيجية">Monthly strategy review call</li></ul>
+        <a class="btn" data-stripe="pro" href="https://wa.me/971558917770?text=BRX%20Agent%20Pro" data-en="Subscribe" data-ar="اشترك">Subscribe</a>
+      </article>
+      <article class="card card-stack reveal">
+        <span class="meta" data-en="White glove · Concierge" data-ar="خدمة كاملة · الكونسيرج">White glove · Concierge</span>
+        <div class="price">$199 <small data-en="/month" data-ar="/شهرياً">/month</small></div>
+        <p class="tier-sub" data-en="≈ AED 729/month" data-ar="≈ 729 درهم شهرياً">≈ AED 729/month</p>
+        <ul><li data-en="Everything in Pro" data-ar="كل ما في الاحترافي">Everything in Pro</li><li data-en="We install and maintain it for you" data-ar="نثبّته ونصونه لك">We install and maintain it for you</li><li data-en="Custom universe and thresholds" data-ar="نطاق وحدود مخصصة">Custom universe and thresholds</li><li data-en="Direct line to the builders" data-ar="خط مباشر مع البنّائين">Direct line to the builders</li><li data-en="DIFC-based onboarding session" data-ar="جلسة إعداد في مركز دبي المالي العالمي">DIFC-based onboarding session</li></ul>
+        <a class="btn btn--ghost" data-stripe="concierge" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="w" id="lead-agent">
-  <h2>Real Estate Lead Qualifier</h2>
-  <p class="sub">The agent already working in production: scores inbound leads, sends personalised WhatsApp
-  in 6 languages, runs 48-hour follow-ups automatically, and delivers a morning Telegram briefing of your
-  top 20 HOT leads — every day, for your whole team.</p>
-  <div class="tiers">
-    <div class="tier">
-      <span class="tag">Solo Agent</span><h3>Qualifier</h3>
-      <div class="price">$149<small>/month</small></div><div class="aed">≈ AED 549/month</div>
-      <ul><li>1 agent seat · your CRM + WhatsApp</li><li>Lead scoring + auto follow-ups</li>
-      <li>6-language outreach</li><li>Daily HOT-20 Telegram briefing</li></ul>
-      <a class="cta" data-stripe="lead-solo" href="https://wa.me/971566030347?text=BRX%20Lead%20Qualifier">Subscribe</a>
+<section class="sec agent-sec" id="lead-agent">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-en="Real Estate Lead Qualifier" data-ar="مؤهّل عملاء العقارات">Real Estate Lead Qualifier</p>
+      <h2 class="display" data-en="The agent already working in production." data-ar="الوكيل الذي يعمل فعلاً في الإنتاج.">The agent already working in production.</h2>
+      <p class="lede" data-en="Scores inbound leads, sends personalised messages in 6 languages, runs 48-hour follow-ups and delivers a morning briefing of your top 20 HOT leads — every day, for your whole team. For the full desk system, see Lead Defence." data-ar="يقيّم العملاء الواردين، ويرسل رسائل مخصصة بـ6 لغات، ويشغّل متابعات 48 ساعة، ويقدّم إحاطة صباحية بأفضل 20 عميلاً — يومياً لفريقك كله. للنظام المكتبي الكامل، راجع «حماية العملاء».">Scores inbound leads, sends personalised messages in 6 languages, runs 48-hour follow-ups and delivers a morning briefing of your top 20 HOT leads — every day, for your whole team. For the full desk system, see Lead Defence.</p>
     </div>
-    <div class="tier hot">
-      <span class="tag">Team</span><h3>Qualifier Team</h3>
-      <div class="price">$399<small>/month</small></div><div class="aed">≈ AED 1,469/month</div>
-      <ul><li>Up to 10 seats · pooled lead routing</li><li>Claim SOP + fair-distribution rules</li>
-      <li>Manager analytics board</li><li>Priority support</li></ul>
-      <a class="cta solid" data-stripe="lead-team" href="https://wa.me/971566030347?text=BRX%20Lead%20Team">Subscribe</a>
+    <div class="grid-3">
+      <article class="card card-stack reveal">
+        <span class="meta" data-en="Solo agent · Qualifier" data-ar="وكيل منفرد · المؤهِّل">Solo agent · Qualifier</span>
+        <div class="price">$149 <small data-en="/month" data-ar="/شهرياً">/month</small></div>
+        <p class="tier-sub" data-en="≈ AED 549/month" data-ar="≈ 549 درهم شهرياً">≈ AED 549/month</p>
+        <ul><li data-en="1 agent seat · your CRM" data-ar="مقعد وكيل واحد · نظام CRM لديك">1 agent seat · your CRM</li><li data-en="Lead scoring + auto follow-ups" data-ar="تقييم العملاء + متابعات تلقائية">Lead scoring + auto follow-ups</li><li data-en="6-language outreach" data-ar="تواصل بـ6 لغات">6-language outreach</li><li data-en="Daily HOT-20 Telegram briefing" data-ar="إحاطة يومية بأفضل 20 على تيليغرام">Daily HOT-20 Telegram briefing</li></ul>
+        <a class="btn btn--ghost" data-stripe="lead-solo" href="https://wa.me/971558917770?text=BRX%20Lead%20Qualifier" data-en="Subscribe" data-ar="اشترك">Subscribe</a>
+      </article>
+      <article class="card card--featured card-stack reveal">
+        <span class="meta" data-en="Team · Qualifier Team" data-ar="فريق · فريق التأهيل">Team · Qualifier Team</span>
+        <div class="price">$399 <small data-en="/month" data-ar="/شهرياً">/month</small></div>
+        <p class="tier-sub" data-en="≈ AED 1,469/month" data-ar="≈ 1,469 درهم شهرياً">≈ AED 1,469/month</p>
+        <ul><li data-en="Up to 10 seats · pooled lead routing" data-ar="حتى 10 مقاعد · توزيع مشترك للعملاء">Up to 10 seats · pooled lead routing</li><li data-en="Fair-distribution rules" data-ar="قواعد توزيع عادل">Fair-distribution rules</li><li data-en="Manager analytics board" data-ar="لوحة تحليلات للمدير">Manager analytics board</li><li data-en="Priority support" data-ar="دعم بأولوية">Priority support</li></ul>
+        <a class="btn" data-stripe="lead-team" href="https://wa.me/971558917770?text=BRX%20Lead%20Team" data-en="Subscribe" data-ar="اشترك">Subscribe</a>
+      </article>
+      <article class="card card-stack reveal">
+        <span class="meta" data-en="Agency · Enterprise" data-ar="وكالة · المؤسسات">Agency · Enterprise</span>
+        <div class="price"><span data-en="Custom" data-ar="حسب الطلب">Custom</span></div>
+        <p class="tier-sub" data-en="Volume pricing" data-ar="أسعار الكميات">Volume pricing</p>
+        <ul><li data-en="Unlimited seats · custom integrations" data-ar="مقاعد غير محدودة · تكاملات مخصصة">Unlimited seats · custom integrations</li><li data-en="On-premise deployment" data-ar="تشغيل داخل مقرّك">On-premise deployment</li><li data-en="SLA + dedicated success manager" data-ar="اتفاقية مستوى خدمة + مدير نجاح مخصص">SLA + dedicated success manager</li></ul>
+        <a class="btn btn--ghost" href="/flow/real-estate.html" data-en="See Lead Defence" data-ar="شاهد حماية العملاء">See Lead Defence</a>
+      </article>
     </div>
-    <div class="tier">
-      <span class="tag">Brokerage</span><h3>Enterprise</h3>
-      <div class="price">Custom</div><div class="aed">volume pricing</div>
-      <ul><li>Unlimited seats · custom integrations</li><li>On-premise deployment</li>
-      <li>SLA + dedicated success manager</li></ul>
-      <a class="cta" href="https://wa.me/971566030347?text=BRX%20Enterprise">Commission an agent</a>
+    <div class="card card--muted reveal" style="margin-top:32px">
+      <h3 data-en="What you are buying — and what you are not." data-ar="ما تشتريه — وما لا تشتريه.">What you are buying — and what you are not.</h3>
+      <p class="small" style="margin-top:8px" data-en="BRX Technologies L.L.C is a DIFC-licensed technology company. Our subscriptions are for software: autonomous agents you run on your own infrastructure with your own accounts and keys. We do not provide financial services, investment advice, portfolio management or brokerage; we never hold client funds; agent outputs are information generated by software you configure and control. The Trading Agent ships in simulation mode by default and any change to that is made by you, on your sole responsibility. Past or simulated performance predicts nothing." data-ar="BRX Technologies L.L.C شركة تقنية مرخّصة في مركز دبي المالي العالمي. اشتراكاتنا لبرامج: وكلاء مستقلون تشغّلهم على بنيتك بحساباتك ومفاتيحك. لا نقدّم خدمات مالية أو نصائح استثمارية أو إدارة محافظ أو وساطة؛ ولا نحتفظ بأموال العملاء أبداً؛ ومخرجات الوكيل معلومات يولّدها برنامج تضبطه وتتحكم به. يبدأ وكيل التداول بوضع المحاكاة افتراضياً وأي تغيير لذلك يتم بقرارك وعلى مسؤوليتك وحدك. الأداء السابق أو المُحاكى لا يتنبأ بشيء.">BRX Technologies L.L.C is a DIFC-licensed technology company. Our subscriptions are for software: autonomous agents you run on your own infrastructure with your own accounts and keys. We do not provide financial services, investment advice, portfolio management or brokerage; we never hold client funds; agent outputs are information generated by software you configure and control. The Trading Agent ships in simulation mode by default and any change to that is made by you, on your sole responsibility. Past or simulated performance predicts nothing.</p>
     </div>
   </div>
 </section>
 
-<div class="w"><div class="note">
-  <b>What you are buying — and what you are not.</b> BRX Technologies L.L.C is a DIFC-licensed technology
-  company. Our subscriptions are for <b>software</b>: autonomous agents you run on your own infrastructure
-  with your own accounts and keys. We do not provide financial services, investment advice, portfolio
-  management, or brokerage; we never hold client funds; agent outputs are information generated by software
-  you configure and control. The Trading Agent ships in simulation mode by default and any change to that
-  is made by you, on your sole responsibility. Past or simulated performance predicts nothing.
-</div></div>
+<section class="sec sec--alt" id="cta">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <p class="eyebrow" data-en="Subscribe or ask" data-ar="اشترك أو اسأل">Subscribe or ask</p>
+      <h2 class="display" data-en="Talk to a founder, not a sales team." data-ar="تحدّث مع مؤسس، لا مع فريق مبيعات.">Talk to a founder, not a sales team.</h2>
+    </div>
+<!-- founders:start -->
+<div class="founders">
+  <div class="card founder">
+    <div class="initials" aria-hidden="true">SZ</div>
+    <div>
+      <h3 data-en="Saud Zayed" data-ar="سعود زايد">Saud Zayed</h3>
+      <p class="role" data-en="Co-Founder · Operations" data-ar="شريك مؤسس · العمليات">Co-Founder · Operations</p>
+      <p class="contact"><a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a> · <a href="https://wa.me/971503495555">+971 50 349 5555</a></p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:saud@brxdxb.com?subject=BRX%20enquiry" data-en="Email Saud" data-ar="راسل سعود">Email Saud</a>
+        <a class="btn btn--ghost" href="https://wa.me/971503495555?text=Hi%20Saud%2C%20I%20found%20BRX%20on%20brxdxb.com." target="_blank" rel="noopener" data-en="WhatsApp Saud" data-ar="واتساب سعود">WhatsApp Saud</a>
+      </div>
+    </div>
+  </div>
+  <div class="card founder">
+    <div class="initials" aria-hidden="true">LK</div>
+    <div>
+      <h3 data-en="Leo Khatib" data-ar="ليو خطيب">Leo Khatib</h3>
+      <p class="role" data-en="Co-Founder · AI Systems Architect" data-ar="شريك مؤسس · مهندس أنظمة الذكاء الاصطناعي">Co-Founder · AI Systems Architect</p>
+      <p class="contact"><a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a> · <a href="https://wa.me/971558917770">+971 55 891 7770</a></p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:leo@brxdxb.com?subject=BRX%20enquiry" data-en="Email Leo" data-ar="راسل ليو">Email Leo</a>
+        <a class="btn btn--ghost" href="https://wa.me/971558917770?text=Hi%20Leo%2C%20I%20found%20BRX%20on%20brxdxb.com." target="_blank" rel="noopener" data-en="WhatsApp Leo" data-ar="واتساب ليو">WhatsApp Leo</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- founders:end -->
+  </div>
+</section>
+</main>
 
-<footer><div class="w">
-  <b style="color:var(--text)">BRX Technologies L.L.C</b> · DIFC, Dubai ·
-  <a href="https://wa.me/971566030347">WhatsApp +971 56 603 0347</a> · <a href="/">brxdxb.com</a><br>
-  © 2026 BRX Technologies L.L.C. All subscriptions billed securely via Stripe. Cancel anytime.
-</div></footer>
+<!-- foot:start -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <p data-en="AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ذكاء اصطناعي يتولّون العمل المتكرر، يُبنون ويعملون في دبي. © 2026 BRX Technologies.">AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies.</p>
+    <div class="foot-links">
+      <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+      <span class="muted" data-en="DIFC, Dubai" data-ar="مركز دبي المالي العالمي، دبي">DIFC, Dubai</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/brx.js" defer></script>
+<!-- foot:end -->
 </body>
 </html>

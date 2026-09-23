@@ -7,29 +7,29 @@
 <meta name="description" content="Dubai's first AI Agents Lab. DIFC-based. We build autonomous AI agents for any industry — deployed in 72 hours, running 24/7.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════
    DESIGN TOKENS
 ═══════════════════════════════════════ */
 :root {
-  --black:   #000000;
-  --dark:    #08090D;
-  --dark2:   #0E1018;
-  --dark3:   #141720;
-  --gold:    #C9A84C;
-  --gold2:   #E8C96A;
-  --gold-dim:rgba(201,168,76,0.12);
-  --cyan:    #00D4FF;
-  --cyan-dim:rgba(0,212,255,0.08);
-  --white:   #FFFFFF;
-  --gray:    #6B7280;
-  --gray2:   #9CA3AF;
-  --border:  rgba(255,255,255,0.06);
-  --border2: rgba(255,255,255,0.10);
-  --green:   #22C55E;
-  --en-font: 'Syne', 'Inter', sans-serif;
-  --ar-font: 'Cairo', sans-serif;
+  --black:   #FFFFFF;
+  --dark:    #FFFFFF;
+  --dark2:   #F5F7F2;
+  --dark3:   #EEF2E8;
+  --gold:    #86BC25;
+  --gold2:   #43B02A;
+  --gold-dim:rgba(134,188,37,0.12);
+  --cyan:    #43B02A;
+  --cyan-dim:rgba(67,176,42,0.08);
+  --white:   #111111;
+  --gray:    #555555;
+  --gray2:   #777777;
+  --border:  rgba(0,0,0,0.10);
+  --border2: rgba(0,0,0,0.16);
+  --green:   #86BC25;
+  --en-font: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  --ar-font: 'Noto Sans Arabic', 'Open Sans', sans-serif;
   --r: 16px;
   --r2: 12px;
 }
@@ -98,7 +98,7 @@ body::after {
   transition: background 0.4s, border-color 0.4s;
 }
 #nav.scrolled {
-  background: rgba(0,0,0,0.85);
+  background: rgba(255,255,255,0.92);
   border-color: var(--border);
   backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
 }
@@ -130,17 +130,17 @@ body::after {
 .lang-toggle {
   display: flex; align-items: center; gap: 0;
   border: 1px solid var(--border2); border-radius: 8px; overflow: hidden;
-  background: rgba(255,255,255,0.03);
+  background: rgba(0,0,0,0.03);
 }
 .lang-btn {
   padding: 6px 14px; font-size: 12px; font-weight: 600;
   background: none; border: none; cursor: pointer; color: var(--gray);
   transition: all 0.2s; letter-spacing: 0.04em;
 }
-.lang-btn.active { background: var(--gold); color: #000; }
+.lang-btn.active { background: var(--gold); color: #FFFFFF; }
 
 .btn-nav {
-  padding: 9px 20px; background: var(--gold); color: #000;
+  padding: 9px 20px; background: var(--gold); color: #FFFFFF;
   font-size: 13px; font-weight: 700; border-radius: 8px;
   text-decoration: none; transition: background 0.2s;
   letter-spacing: 0.01em; white-space: nowrap;
@@ -151,17 +151,17 @@ body::after {
    HERO
 ═══════════════════════════════════════ */
 #hero {
-  position: relative; min-height: 100vh;
+  position: relative; min-height: auto;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 140px 48px 80px; overflow: hidden;
+  padding: 150px 48px 56px; overflow: hidden;
 }
 
 /* Hero gradient bg */
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 15% 85%, rgba(201,168,76,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 85% 10%, rgba(0,212,255,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 60% at 15% 85%, rgba(134,188,37,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 10%, rgba(67,176,42,0.07) 0%, transparent 55%),
     var(--black);
 }
 
@@ -169,8 +169,8 @@ body::after {
 .hero-grid {
   position: absolute; inset: 0; z-index: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
@@ -179,7 +179,7 @@ body::after {
 .hero-orb {
   position: absolute; z-index: 0;
   width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(134,188,37,0.06) 0%, transparent 70%);
   bottom: -200px; left: -100px;
   animation: orb-drift 12s ease-in-out infinite alternate;
 }
@@ -192,7 +192,7 @@ body::after {
 
 .hero-badge {
   display: inline-flex; align-items: center; gap: 10px;
-  border: 1px solid var(--gold-dim); background: rgba(201,168,76,0.06);
+  border: 1px solid var(--gold-dim); background: rgba(134,188,37,0.06);
   padding: 7px 16px; border-radius: 30px; margin-bottom: 48px;
 }
 .hero-badge .dot {
@@ -227,23 +227,23 @@ body::after {
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 15px 32px; background: var(--gold); color: #000;
+  padding: 15px 32px; background: var(--gold); color: #FFFFFF;
   font-size: 15px; font-weight: 700; border-radius: 10px;
   text-decoration: none; transition: all 0.2s; letter-spacing: 0.01em;
 }
-.btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.25); }
+.btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(134,188,37,0.25); }
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 15px 32px; border: 1px solid var(--border2); color: var(--white);
   font-size: 15px; font-weight: 500; border-radius: 10px;
-  text-decoration: none; transition: all 0.2s; background: rgba(255,255,255,0.04);
+  text-decoration: none; transition: all 0.2s; background: rgba(0,0,0,0.04);
 }
-.btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }
+.btn-ghost:hover { border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.07); }
 
 /* Hero stats bar */
 .hero-stats {
-  position: absolute; bottom: 48px; left: 0; right: 0; z-index: 1;
-  padding: 0 48px;
+  position: relative; z-index: 1; margin-top: 72px;
+  padding: 0;
   display: flex; gap: 0;
   border-top: 1px solid var(--border);
   padding-top: 40px;
@@ -310,7 +310,7 @@ body::after {
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   padding: 7px 14px; border: 1px solid var(--border2); border-radius: 6px;
-  font-size: 12px; color: var(--gray2); background: rgba(255,255,255,0.03);
+  font-size: 12px; color: var(--gray2); background: rgba(0,0,0,0.03);
 }
 #what .steps { display: flex; flex-direction: column; gap: 16px; }
 .step-card {
@@ -341,8 +341,8 @@ body::after {
   background: var(--dark3); border: 1px solid var(--border);
   transition: all 0.3s;
 }
-.agent-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-4px); }
-.agent-card.live { border-color: rgba(34,197,94,0.2); }
+.agent-card:hover { border-color: rgba(0,0,0,0.12); transform: translateY(-4px); }
+.agent-card.live { border-color: rgba(134,188,37,0.2); }
 .agent-card::before {
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -354,7 +354,7 @@ body::after {
 /* Glass shine effect */
 .agent-card::after {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(255,255,255,0.03), transparent 60%);
+  background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,0,0,0.03), transparent 60%);
   pointer-events: none;
 }
 
@@ -363,15 +363,15 @@ body::after {
   font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 4px 10px; border-radius: 20px; margin-bottom: 20px;
 }
-.agent-status.s-live { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+.agent-status.s-live { background: rgba(134,188,37,0.1); color: var(--green); border: 1px solid rgba(134,188,37,0.2); }
 .agent-status.s-live::before { content:"●"; font-size:7px; animation: blink 1.5s infinite; }
-.agent-status.s-soon { background: rgba(201,168,76,0.08); color: var(--gold); border: 1px solid var(--gold-dim); }
+.agent-status.s-soon { background: rgba(134,188,37,0.08); color: var(--gold); border: 1px solid var(--gold-dim); }
 
 .agent-icon { font-size: 34px; margin-bottom: 14px; display: block; }
 .agent-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
 .agent-card p { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
 .agent-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { font-size: 11px; padding: 3px 10px; border-radius: 4px; background: rgba(255,255,255,0.04); color: var(--gray); border: 1px solid var(--border); }
+.tag { font-size: 11px; padding: 3px 10px; border-radius: 4px; background: rgba(0,0,0,0.04); color: var(--gray); border: 1px solid var(--border); }
 
 /* Commission card */
 .agent-card.commission {
@@ -426,7 +426,7 @@ body::after {
 }
 .terminal-bar {
   display: flex; align-items: center; gap: 8px; padding: 12px 16px;
-  background: rgba(255,255,255,0.04); border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.04); border-bottom: 1px solid var(--border);
 }
 .t-dot { width: 10px; height: 10px; border-radius: 50%; }
 .t-dot.r { background: #FF5F57; }
@@ -455,9 +455,9 @@ body::after {
   background: var(--dark2); transition: all 0.25s; position: relative;
   text-decoration: none; color: inherit;
 }
-.ind-card:hover { border-color: rgba(255,255,255,0.1); }
-a.ind-card.live-link:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-2px); }
-.ind-card.featured { border-color: rgba(201,168,76,0.25); background: rgba(201,168,76,0.04); }
+.ind-card:hover { border-color: rgba(0,0,0,0.1); }
+a.ind-card.live-link:hover { border-color: rgba(134,188,37,0.4); transform: translateY(-2px); }
+.ind-card.featured { border-color: rgba(134,188,37,0.25); background: rgba(134,188,37,0.04); }
 .ind-icon { font-size: 28px; margin-bottom: 14px; display: block; }
 .ind-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
 .ind-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
@@ -467,8 +467,8 @@ a.ind-card.live-link:hover { border-color: rgba(201,168,76,0.4); transform: tran
   padding: 3px 10px; border-radius: 20px;
 }
 [dir="rtl"] .ind-badge { right: auto; left: 16px; }
-.ind-badge.live { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
-.ind-badge.soon { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.2); }
+.ind-badge.live { background: rgba(134,188,37,0.1); color: var(--green); border: 1px solid rgba(134,188,37,0.2); }
+.ind-badge.soon { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(134,188,37,0.2); }
 
 /* ═══════════════════════════════════════
    VISION — FULL BLEED
@@ -480,7 +480,7 @@ a.ind-card.live-link:hover { border-color: rgba(201,168,76,0.4); transform: tran
 }
 #vision .vision-glow {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(134,188,37,0.07) 0%, transparent 70%);
   pointer-events: none;
 }
 #vision .vision-inner { position: relative; z-index: 1; max-width: 840px; margin: 0 auto; }
@@ -514,7 +514,7 @@ a.ind-card.live-link:hover { border-color: rgba(201,168,76,0.4); transform: tran
   width: 52px; height: 52px; flex-shrink: 0; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   font-size: 18px; font-weight: 800; color: var(--gold);
-  background: linear-gradient(135deg, var(--gold-dim), rgba(201,168,76,0.25));
+  background: linear-gradient(135deg, var(--gold-dim), rgba(134,188,37,0.25));
 }
 .team-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
 .team-card .role { font-size: 12px; color: var(--gold); margin-bottom: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -558,7 +558,7 @@ footer p { font-size: 12px; color: var(--gray); }
 @media (max-width: 900px) {
   #nav { padding: 0 20px; }
   .nav-center { display: none; }
-  #hero { padding: 120px 20px 160px; }
+  #hero { padding: 110px 20px 40px; }
   .hero-stats { padding: 28px 20px 0; gap: 20px; flex-wrap: wrap; bottom: 20px; }
   .hero-stat { border-right: none; padding-right: 0; flex: 0 0 45%; }
   .section, .section-sm { padding: 80px 20px; }
@@ -591,6 +591,26 @@ footer p { font-size: 12px; color: var(--gray); }
 
 /* Logo text always LTR */
 .logo-text { direction: ltr; }
+
+/* report style */
+h1,h2,.t-display{font-weight:300!important;letter-spacing:-.01em}
+h3,h4{font-weight:600}
+.t-eyebrow,.section-ey{color:var(--gold)!important;font-weight:700;letter-spacing:.02em;text-transform:none}
+body{color:#333}
+.btn-primary{background:var(--gold)!important;color:#fff!important;border-color:var(--gold)!important;border-radius:4px!important}
+.btn-ghost,.btn-nav{border-radius:4px!important;color:#111!important;border-color:rgba(0,0,0,.25)!important}
+.btn-nav{background:var(--gold)!important;color:#fff!important;border-color:var(--gold)!important}
+.chip,.tag{background:#F3F6EC!important;color:#3a5a10!important;border:1px solid #d8e5c0!important}
+.avatar{background:var(--gold)!important;color:#fff!important}
+.hero-stat-num,.proof-metric-num{font-weight:300!important;color:#111!important}
+.section{border-top:1px solid #e3e3e3}
+.agent-status.s-live{background:var(--gold)!important;color:#fff!important}
+.agent-status.s-soon{background:#eee!important;color:#555!important}
+[class*="card"],.step,.ind-card,.agent-card,.proof-card,.team-card{background:#fff!important;border:1px solid #e3e3e3!important;border-top:3px solid var(--gold)!important;border-radius:4px!important;box-shadow:none!important}
+.terminal-box,.log,pre{background:#F5F7F2!important;color:#333!important;border:1px solid #e3e3e3!important}
+.t-cmd{color:#43B02A!important}.t-val{color:#333!important}.t-dim{color:#888!important}
+nav,header,.nav{background:rgba(255,255,255,.92)!important;border-bottom:1px solid #e3e3e3!important}
+footer{background:#F5F7F2!important;border-top:4px solid var(--gold)!important}
 </style>
 </head>
 <body>
@@ -601,15 +621,15 @@ footer p { font-size: 12px; color: var(--gray); }
     <!-- Logo mark: BRX = Bricks — staggered masonry bond mark -->
     <svg class="logo-mark" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Row 1: two bricks, full width -->
-      <rect x="0" y="0" width="17" height="8" rx="1.5" fill="#C9A84C"/>
-      <rect x="19" y="0" width="19" height="8" rx="1.5" fill="#C9A84C" opacity="0.55"/>
+      <rect x="0" y="0" width="17" height="8" rx="1.5" fill="#86BC25"/>
+      <rect x="19" y="0" width="19" height="8" rx="1.5" fill="#86BC25" opacity="0.55"/>
       <!-- Row 2: offset — classic bond pattern -->
-      <rect x="0" y="11" width="9" height="8" rx="1.5" fill="#C9A84C" opacity="0.4"/>
-      <rect x="11" y="11" width="17" height="8" rx="1.5" fill="#C9A84C"/>
-      <rect x="30" y="11" width="8" height="8" rx="1.5" fill="#C9A84C" opacity="0.4"/>
+      <rect x="0" y="11" width="9" height="8" rx="1.5" fill="#86BC25" opacity="0.4"/>
+      <rect x="11" y="11" width="17" height="8" rx="1.5" fill="#86BC25"/>
+      <rect x="30" y="11" width="8" height="8" rx="1.5" fill="#86BC25" opacity="0.4"/>
       <!-- Row 3: mirrors row 1 -->
-      <rect x="0" y="22" width="17" height="8" rx="1.5" fill="#C9A84C" opacity="0.55"/>
-      <rect x="19" y="22" width="19" height="8" rx="1.5" fill="#C9A84C"/>
+      <rect x="0" y="22" width="17" height="8" rx="1.5" fill="#86BC25" opacity="0.55"/>
+      <rect x="19" y="22" width="19" height="8" rx="1.5" fill="#86BC25"/>
     </svg>
     <span class="logo-text">BRX<span>·</span>DXB</span>
   </a>
@@ -1120,11 +1140,11 @@ footer p { font-size: 12px; color: var(--gray); }
     </p>
     <div class="cta-buttons reveal reveal-d3">
       <a href="mailto:leo@brxdxb.com?subject=Commission%20an%20AI%20Agent" class="btn-primary" data-en="Email us directly →" data-ar="راسلنا مباشرة ←">Email us directly →</a>
-      <a href="https://wa.me/971566030347?text=Hi%2C%20I%27d%20like%20to%20commission%20an%20AI%20agent%20for%20my%20business." class="btn-ghost" target="_blank" data-en="WhatsApp Leo" data-ar="واتساب ليو">WhatsApp Leo</a>
+      <a href="https://wa.me/97155030347?text=Hi%2C%20I%27d%20like%20to%20commission%20an%20AI%20agent%20for%20my%20business." class="btn-ghost" target="_blank" data-en="WhatsApp Leo" data-ar="واتساب ليو">WhatsApp Leo</a>
     </div>
     <div class="contact-row reveal">
       <div class="contact-item" data-en="leo@brxdxb.com" data-ar="leo@brxdxb.com"><a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a></div>
-      <div class="contact-item"><a href="https://wa.me/971566030347">+971 56 603 0347</a></div>
+      <div class="contact-item"><a href="https://wa.me/97155030347">+971 55 030 347</a></div>
       <div class="contact-item" data-en="DIFC, Dubai, UAE" data-ar="مركز دبي المالي العالمي، دبي، الإمارات">DIFC, Dubai, UAE</div>
     </div>
   </div>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Bot — a working WhatsApp booking demo | BRX·DXB</title>
+<meta name="description" content="A WhatsApp assistant that books the table, sends the reminder and asks for the review. Built and run in Dubai by BRX. Free to see running on your number.">
+<meta property="og:title" content="Table Bot — a working WhatsApp booking demo | BRX·DXB">
+<meta property="og:description" content="A WhatsApp assistant that books the table, sends the reminder and asks for the review. Free to see running on your number.">
+<meta property="og:url" content="https://www.brxdxb.com/table/">
+<meta property="og:type" content="website">
+<!-- head:start -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/brx.css">
+<link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>document.documentElement.classList.add('js')</script>
+<!-- head:end -->
+<style>
+/* Page-only styles. Everything else comes from /assets/brx.css. */
+.tb-hero { padding: 72px 0 96px; border-bottom: 1px solid var(--line); }
+.tb-hero-in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; align-items: center; }
+.tb-hero h1 em { font-style: normal; color: var(--g-ink); }
+.tb-hero .lede { margin-top: 18px; }
+.tb-name { margin-top: 28px; }
+.tb-name label { display: block; font-size: 13px; font-weight: 700; color: var(--ink3); margin-bottom: 8px; }
+.tb-name input {
+  width: 100%; max-width: 360px; min-height: 46px; padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--ghost); background: #fff; color: var(--ink); font: 600 15px/1.4 var(--en);
+}
+.tb-name input:focus-visible { outline: 2px solid var(--g2); outline-offset: 2px; border-color: var(--g2); }
+.tb-hero .btn-row { margin-top: 24px; }
+
+/* Phone: same shell as the homepage */
+.tb-phone-wrap { display: flex; justify-content: center; }
+.phone { position: relative; width: 300px; max-width: 100%; aspect-ratio: 9 / 18.6; background: #111; border-radius: 40px; padding: 9px; box-shadow: 0 40px 70px -34px rgba(40,70,10,.6); direction: ltr; }
+.phone .screen { position: relative; height: 100%; background: #F6F7F3; border-radius: 31px; overflow: hidden; display: flex; flex-direction: column; }
+.phone .island { position: absolute; top: 9px; left: 50%; width: 74px; height: 21px; margin-left: -37px; background: #111; border-radius: 12px; z-index: 3; }
+.wa-head { padding: 40px 14px 12px; background: #fff; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; }
+.wa-head .av { width: 36px; height: 36px; border-radius: 50%; background: var(--g); color: var(--ink); display: flex; align-items: center; justify-content: center; font: 700 15px/1 var(--display); flex: none; }
+.wa-head .nm { font: 700 14px/1.15 var(--display); letter-spacing: -.01em; color: var(--ink); }
+.wa-head .st { font-size: 11px; color: var(--g-ink); font-weight: 700; margin-top: 2px; }
+.chat { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.4; color: var(--ink); }
+.msg { max-width: 86%; padding: 9px 11px; border-radius: 16px; white-space: pre-line; text-align: left; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+.msg .t { display: block; font-size: 10px; color: var(--ink3); text-align: right; margin-top: 3px; }
+.msg.them { align-self: flex-start; background: #fff; border-bottom-left-radius: 4px; }
+.msg.me { align-self: flex-end; background: var(--g-soft); border-bottom-right-radius: 4px; }
+.typing { align-self: flex-start; background: #fff; padding: 10px 14px; border-radius: 16px; border-bottom-left-radius: 4px; display: flex; gap: 4px; }
+.typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--ghost); animation: tb-blink 1s infinite; }
+.typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes tb-blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+.wa-foot { padding: 10px 12px; background: #fff; border-top: 1px solid var(--line); display: flex; gap: 8px; align-items: center; }
+.wa-foot .box { flex: 1; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 13px; color: var(--ink3); }
+.wa-foot .send { width: 34px; height: 34px; border-radius: 50%; background: var(--g); display: flex; align-items: center; justify-content: center; color: var(--ink); font-weight: 800; }
+
+.stats { margin-top: 0; }
+.tb-cal { margin-top: 32px; }
+.tb-cal .fine { margin-top: 10px; }
+.tb-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; font-size: 14px; z-index: 200; }
+
+@media (max-width: 960px) {
+  .tb-hero { padding: 40px 0 64px; }
+  .tb-hero-in { grid-template-columns: 1fr; gap: 40px; }
+  .tb-phone-wrap { order: -1; }
+  .phone { width: 260px; }
+  .stats { grid-template-columns: 1fr; }
+  .stat + .stat { padding-inline-start: 0; border-inline-start: 0; border-top: 1px solid var(--line); }
+}
+@media (prefers-reduced-motion: reduce) { .typing i { animation: none; } }
+</style>
+</head>
+<body data-page="industries">
+<!-- nav:start -->
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+<header class="site-nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+      <a href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+      <a href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+      <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+      <a href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button type="button" id="btn-ar" onclick="setLang('ar')" aria-pressed="false" lang="ar">AR</button>
+      </div>
+      <a class="btn btn--sm nav-cta" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+      <button class="burger" id="burger" type="button" aria-controls="sheet" aria-expanded="false" aria-label="Menu" data-en-aria="Menu" data-ar-aria="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet-link" href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+  <a class="sheet-link" href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+  <a class="sheet-link" href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+  <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+  <a class="sheet-link" href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  <a class="btn" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+  <p class="fine" data-en="BRX · DIFC, Dubai" data-ar="BRX · مركز دبي المالي العالمي، دبي">BRX · DIFC, Dubai</p>
+</div>
+<!-- nav:end -->
+
+<main id="main">
+
+<section class="tb-hero">
+  <div class="wrap tb-hero-in">
+    <div>
+      <p class="crumb"><a href="/flow/" data-en="Industries" data-ar="القطاعات">Industries</a> / <a href="/flow/hospitality.html" data-en="Hospitality" data-ar="الضيافة">Hospitality</a> / <span data-en="Table Bot" data-ar="بوت الحجز">Table Bot</span></p>
+      <p class="eyebrow"><span data-en="Live demo · built for" data-ar="عرض حي · مبني لـ">Live demo · built for</span>&nbsp;<span class="tb-n">your restaurant</span></p>
+      <h1 class="display display--xl"><em class="tb-n">Your restaurant</em> <span data-en="takes bookings while you're on the floor." data-ar="يستقبل الحجوزات وأنت في الصالة.">takes bookings while you're on the floor.</span></h1>
+      <p class="lede" data-en="A WhatsApp assistant that answers, books the table and sends the reminder. No app to download. No front-desk time." data-ar="مساعد واتساب يردّ، يحجز الطاولة ويرسل التذكير. بلا تطبيق. بلا وقت من موظف الاستقبال.">A WhatsApp assistant that answers, books the table and sends the reminder. No app to download. No front-desk time.</p>
+      <div class="tb-name">
+        <label for="rname" data-en="Try it with your name" data-ar="جرّبه باسم مطعمك">Try it with your name</label>
+        <input id="rname" type="text" placeholder="e.g. Zuma DIFC" autocomplete="off">
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="replay" type="button" data-en="Replay the chat" data-ar="أعد تشغيل المحادثة">Replay the chat</button>
+        <a class="btn btn--ghost" id="book-btn" href="#cta" data-en="Book 10 minutes" data-ar="احجز 10 دقائق">Book 10 minutes</a>
+      </div>
+    </div>
+    <div class="tb-phone-wrap">
+      <div class="phone" aria-label="WhatsApp booking demo">
+        <div class="island"></div>
+        <div class="screen">
+          <div class="wa-head">
+            <div class="av" id="avatar">R</div>
+            <div><div class="nm tb-n">Your restaurant</div><div class="st" data-en="Replies in seconds" data-ar="يردّ خلال ثوانٍ">Replies in seconds</div></div>
+          </div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+          <div class="wa-foot"><div class="box" data-en="Message" data-ar="رسالة">Message</div><div class="send">›</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--flush" id="day1">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-en="What it does on day 1" data-ar="ماذا يفعل من اليوم الأول">What it does on day 1</p>
+      <h2 class="display" data-en="Three jobs your team stops doing by hand." data-ar="ثلاث مهام يتوقف فريقك عن أدائها يدوياً.">Three jobs your team stops doing by hand.</h2>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="n">24<em>/7</em></div><div class="l" data-en="Books tables. Guests message, pick a time, get a confirmation. Nobody picks up a phone." data-ar="يحجز الطاولات. الضيف يراسل، يختار وقتاً، ويستلم التأكيد. لا أحد يرفع السماعة.">Books tables. Guests message, pick a time, get a confirmation. Nobody picks up a phone.</div></div>
+      <div class="stat"><div class="n"><em>−</em>30%</div><div class="l" data-en="Fewer no-shows. Reminder 3 hours before, with a one-tap reschedule." data-ar="غيابات أقل. تذكير قبل 3 ساعات مع إعادة جدولة بنقرة واحدة.">Fewer no-shows. Reminder 3 hours before, with a one-tap reschedule.</div></div>
+      <div class="stat"><div class="n"><em>+</em>1</div><div class="l" data-en="Google review, every visit. A polite nudge 2 hours after the meal. Reviews compound." data-ar="تقييم جوجل بعد كل زيارة. تذكير لطيف بعد ساعتين من الوجبة. التقييمات تتراكم.">Google review, every visit. A polite nudge 2 hours after the meal. Reviews compound.</div></div>
+      <div class="stat"><div class="n">48<em>h</em></div><div class="l" data-en="To go live. We connect your existing WhatsApp number. Nothing changes for your guests." data-ar="للتشغيل. نربط رقم واتساب الحالي. لا شيء يتغير لضيوفك.">To go live. We connect your existing WhatsApp number. Nothing changes for your guests.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="how">
+  <div class="wrap wrap--narrow">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-en="How it goes live" data-ar="كيف يعمل">How it goes live</p>
+      <h2 class="display" data-en="Ten minutes with you. Two days with us." data-ar="عشر دقائق معك. يومان معنا.">Ten minutes with you. Two days with us.</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="k">01</div><div><h4 data-en="You show us the floor" data-ar="ترينا الصالة">You show us the floor</h4><p data-en="Tables, sittings, the rules your hostess keeps in her head. Ten minutes at the restaurant." data-ar="الطاولات، الجلسات، القواعد التي تحفظها المضيفة في رأسها. عشر دقائق في المطعم.">Tables, sittings, the rules your hostess keeps in her head. Ten minutes at the restaurant.</p></div></div>
+      <div class="step"><div class="k">02</div><div><h4 data-en="We connect your WhatsApp number" data-ar="نربط رقم واتساب">We connect your WhatsApp number</h4><p data-en="The same number guests already have. The assistant answers first; your team steps in when it matters." data-ar="نفس الرقم الذي لدى الضيوف. المساعد يردّ أولاً، وفريقك يتدخل عند الحاجة.">The same number guests already have. The assistant answers first; your team steps in when it matters.</p></div></div>
+      <div class="step"><div class="k">03</div><div><h4 data-en="You get a daily brief" data-ar="تستلم ملخصاً يومياً">You get a daily brief</h4><p data-en="Tonight's bookings, who confirmed, who rescheduled, which reviews came in. One WhatsApp message at 10am." data-ar="حجوزات الليلة، من أكّد، من أعاد الجدولة، وأي تقييمات وصلت. رسالة واتساب واحدة الساعة 10 صباحاً.">Tonight's bookings, who confirmed, who rescheduled, which reviews came in. One WhatsApp message at 10am.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cta">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <p class="eyebrow" data-en="What it costs to look" data-ar="كم يكلّف أن تشاهد">What it costs to look</p>
+      <h2 class="display" data-en="Nothing. Ten minutes at your restaurant." data-ar="لا شيء. عشر دقائق في مطعمك.">Nothing. Ten minutes at your restaurant.</h2>
+      <p class="lede" data-en="We show it running on your number. If it doesn't fit, we shake hands and that's it." data-ar="نعرضه يعمل على رقمك. إن لم يناسبك، نتصافح وينتهي الأمر.">We show it running on your number. If it doesn't fit, we shake hands and that's it.</p>
+      <div class="tb-cal" id="cal-wrap" hidden>
+        <a class="btn" id="cal-btn" href="#" target="_blank" rel="noopener" data-en="Pick a time" data-ar="اختر وقتاً">Pick a time</a>
+        <p class="fine" data-en="Opens a calendar. Pick any 10-minute slot." data-ar="يفتح تقويماً. اختر أي فترة 10 دقائق.">Opens a calendar. Pick any 10-minute slot.</p>
+      </div>
+    </div>
+<!-- founders:start -->
+<div class="founders">
+  <div class="card founder">
+    <div class="initials" aria-hidden="true">SZ</div>
+    <div>
+      <h3 data-en="Saud Zayed" data-ar="سعود زايد">Saud Zayed</h3>
+      <p class="role" data-en="Co-Founder · Operations" data-ar="شريك مؤسس · العمليات">Co-Founder · Operations</p>
+      <p class="contact"><a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a> · <a href="https://wa.me/971503495555">+971 50 349 5555</a></p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:saud@brxdxb.com?subject=BRX%20enquiry" data-en="Email Saud" data-ar="راسل سعود">Email Saud</a>
+        <a class="btn btn--ghost" href="https://wa.me/971503495555?text=Hi%20Saud%2C%20I%20found%20BRX%20on%20brxdxb.com." target="_blank" rel="noopener" data-en="WhatsApp Saud" data-ar="واتساب سعود">WhatsApp Saud</a>
+      </div>
+    </div>
+  </div>
+  <div class="card founder">
+    <div class="initials" aria-hidden="true">LK</div>
+    <div>
+      <h3 data-en="Leo Khatib" data-ar="ليو خطيب">Leo Khatib</h3>
+      <p class="role" data-en="Co-Founder · AI Systems Architect" data-ar="شريك مؤسس · مهندس أنظمة الذكاء الاصطناعي">Co-Founder · AI Systems Architect</p>
+      <p class="contact"><a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a> · <a href="https://wa.me/971558917770">+971 55 891 7770</a></p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:leo@brxdxb.com?subject=BRX%20enquiry" data-en="Email Leo" data-ar="راسل ليو">Email Leo</a>
+        <a class="btn btn--ghost" href="https://wa.me/971558917770?text=Hi%20Leo%2C%20I%20found%20BRX%20on%20brxdxb.com." target="_blank" rel="noopener" data-en="WhatsApp Leo" data-ar="واتساب ليو">WhatsApp Leo</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- founders:end -->
+    <p class="fine" style="margin-top:24px" data-en="Figures above are typical results from WhatsApp booking flows. Your numbers come from your bookings." data-ar="الأرقام أعلاه نتائج معتادة لمسارات الحجز عبر واتساب. أرقامك تأتي من حجوزاتك.">Figures above are typical results from WhatsApp booking flows. Your numbers come from your bookings.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- foot:start -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <p data-en="AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ذكاء اصطناعي يتولّون العمل المتكرر، يُبنون ويعملون في دبي. © 2026 BRX Technologies.">AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies.</p>
+    <div class="foot-links">
+      <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+      <span class="muted" data-en="DIFC, Dubai" data-ar="مركز دبي المالي العالمي، دبي">DIFC, Dubai</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/brx.js" defer></script>
+<!-- foot:end -->
+
+<script>
+(function () {
+  // Leo: paste your Calendly link between the quotes. Empty = the founders' cards are the CTA.
+  var CALENDLY_URL = "";
+  var DEFAULT = "Your restaurant";
+  var RESERVED = { '': 1, cta: 1, main: 1, how: 1, day1: 1 };
+
+  var chat = document.getElementById('chat');
+  var input = document.getElementById('rname');
+  var avatar = document.getElementById('avatar');
+  var nameEls = document.querySelectorAll('.tb-n');
+
+  function fromHash() {
+    var h = decodeURIComponent((location.hash || '').replace('#', ''));
+    if (RESERVED[h]) return '';
+    return h.replace(/[-_]+/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+  function getName() {
+    var n = fromHash();
+    if (!n) { try { n = localStorage.getItem('brx-table-name') || ''; } catch (e) {} }
+    return n || DEFAULT;
+  }
+  function setName(n) {
+    n = (n || '').trim() || DEFAULT;
+    nameEls.forEach(function (el) { el.textContent = n; });
+    avatar.textContent = n.charAt(0).toUpperCase();
+    try { if (n !== DEFAULT) localStorage.setItem('brx-table-name', n); } catch (e) {}
+    return n;
+  }
+
+  function script(n) {
+    return [
+      { who: 'me',   t: 'Hi, table for 4 tonight?', at: '19:02' },
+      { who: 'them', t: 'Hi! Yes, ' + n + ' has space tonight. I have 20:00 or 21:15 for 4. Which works?', at: '19:02' },
+      { who: 'me',   t: '21:15', at: '19:03' },
+      { who: 'them', t: 'Done. Table for 4 at 21:15 tonight, under your WhatsApp name.\nI\'ll remind you at 18:15. Anything else? Birthday, allergies?', at: '19:03' },
+      { who: 'me',   t: 'One nut allergy', at: '19:03' },
+      { who: 'them', t: 'Noted for the kitchen. See you at 21:15.', at: '19:03' },
+      { who: 'them', t: 'Reminder: table for 4 at ' + n + ' tonight, 21:15. Reply R to reschedule.', at: '18:15' }
+    ];
+  }
+  function bubble(m) {
+    var d = document.createElement('div');
+    d.className = 'msg ' + m.who;
+    d.textContent = m.t;
+    var t = document.createElement('span'); t.className = 't'; t.textContent = m.at;
+    d.appendChild(t);
+    return d;
+  }
+
+  var timer = null;
+  function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+  function renderStatic(n) {
+    stop(); chat.innerHTML = '';
+    script(n).forEach(function (m) { chat.appendChild(bubble(m)); });
+    chat.scrollTop = chat.scrollHeight;
+  }
+  function renderAnimated(n) {
+    stop(); chat.innerHTML = '';
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { renderStatic(n); return; }
+    var msgs = script(n), i = 0;
+    function step() {
+      if (i >= msgs.length) return;
+      var m = msgs[i++];
+      if (m.who === 'them') {
+        var ty = document.createElement('div'); ty.className = 'typing'; ty.innerHTML = '<i></i><i></i><i></i>';
+        chat.appendChild(ty); chat.scrollTop = chat.scrollHeight;
+        timer = setTimeout(function () { ty.remove(); chat.appendChild(bubble(m)); chat.scrollTop = chat.scrollHeight; timer = setTimeout(step, 700); }, 900);
+      } else {
+        chat.appendChild(bubble(m)); chat.scrollTop = chat.scrollHeight;
+        timer = setTimeout(step, 800);
+      }
+    }
+    step();
+  }
+
+  var current = setName(getName());
+  if (current !== DEFAULT) input.value = current;
+  renderStatic(current);
+
+  input.addEventListener('input', function () { current = setName(input.value); renderStatic(current); });
+  document.getElementById('replay').addEventListener('click', function () { renderAnimated(current); });
+  window.addEventListener('hashchange', function () { var h = fromHash(); if (h) { current = setName(h); input.value = current; renderStatic(current); } });
+
+  if (CALENDLY_URL) {
+    var cb = document.getElementById('cal-btn'); cb.href = CALENDLY_URL;
+    document.getElementById('cal-wrap').hidden = false;
+    var bb = document.getElementById('book-btn'); bb.href = CALENDLY_URL; bb.target = '_blank'; bb.rel = 'noopener';
+  }
+})();
+</script>
+</body>
+</html>

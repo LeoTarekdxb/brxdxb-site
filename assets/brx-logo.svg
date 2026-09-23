@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="1600" height="400">
+  <g transform="translate(6,10) scale(1)">
+    <path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/>
+    <path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/>
+    <circle cx="86" cy="38" r="17" fill="#FFFFFF"/>
+  </g>
+  <text x="128" y="72" font-family="Open Sans, Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="64" fill="#111111" letter-spacing="-2">BRX</text>
+</svg>

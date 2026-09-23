@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="1200" height="800">
+  <!-- BRX mark: the switch that calls. Pill = switch ON, knob = the agent, tail = it speaks. -->
+  <path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/>
+  <path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/>
+  <circle cx="86" cy="38" r="17" fill="#FFFFFF"/>
+</svg>

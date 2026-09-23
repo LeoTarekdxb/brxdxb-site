@@ -98,9 +98,8 @@ p + p { margin-top: 14px; }
 }
 .nav-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); direction: ltr; flex: none; }
-.brand svg { width: 30px; height: 24px; }
-.brand b { font-size: 17px; font-weight: 700; letter-spacing: .02em; }
-.brand b i { font-style: normal; color: var(--g); }
+.brand svg { height: 30px; width: auto; aspect-ratio: 108 / 70; }
+.brand b { font-size: 22px; font-weight: 800; letter-spacing: -1px; color: #111; line-height: 1; }
 .nav-links { display: flex; gap: 32px; }
 .nav-links a {
   position: relative; font-size: 14px; font-weight: 600; color: var(--ink3);
@@ -290,7 +289,6 @@ html[dir="rtl"] .founder .contact { text-align: right; }
 }
 @media (max-width: 420px) {
   :root { --gut: 16px; }
-  .brand b { font-size: 16px; }
   .lang button { padding: 7px 10px; min-width: 36px; }
   .btn-row .btn { flex: 1 1 100%; }
 }

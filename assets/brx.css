@@ -279,6 +279,13 @@ html[dir="rtl"] .founder .contact { text-align: right; }
   .page-hero { padding: 64px 0 56px; }
 }
 @media (max-width: 640px) {
+  .display br { display: none; }
+  .tbl--stack thead { display: none; }
+  .tbl--stack tr, .tbl--stack td, .tbl--stack tbody th { display: block; width: auto; }
+  .tbl--stack tbody th { padding-bottom: 4px; }
+  .tbl--stack td { border-top: 0; padding-top: 2px; padding-bottom: 6px; }
+  .tbl--stack td + td { color: var(--ink3); font-size: 14px; }
+  .tbl--stack tbody tr { border-top: 1px solid var(--line); }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .log li { grid-template-columns: 64px 1fr; }
   .log li .msg { grid-column: 1 / -1; }

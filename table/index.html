@@ -128,6 +128,7 @@
       <div class="btn-row">
         <button class="btn" id="replay" type="button" data-en="Replay the chat" data-ar="أعد تشغيل المحادثة">Replay the chat</button>
         <a class="btn btn--ghost" id="book-btn" href="#cta" data-en="Book 10 minutes" data-ar="احجز 10 دقائق">Book 10 minutes</a>
+        <a class="btn btn--ghost" id="value-btn" href="value/BRX_Value_Table_Bot_EN.pdf" target="_blank" rel="noopener" data-en="See the numbers (PDF)" data-ar="شاهد الأرقام (PDF)">See the numbers (PDF)</a>
       </div>
     </div>
     <div class="tb-phone-wrap">
@@ -181,6 +182,7 @@
       <p class="eyebrow" data-en="What it costs to look" data-ar="كم يكلّف أن تشاهد">What it costs to look</p>
       <h2 class="display" data-en="Nothing. Ten minutes at your restaurant." data-ar="لا شيء. عشر دقائق في مطعمك.">Nothing. Ten minutes at your restaurant.</h2>
       <p class="lede" data-en="We show it running on your number. If it doesn't fit, we shake hands and that's it." data-ar="نعرضه يعمل على رقمك. إن لم يناسبك، نتصافح وينتهي الأمر.">We show it running on your number. If it doesn't fit, we shake hands and that's it.</p>
+      <p class="fine"><a id="value-link" href="value/BRX_Value_Table_Bot_EN.pdf" target="_blank" rel="noopener" data-en="Where you are today vs with Table Bot, 6 pages with the numbers (PDF)." data-ar="أين أنت اليوم مقابل ما بعد بوت الحجز، 6 صفحات بالأرقام (PDF).">Where you are today vs with Table Bot, 6 pages with the numbers (PDF).</a></p>
       <div class="tb-cal" id="cal-wrap" hidden>
         <a class="btn" id="cal-btn" href="#" target="_blank" rel="noopener" data-en="Pick a time" data-ar="اختر وقتاً">Pick a time</a>
         <p class="fine" data-en="Opens a calendar. Pick any 10-minute slot." data-ar="يفتح تقويماً. اختر أي فترة 10 دقائق.">Opens a calendar. Pick any 10-minute slot.</p>
@@ -320,7 +322,14 @@
 
   input.addEventListener('input', function () { current = setName(input.value); renderStatic(current); });
   document.getElementById('replay').addEventListener('click', function () { renderAnimated(current); });
-  window.addEventListener('hashchange', function () { var h = fromHash(); if (h) { current = setName(h); input.value = current; renderStatic(current); } });
+  var VALUE_SLUGS = ['First-Cup-Masaya','Leens-DIFC','Sucre-Brasserie','Rowleys','Jospereno','Common-Grounds','Lulu-and-the-Beanstalk'];
+  function setValueLink() {
+    var raw = decodeURIComponent((location.hash || '').replace('#', ''));
+    var file = 'value/BRX_Value_' + (VALUE_SLUGS.indexOf(raw) >= 0 ? raw : 'Table_Bot') + '_EN.pdf';
+    ['value-btn', 'value-link'].forEach(function (id) { var el = document.getElementById(id); if (el) el.href = file; });
+  }
+  setValueLink();
+  window.addEventListener('hashchange', function () { setValueLink(); var h = fromHash(); if (h) { current = setName(h); input.value = current; renderStatic(current); } });
 
   if (CALENDLY_URL) {
     var cb = document.getElementById('cal-btn'); cb.href = CALENDLY_URL;

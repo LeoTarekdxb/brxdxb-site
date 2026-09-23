@@ -89,26 +89,6 @@ html[lang="ar"] .trial { line-height: 1.25; letter-spacing: 0; }
   .chart-x { gap: 10px; font-size: 12px; }
   .bar span { font-size: 12px; }
 }
-/* Free-month form */
-.lead-form { margin: 40px 0 48px; padding: 32px; background: var(--bg2); border: 1px solid var(--line); border-top: 3px solid var(--g); border-radius: var(--r); }
-.lead-form .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
-.lead-form .field { display: flex; flex-direction: column; gap: 6px; }
-.lead-form .field--full { grid-column: 1 / -1; }
-.lead-form label { font-size: 13px; font-weight: 700; color: var(--ink); }
-.lead-form label small { font-weight: 400; color: var(--ink3); }
-.lead-form input, .lead-form select {
-  min-height: 46px; padding: 10px 14px; border: 1px solid var(--ghost); border-radius: var(--r);
-  background: #fff; color: var(--ink); font: 400 15px/1.4 var(--en); width: 100%;
-}
-html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-family: var(--ar); }
-.lead-form input:focus-visible, .lead-form select:focus-visible { outline: 2px solid var(--g2); outline-offset: 1px; border-color: var(--g2); }
-.lead-form .actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 6px; }
-.lead-form .note { font-size: 13px; color: var(--ink3); }
-.lead-form .err { grid-column: 1 / -1; color: #B3261E; font-size: 14px; font-weight: 600; }
-.lead-done { margin: 40px 0 48px; padding: 32px; background: var(--g-soft); border: 1px solid #D8E5C0; border-top: 3px solid var(--g); border-radius: var(--r); }
-.lead-done h3 { margin-bottom: 6px; }
-.lead-done p { color: var(--ink2); }
-@media (max-width: 720px) { .lead-form { padding: 22px; } .lead-form .grid { grid-template-columns: 1fr; } }
 </style>
 <link rel="stylesheet" href="/assets/atlas.css">
 </head>
@@ -123,6 +103,7 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
     </a>
     <nav class="nav-links" aria-label="Main">
       <a href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+      <a href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
       <a href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
       <a href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
       <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
@@ -140,12 +121,13 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
 </header>
 <div class="sheet" id="sheet" aria-hidden="true">
   <a class="sheet-link" href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+  <a class="sheet-link" href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
   <a class="sheet-link" href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
   <a class="sheet-link" href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
   <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
   <a class="sheet-link" href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
   <a class="btn" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
-  <p class="fine" data-en="BRX · DIFC, Dubai" data-ar="BRX · مركز دبي المالي العالمي، دبي">BRX · DIFC, Dubai</p>
+  <p class="fine" data-en="BRX · Dubai" data-ar="BRX · دبي">BRX · Dubai</p>
 </div>
 <!-- nav:end -->
 
@@ -330,7 +312,7 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
         <thead><tr><th scope="col" data-en="What" data-ar="ماذا">What</th><th scope="col" data-en="Where" data-ar="أين">Where</th><th scope="col" data-en="Access" data-ar="الوصول">Access</th></tr></thead>
         <tbody>
           <tr><th scope="row" data-en="This site" data-ar="هذا الموقع">This site</th><td><a class="link" href="https://www.brxdxb.com">brxdxb.com</a></td><td data-en="Public" data-ar="عام">Public</td></tr>
-          <tr><th scope="row" data-en="Defender — how the engine works" data-ar="Defender — كيف يعمل المحرّك">Defender — how the engine works</th><td><a class="link" href="https://brx-defender-dubai.netlify.app" target="_blank" rel="noopener">brx-defender-dubai.netlify.app</a></td><td data-en="Public" data-ar="عام">Public</td></tr>
+          <tr><th scope="row" data-en="Defender — how the engine works" data-ar="Defender — كيف يعمل المحرّك">Defender — how the engine works</th><td><a class="link" href="/defender/">brxdxb.com/defender</a></td><td data-en="Public" data-ar="عام">Public</td></tr>
           <tr><th scope="row" data-en="The live desk" data-ar="المكتب الحيّ">The live desk</th><td data-en="On a screen-share with a founder" data-ar="عبر مشاركة الشاشة مع أحد المؤسسين">On a screen-share with a founder</td><td data-en="Book with Saud or Leo below" data-ar="احجز مع سعود أو ليو أدناه">Book with Saud or Leo below</td></tr>
         </tbody>
       </table>
@@ -345,60 +327,63 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
       <p class="eyebrow" data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</p>
       <h2 class="display" data-en="Stop losing leads <br>to whoever calls first." data-ar="توقّف عن خسارة العملاء <br>لمن يتصل أولاً.">Stop losing leads <br>to whoever calls first.</h2>
       <p class="lede" data-en="Leave your details. We'll look at your lead flow and tell you within 24 hours what the free month would look like on your desk." data-ar="اترك بياناتك. سننظر في تدفق عملائك ونخبرك خلال 24 ساعة كيف سيبدو الشهر المجاني على مكتبك.">Leave your details. We'll look at your lead flow and tell you within 24 hours what the free month would look like on your desk.</p>
+      <p class="small defender-line"><a class="link" href="/defender/" data-en="Two tools stay free forever. See what you get on the Defender page." data-ar="أداتان مجانيتان إلى الأبد. اطّلع على ما تحصل عليه في صفحة Defender.">Two tools stay free forever. See what you get on the Defender page.</a></p>
     </div>
-    <form class="lead-form reveal" id="leadForm" novalidate>
-      <div class="grid">
-        <div class="field"><label for="lf-first" data-en="First name" data-ar="الاسم الأول">First name</label><input id="lf-first" name="first" type="text" autocomplete="given-name" required></div>
-        <div class="field"><label for="lf-last" data-en="Surname" data-ar="اسم العائلة">Surname</label><input id="lf-last" name="last" type="text" autocomplete="family-name"></div>
-        <div class="field"><label for="lf-phone" data-en="Phone (WhatsApp)" data-ar="الهاتف (واتساب)">Phone (WhatsApp)</label><input id="lf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+971 5x xxx xxxx" required></div>
-        <div class="field"><label for="lf-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label><input id="lf-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="lf-role" data-en="You are" data-ar="أنت">You are</label>
-          <select id="lf-role" name="role" required>
-            <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
-            <option value="Agent" data-en="An agent" data-ar="وسيط عقاري">An agent</option>
-            <option value="Agency owner / manager" data-en="Agency owner or manager" data-ar="مالك أو مدير وكالة">Agency owner or manager</option>
-            <option value="Developer / other" data-en="Developer or other" data-ar="مطوّر أو غير ذلك">Developer or other</option>
-          </select></div>
-        <div class="field"><label for="lf-agency" data-en="Agency name" data-ar="اسم الوكالة">Agency name <small data-en="(optional)" data-ar="(اختياري)">(optional)</small></label><input id="lf-agency" name="agency" type="text" autocomplete="organization"></div>
-        <div class="field"><label for="lf-agents" data-en="Number of agents" data-ar="عدد الوسطاء">Number of agents</label><input id="lf-agents" name="agents" type="number" inputmode="numeric" min="1" max="5000" placeholder="e.g. 12"></div>
-        <div class="field"><label for="lf-source" data-en="How did you hear about us?" data-ar="كيف سمعت عنا؟">How did you hear about us?</label>
-          <select id="lf-source" name="source">
-            <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
-            <option value="Google" data-en="Google search" data-ar="بحث جوجل">Google search</option>
-            <option value="Instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</option>
-            <option value="LinkedIn" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</option>
-            <option value="WhatsApp forward" data-en="A WhatsApp forward" data-ar="رسالة واتساب محوّلة">A WhatsApp forward</option>
-            <option value="Referral" data-en="A friend or colleague" data-ar="صديق أو زميل">A friend or colleague</option>
-            <option value="Event" data-en="An event or DIFC" data-ar="فعالية أو مركز دبي المالي">An event or DIFC</option>
-            <option value="Other" data-en="Other" data-ar="غير ذلك">Other</option>
-          </select></div>
-        <div class="field field--full"><label for="lf-why" data-en="What do you want it to fix?" data-ar="ما الذي تريده أن يحلّه؟">What do you want it to fix?</label>
-          <select id="lf-why" name="why" required>
-            <option value="" data-en="Choose the closest one" data-ar="اختر الأقرب">Choose the closest one</option>
-            <option value="Slow reply, lose leads" data-en="I reply too slowly and lose leads to other agents" data-ar="أردّ ببطء وأخسر العملاء لوسطاء آخرين">I reply too slowly and lose leads to other agents</option>
-            <option value="Portal leads go cold" data-en="Bayut / Property Finder leads go cold before I call" data-ar="عملاء بيوت / بروبرتي فايندر يبردون قبل أن أتصل">Bayut / Property Finder leads go cold before I call</option>
-            <option value="No follow-up on old leads" data-en="Nobody follows up with old leads" data-ar="لا أحد يتابع العملاء القدامى">Nobody follows up with old leads</option>
-            <option value="Too many WhatsApp chats" data-en="Too many WhatsApp chats to keep track of" data-ar="محادثات واتساب أكثر من أن أتابعها">Too many WhatsApp chats to keep track of</option>
-            <option value="CRM nobody uses" data-en="We have a CRM but nobody uses it" data-ar="لدينا CRM لكن لا أحد يستخدمه">We have a CRM but nobody uses it</option>
-            <option value="Automate calls and reminders" data-en="I want calls and reminders to run on their own" data-ar="أريد أن تعمل المكالمات والتذكيرات تلقائياً">I want calls and reminders to run on their own</option>
-            <option value="See which agents follow up" data-en="I want to see which agents actually follow up" data-ar="أريد أن أرى أي الوسطاء يتابعون فعلاً">I want to see which agents actually follow up</option>
-            <option value="Comparing options" data-en="Just comparing options for now" data-ar="أقارن الخيارات فقط حالياً">Just comparing options for now</option>
-          </select></div>
-        <p class="err" id="lf-err" hidden></p>
-        <div class="actions">
-          <button class="btn" id="lf-submit" type="submit" data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</button>
-          <span class="note" data-en="No card. No contract. We reply within 24 hours." data-ar="بلا بطاقة. بلا عقد. نردّ خلال 24 ساعة.">No card. No contract. We reply within 24 hours.</span>
-        </div>
-      </div>
-    </form>
-    <div class="lead-done" id="leadDone" hidden>
-      <h3 data-en="Got it. We'll be in touch within 24 hours." data-ar="وصلنا. سنتواصل معك خلال 24 ساعة.">Got it. We'll be in touch within 24 hours.</h3>
-      <p data-en="Want to talk sooner? Message either founder below." data-ar="تريد التحدث أسرع؟ راسل أيّاً من المؤسسَين أدناه.">Want to talk sooner? Message either founder below.</p>
-      <div class="btn-row" id="payRow" hidden style="margin-top:18px">
-        <a class="btn btn--ink" id="payBtn" href="#" target="_blank" rel="noopener" data-en="Skip the wait — pay the set-up (AED 50,000)" data-ar="تجاوز الانتظار — ادفع التجهيز (50,000 درهم)">Skip the wait — pay the set-up (AED 50,000)</a>
-        <span class="note" data-en="Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included." data-ar="دفع آمن عبر Stripe. يشمل Mac mini وشاشة المكتب والهاتف ورموز الذكاء الاصطناعي للسنة الأولى.">Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included.</span>
-      </div>
+<!-- leadform:start -->
+<form class="lead-form" id="leadForm" novalidate>
+  <div class="grid">
+    <div class="field"><label for="lf-first" data-en="First name" data-ar="الاسم الأول">First name</label><input id="lf-first" name="first" type="text" autocomplete="given-name" required></div>
+    <div class="field"><label for="lf-last" data-en="Surname" data-ar="اسم العائلة">Surname</label><input id="lf-last" name="last" type="text" autocomplete="family-name"></div>
+    <div class="field"><label for="lf-phone" data-en="Phone (WhatsApp)" data-ar="الهاتف (واتساب)">Phone (WhatsApp)</label><input id="lf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+971 5x xxx xxxx" required></div>
+    <div class="field"><label for="lf-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label><input id="lf-email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="lf-role" data-en="You are" data-ar="أنت">You are</label>
+      <select id="lf-role" name="role" required>
+        <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
+        <option value="Agent" data-en="An agent" data-ar="وسيط عقاري">An agent</option>
+        <option value="Agency owner / manager" data-en="Agency owner or manager" data-ar="مالك أو مدير وكالة">Agency owner or manager</option>
+        <option value="Developer / other" data-en="Developer or other" data-ar="مطوّر أو غير ذلك">Developer or other</option>
+      </select></div>
+    <div class="field"><label for="lf-agency"><span data-en="Agency name" data-ar="اسم الوكالة">Agency name</span> <small data-en="(optional)" data-ar="(اختياري)">(optional)</small></label><input id="lf-agency" name="agency" type="text" autocomplete="organization"></div>
+    <div class="field"><label for="lf-agents" data-en="Number of agents" data-ar="عدد الوسطاء">Number of agents</label><input id="lf-agents" name="agents" type="number" inputmode="numeric" min="1" max="5000" placeholder="12"></div>
+    <div class="field"><label for="lf-source" data-en="How did you hear about us?" data-ar="كيف سمعت عنا؟">How did you hear about us?</label>
+      <select id="lf-source" name="source">
+        <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
+        <option value="Google" data-en="Google search" data-ar="بحث جوجل">Google search</option>
+        <option value="Instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</option>
+        <option value="LinkedIn" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</option>
+        <option value="WhatsApp forward" data-en="A WhatsApp forward" data-ar="رسالة واتساب محوّلة">A WhatsApp forward</option>
+        <option value="Referral" data-en="A friend or colleague" data-ar="صديق أو زميل">A friend or colleague</option>
+        <option value="Event" data-en="An event" data-ar="فعالية">An event</option>
+        <option value="Other" data-en="Other" data-ar="غير ذلك">Other</option>
+      </select></div>
+    <div class="field field--full"><label for="lf-why" data-en="What do you want it to fix?" data-ar="ما الذي تريده أن يحلّه؟">What do you want it to fix?</label>
+      <select id="lf-why" name="why" required>
+        <option value="" data-en="Choose the closest one" data-ar="اختر الأقرب">Choose the closest one</option>
+        <option value="Slow reply, lose leads" data-en="I reply too slowly and lose leads to other agents" data-ar="أردّ ببطء وأخسر العملاء لوسطاء آخرين">I reply too slowly and lose leads to other agents</option>
+        <option value="Portal leads go cold" data-en="Bayut / Property Finder leads go cold before I call" data-ar="عملاء بيوت / بروبرتي فايندر يبردون قبل أن أتصل">Bayut / Property Finder leads go cold before I call</option>
+        <option value="No follow-up on old leads" data-en="Nobody follows up with old leads" data-ar="لا أحد يتابع العملاء القدامى">Nobody follows up with old leads</option>
+        <option value="Too many WhatsApp chats" data-en="Too many WhatsApp chats to keep track of" data-ar="محادثات واتساب أكثر من أن أتابعها">Too many WhatsApp chats to keep track of</option>
+        <option value="CRM nobody uses" data-en="We have a CRM but nobody uses it" data-ar="لدينا CRM لكن لا أحد يستخدمه">We have a CRM but nobody uses it</option>
+        <option value="Automate calls and reminders" data-en="I want calls and reminders to run on their own" data-ar="أريد أن تعمل المكالمات والتذكيرات تلقائياً">I want calls and reminders to run on their own</option>
+        <option value="See which agents follow up" data-en="I want to see which agents actually follow up" data-ar="أريد أن أرى أي الوسطاء يتابعون فعلاً">I want to see which agents actually follow up</option>
+        <option value="Comparing options" data-en="Just comparing options for now" data-ar="أقارن الخيارات فقط حالياً">Just comparing options for now</option>
+      </select></div>
+    <p class="err" id="lf-err" role="alert" hidden></p>
+    <div class="actions">
+      <button class="btn" id="lf-submit" type="submit" data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</button>
+      <span class="note" data-en="No card. No contract. We reply within 24 hours." data-ar="بلا بطاقة. بلا عقد. نردّ خلال 24 ساعة.">No card. No contract. We reply within 24 hours.</span>
     </div>
+  </div>
+</form>
+<div class="lead-done" id="leadDone" tabindex="-1" hidden>
+  <h3 data-en="Got it. We'll be in touch within 24 hours." data-ar="وصلنا. سنتواصل معك خلال 24 ساعة.">Got it. We'll be in touch within 24 hours.</h3>
+  <p data-en="Want to talk sooner? Message either founder below." data-ar="تريد التحدث أسرع؟ راسل أيّاً من المؤسسَين أدناه.">Want to talk sooner? Message either founder below.</p>
+  <div class="btn-row" id="payRow" hidden>
+    <a class="btn btn--ink" id="payBtn" href="#" target="_blank" rel="noopener" data-en="Pay the set-up, AED 50,000" data-ar="ادفع التجهيز، 50,000 درهم">Pay the set-up, AED 50,000</a>
+    <span class="note" data-en="Already sure? Skip the wait. Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included." data-ar="متأكد الآن؟ تجاوز الانتظار. دفع آمن عبر Stripe. يشمل Mac mini وشاشة المكتب والهاتف ورصيد الذكاء الاصطناعي للسنة الأولى.">Already sure? Skip the wait. Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included.</span>
+  </div>
+</div>
+<!-- leadform:end -->
 <!-- founders:start -->
 <div class="founders">
   <div class="card founder">
@@ -443,7 +428,7 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
     <div class="foot-links">
       <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
       <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
-      <span class="muted" data-en="DIFC, Dubai" data-ar="مركز دبي المالي العالمي، دبي">DIFC, Dubai</span>
+      <span class="muted" data-en="Dubai" data-ar="دبي">Dubai</span>
     </div>
   </div>
 </footer>
@@ -469,50 +454,6 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', once, { passive: true });
 });
 </script>
-<script>
-(function () {
-  var LEAD_ENDPOINT = "https://defender.brxdxb.com/api/lead";
-  // Stripe Payment Link for the AED 50,000 set-up. Empty = button stays hidden.
-  var STRIPE_SETUP_URL = "";
-  var form = document.getElementById('leadForm'); if (!form) return;
-  if (STRIPE_SETUP_URL) { document.getElementById('payBtn').href = STRIPE_SETUP_URL; document.getElementById('payRow').hidden = false; }
-  var done = document.getElementById('leadDone');
-  var err = document.getElementById('lf-err');
-  var btn = document.getElementById('lf-submit');
-  var ar = function () { return document.documentElement.lang === 'ar'; };
-  var v = function (id) { return (document.getElementById(id).value || '').trim(); };
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    err.hidden = true;
-    var payload = {
-      first: v('lf-first'), last: v('lf-last'), phone: v('lf-phone'), email: v('lf-email'),
-      role: v('lf-role'), agency: v('lf-agency'), agents: v('lf-agents'), source: v('lf-source'), why: v('lf-why'),
-      page: location.pathname, lang: document.documentElement.lang
-    };
-    if (!payload.first || !payload.phone || !payload.email || !payload.role || !payload.why) {
-      err.textContent = ar() ? 'الاسم، الهاتف، البريد، دورك وما تريد حلّه — مطلوبة.' : 'Name, phone, email, your role and what to fix are required.';
-      err.hidden = false; return;
-    }
-    btn.disabled = true;
-    var label = btn.textContent;
-    btn.textContent = ar() ? 'جارٍ الإرسال…' : 'Sending…';
-    fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-      .then(function (r) { return r.json(); })
-      .then(function (j) {
-        if (!j || !j.ok) throw new Error(j && j.message || 'failed');
-        form.hidden = true; done.hidden = false;
-        done.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
-      .catch(function () {
-        var wa = 'https://wa.me/971558917770?text=' + encodeURIComponent(
-          'Free month request — ' + payload.first + ' ' + payload.last + ', ' + payload.role + (payload.agency ? ' at ' + payload.agency : '') +
-          (payload.agents ? ' (' + payload.agents + ' agents)' : '') + '. Phone ' + payload.phone + ', email ' + payload.email + '. Fix: ' + payload.why);
-        err.innerHTML = (ar() ? 'تعذّر الإرسال. ' : 'Could not send. ') + '<a class="link" target="_blank" rel="noopener" href="' + wa + '">' + (ar() ? 'أرسلها عبر واتساب بدلاً من ذلك' : 'Send it on WhatsApp instead') + '</a>.';
-        err.hidden = false; btn.disabled = false; btn.textContent = label;
-      });
-  });
-})();
-</script>
+<script src="/assets/lead-form.js" defer></script>
 </body>
 </html>

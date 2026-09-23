@@ -11,7 +11,7 @@ fail=0
 echo "== pages ($BASE)"
 for p in $PAGES; do c=$(curl -s -o /dev/null -w "%{http_code}" "$BASE/$p?x=$RANDOM"); printf "%-26s %s\n" $p $c; [ "$c" = 200 ] || fail=1; done
 echo "== leaks (must be empty)"
-grep -rnE "C9A84C|00D4FF|#08090D|Syne|Cairo|566030347|PIN [0-9]{4}|defender\.brxdxb\.com/calls|localhost:87|Provident|Bitrix" --include="*.html" . 2>/dev/null | grep -v "^./\.qa\|^./v2\|^./v3\|^./defender\|console.html" && fail=1 || echo "clean"
+grep -rnE "C9A84C|00D4FF|#08090D|Syne|Cairo|566030347|PIN [0-9]{4}|defender\.brxdxb\.com/calls|localhost:87|Provident|Bitrix|DIFC|L\.L\.C" --include="*.html" . 2>/dev/null | grep -v "^./\.qa\|^./v2\|^./v3\|^./defender\|console.html" && fail=1 || echo "clean"
 echo "== internal links"
 broken=0
 for p in $PAGES; do d=$(dirname $p); for h in $(grep -oE 'href="[^"#?:]+\.html[^"]*"' $p | cut -d'"' -f2 | cut -d'#' -f1 | cut -d'?' -f1 | sort -u); do case $h in /*) f=".$h";; *) f="$d/$h";; esac; f=${f//\/.\//\/}; [ -f "$f" ] || { echo "BROKEN in $p -> $h"; broken=1; }; done; done

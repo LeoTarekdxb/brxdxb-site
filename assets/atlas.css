@@ -1,0 +1,44 @@
+/* Owner Atlas teaser + access-request dialog (flow/real-estate.html #atlas). Self-contained: no dependency on .lead-form. */
+.atlas { display: grid; grid-template-columns: 1.55fr 1fr; gap: 48px; align-items: center; margin-bottom: 56px; }
+.atlas-shot { position: relative; overflow: hidden; margin: 0; border: 1px solid var(--line); border-radius: var(--r); background: #EDEFE9; aspect-ratio: 16 / 10; }
+.atlas-shot img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.04) translate3d(var(--px, 0px), var(--py, 0px), 0); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.atlas-shot .tag { position: absolute; inset-inline-start: 14px; bottom: 14px; background: rgba(17,17,17,.84); color: #fff; font-size: 12px; font-weight: 600; line-height: 1.3; padding: 7px 12px; border-radius: 999px; }
+.atlas-shot .tag::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--g); margin-inline-end: 8px; vertical-align: 1px; }
+.atlas h3 { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.2; color: var(--ink); letter-spacing: -.01em; }
+html[lang="ar"] .atlas h3 { font-family: var(--ar); font-weight: 700; letter-spacing: 0; }
+.atlas .promise { font-size: clamp(17px, 1.4vw, 19px); color: var(--ink2); margin-top: 14px; max-width: 34ch; }
+.atlas .fine { font-size: 13px; color: var(--ink3); margin-top: 14px; max-width: 40ch; }
+.atlas .btn-row { margin-top: 26px; }
+
+dialog.atlas-dlg { width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; border-radius: var(--r); background: #fff; color: var(--ink2); box-shadow: 0 30px 80px rgba(17,17,17,.25); }
+dialog.atlas-dlg::backdrop { background: rgba(17,17,17,.55); }
+.atlas-dlg .pane { padding: 28px; border-top: 3px solid var(--g); }
+.atlas-dlg .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+.atlas-dlg .full { grid-column: 1 / -1; }
+.atlas-dlg .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.atlas-dlg h3 { font-family: var(--display); font-weight: 500; font-size: 22px; line-height: 1.25; color: var(--ink); }
+html[lang="ar"] .atlas-dlg h3 { font-family: var(--ar); font-weight: 700; }
+.atlas-dlg .sub { font-size: 14px; color: var(--ink3); margin-top: 6px; }
+.atlas-dlg .x { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--ghost); background: #fff; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+.atlas-dlg .x:hover { background: var(--bg2); }
+.atlas-dlg .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.atlas-dlg label { font-size: 13px; font-weight: 700; color: var(--ink); }
+.atlas-dlg input[type=text], .atlas-dlg input[type=email], .atlas-dlg input[type=tel] {
+  min-height: 46px; padding: 10px 14px; border: 1px solid var(--ghost); border-radius: var(--r);
+  background: #fff; color: var(--ink); font: 400 16px/1.4 var(--en); width: 100%; max-width: 100%;
+}
+html[lang="ar"] .atlas-dlg input { font-family: var(--ar); }
+.atlas-dlg input[type=tel], .atlas-dlg input[type=email] { direction: ltr; text-align: start; }
+html[dir="rtl"] .atlas-dlg input[type=tel], html[dir="rtl"] .atlas-dlg input[type=email] { text-align: right; }
+.atlas-dlg input:focus-visible { outline: 2px solid var(--g2); outline-offset: 1px; border-color: var(--g2); }
+.atlas-dlg .check { display: flex; gap: 10px; align-items: center; font-size: 15px; font-weight: 600; color: var(--ink); cursor: pointer; min-height: 44px; }
+.atlas-dlg .check input { width: 20px; height: 20px; accent-color: var(--g2); flex: none; }
+.atlas-dlg .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.atlas-dlg .note { font-size: 13px; color: var(--ink3); }
+.atlas-dlg .err { color: #B3261E; font-size: 14px; font-weight: 600; }
+.atlas-dlg .done { background: var(--g-soft); }
+.atlas-dlg .done p { margin-top: 10px; color: var(--ink2); }
+
+@media (max-width: 960px) { .atlas { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 560px) { .atlas-dlg .pane { padding: 22px 16px; } .atlas-dlg .grid { grid-template-columns: 1fr; } .atlas-dlg .btn { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .atlas-shot img { transform: none; transition: none; } }

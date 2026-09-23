@@ -110,6 +110,7 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
 .lead-done p { color: var(--ink2); }
 @media (max-width: 720px) { .lead-form { padding: 22px; } .lead-form .grid { grid-template-columns: 1fr; } }
 </style>
+<link rel="stylesheet" href="/assets/atlas.css">
 </head>
 <body data-page="lead">
 <!-- nav:start -->
@@ -292,13 +293,44 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
       <p class="eyebrow" data-en="Showcase" data-ar="العرض">Showcase</p>
       <h2 class="display" data-en="See it before you sign anything." data-ar="شاهده قبل أن توقّع أي شيء.">See it before you sign anything.</h2>
     </div>
+    <div class="atlas reveal" id="atlas">
+      <figure class="atlas-shot" id="atlasShot">
+        <img src="/assets/atlas-teaser.jpg" srcset="/assets/atlas-teaser-800.jpg 800w, /assets/atlas-teaser.jpg 1600w" sizes="(max-width: 960px) 100vw, 60vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Owner Atlas preview: a 3D view of Business Bay with one tower highlighted, its floors drawn as a grid of units, and the owner card blurred." data-en-aria="Owner Atlas preview: a 3D view of Business Bay with one tower highlighted, its floors drawn as a grid of units, and the owner card blurred." data-ar-aria="معاينة أطلس الملّاك: منظر ثلاثي الأبعاد للخليج التجاري مع برج مميّز، وطوابقه مرسومة كشبكة وحدات، وبطاقة المالك مموّهة.">
+        <figcaption class="tag" data-en="Owners hidden in this preview" data-ar="أسماء الملّاك مخفية في هذه المعاينة">Owners hidden in this preview</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</p>
+        <h3 data-en="Dubai in 3D, one tower at a time." data-ar="دبي بالأبعاد الثلاثة، برجاً برجاً.">Dubai in 3D, one tower at a time.</h3>
+        <p class="promise" data-en="See who owns every unit in a building. Access is by request." data-ar="اعرف مالك كل وحدة في المبنى. الوصول بطلب فقط.">See who owns every unit in a building. Access is by request.</p>
+        <p class="fine" data-en="Built from the DLD register. You get a personal code; names stay hidden until it is approved." data-ar="مبني على سجل دائرة الأراضي والأملاك. تحصل على رمز شخصي، وتبقى الأسماء مخفية حتى تتم الموافقة.">Built from the DLD register. You get a personal code; names stay hidden until it is approved.</p>
+        <div class="btn-row"><button class="btn" type="button" id="atlasOpen" aria-haspopup="dialog" aria-controls="atlasDlg" data-en="Request access" data-ar="اطلب الوصول">Request access</button></div>
+      </div>
+    </div>
+    <dialog class="atlas-dlg" id="atlasDlg" aria-labelledby="ar-title">
+      <form class="pane grid" id="atlasForm" novalidate>
+        <div class="full">
+          <div class="head"><h3 id="ar-title" data-en="Request Owner Atlas access" data-ar="اطلب الوصول إلى أطلس الملّاك">Request Owner Atlas access</h3><button class="x" type="button" data-close aria-label="Close" data-en-aria="Close" data-ar-aria="إغلاق">&times;</button></div>
+          <p class="sub" data-en="We send your personal code by message and email." data-ar="نرسل رمزك الشخصي برسالة وبالبريد الإلكتروني.">We send your personal code by message and email.</p>
+        </div>
+        <div class="field"><label for="ar-first" data-en="First name" data-ar="الاسم الأول">First name</label><input id="ar-first" name="first" type="text" autocomplete="given-name" maxlength="60" required></div>
+        <div class="field"><label for="ar-last" data-en="Surname" data-ar="اسم العائلة">Surname</label><input id="ar-last" name="last" type="text" autocomplete="family-name" maxlength="60" required></div>
+        <div class="field full"><label for="ar-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label><input id="ar-email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
+        <div class="field full"><label for="ar-phone" data-en="Phone" data-ar="الهاتف">Phone</label><input id="ar-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" value="+971 " maxlength="24" required></div>
+        <label class="check full" for="ar-seller"><input id="ar-seller" name="seller" type="checkbox"><span data-en="I sell property in Dubai" data-ar="أبيع العقارات في دبي">I sell property in Dubai</span></label>
+        <p class="err full" id="ar-err" role="alert" hidden></p>
+        <div class="actions full"><button class="btn" id="ar-submit" type="submit" data-en="Send" data-ar="إرسال">Send</button><span class="note" data-en="Used only to send your code. Never shared." data-ar="نستخدمها فقط لإرسال رمزك. لا نشاركها أبداً.">Used only to send your code. Never shared.</span></div>
+      </form>
+      <div class="pane done" id="atlasDone" hidden>
+        <div class="head"><h3 data-en="Request received." data-ar="وصل طلبك.">Request received.</h3><button class="x" type="button" data-close aria-label="Close" data-en-aria="Close" data-ar-aria="إغلاق">&times;</button></div>
+        <p data-en="Thanks, Saud or Leo will send your code within one working day." data-ar="شكراً، سيرسل لك سعود أو ليو رمزك خلال يوم عمل واحد.">Thanks, Saud or Leo will send your code within one working day.</p>
+      </div>
+    </dialog>
     <div class="tbl-wrap reveal">
       <table class="tbl tbl--stack">
         <thead><tr><th scope="col" data-en="What" data-ar="ماذا">What</th><th scope="col" data-en="Where" data-ar="أين">Where</th><th scope="col" data-en="Access" data-ar="الوصول">Access</th></tr></thead>
         <tbody>
           <tr><th scope="row" data-en="This site" data-ar="هذا الموقع">This site</th><td><a class="link" href="https://www.brxdxb.com">brxdxb.com</a></td><td data-en="Public" data-ar="عام">Public</td></tr>
           <tr><th scope="row" data-en="Defender — how the engine works" data-ar="Defender — كيف يعمل المحرّك">Defender — how the engine works</th><td><a class="link" href="https://brx-defender-dubai.netlify.app" target="_blank" rel="noopener">brx-defender-dubai.netlify.app</a></td><td data-en="Public" data-ar="عام">Public</td></tr>
-          <tr><th scope="row" data-en="Owner Atlas — 3D owner map of Dubai" data-ar="Owner Atlas — خريطة ملّاك دبي ثلاثية الأبعاد">Owner Atlas — 3D owner map of Dubai</th><td data-en="Private link" data-ar="رابط خاص">Private link</td><td data-en="Access code on request" data-ar="رمز الدخول عند الطلب">Access code on request</td></tr>
           <tr><th scope="row" data-en="The live desk" data-ar="المكتب الحيّ">The live desk</th><td data-en="On a screen-share with a founder" data-ar="عبر مشاركة الشاشة مع أحد المؤسسين">On a screen-share with a founder</td><td data-en="Book with Saud or Leo below" data-ar="احجز مع سعود أو ليو أدناه">Book with Saud or Leo below</td></tr>
         </tbody>
       </table>
@@ -419,6 +451,7 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
 <!-- foot:end -->
 
 <script src="/assets/wake.js" defer></script>
+<script src="/assets/atlas-request.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var hero = document.getElementById('ldHero'), card = document.getElementById('switchCard'), state = document.getElementById('swState');

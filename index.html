@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BRX·DXB — Dubai's AI Agents Lab</title>
-<meta name="description" content="Dubai's AI Agents Lab, DIFC-based. Autonomous AI agents for real estate and any industry — deployed in 72 hours, running 24/7.">
-<meta property="og:title" content="BRX·DXB — Dubai's AI Agents Lab">
-<meta property="og:description" content="Autonomous AI agents that run your repetitive workflows. Deployed in 72 hours, running 24/7.">
-<meta property="og:image" content="https://www.brxdxb.com/assets/brx-logo-poster.png">
+<title>BRX·DXB | Turn it on. Every lead gets called.</title>
+<meta name="description" content="BRX calls, texts and emails every new real-estate lead in their language, in their daytime. Your agents take the live ones. Built in Dubai.">
+<meta property="og:title" content="BRX | Turn it on. Every lead gets called.">
+<meta property="og:description" content="Every new lead called, texted and emailed in their language, in their daytime. Your agents take the live ones.">
+<meta property="og:image" content="https://www.brxdxb.com/assets/brx-film-poster.jpg">
 <meta property="og:url" content="https://www.brxdxb.com/">
+<link rel="preload" as="image" href="/assets/brx-film-poster-sm.jpg" media="(max-width: 767px)">
+<link rel="preload" as="image" href="/assets/brx-film-poster.jpg" media="(min-width: 768px)">
 <!-- head:start -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/brx.css">
 <link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -20,55 +22,219 @@
 <script>document.documentElement.classList.add('js')</script>
 <!-- head:end -->
 <style>
-/* Homepage only — everything else lives in /assets/brx.css */
-.hero { padding: 72px 0 0; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
-.hero h1 { font-size: clamp(56px, 9vw, 128px); font-weight: 300; line-height: .98; letter-spacing: -.02em; }
-.hero h1 span { display: block; }
-.hero h1 .g { color: var(--g); }
-html[lang="ar"] .hero h1 { font-size: clamp(48px, 8vw, 104px); line-height: 1.2; letter-spacing: 0; }
-.hero-3d { position: relative; height: 500px; }
-.hero-3d model-viewer { width: 100%; height: 100%; background: transparent; --poster-color: transparent; }
-.hero-3d model-viewer::part(default-progress-bar) { display: none; }
-.hero-3d .hint { position: absolute; bottom: 4px; inset-inline-start: 0; right: 0; text-align: center; font-size: 12px; font-weight: 600; color: #888; }
-.hero .stats { margin-top: 64px; }
-.hero + .ticker { margin-top: 56px; }
+/* ══ Homepage: the switch story ══ */
+body { overflow-x: clip; }
 
-.proof { padding: 0; overflow: hidden; }
-.proof-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; padding: 36px 36px 28px; }
-.proof-top h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 300; max-width: 28ch; }
-.proof .stats { margin: 0 36px; }
-.proof-body { padding: 32px 36px 36px; }
-.proof-body > p { max-width: 70ch; color: var(--ink3); margin-bottom: 28px; }
+/* HERO */
+.hero { position: relative; isolation: isolate; min-height: calc(100svh - var(--nav-h)); display: flex; align-items: center; overflow: hidden; }
+.hero-film { position: absolute; inset: 0; z-index: -3; }
+.hero-film img, .hero-film video { width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%; display: block; }
+.hero-veil { position: absolute; inset: 0; z-index: -2; background: linear-gradient(100deg, #fff 0%, rgba(255,255,255,.93) 40%, rgba(255,255,255,.55) 68%, rgba(255,255,255,.15) 100%); }
+.hero-veil { transition: background .9s ease; }
+.is-on .hero-veil { background: rgba(214,232,178,.92); }
+.hero .btn--ghost { background: #fff; border-color: #fff; }
+.hero .btn--ghost:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.hero-wall { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; display: block; }
+.hero-in { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 48px var(--gut) 56px; display: grid; grid-template-columns: minmax(0, 1fr) 236px; grid-template-areas: "h h" "c p"; column-gap: 56px; row-gap: 36px; align-items: start; }
+.hero h1 { grid-area: h; font-size: clamp(36px, 5.1vw, 74px); font-weight: 700; line-height: 1; letter-spacing: -.035em; }
+.hero h1 .l1 { display: flex; align-items: center; gap: .28em; flex-wrap: wrap; }
+.hero h1 .l2 { display: block; margin-top: .12em; }
+html[lang="ar"] .hero h1 { font-size: clamp(38px, 5.4vw, 80px); line-height: 1.25; letter-spacing: 0; }
+.hero-copy { grid-area: c; max-width: 34rem; }
+.hero-copy .lede { margin-top: 0; color: var(--ink); font-size: clamp(17px, 1.45vw, 20px); }
+.hero .phone { grid-area: p; justify-self: end; }
 
-.agent-list .tbl tbody th small { display: block; font-size: 12px; font-weight: 700; color: var(--g-ink); margin-top: 2px; }
-.buy { margin-top: 24px; background: var(--bg2); border: 1px solid var(--line); border-radius: var(--r); padding: 36px; }
-.buy h3 { font-size: 22px; font-weight: 300; margin-bottom: 8px; }
-.commission { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; border-top-style: dashed; }
-.commission h3 { margin: 0 0 4px; }
+/* THE SWITCH: the logo, 208px, starts off */
+.bigswitch { --w: 208px; --h: 104px; --k: 68px; position: relative; width: var(--w); height: var(--h); flex: none; border: 0; padding: 0; cursor: pointer; border-radius: 999px; background: #CDD2C6; box-shadow: inset 0 3px 8px rgba(17,17,17,.14), 0 0 0 6px #fff, 0 24px 48px -20px rgba(40,70,10,.5); transition: background .5s cubic-bezier(.2,.8,.2,1); -webkit-tap-highlight-color: transparent; }
+.bigswitch::before { content: ""; position: absolute; left: 15.4%; top: 96%; width: 13.5%; height: 27%; background: inherit; clip-path: polygon(0 0, 0 100%, 100% 0); transition: background .5s; }
+.bigswitch .knob { position: absolute; top: 50%; left: 31%; width: var(--k); height: var(--k); margin: calc(var(--k) / -2) 0 0 calc(var(--k) / -2); border-radius: 50%; background: #fff; box-shadow: 0 6px 14px rgba(17,17,17,.22); transition: transform .7s cubic-bezier(.34,1.56,.64,1); }
+.bigswitch[aria-checked="true"] { background: var(--g); }
+.bigswitch[aria-checked="true"] .knob { transform: translateX(calc(var(--w) * .38)); }
+html[dir="rtl"] .bigswitch[aria-checked="true"] .knob { transform: translateX(calc(var(--w) * .38)); }
+.bigswitch:active .knob { scale: 1.08 .92; }
+.bigswitch:focus-visible { outline: 3px solid var(--ink); outline-offset: 10px; }
+.bigswitch .hint { position: absolute; left: 100%; top: 50%; margin-left: 22px; transform: translateY(-50%); white-space: nowrap; font: 600 14px/1.2 var(--en); letter-spacing: 0; color: var(--ink3); transition: opacity .3s; }
+.bigswitch[aria-checked="true"] .hint { opacity: 0; }
+html[dir="rtl"] .bigswitch .hint { left: auto; right: 100%; margin: 0 22px 0 0; }
 
-.quote { font-size: clamp(22px, 2.8vw, 34px); font-weight: 300; line-height: 1.45; color: var(--ink); padding-inline-start: 28px; border-inline-start: 3px solid var(--g); max-width: 30ch; }
-.quote em { font-style: normal; color: var(--g-ink); font-weight: 400; }
+/* PHONE: a real mini call UI, shared by hero and beats */
+.phone { position: relative; width: 236px; aspect-ratio: 9 / 18.6; background: #111; border-radius: 40px; padding: 9px; box-shadow: 0 40px 70px -34px rgba(40,70,10,.6); direction: ltr; }
+.phone .screen { position: relative; height: 100%; background: #fff; border-radius: 31px; overflow: hidden; }
+.phone .island { position: absolute; top: 9px; left: 50%; width: 74px; height: 21px; margin-left: -37px; background: #111; border-radius: 12px; z-index: 3; }
+.scr { position: absolute; inset: 0; padding: 46px 16px 16px; display: flex; flex-direction: column; opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .4s ease, transform .6s cubic-bezier(.2,.8,.2,1); font-size: 13px; line-height: 1.4; color: var(--ink); }
+.scr.on { opacity: 1; transform: none; }
+.scr .top { display: flex; justify-content: space-between; font-weight: 700; font-size: 11px; color: var(--ink3); margin-bottom: 18px; }
+.scr .mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; }
+.scr .av { position: relative; width: 78px; height: 78px; border-radius: 50%; background: var(--g); color: var(--ink); display: flex; align-items: center; justify-content: center; font: 700 24px/1 var(--display); margin-bottom: 10px; }
+.scr .av.grey { background: #E6E9E1; color: #8A9083; }
+.scr .av i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--g); opacity: 0; }
+.scr.on .av.ring i { animation: ring 1.8s cubic-bezier(.2,.7,.3,1) infinite; }
+.scr.on .av.ring i + i { animation-delay: .6s; }
+@keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
+.scr .nm { font: 700 17px/1.2 var(--display); letter-spacing: -.02em; }
+.scr .sub { color: var(--ink3); font-size: 12px; }
+.scr .chip { display: inline-block; font-weight: 700; font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #EEF4E2; color: #2F5409; }
+.scr .foot { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 10px; font-size: 11px; color: var(--ink3); }
+.scr .foot b { font: 700 20px/1 var(--display); color: var(--ink); }
+.scr .note { background: #F2F4EE; border-radius: 16px; padding: 12px; text-align: left; }
+.scr .note b { display: block; font-size: 11px; color: var(--ink3); margin-bottom: 2px; }
+.scr .bubble { align-self: flex-start; background: #EEF4E2; border-radius: 16px 16px 16px 4px; padding: 10px 12px; text-align: left; max-width: 92%; }
+.scr .line { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 12px; padding: 8px 0; border-top: 1px solid var(--line); width: 100%; }
+.scr .tick { width: 18px; height: 18px; border-radius: 50%; background: var(--g); flex: none; position: relative; }
+.scr .tick::after { content: ""; position: absolute; left: 6px; top: 3px; width: 4px; height: 8px; border: solid var(--ink); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.scr .btnrow { display: flex; gap: 10px; margin-top: 14px; }
+.scr .btnrow span { flex: 1; text-align: center; font-weight: 700; font-size: 12px; padding: 9px 0; border-radius: 999px; background: #EEF0EA; }
+.scr .btnrow span.go { background: var(--g); }
 
-.team .card { display: grid; grid-template-columns: 64px 1fr; gap: 20px; }
-.team .role { font-size: 13px; font-weight: 700; color: var(--g-ink); margin: 2px 0 10px; }
+/* BEATS: one lead, start to finish (pinned on desktop) */
+.beats { position: relative; border-top: 1px solid var(--line); }
+.beats-in { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; align-items: center; min-height: calc(100svh - var(--nav-h)); }
+.beats-copy { position: relative; padding-inline-start: 40px; }
+.beats-rail { position: absolute; inset-inline-start: 0; top: 6px; bottom: 6px; width: 3px; background: #E6E9E1; border-radius: 2px; overflow: hidden; }
+.beats-rail i { position: absolute; inset: 0; background: var(--g); transform-origin: top; transform: scaleY(.25); }
+.beats-kicker { font: 700 15px/1.3 var(--en); color: var(--ink3); margin-bottom: 28px; }
+.beat .t { font: 700 15px/1 var(--en); font-variant-numeric: tabular-nums; color: var(--ink3); margin-bottom: 18px; display: block; }
+.beat h3 { font: 700 clamp(30px, 3.6vw, 54px)/1.04 var(--display); letter-spacing: -.03em; max-width: 14ch; }
+html[lang="ar"] .beat h3 { font-family: var(--ar); line-height: 1.35; letter-spacing: 0; }
+.beat p { font-size: clamp(16px, 1.3vw, 19px); color: var(--ink3); max-width: 38ch; margin-top: 18px; }
+.beats-phone .phone { width: 280px; }
+.beat-phone { display: none; }
+@media (min-width: 961px) {
+  .js .beats-list { position: relative; height: 22rem; }
+  .js .beat { position: absolute; inset: 0 0 auto 0; opacity: 0; transform: translateY(28px); transition: opacity .45s ease, transform .7s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+  .js .beat.on { opacity: 1; transform: none; pointer-events: auto; }
+  .js .beat.past { transform: translateY(-28px); }
+}
 
-#cta .display em { font-style: normal; color: var(--g-ink); }
+/* OWNERS: the numbers */
+.owners { padding: var(--sec) 0 0; border-top: 1px solid var(--line); }
+.owners h2 { max-width: 16ch; }
+.ledger { margin-top: 64px; }
+.ledger .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: 24px; align-items: baseline; padding: 18px 0; }
+.ledger .row + .row { border-top: 1px solid var(--line); }
+.ledger dd { font: 800 clamp(52px, 10.5vw, 158px)/.95 var(--display); letter-spacing: -.045em; color: var(--ink); font-variant-numeric: tabular-nums; direction: ltr; }
+html[dir="rtl"] .ledger dd { text-align: right; }
+.ledger .row:first-child dd { color: var(--ink); }
+.ledger .row:nth-child(2) dd, .ledger .row:nth-child(3) dd { -webkit-text-stroke: 0; }
+.ledger dt { font-size: clamp(16px, 1.4vw, 19px); font-weight: 600; color: var(--ink); max-width: 22ch; order: 2; }
+.ledger .src { margin-top: 20px; }
+.names { margin-top: 72px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--g); overflow: hidden; padding: 18px 0; }
+.names-track { display: flex; width: max-content; animation: names 55s linear infinite; }
+.names:hover .names-track { animation-play-state: paused; }
+html[dir="rtl"] .names-track { animation-name: names-rtl; }
+@keyframes names { to { transform: translateX(-50%); } }
+@keyframes names-rtl { to { transform: translateX(50%); } }
+.names span { white-space: nowrap; padding: 0 28px; font: 600 15px/1.2 var(--en); color: var(--ink); }
+.names span b { font-family: var(--display); font-weight: 700; margin-inline-end: 10px; }
+.names-cap { max-width: var(--wrap); margin: 12px auto 0; padding: 0 var(--gut); }
+
+/* PROOF */
+.proof { padding: var(--sec) 0; }
+.proof-line { font: 600 clamp(26px, 3.3vw, 48px)/1.18 var(--display); letter-spacing: -.025em; color: var(--ink); max-width: 26ch; }
+html[lang="ar"] .proof-line { font-family: var(--ar); font-weight: 700; line-height: 1.5; letter-spacing: 0; }
+
+/* LAB */
+.lab { padding: var(--sec) 0; background: var(--bg2); border-top: 1px solid var(--line); }
+.lab-in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.lab-3d { position: relative; aspect-ratio: 1; max-width: 520px; width: 100%; }
+.lab-3d model-viewer, .lab-3d img { width: 100%; height: 100%; background: transparent; --poster-color: transparent; }
+.lab-3d model-viewer::part(default-progress-bar) { display: none; }
+.agents { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+.agents h3 { font: 700 13px/1 var(--en); color: var(--ink3); padding-bottom: 12px; border-bottom: 2px solid var(--ink); margin-bottom: 4px; }
+.agents ul { list-style: none; }
+.agents li { padding: 14px 0; }
+.agents li + li { border-top: 1px solid var(--line); }
+.agents li b { display: block; font-size: 16px; color: var(--ink); }
+.agents li span { font-size: 14px; color: var(--ink3); }
+.agents li a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--g); text-decoration-thickness: 2px; text-underline-offset: 4px; font-weight: 600; font-size: 14px; }
+.agents li a:hover { text-decoration-color: var(--ink); }
+
+/* TERMINAL */
+.term { padding: var(--sec) 0; border-top: 1px solid var(--line); }
+.term .lede { max-width: 58ch; }
+.prices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 48px; border-top: 2px solid var(--ink); }
+.prices a { display: block; padding: 24px 24px 24px 0; text-decoration: none; color: inherit; }
+.prices a + a { padding-inline-start: 24px; border-inline-start: 1px solid var(--line); }
+.prices .p { font: 700 clamp(36px, 4vw, 56px)/1 var(--display); letter-spacing: -.03em; color: var(--ink); }
+.prices .k { font-weight: 700; color: var(--ink); margin-top: 12px; display: block; }
+.prices .d { font-size: 14px; color: var(--ink3); margin-top: 6px; display: block; }
+.prices a:hover .p { color: var(--g2); }
+.buy { margin-top: 48px; }
+
+/* INDUSTRIES: typographic rows */
+.inds { padding: var(--sec) 0; border-top: 1px solid var(--line); }
+.ind-list { list-style: none; margin-top: 48px; border-top: 2px solid var(--ink); }
+.ind-list a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 24rem) 48px; gap: 24px; align-items: center; padding: 26px 8px; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); isolation: isolate; }
+.ind-list a::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--g); transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+html[dir="rtl"] .ind-list a::before { transform-origin: right; }
+.ind-list a:hover::before, .ind-list a:focus-visible::before { transform: scaleX(1); }
+.ind-list .nm { font: 700 clamp(28px, 4.4vw, 64px)/1 var(--display); letter-spacing: -.035em; }
+html[lang="ar"] .ind-list .nm { font-family: var(--ar); line-height: 1.3; letter-spacing: 0; }
+.ind-list .ds { font-size: 15px; color: var(--ink3); }
+.ind-list a:hover .ds { color: var(--ink); }
+.ind-list .ar { justify-self: end; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); display: flex; align-items: center; justify-content: center; transition: transform .4s cubic-bezier(.2,.8,.2,1), background .3s; }
+.ind-list .ar svg { width: 18px; height: 18px; }
+html[dir="rtl"] .ind-list .ar svg { transform: scaleX(-1); }
+.ind-list a:hover .ar { background: var(--ink); color: #fff; transform: rotate(-45deg); }
+.ind-list .live { display: inline-block; vertical-align: middle; margin-inline-start: 14px; font: 700 12px/1 var(--en); padding: 6px 10px; border-radius: 999px; background: var(--ink); color: #fff; letter-spacing: 0; }
+.inds .fine { margin-top: 18px; }
+
+/* CONTACT */
+.talk { padding: var(--sec) 0; background: var(--bg2); border-top: 1px solid var(--line); }
+.talk h2 { font-size: clamp(44px, 8vw, 120px); font-weight: 800; letter-spacing: -.045em; line-height: .95; }
+html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
+
+/* static beats: mobile, reduced motion, no GSAP */
+.beats-static .beat { position: static !important; opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+.beats-static .beats-list { height: auto !important; }
+.beats-static .beat + .beat { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+.beats-static .beat-phone { display: block; margin-top: 24px; }
+.beats-static .beat-phone .phone { width: 200px; }
+.beats-static .beats-phone, .beats-static .beats-rail { display: none; }
+.beats-static .beats-in { grid-template-columns: 1fr; min-height: 0; padding-top: var(--sec); padding-bottom: var(--sec); }
+.beats-static .beats-copy { padding: 0; }
+.film-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.film-toggle svg { width: 16px; height: 16px; fill: currentColor; }
+.film-toggle.paused svg { opacity: .5; }
+.is-on .film-toggle { background: #fff; }
+
+/* Buttons are pills on this page and site-wide */
+.btn { border-radius: 999px; padding-inline: 26px; }
 
 @media (max-width: 960px) {
-  .hero { padding-top: 32px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 8px; }
-  .hero-3d { height: 300px; order: -1; }
-  .proof-top, .proof-body { padding: 24px 20px; }
-  .proof .stats { margin: 0 20px; }
-  .buy { padding: 24px 20px; }
+  .hero { min-height: 0; align-items: flex-start; }
+  .hero-film video { display: none; }
+  .hero-veil { background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.9) 60%, rgba(255,255,255,.7) 100%); }
+  .hero-in { grid-template-columns: 1fr; grid-template-areas: "h" "c" "p"; padding-top: 36px; padding-bottom: 56px; row-gap: 28px; }
+  .hero .phone { justify-self: start; width: 220px; }
+  .bigswitch { --w: 164px; --h: 82px; --k: 54px; margin-top: .15em; }
+  .bigswitch .hint { font-size: 13px; }
+  .beats-in { grid-template-columns: 1fr; min-height: 0; padding-top: var(--sec); padding-bottom: var(--sec); }
+  .beats-phone, .beats-rail { display: none; }
+  .beats-copy { padding: 0; }
+  .beat + .beat { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+  .beat-phone { display: block; margin-top: 24px; }
+  .beat-phone .phone { width: 200px; }
+  .lab-in { grid-template-columns: 1fr; }
+  .lab-3d { max-width: 320px; margin: 0 auto; }
+  .agents { grid-template-columns: 1fr; gap: 28px; }
+  .prices { grid-template-columns: 1fr; }
+  .prices a, .prices a + a { padding: 20px 0; border-inline-start: 0; }
+  .prices a + a { border-top: 1px solid var(--line); }
+  .ledger .row { grid-template-columns: 1fr; gap: 4px; }
+  .ind-list a { grid-template-columns: minmax(0, 1fr) 44px; }
+  .ind-list .ds { grid-column: 1; grid-row: 2; }
+  .ind-list .ar { grid-column: 2; grid-row: 1 / span 2; }
 }
-@media (max-width: 640px) {
-  .team .card { grid-template-columns: 52px 1fr; gap: 16px; }
-  .hero-3d { height: 260px; }
+@media (max-width: 420px) {
+  .hero h1 { font-size: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .names-track { animation: none; flex-wrap: wrap; width: auto; }
+  .names span { padding: 4px 16px; }
+  .hero-film video { display: none; }
 }
 </style>
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body data-page="home">
 <!-- nav:start -->
@@ -109,337 +275,215 @@ html[lang="ar"] .hero h1 { font-size: clamp(48px, 8vw, 104px); line-height: 1.2;
 
 <main id="main">
 
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <p class="eyebrow" data-en="UAE's first AI agents lab · DIFC · Dubai" data-ar="أول مختبر لوكلاء الذكاء الاصطناعي في الإمارات · مركز دبي المالي العالمي">UAE's first AI agents lab · DIFC · Dubai</p>
-        <h1>
-          <span data-en="Dubai." data-ar="دبي.">Dubai.</span>
-          <span class="g" data-en="Do it." data-ar="افعلها.">Do it.</span>
-        </h1>
-        <p class="lede" data-en="We build autonomous AI agents that run your most repetitive workflows — deployed in 72 hours, operating 24/7, reporting every morning." data-ar="نبني وكلاء ذكاء اصطناعي مستقلين يُدارون بسير عملك الأكثر تكراراً — يُنشرون في 72 ساعة، يعملون 24/7، ويُقدّمون تقاريرهم كل صباح.">We build autonomous AI agents that run your most repetitive workflows — deployed in 72 hours, operating 24/7, reporting every morning.</p>
-        <div class="btn-row">
-          <a href="#cta" class="btn" data-en="Commission your agent" data-ar="كلّفنا بوكيلك">Commission your agent</a>
-          <a href="#proof" class="btn btn--ghost" data-en="See it live" data-ar="شاهد الإثبات">See it live</a>
-        </div>
-      </div>
-      <div class="hero-3d" id="hero3d">
-        <model-viewer id="brxModel" src="assets/brx-logo.glb" poster="assets/brx-logo-poster.png" alt="BRX logo, 3D"
-          loading="eager" reveal="auto" auto-rotate auto-rotate-delay="0" rotation-per-second="18deg" camera-controls disable-zoom disable-pan
-          interaction-prompt="none" shadow-intensity="1.2" shadow-softness="0.8" exposure="1.05" environment-image="neutral"
-          camera-orbit="30deg 78deg 105%" min-camera-orbit="auto 60deg auto" max-camera-orbit="auto 100deg auto" touch-action="pan-y"></model-viewer>
-        <div class="hint" data-en="Drag to turn" data-ar="اسحب لتدوير">Drag to turn</div>
-      </div>
-    </div>
-
-    <div class="stats">
-      <div class="stat"><div class="n">72<em>h</em></div><div class="l" data-en="From idea to live" data-ar="من الفكرة إلى الإطلاق">From idea to live</div></div>
-      <div class="stat"><div class="n">24<em>/7</em></div><div class="l" data-en="Autonomous operation" data-ar="تشغيل مستقل">Autonomous operation</div></div>
-      <div class="stat"><div class="n">6<em>+</em></div><div class="l" data-en="Languages natively" data-ar="لغات بشكل أصلي">Languages natively</div></div>
-      <div class="stat"><div class="n">#<em>1</em></div><div class="l" data-en="In UAE &amp; Middle East" data-ar="في الإمارات والشرق الأوسط">In UAE &amp; Middle East</div></div>
-    </div>
+<!-- ═══ HERO: the switch ═══ -->
+<section class="hero" id="hero" data-wake>
+  <div class="hero-film" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 767px)" srcset="/assets/brx-film-poster-sm.jpg">
+      <img src="/assets/brx-film-poster.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+    </picture>
   </div>
-</section>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <canvas class="hero-wall" data-wake-wall aria-hidden="true"></canvas>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track" id="ticker-track"></div>
-</div>
-
-<!-- ═══ WHAT WE BUILD ═══ -->
-<section class="sec sec--flush" id="what">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-en="What we build" data-ar="ما نبنيه">What we build</p>
-      <h2 class="display" data-en="Not software. Not a chatbot. <br>An autonomous employee." data-ar="ليس برنامجاً. ليس روبوتاً للدردشة. <br>موظف مستقل.">Not software. Not a chatbot. <br>An autonomous employee.</h2>
-    </div>
-    <div class="split">
-      <div class="reveal">
-        <p class="lede" style="margin-top:0" data-en="An AI agent is a program that thinks, decides, and acts on its own. It monitors your CRM, sends messages, qualifies leads, scores prospects, files reports, and flags exceptions — without anyone asking it to." data-ar="وكيل الذكاء الاصطناعي برنامج يفكر ويقرر ويتصرف بشكل مستقل. يراقب نظام CRM الخاص بك، ويرسل الرسائل، ويؤهل العملاء المحتملين، ويُقيّم العملاء، ويُعدّ التقارير، ويُنبّه على الاستثناءات — دون أن يطلب أحد منه ذلك.">An AI agent is a program that thinks, decides, and acts on its own. It monitors your CRM, sends messages, qualifies leads, scores prospects, files reports, and flags exceptions — without anyone asking it to.</p>
-        <p class="muted" style="margin-top:20px" data-en="Your team spends hours on workflows that have a pattern. Anything with a pattern can be automated. We find the pattern, build the agent, plug it into your existing tools, and it runs — every hour, every day, without a day off." data-ar="يقضي فريقك ساعات في سير عمل تتبع نمطاً محدداً. كل ما له نمط يمكن أتمتته. نحن نجد النمط ونبني الوكيل ونوصله بأدواتك الحالية — ليعمل كل ساعة وكل يوم دون توقف.">Your team spends hours on workflows that have a pattern. Anything with a pattern can be automated. We find the pattern, build the agent, plug it into your existing tools, and it runs — every hour, every day, without a day off.</p>
-        <div class="tags">
-          <span class="tag" data-en="No new software to learn" data-ar="لا برامج جديدة للتعلم">No new software to learn</span>
-          <span class="tag" data-en="Works with your existing CRM" data-ar="يعمل مع CRM الحالي">Works with your existing CRM</span>
-          <span class="tag" data-en="Deployed in 72 hours" data-ar="ينشر في 72 ساعة">Deployed in 72 hours</span>
-          <span class="tag" data-en="Runs 24/7" data-ar="يعمل 24/7">Runs 24/7</span>
-        </div>
+  <div class="hero-in">
+    <h1>
+      <span class="l1"><span data-en="Turn it on." data-ar="شغّله.">Turn it on.</span>
+        <button class="bigswitch" type="button" role="switch" aria-checked="false" data-wake-switch data-cursor="switch" aria-label="Lead Defence switch" data-en-aria="Lead Defence switch" data-ar-aria="مفتاح حماية العملاء"><span class="knob"></span><span class="hint" aria-hidden="true" data-en="Tap or scroll" data-ar="اضغط أو مرّر">Tap or scroll</span></button>
+      </span>
+      <span class="l2" data-en="Every lead gets called." data-ar="كل عميل يتلقى اتصالاً.">Every lead gets called.</span>
+    </h1>
+    <div class="hero-copy">
+      <p class="lede" data-en="BRX calls, texts and emails every new lead in their language, in their daytime. Your agents take the live ones." data-ar="يتصل BRX بكل عميل جديد ويراسله ويرسل له بريداً، بلغته وفي ساعات نهاره. ووكلاؤك يتولّون المحادثات الحيّة.">BRX calls, texts and emails every new lead in their language, in their daytime. Your agents take the live ones.</p>
+      <div class="btn-row">
+        <a href="#cta" class="btn btn--ink" data-magnetic data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+        <a href="#how" class="btn btn--ghost" data-en="How it works" data-ar="كيف يعمل">How it works</a>
       </div>
-      <div class="steps reveal">
-        <div class="step"><div class="k">01</div><div><h4 data-en="We map your workflow" data-ar="نرسم سير عملك">We map your workflow</h4><p data-en="One session to understand what your team does manually and what the decision rules are." data-ar="جلسة واحدة لفهم ما يفعله فريقك يدوياً وما هي قواعد اتخاذ القرار.">One session to understand what your team does manually and what the decision rules are.</p></div></div>
-        <div class="step"><div class="k">02</div><div><h4 data-en="We build the agent" data-ar="نبني الوكيل">We build the agent</h4><p data-en="Custom-built for your systems, your data, your language requirements. Not a generic template." data-ar="مبني خصيصاً لأنظمتك وبياناتك ومتطلبات لغتك. ليس قالباً جاهزاً.">Custom-built for your systems, your data, your language requirements. Not a generic template.</p></div></div>
-        <div class="step"><div class="k">03</div><div><h4 data-en="We connect it to your tools" data-ar="نوصله بأدواتك">We connect it to your tools</h4><p data-en="WhatsApp, CRM, email, Telegram, Excel — whatever you already use. Zero migration required." data-ar="واتساب وCRM والبريد الإلكتروني وتيليغرام وإكسل — أي شيء تستخدمه بالفعل. لا هجرة مطلوبة.">WhatsApp, CRM, email, Telegram, Excel — whatever you already use. Zero migration required.</p></div></div>
-        <div class="step"><div class="k">04</div><div><h4 data-en="It runs. You get results." data-ar="يعمل. وتحصل على النتائج.">It runs. You get results.</h4><p data-en="Daily Telegram briefings, live dashboards, zero manual effort. Full visibility, full control." data-ar="إحاطات يومية عبر تيليغرام ولوحات مباشرة وصفر جهد يدوي. رؤية كاملة وتحكم تام.">Daily Telegram briefings, live dashboards, zero manual effort. Full visibility, full control.</p></div></div>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="screen"><div class="island"></div>
+        <div class="scr on" data-hero="off">
+          <div class="top"><span>BRX desk</span><span data-en="Off" data-ar="متوقف">Off</span></div>
+          <div class="mid"><div class="av grey">BRX</div><div class="nm" data-en="Desk is off" data-ar="المكتب متوقف">Desk is off</div><div class="sub" data-en="No calls going out." data-ar="لا مكالمات صادرة.">No calls going out.</div></div>
+          <div class="foot"><span data-en="Called today" data-ar="اتصالات اليوم">Called today</span><b>0</b></div>
+        </div>
+        <div class="scr" data-hero="on">
+          <div class="top"><span>BRX desk</span><span id="heroTimer">00:00</span></div>
+          <div class="mid"><div class="av ring"><i></i><i></i>DV</div><div class="nm">Dmitri V.</div><div class="sub" data-en="Calling in Russian" data-ar="اتصال بالروسية">Calling in Russian</div><span class="chip" data-en="20:05 in Moscow" data-ar="20:05 بتوقيت موسكو">20:05 in Moscow</span></div>
+          <div class="foot"><span data-en="Called today (sample)" data-ar="اتصالات اليوم (عيّنة)">Called today (sample)</span><b id="heroCount">0</b></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ AGENTS LAB ═══ -->
-<section class="sec sec--alt" id="lab">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-en="The Lab" data-ar="المختبر">The Lab</p>
-      <h2 class="display" data-en="Active agents &amp; <br>what's deploying next." data-ar="الوكلاء النشطون <br>وما سيُطلق قريباً.">Active agents &amp; <br>what's deploying next.</h2>
+<!-- ═══ BEATS: one lead, start to finish ═══ -->
+<section class="beats" id="how">
+  <div class="beats-in">
+    <div class="beats-copy">
+      <div class="beats-rail" aria-hidden="true"><i id="rail"></i></div>
+      <p class="beats-kicker" data-en="One lead, start to finish" data-ar="عميل واحد، من البداية إلى النهاية">One lead, start to finish</p>
+      <ol class="beats-list" style="list-style:none">
+        <li class="beat on" data-i="0">
+          <span class="t">21:05</span>
+          <h3 data-en="A new lead lands." data-ar="يصل عميل جديد.">A new lead lands.</h3>
+          <p data-en="Dmitri asks about a 2-bed in Dubai Marina. Every agent on your floor is at a viewing." data-ar="يسأل دميتري عن شقة بغرفتين في دبي مارينا. وكل وكلائك في معاينات.">Dmitri asks about a 2-bed in Dubai Marina. Every agent on your floor is at a viewing.</p>
+          <div class="beat-phone" aria-hidden="true"></div>
+        </li>
+        <li class="beat" data-i="1">
+          <span class="t">21:08</span>
+          <h3 data-en="Called in minutes. In Russian." data-ar="اتصال خلال دقائق. بالروسية.">Called in minutes. In Russian.</h3>
+          <p data-en="The desk handset rings him in his own language, only between 10:00 and 22:00 where he is." data-ar="يتصل به هاتف المكتب بلغته، فقط بين 10:00 و22:00 بتوقيته.">The desk handset rings him in his own language, only between 10:00 and 22:00 where he is.</p>
+          <div class="beat-phone" aria-hidden="true"></div>
+        </li>
+        <li class="beat" data-i="2">
+          <span class="t">21:09</span>
+          <h3 data-en="No answer. A text and an email." data-ar="لا رد. رسالة وبريد.">No answer. A text and an email.</h3>
+          <p data-en="Two touches, then it stops. Written in Russian, with the listing he asked about." data-ar="محاولتان ثم يتوقف. مكتوبة بالروسية، مع العقار الذي سأل عنه.">Two touches, then it stops. Written in Russian, with the listing he asked about.</p>
+          <div class="beat-phone" aria-hidden="true"></div>
+        </li>
+        <li class="beat" data-i="3">
+          <span class="t" data-en="Next day, 13:40" data-ar="اليوم التالي، 13:40">Next day, 13:40</span>
+          <h3 data-en="He calls back. Your agent takes it." data-ar="يعاود الاتصال. ووكيلك يتولّى.">He calls back. Your agent takes it.</h3>
+          <p data-en="The moment Dmitri answers, the system steps back and hands the live conversation to your agent." data-ar="لحظة يرد دميتري، يتراجع النظام ويسلّم المحادثة الحيّة لوكيلك.">The moment Dmitri answers, the system steps back and hands the live conversation to your agent.</p>
+          <div class="beat-phone" aria-hidden="true"></div>
+        </li>
+      </ol>
     </div>
-    <div class="grid-3">
-      <article class="card reveal">
-        <span class="status status--live" data-en="Live now" data-ar="مباشر الآن">Live now</span>
-        <h3 data-en="Real Estate Lead Qualifier" data-ar="مؤهّل عملاء العقارات">Real Estate Lead Qualifier</h3>
-        <p data-en="Scores leads, messages them in 6 languages, triggers 48h follow-ups, and delivers a morning briefing of your top 20 HOT leads — daily." data-ar="يُقيّم العملاء، يراسلهم بـ6 لغات، يُشغّل المتابعات التلقائية خلال 48 ساعة، ويُقدّم إحاطة صباحية بأفضل 20 عميل — يومياً.">Scores leads, messages them in 6 languages, triggers 48h follow-ups, and delivers a morning briefing of your top 20 HOT leads — daily.</p>
-        <div class="tags"><span class="tag">Your CRM</span><span class="tag" data-en="6 languages" data-ar="6 لغات">6 languages</span><span class="tag">Telegram</span><span class="tag">Excel</span></div>
-        <a class="go link" href="/flow/real-estate.html" data-en="See Lead Defence →" data-ar="شاهد حماية العملاء ←">See Lead Defence →</a>
-      </article>
-      <article class="card reveal">
-        <span class="status status--live" data-en="Live now" data-ar="مباشر الآن">Live now</span>
-        <h3 data-en="Autonomous Trading Agent" data-ar="وكيل التداول الذاتي">Autonomous Trading Agent</h3>
-        <p data-en="Screens 6,000 US stocks through a 7-gate framework and trades a $100,000 paper account 24/7 — trailing stops, drawdown circuit breakers, every decision in a public journal. Discipline as a product; never promises returns." data-ar="يفحص 6,000 سهم أمريكي عبر إطار من 7 بوابات، ويتداول على حساب تجريبي بقيمة 100,000 دولار على مدار الساعة — بأوامر وقف متحركة وقواطع حماية، وكل قرار في سجل علني. الانضباط كمنتج؛ دون أي وعود بالأرباح.">Screens 6,000 US stocks through a 7-gate framework and trades a $100,000 paper account 24/7 — trailing stops, drawdown circuit breakers, every decision in a public journal. Discipline as a product; never promises returns.</p>
-        <div class="tags"><span class="tag">Alpaca</span><span class="tag">Claude AI</span><span class="tag">Telegram</span><span class="tag" data-en="Live journal" data-ar="سجل مباشر">Live journal</span></div>
-        <div class="links"><a class="go link" href="https://leo-stock-agent.netlify.app" target="_blank" rel="noopener" data-en="Watch it trade live →" data-ar="شاهده يتداول مباشرة ←">Watch it trade live →</a>
-        <a class="go link" href="/agent.html" data-en="Get your own — $29/mo →" data-ar="احصل على وكيلك — 29$/شهر ←">Get your own — $29/mo →</a></div>
-      </article>
-      <article class="card card--muted reveal">
-        <span class="status status--soon">Q3 2026</span>
-        <h3 data-en="Legal Document Processor" data-ar="معالج الوثائق القانونية">Legal Document Processor</h3>
-        <p data-en="Extracts key clauses from contracts, flags risk areas, and writes plain-language summaries in Arabic and English. Cuts review time by 80%." data-ar="يستخرج البنود الرئيسية من العقود ويُحدّد مناطق المخاطر ويُنشئ ملخصات بلغة واضحة بالعربية والإنجليزية. يُقلّل وقت المراجعة بنسبة 80%.">Extracts key clauses from contracts, flags risk areas, and writes plain-language summaries in Arabic and English. Cuts review time by 80%.</p>
-        <div class="tags"><span class="tag" data-en="Contract review" data-ar="مراجعة العقود">Contract review</span><span class="tag" data-en="Arabic + English" data-ar="عربي + إنجليزي">Arabic + English</span><span class="tag">PDF</span></div>
-      </article>
-      <article class="card card--muted reveal">
-        <span class="status status--soon">Q3 2026</span>
-        <h3 data-en="Hospitality Guest Journey" data-ar="تجربة ضيوف الضيافة">Hospitality Guest Journey</h3>
-        <p data-en="Pre-arrival messages, upsell sequences and post-stay follow-up across WhatsApp and email — in Arabic, English, Russian and Chinese." data-ar="التواصل قبل الوصول وتسلسلات البيع التكميلي ومتابعة ما بعد الإقامة عبر واتساب والبريد — بالعربية والإنجليزية والروسية والصينية.">Pre-arrival messages, upsell sequences and post-stay follow-up across WhatsApp and email — in Arabic, English, Russian and Chinese.</p>
-        <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Email</span><span class="tag">PMS</span></div>
-      </article>
-      <article class="card card--muted reveal">
-        <span class="status status--soon">Q4 2026</span>
-        <h3 data-en="Finance Reporting Agent" data-ar="وكيل التقارير المالية">Finance Reporting Agent</h3>
-        <p data-en="Weekly P&amp;L summaries, anomaly detection and executive briefings pulled from your accounting system — without accountant hours." data-ar="ملخصات أسبوعية للأرباح والخسائر واكتشاف الشذوذات وإحاطات تنفيذية مستخرجة من نظامك المحاسبي — دون ساعات محاسبية.">Weekly P&amp;L summaries, anomaly detection and executive briefings pulled from your accounting system — without accountant hours.</p>
-        <div class="tags"><span class="tag">Xero / QuickBooks</span><span class="tag" data-en="Auto reports" data-ar="تقارير تلقائية">Auto reports</span><span class="tag">Telegram</span></div>
-      </article>
-      <article class="card card--muted reveal">
-        <span class="status status--soon">Q4 2026</span>
-        <h3 data-en="Healthcare Scheduler" data-ar="جدولة الرعاية الصحية">Healthcare Scheduler</h3>
-        <p data-en="Appointment confirmations, no-show recovery, prescription reminders and multi-clinic coordination via WhatsApp and SMS in Arabic and English." data-ar="تأكيدات المواعيد واسترداد حالات الغياب وتذكيرات الوصفات الطبية والتنسيق متعدد العيادات عبر واتساب والرسائل القصيرة.">Appointment confirmations, no-show recovery, prescription reminders and multi-clinic coordination via WhatsApp and SMS in Arabic and English.</p>
-        <div class="tags"><span class="tag">WhatsApp</span><span class="tag">SMS</span><span class="tag" data-en="Arabic" data-ar="العربية">Arabic</span></div>
-      </article>
-      <div class="card commission reveal">
+    <div class="beats-phone">
+      <div class="phone" id="beatPhone" aria-hidden="true">
+        <div class="screen"><div class="island"></div>
+          <div class="scr on" data-b="0">
+            <div class="top"><span>BRX desk</span><span>21:05</span></div>
+            <div class="note"><b data-en="New lead" data-ar="عميل جديد">New lead</b>Dmitri V.<br><span class="sub" data-en="2-bed, Dubai Marina" data-ar="غرفتان، دبي مارينا">2-bed, Dubai Marina</span></div>
+            <div class="mid"><div class="av grey">DV</div><div class="sub" data-en="Agents free right now" data-ar="وكلاء متاحون الآن">Agents free right now</div><div class="nm">0</div></div>
+          </div>
+          <div class="scr" data-b="1">
+            <div class="top"><span>BRX desk</span><span>21:08</span></div>
+            <div class="mid"><div class="av ring"><i></i><i></i>DV</div><div class="nm">Dmitri V.</div><div class="sub" data-en="Calling in Russian" data-ar="اتصال بالروسية">Calling in Russian</div><span class="chip" lang="ru">Добрый вечер, Дмитрий</span></div>
+            <div class="foot"><span data-en="Touch 1 of 2" data-ar="المحاولة 1 من 2">Touch 1 of 2</span><b>RU</b></div>
+          </div>
+          <div class="scr" data-b="2">
+            <div class="top"><span>BRX desk</span><span>21:09</span></div>
+            <div class="bubble" lang="ru">Дмитрий, добрый вечер! Вот квартира в Марине, о которой вы спрашивали.</div>
+            <div class="mid" style="justify-content:flex-end">
+              <div class="line"><span class="tick"></span><span data-en="Text sent in Russian" data-ar="رسالة بالروسية">Text sent in Russian</span></div>
+              <div class="line"><span class="tick"></span><span data-en="Email sent, listing attached" data-ar="بريد مع العقار">Email sent, listing attached</span></div>
+            </div>
+            <div class="foot"><span data-en="Touch 2 of 2, then stop" data-ar="المحاولة 2 من 2، ثم توقف">Touch 2 of 2, then stop</span><b>RU</b></div>
+          </div>
+          <div class="scr" data-b="3">
+            <div class="top"><span>BRX desk</span><span>13:40</span></div>
+            <div class="mid"><div class="av">DV</div><div class="nm" data-en="Dmitri calls back" data-ar="دميتري يعاود الاتصال">Dmitri calls back</div><div class="sub" data-en="Handed to Sara M." data-ar="تم التسليم إلى سارة م.">Handed to Sara M.</div>
+              <div class="btnrow" style="width:100%"><span data-en="Later" data-ar="لاحقاً">Later</span><span class="go" data-en="Answer" data-ar="رد">Answer</span></div></div>
+            <div class="foot"><span data-en="Automation stopped for this lead" data-ar="توقفت الأتمتة لهذا العميل">Automation stopped for this lead</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OWNERS: the numbers ═══ -->
+<section class="owners" id="owners">
+  <div class="wrap">
+    <h2 class="display" data-en="Know who already owns in Dubai." data-ar="اعرف من يملك في دبي أصلاً.">Know who already owns in Dubai.</h2>
+    <p class="lede" data-en="Every lead is matched against owner records, so your agent opens with the right question." data-ar="يُطابق كل عميل مع سجلات الملّاك، ليبدأ وكيلك بالسؤال الصحيح.">Every lead is matched against owner records, so your agent opens with the right question.</p>
+    <dl class="ledger">
+      <div class="row"><dd data-count="69312">69,312</dd><dt data-en="lead records loaded and matched" data-ar="سجل عميل حُمّل وطُوبق">lead records loaded and matched</dt></div>
+      <div class="row"><dd data-count="3204">3,204</dd><dt data-en="own or owned property in Dubai" data-ar="يملكون أو ملكوا عقاراً في دبي">own or owned property in Dubai</dt></div>
+      <div class="row"><dd data-count="2252">2,252</dd><dt data-en="asked about off-plan and already own" data-ar="سألوا عن مشاريع على الخارطة ويملكون أصلاً">asked about off-plan and already own</dt></div>
+    </dl>
+    <p class="fine src" data-en="One live Dubai desk, September 2026. A full re-match of every record takes 28 seconds." data-ar="مكتب حيّ واحد في دبي، سبتمبر 2026. إعادة مطابقة كل السجلات تستغرق 28 ثانية.">One live Dubai desk, September 2026. A full re-match of every record takes 28 seconds.</p>
+  </div>
+  <div class="names" role="img" aria-label="Sample of matched leads with names masked" data-en-aria="Sample of matched leads with names masked" data-ar-aria="عيّنة من العملاء المطابَقين بأسماء مخفية">
+    <div class="names-track" id="namesTrack"></div>
+  </div>
+  <p class="fine names-cap" data-en="Sample of matched leads. Names masked." data-ar="عيّنة من العملاء المطابَقين. الأسماء مخفية.">Sample of matched leads. Names masked.</p>
+</section>
+
+<!-- ═══ PROOF ═══ -->
+<section class="proof" id="proof">
+  <div class="wrap">
+    <p class="proof-line" data-en="Live on a Dubai desk for 3+ weeks. Under 5 minutes from new lead to first message, in 6 languages, with 0 leads missed." data-ar="يعمل على مكتب في دبي منذ أكثر من 3 أسابيع. أقل من 5 دقائق من العميل الجديد إلى أول رسالة، بـ6 لغات، دون أي عميل فائت.">Live on a Dubai desk for 3+ weeks. Under 5 minutes from new lead to first message, in 6 languages, with 0 leads missed.</p>
+    <div class="btn-row"><a class="btn" href="/flow/real-estate.html" data-magnetic data-en="See Lead Defence" data-ar="شاهد حماية العملاء">See Lead Defence</a></div>
+  </div>
+</section>
+
+<!-- ═══ LAB ═══ -->
+<section class="lab" id="lab">
+  <div class="wrap lab-in">
+    <div class="lab-3d" id="lab3d">
+      <img src="/assets/brx-logo-poster.png" alt="The BRX brick mark in green glass" width="520" height="520" loading="lazy" decoding="async">
+    </div>
+    <div>
+      <h2 class="display" data-en="The lab. Agents we run." data-ar="المختبر. وكلاء نشغّلهم.">The lab. Agents we run.</h2>
+      <p class="lede" data-en="Anything your team repeats has a pattern. We build the agent, plug it into your tools and it runs every day." data-ar="كل ما يكرّره فريقك له نمط. نبني الوكيل ونوصله بأدواتك ويعمل كل يوم.">Anything your team repeats has a pattern. We build the agent, plug it into your tools and it runs every day.</p>
+      <div class="agents">
         <div>
-          <h3 data-en="Your industry here" data-ar="قطاعك هنا">Your industry here</h3>
-          <p data-en="If your team does something repetitive, we'll automate it." data-ar="إذا كان فريقك يؤدي عملاً متكرراً، سنُؤتمته.">If your team does something repetitive, we'll automate it.</p>
+          <h3 data-en="Live now" data-ar="مباشر الآن">Live now</h3>
+          <ul>
+            <li><b data-en="Real-estate lead qualifier" data-ar="مؤهّل عملاء العقارات">Real-estate lead qualifier</b><span data-en="Scores, calls and follows up every lead." data-ar="يقيّم كل عميل ويتصل به ويتابعه.">Scores, calls and follows up every lead.</span><br><a href="/flow/real-estate.html" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a></li>
+            <li><b data-en="Autonomous trading agent" data-ar="وكيل التداول الذاتي">Autonomous trading agent</b><span data-en="Paper-trades 24/7, every decision in a public journal. Never promises returns." data-ar="يتداول تجريبياً على مدار الساعة، وكل قرار في سجل علني. دون وعود بالأرباح.">Paper-trades 24/7, every decision in a public journal. Never promises returns.</span><br><a href="https://leo-stock-agent.netlify.app" target="_blank" rel="noopener" data-en="Watch it trade" data-ar="شاهده يتداول">Watch it trade</a> &nbsp; <a href="/agent.html" data-en="From $29 a month" data-ar="من 29$ شهرياً">From $29 a month</a></li>
+          </ul>
         </div>
-        <a class="btn btn--ghost" href="#cta" data-en="Commission a custom agent" data-ar="كلّفنا بوكيل مخصص">Commission a custom agent</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PROOF CASE ═══ -->
-<section class="sec" id="proof">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-en="Proof case #001" data-ar="قصة نجاح #001">Proof case #001</p>
-      <h2 class="display" data-en="From idea to 24/7 operation <br>in 72 hours. For real." data-ar="من الفكرة إلى التشغيل 24/7 <br>في 72 ساعة. حقيقي.">From idea to 24/7 operation <br>in 72 hours. For real.</h2>
-    </div>
-    <article class="card proof reveal">
-      <div class="proof-top">
         <div>
-          <span class="meta" data-en="Dubai real estate · Investment division" data-ar="العقارات في دبي · قسم الاستثمار">Dubai real estate · Investment division</span>
-          <h3 data-en="CRM lead qualifier &amp; outreach agent" data-ar="وكيل تأهيل العملاء والتواصل في CRM">CRM lead qualifier &amp; outreach agent</h3>
+          <h3 data-en="Next" data-ar="القادم">Next</h3>
+          <ul>
+            <li><b data-en="Legal document processor" data-ar="معالج الوثائق القانونية">Legal document processor</b><span>Q3 2026</span></li>
+            <li><b data-en="Hospitality guest journeys" data-ar="رحلات ضيوف الضيافة">Hospitality guest journeys</b><span>Q3 2026</span></li>
+            <li><b data-en="Finance reporting" data-ar="التقارير المالية">Finance reporting</b><span>Q4 2026</span></li>
+            <li><b data-en="Healthcare scheduling" data-ar="جدولة الرعاية الصحية">Healthcare scheduling</b><span>Q4 2026</span></li>
+          </ul>
         </div>
-        <span class="status status--live" data-en="Live 3+ weeks" data-ar="مباشر 3+ أسابيع">Live 3+ weeks</span>
       </div>
-      <div class="stats">
-        <div class="stat"><div class="n">&lt;5<em>min</em></div><div class="l" data-en="New lead → first message sent" data-ar="عميل جديد → أول رسالة">New lead → first message sent</div></div>
-        <div class="stat"><div class="n">6</div><div class="l" data-en="Languages handled natively" data-ar="لغات مُعالَجة بشكل أصلي">Languages handled natively</div></div>
-        <div class="stat"><div class="n">100<em>%</em></div><div class="l" data-en="Lead coverage — zero missed" data-ar="تغطية العملاء — صفر فائت">Lead coverage — zero missed</div></div>
-        <div class="stat"><div class="n">3<em>wk+</em></div><div class="l" data-en="Live, zero downtime, zero intervention" data-ar="مباشر، صفر توقف، صفر تدخل">Live, zero downtime, zero intervention</div></div>
-      </div>
-      <div class="proof-body">
-        <p data-en="A senior investment advisor at one of Dubai's top agencies was losing qualified leads to faster competitors. New leads sat uncontacted for hours. International prospects received generic English messages. Follow-ups were forgotten. We built an agent that connects to the CRM they already run and handles all of it — automatically." data-ar="كان مستشار استثمار بارز في إحدى كبرى وكالات دبي يخسر عملاء مؤهلين لمنافسين أسرع. كان العملاء الجدد يبقون دون تواصل لساعات. والعملاء الدوليون يتلقون رسائل إنجليزية عامة. والمتابعات تُنسى. بنينا وكيلاً يتصل بنظام CRM الذي يستخدمونه ويتولى كل ذلك تلقائياً.">A senior investment advisor at one of Dubai's top agencies was losing qualified leads to faster competitors. New leads sat uncontacted for hours. International prospects received generic English messages. Follow-ups were forgotten. We built an agent that connects to the CRM they already run and handles all of it — automatically.</p>
-        <figure class="log">
-          <figcaption class="log-head"><b>agent.log</b><span data-en="One sample day · names changed" data-ar="يوم نموذجي · الأسماء مُغيّرة">One sample day · names changed</span></figcaption>
-          <ol>
-            <li><time>08:00:01</time><span class="cmd">morning_brief</span><span class="msg">Top 20 leads sent to Telegram</span></li>
-            <li><time>08:14:33</time><span class="cmd">new_lead</span><span class="msg">Mohamed A. scored 87 — EN message sent in 3m12s</span></li>
-            <li><time>09:02:17</time><span class="cmd">new_lead</span><span class="msg">Pierre D. scored 74 — FR message sent in 2m44s</span></li>
-            <li><time>11:48:05</time><span class="cmd">followup_48h</span><span class="msg">Irina V. — RU follow-up sent, no prior reply</span></li>
-            <li><time>14:30:00</time><span class="cmd">new_lead</span><span class="msg">Wang F. scored 91 — ZH message sent in 4m01s</span></li>
-            <li><time>23:59:59</time><span class="cmd">daily_report</span><span class="msg">12 contacted · 3 replied · 4 follow-ups queued · 0 missed</span></li>
-          </ol>
-        </figure>
-        <div class="btn-row"><a class="btn" href="/flow/real-estate.html" data-en="Get this for your agency" data-ar="احصل عليه لوكالتك">Get this for your agency</a></div>
-      </div>
-    </article>
+    </div>
   </div>
 </section>
 
-<!-- ═══ BRX TERMINAL ═══ -->
-<section class="sec sec--alt" id="terminal">
+<!-- ═══ TERMINAL ═══ -->
+<section class="term" id="terminal">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-en="BRX Terminal" data-ar="محطة BRX">BRX Terminal</p>
-      <h2 class="display" data-en="A trader won 82% of his trades <br>and lost money anyway." data-ar="متداول ربح ٨٢٪ من صفقاته <br>وخسر ماله رغم ذلك.">A trader won 82% of his trades <br>and lost money anyway.</h2>
-      <p class="lede" data-en="Autonomous agent infrastructure that measures what actually decides profit — payoff geometry and transaction costs — and refuses any rule that cannot survive them. Self-hosted. You keep your keys." data-ar="بنية وكلاء ذاتية التشغيل تقيس ما يحسم الربح فعلاً — هندسة العائد وتكاليف التداول — وترفض أي قاعدة لا تصمد أمامهما. تعمل على جهازك، وتحتفظ بمفاتيحك.">Autonomous agent infrastructure that measures what actually decides profit — payoff geometry and transaction costs — and refuses any rule that cannot survive them. Self-hosted. You keep your keys.</p>
+    <p class="eyebrow" data-en="BRX Terminal" data-ar="محطة BRX">BRX Terminal</p>
+    <h2 class="display" style="max-width:20ch" data-en="A trader won 82% of his trades and lost money anyway." data-ar="متداول ربح ٨٢٪ من صفقاته وخسر ماله رغم ذلك.">A trader won 82% of his trades and lost money anyway.</h2>
+    <p class="lede" data-en="Seven agents, one job each: measure, validate, judge, test, guard, heal and account. Any rule that cannot survive real costs is refused. Self-hosted. You keep your keys." data-ar="سبعة وكلاء، لكل منهم مهمة واحدة: القياس والتحقق والحكم والاختبار والحماية والمعالجة والمحاسبة. تُرفض أي قاعدة لا تصمد أمام التكاليف الحقيقية. يعمل على جهازك، وتحتفظ بمفاتيحك.">Seven agents, one job each: measure, validate, judge, test, guard, heal and account. Any rule that cannot survive real costs is refused. Self-hosted. You keep your keys.</p>
+    <div class="prices">
+      <a href="#terminal-buy"><span class="p">$99</span><span class="k" data-en="Foundations" data-ar="الأساسيات">Foundations</span><span class="d" data-en="Architecture, scoring model, risk rails and the full incident ledger." data-ar="البنية ونموذج التقييم وحواجز المخاطر وسجل الأعطال كاملاً.">Architecture, scoring model, risk rails and the full incident ledger.</span></a>
+      <a href="#terminal-buy"><span class="p">$199</span><span class="k" data-en="Practitioner" data-ar="الممارس">Practitioner</span><span class="d" data-en="Adds execution patterns, self-healing, FIFO accounting and the barrier test." data-ar="يضيف أنماط التنفيذ والمعالجة الذاتية ومحاسبة FIFO واختبار الحواجز.">Adds execution patterns, self-healing, FIFO accounting and the barrier test.</span></a>
+      <a href="#terminal-buy"><span class="p">$399</span><span class="k" data-en="Complete" data-ar="الكاملة">Complete</span><span class="d" data-en="Adds full source code, the signal engine, strategy library and deploy guide." data-ar="يضيف الشيفرة المصدرية الكاملة ومحرّك الإشارات ومكتبة الاستراتيجيات ودليل النشر.">Adds full source code, the signal engine, strategy library and deploy guide.</span></a>
     </div>
-
-    <div class="split reveal" style="margin-bottom:56px">
-      <div style="position:sticky;top:100px">
-        <h3 style="font-size:24px;font-weight:300" data-en="One agent, one job. That's the whole design." data-ar="وكيل واحد، مهمة واحدة. هذا هو التصميم بأكمله.">One agent, one job. That's the whole design.</h3>
-        <p class="muted" style="margin-top:12px" data-en="Seven independent agents, each doing exactly one job — measured against each other, never blended into ambiguity." data-ar="سبعة وكلاء مستقلين، كل منهم يؤدي مهمة واحدة بالضبط — يُقاس كل منهم مقابل الآخرين، ولا يُخلط أحدهم بغيره في غموض.">Seven independent agents, each doing exactly one job — measured against each other, never blended into ambiguity.</p>
-        <p style="margin-top:20px"><a class="link" href="/calculator.html" data-en="Try the breakeven calculator →" data-ar="جرّب حاسبة التعادل ←">Try the breakeven calculator →</a></p>
-      </div>
-      <div class="tbl-wrap agent-list">
-        <table class="tbl">
-          <thead><tr><th scope="col" data-en="Agent" data-ar="الوكيل">Agent</th><th scope="col" data-en="Its one job" data-ar="مهمته الوحيدة">Its one job</th></tr></thead>
-          <tbody>
-            <tr><th scope="row"><span data-en="Pattern Reader" data-ar="قارئ الأنماط">Pattern Reader</span><small data-en="Measurement" data-ar="القياس">Measurement</small></th><td data-en="Measures what actually drives the asset — recalculated every run, never assumed." data-ar="يقيس ما يحرّك الأصل فعلاً — يُعاد حسابه في كل دورة، لا يُفترض أبداً.">Measures what actually drives the asset — recalculated every run, never assumed.</td></tr>
-            <tr><th scope="row"><span data-en="Barrier Test" data-ar="اختبار الحواجز">Barrier Test</span><small data-en="Validation" data-ar="التحقّق">Validation</small></th><td data-en="Does the target arrive before the stop, after every real cost? Thousands of trades answer that, not one." data-ar="هل يصل الهدف قبل وقف الخسارة، بعد كل تكلفة حقيقية؟ آلاف الصفقات تجيب، لا صفقة واحدة.">Does the target arrive before the stop, after every real cost? Thousands of trades answer that, not one.</td></tr>
-            <tr><th scope="row"><span data-en="Edge Engine" data-ar="محرّك الأفضلية">Edge Engine</span><small data-en="Judgement" data-ar="الحكم">Judgement</small></th><td data-en="Converts win rate and payoff into expected value. Rejects any rule below breakeven." data-ar="يحوّل نسبة الربح والعائد إلى قيمة متوقعة، ويرفض أي قاعدة دون خط التعادل.">Converts win rate and payoff into expected value. Rejects any rule below breakeven.</td></tr>
-            <tr><th scope="row"><span data-en="Strategy Lab" data-ar="مختبر الاستراتيجيات">Strategy Lab</span><small data-en="Experiment" data-ar="التجربة">Experiment</small></th><td data-en="11 variants tested on live prices, three real cost models, parameters fixed in advance." data-ar="١١ متغيّراً على أسعار حيّة، بثلاثة نماذج تكلفة فعلية، ومعايير محددة مسبقاً.">11 variants tested on live prices, three real cost models, parameters fixed in advance.</td></tr>
-            <tr><th scope="row"><span data-en="Risk Guard" data-ar="حارس المخاطر">Risk Guard</span><small data-en="Control" data-ar="التحكّم">Control</small></th><td data-en="Lives outside the strategy code, so a scoring bug can never disable the stop." data-ar="يعمل خارج شيفرة الاستراتيجية، فلا يستطيع خلل في التقييم تعطيل الحماية.">Lives outside the strategy code, so a scoring bug can never disable the stop.</td></tr>
-            <tr><th scope="row"><span data-en="Self-Healer &amp; Watchdog" data-ar="المعالج الذاتي والحارس الخارجي">Self-Healer &amp; Watchdog</span><small data-en="Assurance" data-ar="الضمان">Assurance</small></th><td data-en="Hunts plausible-but-wrong states, not just crashes — judged by heartbeat, not uptime." data-ar="يلاحق الحالات المعقولة لكن الخاطئة، لا الانهيارات فقط — يُقاس بالنبض لا بوقت التشغيل.">Hunts plausible-but-wrong states, not just crashes — judged by heartbeat, not uptime.</td></tr>
-            <tr><th scope="row"><span data-en="FIFO Ledger" data-ar="دفتر FIFO">FIFO Ledger</span><small data-en="Accounting" data-ar="المحاسبة">Accounting</small></th><td data-en="Bought X, sold X, made or lost Y. A position that hasn't sold hasn't made money." data-ar="اشتريتَ كذا، بعتَ كذا، ربحتَ أو خسرتَ كذا. والمركز الذي لم يُبَع لم يربح شيئاً.">Bought X, sold X, made or lost Y. A position that hasn't sold hasn't made money.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="grid-3">
-      <article class="card card-stack reveal">
-        <span class="meta" data-en="Foundations" data-ar="الأساسيات">Foundations</span>
-        <div class="price">$99 <small data-en="one-time" data-ar="مرة واحدة">one-time</small></div>
-        <p data-en="System architecture, the scoring model, the risk rails, and the complete incident ledger — 10 documented failures and the rule each one produced." data-ar="بنية النظام، ونموذج التقييم، وحواجز المخاطر، وسجل الأعطال كاملاً — ١٠ أعطال موثّقة والقاعدة التي أنتجها كل منها.">System architecture, the scoring model, the risk rails, and the complete incident ledger — 10 documented failures and the rule each one produced.</p>
-        <ul aria-hidden="true"></ul>
-        <a class="btn btn--ghost" href="#terminal-buy" data-en="Get Foundations" data-ar="احصل عليها">Get Foundations</a>
-      </article>
-      <article class="card card--featured card-stack reveal">
-        <span class="meta" data-en="Practitioner · most chosen" data-ar="الممارس · الأكثر اختياراً">Practitioner · most chosen</span>
-        <div class="price">$199 <small data-en="one-time" data-ar="مرة واحدة">one-time</small></div>
-        <p data-en="Everything in Foundations, plus execution patterns, self-healing design, FIFO profit accounting, and the barrier-test method used to validate every rule before it sees money." data-ar="كل ما في الأساسيات، إضافة إلى أنماط التنفيذ، وتصميم المعالجة الذاتية، ومحاسبة الأرباح بطريقة FIFO، ومنهج اختبار الحواجز المستخدم للتحقق من كل قاعدة قبل أن ترى المال.">Everything in Foundations, plus execution patterns, self-healing design, FIFO profit accounting, and the barrier-test method used to validate every rule before it sees money.</p>
-        <ul aria-hidden="true"></ul>
-        <a class="btn" href="#terminal-buy" data-en="Get Practitioner" data-ar="احصل عليها">Get Practitioner</a>
-      </article>
-      <article class="card card-stack reveal">
-        <span class="meta" data-en="Complete" data-ar="الكاملة">Complete</span>
-        <div class="price">$399 <small data-en="one-time" data-ar="مرة واحدة">one-time</small></div>
-        <p data-en="Everything above, plus full source code, the signal engine with source grading, the strategy library, the setup script and the deployment guide." data-ar="كل ما سبق، إضافة إلى الشيفرة المصدرية الكاملة، ومحرّك الإشارات مع تقييم المصادر، ومكتبة الاستراتيجيات، ونص التثبيت ودليل النشر.">Everything above, plus full source code, the signal engine with source grading, the strategy library, the setup script and the deployment guide.</p>
-        <ul aria-hidden="true"></ul>
-        <a class="btn btn--ghost" href="#terminal-buy" data-en="Get Complete" data-ar="احصل عليها">Get Complete</a>
-      </article>
-    </div>
-
-    <div class="buy reveal" id="terminal-buy">
-      <h3 data-en="Read it before you buy it" data-ar="اقرأه قبل أن تشتريه">Read it before you buy it</h3>
-      <p class="muted" data-en="The full strategy whitepaper is free — the measurements, the incident ledger, and the ten rules. 3,787 tested trades across gold, silver, Bitcoin and Ethereum." data-ar="الورقة البيضاء الكاملة مجانية — القياسات وسجل الأعطال والقواعد العشر. ٣٬٧٨٧ صفقة مُختبَرة عبر الذهب والفضة والبيتكوين والإيثيريوم.">The full strategy whitepaper is free — the measurements, the incident ledger, and the ten rules. 3,787 tested trades across gold, silver, Bitcoin and Ethereum.</p>
+    <div class="buy" id="terminal-buy">
+      <p class="muted" data-en="Read the free whitepaper first: 3,787 tested trades across gold, silver, Bitcoin and Ethereum. One-time price in USD, 30-day refund." data-ar="اقرأ الورقة البيضاء المجانية أولاً: ٣٬٧٨٧ صفقة مُختبَرة عبر الذهب والفضة والبيتكوين والإيثيريوم. سعر لمرة واحدة بالدولار، واسترداد خلال 30 يوماً.">Read the free whitepaper first: 3,787 tested trades across gold, silver, Bitcoin and Ethereum. One-time price in USD, 30-day refund.</p>
       <div class="btn-row" style="margin-top:20px">
-        <a class="btn" href="/BRX_Strategy_Whitepaper_EN.pdf" data-en="Whitepaper (English) ↓" data-ar="الورقة البيضاء (إنجليزي) ↓">Whitepaper (English) ↓</a>
-        <a class="btn btn--ghost" href="/BRX_Strategy_Whitepaper_AR.pdf" lang="ar">الورقة البيضاء (عربي) ↓</a>
-        <a class="btn btn--ghost" href="https://dash.brxdxb.com" data-en="See a live instance" data-ar="شاهد نسخة حيّة">See a live instance</a>
+        <a class="btn" href="/BRX_Strategy_Whitepaper_EN.pdf" data-en="Whitepaper (English)" data-ar="الورقة البيضاء (إنجليزي)">Whitepaper (English)</a>
+        <a class="btn btn--ghost" href="/BRX_Strategy_Whitepaper_AR.pdf" lang="ar">الورقة البيضاء (عربي)</a>
+        <a class="btn btn--ghost" href="/calculator.html" data-en="Breakeven calculator" data-ar="حاسبة التعادل">Breakeven calculator</a>
       </div>
-      <p class="small" style="margin-top:24px" data-en="Payment: Visa · Mastercard · Amex · Apple Pay · Google Pay. Priced in USD. Delivered as source code and documentation — self-hosted, no custody of funds, no hosted version. 30-day refund, no questions." data-ar="الدفع: فيزا · ماستركارد · أمريكان إكسبريس · Apple Pay · Google Pay. الأسعار بالدولار. يُسلَّم كشيفرة مصدرية ووثائق — يعمل على جهازك، دون الاحتفاظ بأي أموال ودون نسخة مستضافة. استرداد خلال ٣٠ يوماً دون أسئلة.">Payment: Visa · Mastercard · Amex · Apple Pay · Google Pay. Priced in USD. Delivered as source code and documentation — self-hosted, no custody of funds, no hosted version. 30-day refund, no questions.</p>
-      <p class="fine" style="margin-top:12px" data-en="BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction, projection or guarantee of financial return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results." data-ar="محطة BRX برنامج مُرخَّص لك وتشغّله بنفسك. وهو ليس نصيحة استثمارية ولا إدارة محافظ ولا وساطة مالية ولا خدمة مُدارة، ولا تحتفظ BRX Technologies L.L.C بأموال العملاء أو أصولهم أو بيانات دخولهم. ولا يمثّل أي مما ورد هنا تنبؤاً أو ضماناً بعائد مالي. ينطوي التداول على مخاطر خسارة جسيمة قد تصل إلى خسارة رأس المال بالكامل. والأداء السابق لا يدل على النتائج المستقبلية.">BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction, projection or guarantee of financial return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results.</p>
+      <p class="fine" style="margin-top:20px;max-width:90ch" data-en="BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction or guarantee of return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results." data-ar="محطة BRX برنامج مُرخَّص لك وتشغّله بنفسك. وهو ليس نصيحة استثمارية ولا إدارة محافظ ولا وساطة ولا خدمة مُدارة، ولا تحتفظ BRX Technologies L.L.C بأموال العملاء أو أصولهم أو بيانات دخولهم. لا شيء هنا تنبؤ أو ضمان لعائد. ينطوي التداول على مخاطر خسارة جسيمة قد تصل إلى خسارة رأس المال بالكامل. الأداء السابق لا يدل على النتائج المستقبلية.">BRX Terminal is software licensed to you and run by you. It is not investment advice, portfolio management, brokerage or a managed service, and BRX Technologies L.L.C does not hold client funds, assets or credentials. Nothing here is a prediction or guarantee of return. Trading involves substantial risk of loss, including total loss of capital. Past performance does not indicate future results.</p>
     </div>
   </div>
 </section>
 
 <!-- ═══ INDUSTRIES ═══ -->
-<section class="sec" id="industries">
+<section class="inds" id="industries">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-en="Industries" data-ar="القطاعات">Industries</p>
-      <h2 class="display" data-en="Any workflow with a pattern <br>can be automated." data-ar="أي سير عمل ذو نمط <br>يمكن أتمتته.">Any workflow with a pattern <br>can be automated.</h2>
-    </div>
-    <div class="grid-3">
-      <a class="card card--featured reveal" href="/flow/real-estate.html">
-        <span class="status status--live" data-en="Live" data-ar="مباشر">Live</span>
-        <h3 data-en="Real Estate" data-ar="العقارات">Real Estate</h3>
-        <p data-en="Lead qualification, multilingual follow-up, morning briefings, CRM automation. Proven live on a Dubai desk." data-ar="تأهيل العملاء والمتابعة متعددة اللغات والإحاطات الصباحية وأتمتة CRM. مثبت مباشرة على مكتب في دبي.">Lead qualification, multilingual follow-up, morning briefings, CRM automation. Proven live on a Dubai desk.</p>
-        <span class="go" data-en="Lead Defence →" data-ar="حماية العملاء ←">Lead Defence →</span>
-      </a>
-      <a class="card reveal" href="/flow/legal.html">
-        <span class="status status--soon" data-en="BRX Flow" data-ar="BRX Flow">BRX Flow</span>
-        <h3 data-en="Legal &amp; Professional Services" data-ar="القانون والخدمات المهنية">Legal &amp; Professional Services</h3>
-        <p data-en="Contract review, clause extraction, document summaries, client intake, deadline alerts in Arabic and English." data-ar="مراجعة العقود واستخراج البنود وتلخيص الوثائق وتسجيل العملاء وتنبيهات المواعيد النهائية.">Contract review, clause extraction, document summaries, client intake, deadline alerts in Arabic and English.</p>
-        <span class="go" data-en="See the pipeline →" data-ar="شاهد المسار ←">See the pipeline →</span>
-      </a>
-      <a class="card reveal" href="/flow/hospitality.html">
-        <span class="status status--soon" data-en="BRX Flow" data-ar="BRX Flow">BRX Flow</span>
-        <h3 data-en="Hospitality &amp; Tourism" data-ar="الضيافة والسياحة">Hospitality &amp; Tourism</h3>
-        <p data-en="Guest journeys — pre-arrival, upsell, post-stay follow-up in 6 languages — built for the UAE's international guests." data-ar="أتمتة تجربة الضيوف وما قبل الوصول والبيع التكميلي والمتابعة بعد الإقامة بـ6 لغات.">Guest journeys — pre-arrival, upsell, post-stay follow-up in 6 languages — built for the UAE's international guests.</p>
-        <span class="go" data-en="See the pipeline →" data-ar="شاهد المسار ←">See the pipeline →</span>
-      </a>
-      <a class="card reveal" href="/flow/healthcare.html">
-        <span class="status status--soon" data-en="BRX Flow" data-ar="BRX Flow">BRX Flow</span>
-        <h3 data-en="Healthcare &amp; Wellness" data-ar="الرعاية الصحية والعافية">Healthcare &amp; Wellness</h3>
-        <p data-en="Appointment scheduling, no-show recovery, prescription reminders and patient follow-up in Arabic and English." data-ar="جدولة المواعيد واسترداد حالات الغياب وتذكيرات الوصفات ومتابعة رضا المرضى.">Appointment scheduling, no-show recovery, prescription reminders and patient follow-up in Arabic and English.</p>
-        <span class="go" data-en="See the pipeline →" data-ar="شاهد المسار ←">See the pipeline →</span>
-      </a>
-      <div class="card card--muted reveal">
-        <span class="status status--soon">Q4 2026</span>
-        <h3 data-en="Finance &amp; Wealth Management" data-ar="المال وإدارة الثروات">Finance &amp; Wealth Management</h3>
-        <p data-en="Portfolio reporting, compliance alerts, client briefings and anomaly detection — without manual analyst hours." data-ar="تقارير المحافظ وتنبيهات الامتثال وإحاطات العملاء واكتشاف الشذوذات — دون ساعات تحليل يدوية.">Portfolio reporting, compliance alerts, client briefings and anomaly detection — without manual analyst hours.</p>
-      </div>
-      <div class="card card--muted reveal">
-        <span class="status status--soon">2027</span>
-        <h3 data-en="Education &amp; Training" data-ar="التعليم والتدريب">Education &amp; Training</h3>
-        <p data-en="Student enquiry qualification, enrolment follow-up, attendance nudges and parent communication in Arabic and English." data-ar="تأهيل استفسارات الطلاب ومتابعة التسجيل وتنبيهات الحضور وأتمتة التواصل مع أولياء الأمور.">Student enquiry qualification, enrolment follow-up, attendance nudges and parent communication in Arabic and English.</p>
-      </div>
-    </div>
+    <h2 class="display" data-en="Same engine, four industries." data-ar="المحرّك نفسه، أربعة قطاعات.">Same engine, four industries.</h2>
+    <ul class="ind-list">
+      <li><a href="/flow/real-estate.html"><span class="nm"><span data-en="Real estate" data-ar="العقارات">Real estate</span><span class="live" data-en="Live" data-ar="مباشر">Live</span></span><span class="ds" data-en="Every lead called, texted and emailed. One month free." data-ar="كل عميل يُتّصل به ويُراسَل. شهر مجاني.">Every lead called, texted and emailed. One month free.</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a href="/flow/legal.html"><span class="nm" data-en="Legal" data-ar="القانون">Legal</span><span class="ds" data-en="Client intake and matter triage in Arabic and English." data-ar="استقبال العملاء وفرز القضايا بالعربية والإنجليزية.">Client intake and matter triage in Arabic and English.</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a href="/flow/hospitality.html"><span class="nm" data-en="Hospitality" data-ar="الضيافة">Hospitality</span><span class="ds" data-en="Pre-arrival, upsell and post-stay journeys in 6 languages." data-ar="رحلات ما قبل الوصول والبيع الإضافي وما بعد الإقامة بـ6 لغات.">Pre-arrival, upsell and post-stay journeys in 6 languages.</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a href="/flow/healthcare.html"><span class="nm" data-en="Healthcare" data-ar="الرعاية الصحية">Healthcare</span><span class="ds" data-en="Confirmations, reminders and no-show recovery." data-ar="تأكيدات وتذكيرات واستعادة حالات الغياب.">Confirmations, reminders and no-show recovery.</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    </ul>
+    <p class="fine" data-en="Finance and education follow in 2026 and 2027. See all at Industries." data-ar="المالية والتعليم في 2026 و2027. شاهد الكل في صفحة القطاعات.">Finance and education follow in 2026 and 2027. See all at Industries.</p>
   </div>
 </section>
 
-<!-- ═══ VISION ═══ -->
-<section class="sec sec--alt" id="vision">
+<!-- ═══ CONTACT ═══ -->
+<section class="talk" id="cta">
   <div class="wrap">
-    <div class="split">
-      <div class="reveal">
-        <p class="eyebrow" data-en="UAE Year of Community · 2026" data-ar="عام المجتمع الإماراتي · 2026">UAE Year of Community · 2026</p>
-        <blockquote class="quote" data-en="2026 is the year of community. The highest gift technology can give is <em>time back</em> — time for family, connection, and the things that make us human." data-ar="2026 هو عام المجتمع. أعظم هبة تمنحها التكنولوجيا هي <em>استعادة الوقت</em> — وقت للعائلة والتواصل وما يجعلنا بشراً.">2026 is the year of community. The highest gift technology can give is <em>time back</em> — time for family, connection, and the things that make us human.</blockquote>
-      </div>
-      <div class="reveal">
-        <p class="lede" style="margin-top:0" data-en="When a real estate advisor spends 3 fewer hours on manual follow-ups, those hours go to family. When a clinic receptionist stops chasing confirmations, she builds real patient relationships. That's what we're building toward — a UAE where every professional has an AI agent doing their repetitive work, so they can focus on what matters." data-ar="عندما يُقلّل مستشار العقارات ثلاث ساعات من المتابعات اليدوية، تذهب هذه الساعات للعائلة. عندما تتوقف موظفة الاستقبال عن ملاحقة التأكيدات، تبني علاقات حقيقية مع المرضى. هذا ما نبنيه — إمارات يمتلك فيها كل محترف وكيل ذكاء اصطناعي يقوم بعمله المتكرر، ليتفرغ لما يهم.">When a real estate advisor spends 3 fewer hours on manual follow-ups, those hours go to family. When a clinic receptionist stops chasing confirmations, she builds real patient relationships. That's what we're building toward — a UAE where every professional has an AI agent doing their repetitive work, so they can focus on what matters.</p>
-        <div class="btn-row"><a href="#cta" class="btn" data-en="Be part of the first wave" data-ar="كن من الرعيل الأول">Be part of the first wave</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ TEAM ═══ -->
-<section class="sec team" id="team">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow" data-en="The team" data-ar="الفريق">The team</p>
-      <h2 class="display" data-en="Built by people who lived <br>the problem first." data-ar="بُني من قِبَل أناس <br>عاشوا المشكلة أولاً.">Built by people who lived <br>the problem first.</h2>
-    </div>
-    <div class="grid-2">
-      <article class="card reveal">
-        <div class="initials" aria-hidden="true">SZ</div>
-        <div>
-          <h3 data-en="Saud Zayed" data-ar="سعود زايد">Saud Zayed</h3>
-          <p class="role" data-en="Co-Founder · Operations" data-ar="شريك مؤسس · العمليات">Co-Founder · Operations</p>
-          <p data-en="Operations lead and co-administrator of the BRX·DXB platform. Runs client deployment, turns complex workflows into agent specifications, and makes sure every delivery lands on time." data-ar="قائد العمليات والمدير المشارك لمنصة BRX·DXB. يدير نشر العملاء ويترجم سير العمل المعقد إلى مواصفات وكيل قابلة للتنفيذ ويضمن أن كل تسليم يتم في الوقت المحدد.">Operations lead and co-administrator of the BRX·DXB platform. Runs client deployment, turns complex workflows into agent specifications, and makes sure every delivery lands on time.</p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="initials" aria-hidden="true">LK</div>
-        <div>
-          <h3 data-en="Leo Khatib" data-ar="ليو خطيب">Leo Khatib</h3>
-          <p class="role" data-en="Co-Founder · AI Systems Architect" data-ar="شريك مؤسس · مهندس أنظمة الذكاء الاصطناعي">Co-Founder · AI Systems Architect</p>
-          <p data-en="Built and deployed the first live agent on his own pipeline — tested for 3 weeks before releasing it to others. Architect of everything BRX·DXB builds." data-ar="بنى ونشر أول وكيل حي على خط أنابيبه الخاص — اختبره 3 أسابيع قبل إطلاقه للآخرين. مهندس كل ما تبنيه BRX·DXB.">Built and deployed the first live agent on his own pipeline — tested for 3 weeks before releasing it to others. Architect of everything BRX·DXB builds.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CTA ═══ -->
-<section class="sec sec--alt" id="cta">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:0">
-      <p class="eyebrow" data-en="Commission an agent" data-ar="كلّفنا بوكيل">Commission an agent</p>
-      <h2 class="display" data-en="Ready to stop doing the work <br>an <em>agent can do?</em>" data-ar="جاهز لتتوقف عن أداء العمل <br>الذي <em>يمكن للوكيل فعله؟</em>">Ready to stop doing the work <br>an <em>agent can do?</em></h2>
-      <p class="lede" data-en="Tell us your workflow. We'll tell you in 24 hours whether we can automate it, how long it takes, and what it costs. No pitch deck. No obligation. Just a direct answer." data-ar="أخبرنا بسير عملك. سنخبرك في 24 ساعة هل يمكننا أتمتته وكم يستغرق وما يكلفه. لا عروض تقديمية. لا التزامات. فقط إجابة مباشرة.">Tell us your workflow. We'll tell you in 24 hours whether we can automate it, how long it takes, and what it costs. No pitch deck. No obligation. Just a direct answer.</p>
-    </div>
+    <h2 data-en="Talk to us." data-ar="تحدّث معنا.">Talk to us.</h2>
+    <p class="lede" data-en="Tell us your lead flow. Within 24 hours we'll tell you whether we can run it, how long it takes and what it costs." data-ar="أخبرنا بتدفق عملائك. خلال 24 ساعة نخبرك هل يمكننا تشغيله وكم يستغرق وما تكلفته.">Tell us your lead flow. Within 24 hours we'll tell you whether we can run it, how long it takes and what it costs.</p>
+    <div id="team">
 <!-- founders:start -->
 <div class="founders">
   <div class="card founder">
@@ -468,7 +512,7 @@ html[lang="ar"] .hero h1 { font-size: clamp(48px, 8vw, 104px); line-height: 1.2;
   </div>
 </div>
 <!-- founders:end -->
-    <p class="small" style="margin-top:28px" data-en="DIFC, Dubai, UAE" data-ar="مركز دبي المالي العالمي، دبي، الإمارات">DIFC, Dubai, UAE</p>
+    </div>
   </div>
 </section>
 
@@ -492,33 +536,9 @@ html[lang="ar"] .hero h1 { font-size: clamp(48px, 8vw, 104px); line-height: 1.2;
 <script src="/assets/brx.js" defer></script>
 <!-- foot:end -->
 
-<script>
-// Homepage: ticker follows the language; 3D logo parallax (skipped under reduced motion).
-(function () {
-  var T = {
-    en: ['Real estate lead qualification','Multilingual outreach','Client follow-up in 6 languages','CRM pipeline management','Legal document processing','Finance reporting agents','Hospitality guest journeys','Healthcare scheduling'],
-    ar: ['تأهيل عملاء العقارات','تواصل متعدد اللغات','متابعة العملاء بـ6 لغات','إدارة قنوات CRM','معالجة الوثائق القانونية','وكلاء التقارير المالية','رحلات ضيوف الضيافة','جدولة الرعاية الصحية']
-  };
-  window.onLangChange = function (lang) {
-    var track = document.getElementById('ticker-track'); if (!track) return;
-    var items = T[lang] || T.en;
-    track.innerHTML = items.concat(items).map(function (t) { return '<span class="ticker-item">' + t + '</span>'; }).join('');
-  };
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var mv = document.getElementById('brxModel'), box = document.getElementById('hero3d');
-  if (!mv || !box || !window.matchMedia('(pointer: fine)').matches) return;
-  var tx = 0, ty = 0, cx = 0, cy = 0;
-  window.addEventListener('mousemove', function (e) {
-    var r = box.getBoundingClientRect(); if (!r.width) return;
-    tx = ((e.clientX - (r.left + r.width / 2)) / window.innerWidth) * 2;
-    ty = ((e.clientY - (r.top + r.height / 2)) / window.innerHeight) * 2;
-  }, { passive: true });
-  (function tick() {
-    cx += (tx - cx) * .06; cy += (ty - cy) * .06;
-    mv.style.transform = 'translate3d(' + (cx * 14) + 'px,' + (cy * 10) + 'px,0)';
-    requestAnimationFrame(tick);
-  })();
-})();
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="/assets/wake.js" defer></script>
+<script src="/assets/home.js" defer></script>
 </body>
 </html>

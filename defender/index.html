@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRX Defender | Whoever calls first wins the deal. Call first.</title>
+<meta name="description" content="The Defender calls every new lead within minutes, in their language, then hands them to your agent. Two tools free forever. First month of the Defender free, no card.">
+<meta property="og:title" content="BRX Defender | Whoever calls first wins the deal">
+<meta property="og:description" content="Every new lead called within minutes, in their language, then handed to your agent. First month free.">
+<meta property="og:image" content="https://www.brxdxb.com/assets/brx-logo-poster.png">
+<meta property="og:url" content="https://www.brxdxb.com/defender/">
+<link rel="canonical" href="https://www.brxdxb.com/defender/">
+<!-- head:start -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/brx.css">
+<link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>document.documentElement.classList.add('js')</script>
+<!-- head:end -->
+<style>
+/* Defender page only. Design read: product page for Dubai agents and agency owners, founder's voice,
+   on the shared white/green system. Dials 9/8/3. One memorable thing: the switch decides the ending
+   of the 21:05 story (OFF = lost, ON = yours). The paid card is the visual centre; free cards stay quiet. */
+
+/* Hero */
+.df-hero { position: relative; isolation: isolate; overflow: hidden; padding: 80px 0 96px; }
+.df-hero .wake-veil { position: absolute; inset: 0; z-index: -2; background: #fff; }
+.df-hero.is-on .wake-veil { background: #D6E8B2; }
+.df-wall { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; display: block; }
+.df-hero .split { align-items: center; grid-template-columns: 1.1fr .9fr; }
+.df-hero h1 { font-size: clamp(30px, 3.5vw, 52px); line-height: 1.04; font-weight: 700; letter-spacing: -.035em; }
+.df-hero h1 span { display: block; }
+html[lang="ar"] .df-hero h1 { line-height: 1.3; letter-spacing: 0; }
+.df-hero .lede { color: var(--ink); }
+.df-hero .btn--ghost { background: #fff; }
+
+.story { padding: 32px; border: 0; box-shadow: 0 30px 60px -36px rgba(40,70,10,.5); }
+.story-top { display: flex; align-items: center; gap: 24px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+.story-top .sw-label { font: 600 14px/1.35 var(--en); color: var(--ink3); }
+html[lang="ar"] .story-top .sw-label { font-family: var(--ar); }
+.story-feed { list-style: none; margin-top: 8px; }
+.story-feed li { display: grid; grid-template-columns: 54px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 15px; color: var(--ink2); }
+.story-feed time { font-weight: 700; font-size: 13px; color: var(--ink3); font-variant-numeric: tabular-nums; direction: ltr; padding-top: 1px; }
+.story-feed.on { display: none; }
+.story.is-on .story-feed.on { display: block; }
+.story.is-on .story-feed.off { display: none; }
+.story-end { margin-top: 20px; font: 600 clamp(22px, 2.2vw, 30px)/1.2 var(--display); letter-spacing: -.02em; color: var(--ink); }
+html[lang="ar"] .story-end { font-family: var(--ar); font-weight: 700; letter-spacing: 0; }
+.story-end .tag-end { display: inline-block; font: 700 13px/1 var(--en); letter-spacing: .02em; padding: 7px 12px; border-radius: 999px; margin-inline-end: 10px; vertical-align: middle; background: #F3E3E1; color: #8A1F17; }
+.story.is-on .story-end .tag-end { background: var(--g); color: var(--ink); }
+.card .story-note { font-size: 12px; color: var(--ink3); margin-top: 14px; }
+
+/* My desk */
+.desk { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+.desk-lines { list-style: none; border-inline-start: 3px solid var(--g); padding-inline-start: 32px; }
+.desk-lines li { font-size: clamp(19px, 1.7vw, 24px); line-height: 1.5; color: var(--ink); font-weight: 400; }
+.desk-lines li + li { margin-top: 18px; }
+.desk-sig { margin-top: 28px; padding-inline-start: 35px; font-size: 14px; color: var(--ink3); }
+.desk-sig b { color: var(--ink); font-weight: 700; }
+
+/* Three services */
+.offer { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 24px; align-items: center; }
+.svc { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+.svc .kind { display: inline-block; font-size: 12px; font-weight: 700; color: var(--g-ink); background: var(--g-soft); border: 1px solid #D8E5C0; border-radius: 999px; padding: 4px 12px; margin-bottom: 18px; }
+.svc h3 { font-size: 22px; margin-bottom: 8px; }
+.svc p { font-size: 15px; color: var(--ink3); }
+.svc .after { margin-top: 18px; font-size: 13px; color: var(--ink3); border-top: 1px solid var(--line); padding-top: 14px; }
+.svc--pay { background: #fff; border: 2px solid var(--g); padding: 36px 32px; box-shadow: 0 30px 60px -36px rgba(40,70,10,.55); }
+.svc--pay .kind { background: var(--g); color: var(--ink); border-color: var(--g); }
+.svc--pay h3 { font-family: var(--display); font-size: clamp(26px, 2.4vw, 34px); font-weight: 600; letter-spacing: -.02em; }
+html[lang="ar"] .svc--pay h3 { font-family: var(--ar); font-weight: 700; letter-spacing: 0; }
+.svc--pay > p { color: var(--ink2); font-size: 16px; }
+.svc .free-now { font-family: var(--display); font-size: clamp(30px, 3vw, 44px); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; color: var(--ink); margin-top: 24px; }
+html[lang="ar"] .svc .free-now { font-family: var(--ar); letter-spacing: 0; }
+.svc .terms { list-style: none; margin: 16px 0 24px; }
+.svc .terms li { font-size: 14px; color: var(--ink2); padding: 9px 0; border-top: 1px solid var(--line); }
+.svc .terms li b { color: var(--ink); }
+.svc--pay .btn { width: 100%; min-height: 54px; font-size: 16px; }
+.svc--pay .fine { margin-top: 12px; text-align: center; }
+.mini-sw { width: 52px; height: 26px; border-radius: 999px; background: var(--g); position: relative; float: inline-end; }
+.mini-sw::after { content: ""; position: absolute; top: 4px; inset-inline-end: 4px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+
+/* 1 · 2 · 3 */
+.path { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--ink); margin-top: 8px; }
+.path li { padding: 22px 24px 4px 0; }
+.path li + li { padding-inline-start: 24px; border-inline-start: 1px solid var(--line); }
+.path .k { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--g); font: 700 15px/1 var(--en); color: var(--ink); margin-bottom: 12px; transition: background .3s; }
+.path li.is-done .k { background: var(--g); }
+.path h3 { font-size: 18px; margin-bottom: 4px; }
+.path p { font-size: 14px; color: var(--ink3); }
+
+/* Sticky phone CTA */
+.dock { position: fixed; inset-inline: 0; bottom: 0; z-index: 90; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); display: none; transform: translateY(110%); visibility: hidden; transition: transform .3s ease, visibility .3s; }
+.dock .btn { width: 100%; min-height: 50px; }
+.dock.is-up { transform: none; visibility: visible; }
+
+@media (max-width: 960px) {
+  .df-hero { padding: 40px 0 64px; }
+  .df-hero .split { grid-template-columns: 1fr; }
+  .story { padding: 24px 20px; }
+  .desk { grid-template-columns: 1fr; gap: 32px; }
+  .offer { grid-template-columns: 1fr; }
+  .svc--pay { order: -1; }
+  .dock { display: block; }
+  body { padding-bottom: 76px; }
+}
+@media (max-width: 640px) {
+  .path { grid-template-columns: 1fr; }
+  .path li, .path li + li { padding: 18px 0 6px; border-inline-start: 0; }
+  .path li + li { border-top: 1px solid var(--line); }
+  .desk-lines { padding-inline-start: 20px; }
+  .desk-sig { padding-inline-start: 23px; }
+  .svc, .svc--pay { padding: 24px 20px; }
+  .story-top { gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .dock { transition: none; } }
+</style>
+</head>
+<body data-page="defender">
+<!-- nav:start -->
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+<header class="site-nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+      <a href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
+      <a href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+      <a href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+      <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+      <a href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button type="button" id="btn-ar" onclick="setLang('ar')" aria-pressed="false" lang="ar">AR</button>
+      </div>
+      <a class="btn btn--sm nav-cta" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+      <button class="burger" id="burger" type="button" aria-controls="sheet" aria-expanded="false" aria-label="Menu" data-en-aria="Menu" data-ar-aria="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet-link" href="/flow/real-estate.html" data-nav="lead" data-en="Lead Defence" data-ar="حماية العملاء">Lead Defence</a>
+  <a class="sheet-link" href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
+  <a class="sheet-link" href="/#lab" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
+  <a class="sheet-link" href="/#terminal" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+  <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+  <a class="sheet-link" href="#cta" data-nav="contact" data-en="Contact" data-ar="تواصل">Contact</a>
+  <a class="btn" href="#cta" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</a>
+  <p class="fine" data-en="BRX · Dubai" data-ar="BRX · دبي">BRX · Dubai</p>
+</div>
+<!-- nav:end -->
+
+<main id="main">
+
+<!-- HERO: the switch writes the ending -->
+<section class="df-hero" id="dfHero" data-wake>
+  <div class="wake-veil" aria-hidden="true"></div>
+  <canvas class="df-wall" data-wake-wall aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <h1>
+          <span data-en="A lead lands at 21:05." data-ar="عميل يصل الساعة 21:05.">A lead lands at 21:05.</span>
+          <span data-en="Every agent is at a viewing." data-ar="كل الوسطاء في معاينات.">Every agent is at a viewing.</span>
+          <span data-en="Whoever calls first wins the deal." data-ar="من يتصل أولاً يربح الصفقة.">Whoever calls first wins the deal.</span>
+        </h1>
+        <p class="lede" data-en="The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over. Switch it off and it stops within 2 minutes." data-ar="Defender يتصل أولاً. بكل عميل جديد، خلال دقائق، وبلغته. لحظة يرد، يتولّى وكيلك. أوقف المفتاح فيتوقف كل شيء خلال دقيقتين.">The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over. Switch it off and it stops within 2 minutes.</p>
+        <div class="btn-row">
+          <a class="btn btn--ink" href="#try" data-magnetic data-en="Try it free for a month" data-ar="جرّبه مجاناً لمدة شهر">Try it free for a month</a>
+          <a class="btn btn--ghost" href="#free" data-en="See what's free forever" data-ar="اطّلع على المجاني دائماً">See what's free forever</a>
+        </div>
+      </div>
+
+      <div class="card story" id="story">
+        <div class="story-top">
+          <button class="bigswitch" type="button" role="switch" aria-checked="false" data-wake-switch data-cursor="switch" aria-label="The Defender switch" data-en-aria="The Defender switch" data-ar-aria="مفتاح Defender"><span class="knob"></span></button>
+          <p class="sw-label" id="swLabel" aria-live="polite"></p>
+        </div>
+        <ol class="story-feed off">
+          <li><time>21:05</time><span data-en="New lead from a portal. Wants a 2-bed in the Marina." data-ar="عميل جديد من بوابة عقارية. يريد شقة بغرفتين في المارينا.">New lead from a portal. Wants a 2-bed in the Marina.</span></li>
+          <li><time>21:05</time><span data-en="You're in a viewing. Phone on silent." data-ar="أنت في معاينة. الهاتف صامت.">You're in a viewing. Phone on silent.</span></li>
+          <li><time>22:40</time><span data-en="You call back. &ldquo;I'm already talking to another agent.&rdquo;" data-ar="تعاود الاتصال. «أنا أتحدث مع وسيط آخر.»">You call back. “I'm already talking to another agent.”</span></li>
+        </ol>
+        <ol class="story-feed on">
+          <li><time>21:05</time><span data-en="New lead from a portal. Wants a 2-bed in the Marina." data-ar="عميل جديد من بوابة عقارية. يريد شقة بغرفتين في المارينا.">New lead from a portal. Wants a 2-bed in the Marina.</span></li>
+          <li><time>21:07</time><span data-en="The Defender calls, in his language." data-ar="Defender يتصل، بلغته.">The Defender calls, in his language.</span></li>
+          <li><time>21:08</time><span data-en="He picks up. Your agent takes the call." data-ar="يرد. ووكيلك يتولّى المكالمة.">He picks up. Your agent takes the call.</span></li>
+        </ol>
+        <p class="story-end" id="storyEnd" aria-live="polite"></p>
+        <p class="story-note" data-en="Tap the switch. An illustrative evening." data-ar="اضغط المفتاح. مساء توضيحي.">Tap the switch. An illustrative evening.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MY DESK -->
+<section class="sec" id="desk">
+  <div class="wrap">
+    <div class="desk">
+      <div class="reveal">
+        <p class="eyebrow" data-en="Why it exists" data-ar="لماذا وُجد">Why it exists</p>
+        <h2 class="display" data-en="This was my desk." data-ar="كان هذا مكتبي.">This was my desk.</h2>
+      </div>
+      <div class="reveal">
+        <ol class="desk-lines">
+          <li data-en="I sell property in Dubai. I still do viewings every week." data-ar="أبيع العقارات في دبي. وما زلت أقوم بمعاينات كل أسبوع.">I sell property in Dubai. I still do viewings every week.</li>
+          <li data-en="A lead came in while I was showing a flat. I called back that night. He had already booked with the agent who called first." data-ar="وصلني عميل وأنا أعرض شقة. اتصلت به تلك الليلة. كان قد حجز مع الوسيط الذي اتصل أولاً.">A lead came in while I was showing a flat. I called back that night. He had already booked with the agent who called first.</li>
+          <li data-en="It was a good lead. I was just second." data-ar="كان عميلاً جيداً. لكنني كنت الثاني.">It was a good lead. I was just second.</li>
+          <li data-en="So I built the Defender for my own desk first. It calls while I work. I take over when they pick up." data-ar="فبنيت Defender لمكتبي أنا أولاً. يتصل بينما أعمل. وأتولّى حين يردّون.">So I built the Defender for my own desk first. It calls while I work. I take over when they pick up.</li>
+        </ol>
+        <p class="desk-sig"><b data-en="Leo Khatib" data-ar="ليو خطيب">Leo Khatib</b> <span data-en="· co-founder, and still a working agent" data-ar="· شريك مؤسس، وما زال وسيطاً عقارياً">· co-founder, and still a working agent</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE SERVICES -->
+<section class="sec sec--alt" id="free">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-en="What you get" data-ar="ما تحصل عليه">What you get</p>
+      <h2 class="display" data-en="Two tools free, always. <br>One that calls for you." data-ar="أداتان مجانيتان دائماً. <br>وواحدة تتصل عنك.">Two tools free, always. <br>One that calls for you.</h2>
+      <p class="lede" data-en="Sign up once. You get all three for a month. After that, the first two stay free. You only pay for the Defender." data-ar="سجّل مرة واحدة. تحصل على الثلاث لمدة شهر. بعدها تبقى الأولى والثانية مجانيتين. تدفع فقط مقابل Defender.">Sign up once. You get all three for a month. After that, the first two stay free. You only pay for the Defender.</p>
+    </div>
+    <div class="offer">
+      <article class="svc reveal">
+        <span class="kind" data-en="Free forever" data-ar="مجاني دائماً">Free forever</span>
+        <h3 data-en="Morning brief" data-ar="موجز الصباح">Morning brief</h3>
+        <p data-en="Your whole day on one page. Read it in 30 seconds: yesterday's calls and what was said, what you owe today, and which leads are about to go cold." data-ar="يومك كله في صفحة واحدة تقرؤها في 30 ثانية: مكالمات الأمس وما قيل فيها، وما عليك اليوم، وأي العملاء على وشك أن يبردوا.">Your whole day on one page. Read it in 30 seconds: yesterday's calls and what was said, what you owe today, and which leads are about to go cold.</p>
+        <p class="after" data-en="On your phone and your laptop, every morning." data-ar="على هاتفك وحاسوبك، كل صباح.">On your phone and your laptop, every morning.</p>
+      </article>
+
+      <article class="svc svc--pay reveal" aria-labelledby="payTitle">
+        <span class="mini-sw" aria-hidden="true"></span>
+        <span class="kind" data-en="The one that pays" data-ar="الخدمة المدفوعة">The one that pays</span>
+        <h3 id="payTitle" data-en="The Defender" data-ar="Defender">The Defender</h3>
+        <p data-en="Every new lead called within minutes, in their language, then handed to your agent. Only in the lead's daytime. Never from an agent's personal number." data-ar="كل عميل جديد يُتّصل به خلال دقائق، بلغته، ثم يُسلَّم لوكيلك. فقط في ساعات نهار العميل. ولا يكون أبداً من رقم شخصي لوكيل.">Every new lead called within minutes, in their language, then handed to your agent. Only in the lead's daytime. Never from an agent's personal number.</p>
+        <p class="free-now" data-en="First month free." data-ar="الشهر الأول مجاناً.">First month free.</p>
+        <ul class="terms">
+          <li data-en="Then the licence: <b>AED 5,000 per agent per month</b>." data-ar="بعدها الترخيص: <b>5,000 درهم لكل وكيل شهرياً</b>.">Then the licence: <b>AED 5,000 per agent per month</b>.</li>
+          <li data-en="Set-up after the trial: <b>AED 50,000 one-time</b>. Mac mini, desk screen, company handset and first-year AI tokens." data-ar="التجهيز بعد التجربة: <b>50,000 درهم لمرة واحدة</b>. جهاز Mac mini وشاشة المكتب وهاتف الشركة ورصيد الذكاء الاصطناعي للسنة الأولى.">Set-up after the trial: <b>AED 50,000 one-time</b>. Mac mini, desk screen, company handset and first-year AI tokens.</li>
+          <li data-en="10 agents return the set-up in month one." data-ar="عشرة وكلاء يستردّون تكلفة التجهيز في الشهر الأول.">10 agents return the set-up in month one.</li>
+        </ul>
+        <a class="btn" href="#try" data-magnetic data-en="Try it free for a month" data-ar="جرّبه مجاناً لمدة شهر">Try it free for a month</a>
+        <p class="fine" data-en="No card. Switch it off any time." data-ar="بلا بطاقة. أوقفه متى شئت.">No card. Switch it off any time.</p>
+      </article>
+
+      <article class="svc reveal">
+        <span class="kind" data-en="Free forever" data-ar="مجاني دائماً">Free forever</span>
+        <h3 data-en="Who to call now" data-ar="بمن تتصل الآن">Who to call now</h3>
+        <p data-en="Every lead scored and sorted, so the next call is obvious. Someone opens your email twice or clicks a listing, and they move to the top while they're still reading." data-ar="كل عميل مُقيَّم ومرتّب، فتصبح مكالمتك التالية واضحة. من يفتح بريدك مرتين أو ينقر على عقار ينتقل إلى أعلى القائمة وهو ما زال يقرأ.">Every lead scored and sorted, so the next call is obvious. Someone opens your email twice or clicks a listing, and they move to the top while they're still reading.</p>
+        <p class="after" data-en="One list. The one dying first is on top." data-ar="قائمة واحدة. الأقرب إلى الضياع في الأعلى.">One list. The one dying first is on top.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TRY: the 3-click path -->
+<section class="sec" id="try">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:32px">
+      <p class="eyebrow" data-en="Try it free" data-ar="جرّبه مجاناً">Try it free</p>
+      <h2 class="display" data-en="3 clicks. Then it's on your desk." data-ar="3 نقرات. ثم يصبح على مكتبك.">3 clicks. Then it's on your desk.</h2>
+    </div>
+    <ol class="path" id="path" aria-label="Three steps" data-en-aria="Three steps" data-ar-aria="ثلاث خطوات">
+      <li class="is-done" data-step="try"><span class="k" aria-hidden="true">1</span><h3 data-en="Try it free" data-ar="جرّبه مجاناً">Try it free</h3><p data-en="You're here. Nothing to install yet." data-ar="أنت هنا. لا شيء لتثبّته بعد.">You're here. Nothing to install yet.</p></li>
+      <li data-step="sent"><span class="k" aria-hidden="true">2</span><h3 data-en="Send your details" data-ar="أرسل بياناتك">Send your details</h3><p data-en="Name, phone, what to fix. No card. We reply within 24 hours." data-ar="الاسم والهاتف وما تريد حلّه. بلا بطاقة. نردّ خلال 24 ساعة.">Name, phone, what to fix. No card. We reply within 24 hours.</p></li>
+      <li data-step="pay"><span class="k" aria-hidden="true">3</span><h3 data-en="Pay the set-up" data-ar="ادفع التجهيز">Pay the set-up</h3><p data-en="When you're sure, not before. AED 50,000 once, by secure checkout." data-ar="حين تتأكد، لا قبل ذلك. 50,000 درهم مرة واحدة، بدفع آمن.">When you're sure, not before. AED 50,000 once, by secure checkout.</p></li>
+    </ol>
+<!-- leadform:start -->
+<form class="lead-form" id="leadForm" novalidate>
+  <div class="grid">
+    <div class="field"><label for="lf-first" data-en="First name" data-ar="الاسم الأول">First name</label><input id="lf-first" name="first" type="text" autocomplete="given-name" required></div>
+    <div class="field"><label for="lf-last" data-en="Surname" data-ar="اسم العائلة">Surname</label><input id="lf-last" name="last" type="text" autocomplete="family-name"></div>
+    <div class="field"><label for="lf-phone" data-en="Phone (WhatsApp)" data-ar="الهاتف (واتساب)">Phone (WhatsApp)</label><input id="lf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+971 5x xxx xxxx" required></div>
+    <div class="field"><label for="lf-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label><input id="lf-email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="lf-role" data-en="You are" data-ar="أنت">You are</label>
+      <select id="lf-role" name="role" required>
+        <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
+        <option value="Agent" data-en="An agent" data-ar="وسيط عقاري">An agent</option>
+        <option value="Agency owner / manager" data-en="Agency owner or manager" data-ar="مالك أو مدير وكالة">Agency owner or manager</option>
+        <option value="Developer / other" data-en="Developer or other" data-ar="مطوّر أو غير ذلك">Developer or other</option>
+      </select></div>
+    <div class="field"><label for="lf-agency"><span data-en="Agency name" data-ar="اسم الوكالة">Agency name</span> <small data-en="(optional)" data-ar="(اختياري)">(optional)</small></label><input id="lf-agency" name="agency" type="text" autocomplete="organization"></div>
+    <div class="field"><label for="lf-agents" data-en="Number of agents" data-ar="عدد الوسطاء">Number of agents</label><input id="lf-agents" name="agents" type="number" inputmode="numeric" min="1" max="5000" placeholder="12"></div>
+    <div class="field"><label for="lf-source" data-en="How did you hear about us?" data-ar="كيف سمعت عنا؟">How did you hear about us?</label>
+      <select id="lf-source" name="source">
+        <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
+        <option value="Google" data-en="Google search" data-ar="بحث جوجل">Google search</option>
+        <option value="Instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</option>
+        <option value="LinkedIn" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</option>
+        <option value="WhatsApp forward" data-en="A WhatsApp forward" data-ar="رسالة واتساب محوّلة">A WhatsApp forward</option>
+        <option value="Referral" data-en="A friend or colleague" data-ar="صديق أو زميل">A friend or colleague</option>
+        <option value="Event" data-en="An event" data-ar="فعالية">An event</option>
+        <option value="Other" data-en="Other" data-ar="غير ذلك">Other</option>
+      </select></div>
+    <div class="field field--full"><label for="lf-why" data-en="What do you want it to fix?" data-ar="ما الذي تريده أن يحلّه؟">What do you want it to fix?</label>
+      <select id="lf-why" name="why" required>
+        <option value="" data-en="Choose the closest one" data-ar="اختر الأقرب">Choose the closest one</option>
+        <option value="Slow reply, lose leads" data-en="I reply too slowly and lose leads to other agents" data-ar="أردّ ببطء وأخسر العملاء لوسطاء آخرين">I reply too slowly and lose leads to other agents</option>
+        <option value="Portal leads go cold" data-en="Bayut / Property Finder leads go cold before I call" data-ar="عملاء بيوت / بروبرتي فايندر يبردون قبل أن أتصل">Bayut / Property Finder leads go cold before I call</option>
+        <option value="No follow-up on old leads" data-en="Nobody follows up with old leads" data-ar="لا أحد يتابع العملاء القدامى">Nobody follows up with old leads</option>
+        <option value="Too many WhatsApp chats" data-en="Too many WhatsApp chats to keep track of" data-ar="محادثات واتساب أكثر من أن أتابعها">Too many WhatsApp chats to keep track of</option>
+        <option value="CRM nobody uses" data-en="We have a CRM but nobody uses it" data-ar="لدينا CRM لكن لا أحد يستخدمه">We have a CRM but nobody uses it</option>
+        <option value="Automate calls and reminders" data-en="I want calls and reminders to run on their own" data-ar="أريد أن تعمل المكالمات والتذكيرات تلقائياً">I want calls and reminders to run on their own</option>
+        <option value="See which agents follow up" data-en="I want to see which agents actually follow up" data-ar="أريد أن أرى أي الوسطاء يتابعون فعلاً">I want to see which agents actually follow up</option>
+        <option value="Comparing options" data-en="Just comparing options for now" data-ar="أقارن الخيارات فقط حالياً">Just comparing options for now</option>
+      </select></div>
+    <p class="err" id="lf-err" role="alert" hidden></p>
+    <div class="actions">
+      <button class="btn" id="lf-submit" type="submit" data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</button>
+      <span class="note" data-en="No card. No contract. We reply within 24 hours." data-ar="بلا بطاقة. بلا عقد. نردّ خلال 24 ساعة.">No card. No contract. We reply within 24 hours.</span>
+    </div>
+  </div>
+</form>
+<div class="lead-done" id="leadDone" tabindex="-1" hidden>
+  <h3 data-en="Got it. We'll be in touch within 24 hours." data-ar="وصلنا. سنتواصل معك خلال 24 ساعة.">Got it. We'll be in touch within 24 hours.</h3>
+  <p data-en="Want to talk sooner? Message either founder below." data-ar="تريد التحدث أسرع؟ راسل أيّاً من المؤسسَين أدناه.">Want to talk sooner? Message either founder below.</p>
+  <div class="btn-row" id="payRow" hidden>
+    <a class="btn btn--ink" id="payBtn" href="#" target="_blank" rel="noopener" data-en="Pay the set-up, AED 50,000" data-ar="ادفع التجهيز، 50,000 درهم">Pay the set-up, AED 50,000</a>
+    <span class="note" data-en="Already sure? Skip the wait. Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included." data-ar="متأكد الآن؟ تجاوز الانتظار. دفع آمن عبر Stripe. يشمل Mac mini وشاشة المكتب والهاتف ورصيد الذكاء الاصطناعي للسنة الأولى.">Already sure? Skip the wait. Secure checkout by Stripe. Mac mini, desk screen, handset and first-year AI tokens included.</span>
+  </div>
+</div>
+<!-- leadform:end -->
+  </div>
+</section>
+
+<!-- HOW IT RUNS -->
+<section class="sec sec--alt" id="how">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow" data-en="How it runs" data-ar="كيف يعمل">How it runs</p>
+        <h2 class="display" data-en="Your machine. Your phone. Your data." data-ar="جهازك. هاتفك. بياناتك.">Your machine. Your phone. Your data.</h2>
+        <p class="lede" data-en="It runs on a Mac you own, drives a handset you own and writes to files you own. Your book never sits on someone else's server." data-ar="يعمل على جهاز Mac تملكه، ويشغّل هاتفاً تملكه، ويكتب في ملفات تملكها. سجلّ عملائك لا يبقى أبداً على خادم شخص آخر.">It runs on a Mac you own, drives a handset you own and writes to files you own. Your book never sits on someone else's server.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><span class="k">1</span><div><h4 data-en="It watches" data-ar="يراقب">It watches</h4><p data-en="New leads, and the clock on each one." data-ar="العملاء الجدد، والوقت المتبقي لكل واحد منهم.">New leads, and the clock on each one.</p></div></div>
+        <div class="step"><span class="k">2</span><div><h4 data-en="It calls inside the rules" data-ar="يتصل ضمن القواعد">It calls inside the rules</h4><p data-en="Only in permitted hours, only allowed numbers, one call at a time." data-ar="فقط في الساعات المسموحة، وللأرقام المسموحة، مكالمة واحدة في كل مرة.">Only in permitted hours, only allowed numbers, one call at a time.</p></div></div>
+        <div class="step"><span class="k">3</span><div><h4 data-en="Your agent takes over" data-ar="وكيلك يتولّى">Your agent takes over</h4><p data-en="The moment a lead picks up, it steps back. Humans close." data-ar="لحظة يرد العميل يتراجع. البشر هم من يُغلقون الصفقة.">The moment a lead picks up, it steps back. Humans close.</p></div></div>
+        <div class="step"><span class="k">4</span><div><h4 data-en="It writes down the truth" data-ar="يسجّل الحقيقة">It writes down the truth</h4><p data-en="What happened, when, and what it could not do. Never a success it didn't confirm." data-ar="ما حدث ومتى وما لم يستطع فعله. ولا يسجّل نجاحاً لم يتأكد منه.">What happened, when, and what it could not do. Never a success it didn't confirm.</p></div></div>
+      </div>
+    </div>
+    <div class="stats reveal" style="margin-top:72px">
+      <div class="stat"><div class="n">14</div><p class="l" data-en="Dubai communities mapped" data-ar="مجتمعاً في دبي على الخريطة">Dubai communities mapped</p></div>
+      <div class="stat"><div class="n">1,106</div><p class="l" data-en="Buildings" data-ar="مبنى">Buildings</p></div>
+      <div class="stat"><div class="n">60,968</div><p class="l" data-en="Owners on file" data-ar="مالكاً في السجل">Owners on file</p></div>
+      <div class="stat"><div class="n">24/7</div><p class="l" data-en="Runs unattended" data-ar="يعمل دون إشراف">Runs unattended</p></div>
+    </div>
+    <p class="fine" style="margin-top:14px" data-en="Source: one live Dubai desk, September 2026." data-ar="المصدر: مكتب حيّ واحد في دبي، سبتمبر 2026.">Source: one live Dubai desk, September 2026.</p>
+  </div>
+</section>
+
+<!-- SAFETY + STACK -->
+<section class="sec" id="safety">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" data-en="Safety" data-ar="الأمان">Safety</p>
+      <h2 class="display" data-en="Built by breaking it first." data-ar="بنيناه بعد أن كسرناه أولاً.">Built by breaking it first.</h2>
+      <p class="lede" data-en="Every rule below exists because something went wrong once. They are built in, not settings someone can switch off on a busy day." data-ar="كل قاعدة أدناه موجودة لأن شيئاً ما أخطأ مرة. إنها مبنية في النظام، لا إعدادات يمكن إيقافها في يوم مزدحم.">Every rule below exists because something went wrong once. They are built in, not settings someone can switch off on a busy day.</p>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table class="tbl tbl--stack">
+        <thead><tr><th scope="col" data-en="Rule" data-ar="القاعدة">Rule</th><th scope="col" data-en="What it means for you" data-ar="ماذا تعني لك">What it means for you</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" data-en="Off means off" data-ar="الإيقاف يعني الإيقاف">Off means off</th><td data-en="The switch removes the handset itself. Nothing is left to dial with. Everything stops within 2 minutes." data-ar="المفتاح يفصل الهاتف نفسه. لا يبقى ما يُتّصل به. يتوقف كل شيء خلال دقيقتين.">The switch removes the handset itself. Nothing is left to dial with. Everything stops within 2 minutes.</td></tr>
+          <tr><th scope="row" data-en="Their daytime only" data-ar="في نهارهم فقط">Their daytime only</th><td data-en="Calls go out 10:00 to 22:00 in the lead's own time zone. Never 3 a.m. in London." data-ar="المكالمات من 10:00 إلى 22:00 بتوقيت العميل. لا في الثالثة فجراً بتوقيت لندن.">Calls go out 10:00 to 22:00 in the lead's own time zone. Never 3 a.m. in London.</td></tr>
+          <tr><th scope="row" data-en="Stops when they answer" data-ar="يتوقف حين يردّون">Stops when they answer</th><td data-en="The moment a lead picks up or replies, automation stops for that lead." data-ar="لحظة يرد العميل، تتوقف الأتمتة لهذا العميل.">The moment a lead picks up or replies, automation stops for that lead.</td></tr>
+          <tr><th scope="row" data-en="Your voice, your send" data-ar="صوتك، وقرارك بالإرسال">Your voice, your send</th><td data-en="Drafts are drafts. No message leaves without a person pressing the button. WhatsApp stays human." data-ar="المسودات تبقى مسودات. لا رسالة تخرج دون أن يضغط إنسان الزر. واتساب يبقى بشرياً.">Drafts are drafts. No message leaves without a person pressing the button. WhatsApp stays human.</td></tr>
+          <tr><th scope="row" data-en="Unknown is never zero" data-ar="المجهول ليس صفراً">Unknown is never zero</th><td data-en="If a read fails, it says so. It never shows an empty book as a quiet zero." data-ar="إن فشلت قراءة، يقول ذلك. ولا يعرض سجلاً فارغاً كأنه صفر.">If a read fails, it says so. It never shows an empty book as a quiet zero.</td></tr>
+          <tr><th scope="row" data-en="One bad lead never stops the run" data-ar="عميل واحد لا يوقف الدورة">One bad lead never stops the run</th><td data-en="Every lead is handled on its own. One failure cannot cancel the other four hundred." data-ar="كل عميل يُعالَج وحده. خطأ واحد لا يلغي الأربعمئة الآخرين.">Every lead is handled on its own. One failure cannot cancel the other four hundred.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-head reveal" style="margin:88px 0 32px">
+      <h2 class="display" data-en="What each piece touches." data-ar="ما يلمسه كل جزء.">What each piece touches.</h2>
+    </div>
+    <div class="tbl-wrap reveal">
+      <table class="tbl tbl--stack">
+        <thead><tr><th scope="col" data-en="Piece" data-ar="الجزء">Piece</th><th scope="col" data-en="What it does" data-ar="ماذا يفعل">What it does</th><th scope="col" data-en="Where it runs" data-ar="أين يعمل">Where it runs</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" data-en="The switch" data-ar="المفتاح">The switch</th><td data-en="ON/OFF, live board, daily report" data-ar="تشغيل/إيقاف، لوحة حيّة، تقرير يومي">ON/OFF, live board, daily report</td><td data-en="Your Mac, reachable from your phone" data-ar="جهاز Mac لديك، ويُفتح من هاتفك">Your Mac, reachable from your phone</td></tr>
+          <tr><th scope="row" data-en="Lead engine" data-ar="محرّك العملاء">Lead engine</th><td data-en="Watches every lead's clock, calls, retries" data-ar="يراقب وقت كل عميل، يتصل، يعيد المحاولة">Watches every lead's clock, calls, retries</td><td data-en="Your Mac, against the CRM you already use" data-ar="جهاز Mac لديك، مع نظام CRM الذي تستخدمه">Your Mac, against the CRM you already use</td></tr>
+          <tr><th scope="row" data-en="Call desk" data-ar="مكتب الاتصال">Call desk</th><td data-en="One call at a time, outcome written down" data-ar="مكالمة واحدة في كل مرة، والنتيجة مسجّلة">One call at a time, outcome written down</td><td data-en="Your Mac driving the company handset" data-ar="جهاز Mac لديك يشغّل هاتف الشركة">Your Mac driving the company handset</td></tr>
+          <tr><th scope="row" data-en="Call notes" data-ar="ملاحظات المكالمات">Call notes</th><td data-en="Summary, budget, timeline and next step from each call" data-ar="ملخص وميزانية وجدول زمني والخطوة التالية من كل مكالمة">Summary, budget, timeline and next step from each call</td><td data-en="On your own machine, not in the CRM" data-ar="على جهازك أنت، لا في نظام CRM">On your own machine, not in the CRM</td></tr>
+          <tr><th scope="row" data-en="Owner Atlas" data-ar="Owner Atlas">Owner Atlas</th><td data-en="Buildings, units and owners from the public register" data-ar="المباني والوحدات والملّاك من السجل العام">Buildings, units and owners from the public register</td><td data-en="Private link, access code on request" data-ar="رابط خاص، رمز الدخول عند الطلب">Private link, access code on request</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec sec--alt" id="cta">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <p class="eyebrow" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</p>
+      <h2 class="display" data-en="See it run on a real desk first." data-ar="شاهده يعمل على مكتب حقيقي أولاً.">See it run on a real desk first.</h2>
+      <p class="lede" data-en="A walkthrough takes 30 minutes on a screen-share: the live board, one call end to end, and the morning brief it writes. Bring your worst week of lost leads." data-ar="الجولة 30 دقيقة عبر مشاركة الشاشة: اللوحة الحيّة، ومكالمة واحدة من البداية للنهاية، وموجز الصباح الذي يكتبه. أحضر أسوأ أسبوع خسرت فيه عملاء.">A walkthrough takes 30 minutes on a screen-share: the live board, one call end to end, and the morning brief it writes. Bring your worst week of lost leads.</p>
+    </div>
+<!-- founders:start -->
+<div class="founders">
+  <div class="card founder">
+    <div class="initials" aria-hidden="true">SZ</div>
+    <div>
+      <h3 data-en="Saud Zayed" data-ar="سعود زايد">Saud Zayed</h3>
+      <p class="role" data-en="Co-Founder · Operations" data-ar="شريك مؤسس · العمليات">Co-Founder · Operations</p>
+      <p class="contact"><a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a> · <a href="https://wa.me/971503495555">+971 50 349 5555</a></p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:saud@brxdxb.com?subject=BRX%20enquiry" data-en="Email Saud" data-ar="راسل سعود">Email Saud</a>
+        <a class="btn btn--ghost" href="https://wa.me/971503495555?text=Hi%20Saud%2C%20I%20found%20BRX%20on%20brxdxb.com." target="_blank" rel="noopener" data-en="WhatsApp Saud" data-ar="واتساب سعود">WhatsApp Saud</a>
+      </div>
+    </div>
+  </div>
+  <div class="card founder">
+    <div class="initials" aria-hidden="true">LK</div>
+    <div>
+      <h3 data-en="Leo Khatib" data-ar="ليو خطيب">Leo Khatib</h3>
+      <p class="role" data-en="Co-Founder · AI Systems Architect" data-ar="شريك مؤسس · مهندس أنظمة الذكاء الاصطناعي">Co-Founder · AI Systems Architect</p>
+      <p class="contact"><a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a> · <a href="https://wa.me/971558917770">+971 55 891 7770</a></p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:leo@brxdxb.com?subject=BRX%20enquiry" data-en="Email Leo" data-ar="راسل ليو">Email Leo</a>
+        <a class="btn btn--ghost" href="https://wa.me/971558917770?text=Hi%20Leo%2C%20I%20found%20BRX%20on%20brxdxb.com." target="_blank" rel="noopener" data-en="WhatsApp Leo" data-ar="واتساب ليو">WhatsApp Leo</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- founders:end -->
+  </div>
+</section>
+
+</main>
+
+<div class="dock" id="dock"><a class="btn btn--ink" href="#try" data-en="Try it free for a month" data-ar="جرّبه مجاناً لمدة شهر">Try it free for a month</a></div>
+
+<!-- foot:start -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <p data-en="AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ذكاء اصطناعي يتولّون العمل المتكرر، يُبنون ويعملون في دبي. © 2026 BRX Technologies.">AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies.</p>
+    <div class="foot-links">
+      <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+      <span class="muted" data-en="Dubai" data-ar="دبي">Dubai</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/brx.js" defer></script>
+<!-- foot:end -->
+
+<script src="/assets/wake.js" defer></script>
+<script src="/assets/lead-form.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var hero = document.getElementById('dfHero'), story = document.getElementById('story');
+  var label = document.getElementById('swLabel'), end = document.getElementById('storyEnd');
+  var wake = new BRXWake(hero, { seed: 7, alpha: 0.95, mortar: 0.08, duration: 2200, cols: function (w) { return w < 700 ? 22 : 40; } });
+  var S = {
+    en: { on: '<b>On.</b> It calls every new lead.', off: '<b>Off.</b> Nobody calls. Tap to switch on.',
+          endOn: '<span class="tag-end">Yours</span>Viewing booked for tomorrow.', endOff: '<span class="tag-end">Lost</span>To the agent who called first.' },
+    ar: { on: '<b>تشغيل.</b> يتصل بكل عميل جديد.', off: '<b>إيقاف.</b> لا أحد يتصل. اضغط للتشغيل.',
+          endOn: '<span class="tag-end">لك</span>معاينة محجوزة للغد.', endOff: '<span class="tag-end">خسرته</span>لصالح الوسيط الذي اتصل أولاً.' }
+  };
+  function render() {
+    var l = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+    story.classList.toggle('is-on', wake.on);
+    label.innerHTML = S[l][wake.on ? 'on' : 'off'];
+    end.innerHTML = S[l][wake.on ? 'endOn' : 'endOff'];
+  }
+  hero.addEventListener('brx:switch', render);
+  window.onLangChange = render;
+  render();
+  var once = function () { if (window.scrollY > 40) { wake.set(true, 'scroll'); window.removeEventListener('scroll', once); } };
+  window.addEventListener('scroll', once, { passive: true });
+
+  // 1 · 2 · 3 strip follows the real flow
+  document.addEventListener('brx:lead', function (e) {
+    var li = document.querySelector('#path [data-step="' + e.detail.step + '"]');
+    if (li) li.classList.add('is-done');
+  });
+
+  // Phone dock: visible after the hero, hidden while the form or contact is on screen
+  var dock = document.getElementById('dock');
+  if ('IntersectionObserver' in window) {
+    var vis = {};
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (x) { vis[x.target.id] = x.isIntersecting; });
+      dock.classList.toggle('is-up', !vis.dfHero && !vis.try && !vis.cta);
+    });
+    ['dfHero', 'try', 'cta'].forEach(function (id) { io.observe(document.getElementById(id)); });
+  }
+});
+</script>
+</body>
+</html>

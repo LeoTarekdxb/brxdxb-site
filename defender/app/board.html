@@ -6,7 +6,7 @@
 <a class="NAV_LEADS" href="leads.html"><span class="i">☰</span> Leads</a>
 <a class="NAV_POOL" href="pool.html"><span class="i">◇</span> Lead Pool</a>
 <div class="grp">Reference</div>
-<a target="_blank" href="https://portal.prov.ae/en/home"><span class="i">↗</span> Real portal</a>
+
 <div class="ro">● READ-ONLY mirror<br>Writes nothing to the CRM. Every action you do by hand in the real portal.</div></div>
 <div class="main"><div class="top"><h1>Leads board</h1><div class="sub" id="sub">· live</div></div>
 <div class="body kb-body">
@@ -56,7 +56,7 @@ const ago=t=>{const h=(Date.now()/1000-t)/3600;return h<1?Math.round(h*60)+"m ag
 let D=null,L=null,open=new Set();
 function card(l){return `<a class="c ${cls(l)}" href="${esc(l.portal_url)}" target="_blank" rel="noopener"><div class="n"><span>${esc(l.name)}</span><span class="t">${left(l.left_min)}</span></div>
  <div class="m">${esc([l.project||l.developer,l.country,money(+l.budget)].filter(Boolean).join(" · ")||l.phone||"—")}</div></a>`;}
-function lostCard(g){return `<a class="c lost" href="https://portal.prov.ae/en/crm/leads/${esc(g.id)}" target="_blank" rel="noopener"><div class="n"><span>${esc(g.name)}</span><span class="t">${g.status==="reassigned"?"moved":g.status==="lost"?"lost":"gone"}</span></div>
+function lostCard(g){return `<a class="c lost" href="#"><div class="n"><span>${esc(g.name)}</span><span class="t">${g.status==="reassigned"?"moved":g.status==="lost"?"lost":"gone"}</span></div>
  <div class="m">${esc([g.stage,g.phone,ago(g.status_at)].filter(Boolean).join(" · "))}</div></a>`;}
 function draw(){
  if(!D) return;
@@ -82,7 +82,7 @@ async function load(){
   .map(x=>`<div class="kb-kpi"><b class="${x[2]}">${x[0]}</b><span>${x[1]}</span></div>`).join('')
   +`<div class="kb-kpi"><b>${l?((l.counts.lost||0)+(l.counts.reassigned||0)):"—"}</b><span>Lost ever (kept)</span></div>`;
  draw();
- q('foot').innerHTML='Read-only mirror of your Provident board. Every lead that arrives, moves stage, is lost or reassigned is kept in <b>Leo_Master_Leads.xlsx</b> (Downloads on the Mac mini), updated every 5 minutes.';
+ q('foot').innerHTML='Demo board with sample leads. On a live desk every lead that arrives, moves stage, is lost or reassigned is kept in a ledger on your own machine, updated every 5 minutes.';
 }
 q("q").oninput=draw; q("onlycrit").onclick=()=>{const b=q("onlycrit");b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")!=="true");draw();};
 window.__brxReload=load;load();setInterval(load,60000);

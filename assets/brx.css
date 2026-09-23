@@ -326,3 +326,26 @@ html[dir="rtl"] .bigswitch .hint { left: auto; right: 100%; margin: 0 22px 0 0; 
 
 @media (max-width: 960px) { .bigswitch { --w: 164px; --h: 82px; --k: 54px; margin-top: .15em; } .bigswitch .hint { font-size: 13px; } }
 .wake-veil { transition: background .9s ease; }
+
+/* ── Free-month lead form (_partials/leadform.html + /assets/lead-form.js) ── */
+.lead-form { margin: 40px 0 48px; padding: 32px; background: var(--bg2); border: 1px solid var(--line); border-top: 3px solid var(--g); border-radius: var(--r); }
+.lead-form .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+.lead-form .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.lead-form .field--full { grid-column: 1 / -1; }
+.lead-form label { font-size: 13px; font-weight: 700; color: var(--ink); }
+.lead-form label small { font-weight: 400; color: var(--ink3); }
+.lead-form input, .lead-form select {
+  min-height: 46px; padding: 10px 14px; border: 1px solid var(--ghost); border-radius: var(--r);
+  background: #fff; color: var(--ink); font: 400 16px/1.4 var(--en); width: 100%; max-width: 100%;
+}
+html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-family: var(--ar); }
+.lead-form input:focus-visible, .lead-form select:focus-visible { outline: 2px solid var(--g2); outline-offset: 1px; border-color: var(--g2); }
+.lead-form .actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 6px; }
+.lead-form .note, .lead-done .note { font-size: 13px; color: var(--ink3); }
+.lead-form .err { grid-column: 1 / -1; color: #B3261E; font-size: 14px; font-weight: 600; }
+.lead-done { margin: 40px 0 48px; padding: 32px; background: var(--g-soft); border: 1px solid #D8E5C0; border-top: 3px solid var(--g); border-radius: var(--r); }
+.lead-done:focus { outline: none; }
+.lead-done h3 { margin-bottom: 6px; }
+.lead-done p { color: var(--ink2); }
+.lead-done .btn-row { margin-top: 18px; align-items: center; }
+@media (max-width: 720px) { .lead-form { padding: 22px 16px; } .lead-form .grid { grid-template-columns: 1fr; } .lead-form .btn { width: 100%; white-space: normal; } }

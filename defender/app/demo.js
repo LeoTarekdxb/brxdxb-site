@@ -23,7 +23,7 @@
   const lost = Array.from({ length: 9 }, (_, i) => ({ id: "gone-" + i, name: pick(FIRST) + " " + pick(LAST), phone: pick(PLACES)[1] + "•••••",
     stage: pick(["Contacted", "No Answer"]), status: i === 4 ? "reassigned" : "lost", status_at: Date.now() / 1000 - i * 5400 - 1800 }));
   let crmOn = true, ownersOn = false, t0 = Date.now();
-  const opener = l => `Hi ${l.name.split(" ")[0]}, it's Leo from Provident Estate in Dubai. You asked about ${l.beds ? "a " + l.beds + " bed " + (l.prop || "home").toLowerCase() : "a home"} at ${l.project}. Have you got two minutes?`;
+  const opener = l => `Hi ${l.name.split(" ")[0]}, it's Leo from BRX in Dubai. You asked about ${l.beds ? "a " + l.beds + " bed " + (l.prop || "home").toLowerCase() : "a home"} at ${l.project}. Have you got two minutes?`;
   // The demo always plays at 18:30 Dubai (+ real minutes since opening), when UK, Europe, the Gulf and
   // US East are all inside their calling hours — so the story on screen is always a sensible one.
   const localT = c => ({ "United Kingdom": -3, "United States": -8, "Germany": -2, "Italy": -2, "India": 1.5, "Saudi Arabia": -1 }[c] ?? 0);

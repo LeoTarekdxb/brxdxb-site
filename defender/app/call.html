@@ -80,7 +80,7 @@ function card(p,big){
     ${p.want?`<div class="ln"><i>🏠</i><div><span class="k">Wants</span>${esc(p.want)}</div></div>`:""}
     <div class="ln"><i>📞</i><div><span class="k">History</span>${hist}</div></div>
     ${notes?`<div class="ln"><i>📝</i><div><span class="k">Notes</span>${notes}</div></div>`:""}
-    <div class="cta">${p.phone?`<a class="p" href="tel:${esc(p.phone)}">Call</a>`:"<span></span>"}<a class="g" href="${esc(p.portal_url||"https://portal.prov.ae/en/crm/leads")}" target="_blank" rel="noopener">Open in CRM</a></div>`;
+    <div class="cta">${p.phone?`<a class="p" href="tel:${esc(p.phone)}">Call</a>`:"<span></span>"}<a class="g" href="${esc(p.portal_url||"#")}" target="_blank" rel="noopener">Open in CRM</a></div>`;
   const head=`<div class="ph"><div><div class="pn">${esc(p.name)}</div>
       <div class="pl">${esc(p.phone)}${p.local?` · their time <b>${p.local}</b>`:""}${p.country?" · "+esc(p.country):""}</div></div>
       <div class="pd"><div class="st">${esc(p.stage||"")}</div>${p.left!=null?`<div class="lf ${band(p)}">${left(p.left)} left</div>`:""}</div></div>`;

@@ -5,7 +5,7 @@ description: Run, check, screenshot and deploy the brxdxb.com public site (this 
 
 # run-brxdxb-site
 
-Static site, no build step. 10 HTML pages share one CSS (`assets/brx.css`), one JS (`assets/brx.js`) and generated partials. Hosted on GitHub Pages from `main` (repo LeoTarekdxb/brxdxb-site). All paths below are relative to the repo root.
+Static site, no build step. 11 HTML pages (incl. the private app shell `portal/`) share one CSS (`assets/brx.css`), one JS (`assets/brx.js`) and generated partials. Hosted on GitHub Pages from `main` (repo LeoTarekdxb/brxdxb-site). All paths below are relative to the repo root.
 
 ## Run (agent path)
 
@@ -51,6 +51,18 @@ Then `smoke.sh live`. GitHub caches 10 minutes; append `?x=123` to bypass while 
 - **Never on a public page:** PIN codes, defender.brxdxb.com/calls links, localhost ports, the Provident name or number +971 56 603 0347, Bitrix24. The driver greps for these and fails.
 - **`.qa/`, `.gstack/` are gitignored.** Never commit screenshots or backups.
 - **Another session may be committing.** Always `git pull --rebase` before commit.
+
+## The portal shell (`portal/`)
+
+`portal/index.html` + `portal.css` + `portal.js` is the BRX Portal app. It holds no data: after sign-in it calls
+`https://defender.brxdxb.com/api/portal/*` (service `~/bots/brx-portal`, launchd `com.leanderkhatib.brx-portal`, :8795,
+forwarded by the twin). Rules:
+
+- Never put a lead name, phone, key, token or a `defender.brxdxb.com/calls` link in these files. Private links come from
+  the API after login. `smoke.sh` greps `portal/` (html, js, css) for these and fails.
+- CSP is a meta tag in `portal/index.html`. A new CDN script must be on cdnjs and added to `script-src`.
+- Test it against a QA instance, never Leo's login: see the `brx-portal` skill (`qa_shots.py`).
+- Bump `?v=` on `portal.css` / `portal.js` in `index.html` when you change them (GitHub Pages caches 10 min).
 
 ## Troubleshooting
 

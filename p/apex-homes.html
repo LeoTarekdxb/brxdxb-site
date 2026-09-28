@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BRX for Apex Homes</title>
+<link rel="icon" href="/assets/brx-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--bg2:#F5F7F2;--ink:#111111;--ink2:#333333;--ink3:#51574A;--line:#E3E3E3;--g:#86BC25;--g2:#43B02A;--g-ink:#3F6E0E;--g-soft:#EEF4E2}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink2);font:17px/1.6 "Open Sans","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);padding:16px 0}
+header .wrap{display:flex;align-items:center;gap:10px}
+header svg{width:40px;height:27px}
+header b{font:800 22px "Open Sans",sans-serif;color:var(--ink);letter-spacing:-.5px}
+header span{margin-left:auto;font-size:14px;color:var(--ink3)}
+.hero{padding:48px 0 28px}
+.for{font-weight:700;color:var(--g-ink);font-size:15px;margin:0 0 10px}
+h1{font:700 clamp(28px,5vw,46px)/1.12 "Unbounded","Open Sans",sans-serif;color:var(--ink);margin:0 0 16px;letter-spacing:-.02em;text-wrap:balance}
+.lead{font-size:19px;max-width:62ch;margin:0 0 22px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;background:var(--g);color:var(--ink);border:2px solid var(--g)}
+.btn.ghost{background:#fff;border-color:#ccc;color:var(--ink)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:30px 0 0}
+.facts div{padding:18px 16px 18px 0}
+.facts div+div{padding-left:18px;border-left:1px solid var(--line)}
+.facts b{display:block;font:700 28px "Unbounded",sans-serif;color:var(--ink);line-height:1.1}
+.facts small{font-size:14px;color:var(--ink3)}
+section{padding:40px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font:700 clamp(21px,3vw,28px)/1.2 "Unbounded","Open Sans",sans-serif;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+.sub{margin:0 0 22px;color:var(--ink3);max-width:64ch}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--g);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column}
+.card h3{font:700 19px "Open Sans",sans-serif;color:var(--ink);margin:0 0 4px}
+.card p{margin:0 0 12px;font-size:16px}
+.card .go{margin-top:auto;font-weight:700;color:var(--g-ink);text-decoration:none;font-size:16px;word-break:break-word}
+.card .go:hover{text-decoration:underline}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;border-radius:999px;padding:2px 10px;margin:0 0 8px;align-self:flex-start}
+.tag.open{background:var(--g-soft);color:var(--g-ink)}
+.tag.ask{background:#FFF4DC;color:#7A5200}
+.tag.live{background:#EDEDED;color:#333}
+table{width:100%;border-collapse:collapse;font-size:16px;background:#fff;border:1px solid var(--line)}
+th{background:var(--g);color:var(--ink);text-align:left;padding:11px 14px;font-weight:700}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+td b{color:var(--ink)}td a{color:var(--g-ink);font-weight:700}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.steps li{counter-increment:s;border-top:4px solid var(--g);padding-top:12px;font-size:16px}
+.steps li:before{content:counter(s);display:block;font:700 22px "Unbounded",sans-serif;color:var(--g-ink);margin-bottom:4px}
+.steps b{display:block;color:var(--ink)}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.people .card a{color:var(--g-ink);font-weight:700;text-decoration:none}
+footer{padding:26px 0 40px;font-size:14px;color:var(--ink3);border-top:4px solid var(--g);background:var(--bg2)}
+.note{font-size:14px;color:var(--ink3);margin-top:12px}
+@media(max-width:760px){.grid,.people{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr}.facts div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}header span{display:none}body{font-size:16px}}
+@media print{
+  @page{size:A4;margin:8mm 10mm}
+  body{font-size:9.6px;line-height:1.38;zoom:0.92}
+  .wrap{max-width:none;padding:0}
+  header{padding:0 0 5px}header svg{width:24px;height:16px}header b{font-size:14px}header span{font-size:9px}
+  .hero{padding:6px 0 2px}.for{font-size:9px;margin-bottom:3px}h1{font-size:19px;margin-bottom:5px}.lead{font-size:10.5px;margin-bottom:0;max-width:none}
+  .btns{display:none}
+  .facts{margin-top:7px}.facts div{padding:5px 8px 5px 0}.facts div+div{padding-left:8px}.facts b{font-size:14px}.facts small{font-size:8.6px}
+  section{padding:6px 0 0}section.alt{background:none;border:0}
+  h2{font-size:12px;margin-bottom:1px}.sub{font-size:9px;margin-bottom:5px;max-width:none}
+  .grid{grid-template-columns:repeat(3,1fr);gap:5px}
+  .card{padding:5px 7px;border-top-width:2.5px;break-inside:avoid}.card h3{font-size:10.2px;margin-bottom:1px}.card p{font-size:8.7px;margin-bottom:3px;line-height:1.33}.card .go{font-size:8.4px}
+  .tag{font-size:7.4px;padding:0 5px;margin-bottom:2px}
+  table{font-size:9px}th,td{padding:3px 7px}
+  .steps{gap:7px}.steps li{font-size:8.8px;padding-top:4px;border-top-width:2.5px}.steps li:before{font-size:11px;margin-bottom:0}
+  .people{gap:6px}.people .card{padding:4px 8px}.people .card p{margin:0}.people .card h3{display:inline}
+  section:last-of-type .sub{display:none}
+  .steps li b{display:inline}.steps li b:after{content:'. '}
+  footer{padding:5px 0 0;margin-top:7px;background:none;border-top-width:2.5px;font-size:8.4px}
+  .note{font-size:8.2px;margin-top:3px}
+  .noprint{display:none}
+  .facts{grid-template-columns:repeat(3,1fr)}.facts div+div{padding-left:8px;border-left:1px solid var(--line);border-top:0}
+  .steps{grid-template-columns:repeat(4,1fr)}.people{grid-template-columns:1fr 1fr}
+  td a{color:var(--g-ink);font-weight:700}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#fff"/></svg>
+  <b>BRX</b><span>Prepared for Apex Homes · September 2026</span>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <p class="for">For Apex Homes, Dubai</p>
+  <h1>Every lead called in 2 minutes. In their language.</h1>
+  <p class="lead">Your agents pay for leads, then lose them while they are in viewings. BRX calls, texts and emails each new lead for you, then hands your agent the ones who pick up. One switch turns it on. One switch turns it off.</p>
+  <div class="btns">
+    <a class="btn" href="https://calendly.com/leanderkhatib/30min">Book a 15-minute demo</a>
+    <a class="btn ghost" href="https://www.brxdxb.com/defender/app/">Try the switch now</a>
+  </div>
+  <div class="facts">
+    <div><b>31</b><small>Apex Homes agents in the Dubai broker register</small></div>
+    <div><b>2 min</b><small>from new lead to first call, all day</small></div>
+    <div><b>1 month</b><small>free on your own leads, before you pay</small></div>
+  </div>
+</div>
+
+<section class="alt"><div class="wrap">
+  <h2>Everything we built, and what each part does</h2>
+  <p class="sub">Green tags open right now. Amber tags need a code, ask us. Grey tags hold live client data, so we show them on a screen-share.</p>
+  <div class="grid">
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>1. Lead Defence, the CRM</h3>
+      <p>The main product. It reads your leads, ranks them, and works each one by call, text and email. Shows the rules, the price and the free month.</p>
+      <a class="go" href="https://www.brxdxb.com/flow/real-estate.html">brxdxb.com/flow/real-estate.html</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>2. The Defender switch</h3>
+      <p>A working demo with sample leads. Tap ON and it starts calling. Tap OFF and it stops within 2 minutes. This is what your manager holds.</p>
+      <a class="go" href="https://www.brxdxb.com/defender/app/">brxdxb.com/defender/app</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>3. The caller</h3>
+      <p>What your agent sees on the phone. One person per screen, one Call button, the line to say, then one tap for the result.</p>
+      <a class="go" href="https://www.brxdxb.com/defender/app/call.html">brxdxb.com/defender/app/call.html</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>4. The lead board</h3>
+      <p>Every lead by stage: new, no answer, contacted, viewing, won. Your manager sees who is working and which leads are going cold.</p>
+      <a class="go" href="https://www.brxdxb.com/defender/app/board.html">brxdxb.com/defender/app/board.html</a></div>
+
+    <div class="card"><span class="tag ask">Code on request</span>
+      <h3>5. Owner Atlas, the owners data</h3>
+      <p>Every building in Dubai, floor by floor, with who owns each unit. Built from the Dubai Land Department register. Your agents find sellers before a listing exists.</p>
+      <a class="go" href="https://www.brxdxb.com/flow/real-estate.html#atlas">Request your access code</a></div>
+
+    <div class="card"><span class="tag live">On a screen-share</span>
+      <h3>6. Owner matching</h3>
+      <p>Each lead's phone is checked against the owner register. Your agent sees "already owns in Palm Jumeirah" before dialling. On one desk, 2,252 of 69,312 leads already owned.</p>
+      <a class="go" href="https://calendly.com/leanderkhatib/30min">Book the screen-share</a></div>
+
+    <div class="card"><span class="tag live">On a screen-share</span>
+      <h3>7. Call-now alerts</h3>
+      <p>The moment a lead taps your email link or answers a text, the agent's phone shows "Call now" with a Call button. They ring while the lead holds the phone.</p>
+      <a class="go" href="https://calendly.com/leanderkhatib/30min">Book the screen-share</a></div>
+
+    <div class="card"><span class="tag live">On a screen-share</span>
+      <h3>8. The manager's cockpit</h3>
+      <p>One phone screen for the owner: calls made, texts sent, leads due, system health. Type an order and the office Mac carries it out.</p>
+      <a class="go" href="https://calendly.com/leanderkhatib/30min">Book the screen-share</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>9. How the engine is built</h3>
+      <p>For your IT person. It runs on a Mac in your office and a company phone. Your leads stay on your machine, never on our servers.</p>
+      <a class="go" href="https://brx-defender-dubai.netlify.app/">brx-defender-dubai.netlify.app</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>10. Defender overview</h3>
+      <p>The short version for a busy owner: whoever calls first wins the deal. One page, 2 minutes to read.</p>
+      <a class="go" href="https://www.brxdxb.com/defender/">brxdxb.com/defender</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>11. Other industries</h3>
+      <p>The same engine for clinics, law firms, hotels and holiday homes. Useful if Apex Homes runs short lets or property management.</p>
+      <a class="go" href="https://www.brxdxb.com/flow/">brxdxb.com/flow</a></div>
+
+    <div class="card"><span class="tag open">Open now</span>
+      <h3>12. The BRX site</h3>
+      <p>Who we are and everything we make, in English and Arabic.</p>
+      <a class="go" href="https://www.brxdxb.com/">brxdxb.com</a></div>
+
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How it would run at Apex Homes</h2>
+  <p class="sub">Four steps. Your agents keep their phones and their leads.</p>
+  <ol class="steps">
+    <li><b>Your leads</b>We load your lead sheet or connect your CRM. Nothing to migrate.</li>
+    <li><b>The switch</b>Your manager turns it on in the morning, off at night.</li>
+    <li><b>The handset</b>A company phone dials each lead in their own daytime.</li>
+    <li><b>Your agent</b>Takes the live call, taps the result, moves on.</li>
+  </ol>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>Price</h2>
+  <p class="sub">The first month is free. You pay only if you keep it.</p>
+  <table>
+    <tr><th>What</th><th>Price</th><th>Pay online</th></tr>
+    <tr><td><b>First month</b></td><td>Free, on your own leads</td><td>Nothing to pay</td></tr>
+    <tr><td><b>Set-up, once</b><br>Office Mac, screen, company phone, install</td><td>AED 50,000</td><td><a href="https://buy.stripe.com/cNi6oA0ew1Uo6fZ81I0oM0f">Pay the set-up</a></td></tr>
+    <tr><td><b>Each agent, monthly</b><br>Start with 5 agents, add more any time</td><td>AED 5,000</td><td><a href="https://buy.stripe.com/eVq00cf9qcz26fZdm20oM0g">Start the monthly plan</a></td></tr>
+  </table>
+  <p class="note">Safety rules built in: 2 contacts per lead then silence, calls only in the lead's daytime, a reply stops the automation, no automated WhatsApp.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Talk to us</h2>
+  <p class="sub">We come to your office, switch it on, and you watch it call.</p>
+  <div class="people">
+    <div class="card"><h3>Saud Zayed</h3><p>Co-founder, operations<br><a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a><br><a href="tel:+971503495555">+971 50 349 5555</a></p></div>
+    <div class="card"><h3>Leo Khatib</h3><p>Co-founder, systems<br><a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a><br><a href="tel:+971558917770">+971 55 891 7770</a></p></div>
+  </div>
+  <p class="noprint" style="margin-top:22px"><a class="btn" href="https://calendly.com/leanderkhatib/30min">Book a 15-minute demo</a> &nbsp; <a class="btn ghost" href="/p/apex-homes.pdf">Download the one-pager</a></p>
+</div></section>
+</main>
+
+<footer><div class="wrap">BRX · Dubai · brxdxb.com. The agent count comes from the Dubai broker register. The demo pages use sample leads, not real people.</div></footer>
+</body>
+</html>

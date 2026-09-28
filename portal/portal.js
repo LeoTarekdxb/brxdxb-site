@@ -390,7 +390,7 @@ function apiForm(kind) {
 V.accounts = async () => {
   const d = await api("/accounts"); const ts = d.tenants.filter(x => x.kind !== "owner");
   return `<h1>${t("accounts")}</h1><p class="lede">Agents and agencies on the BRX licence. The switch turns an account off at once: their portal, their API key and their agent node stop.</p>
-    <button class="btn g" id="newacc">Create account</button><div id="accform"></div>
+    <button class="btn g" id="newacc">Create account</button><button class="btn" id="atlasall" title="Owner Atlas upload link">Atlas upload link</button><div id="accform"></div>
     <h2>Licensees (${ts.length})</h2>${ts.length ? `<div class="list">${ts.map(x => `<div class="li"><span class="t">${esc(x.name)} <span class="muted small">· ${esc(x.kind)} · ${esc(x.slug)}</span></span>
       <span class="s">${fmt(x.users)} logins · ${fmt(x.leads)} leads · ${fmt(x.seats)} seats · ${x.stripe_subscription_id ? esc(x.stripe_subscription_id) : "no subscription id yet"} · licence ${esc(x.license)}${x.node ? ` · agent node ${x.node.online ? "online" : "last seen " + day(x.node.last_seen)}` : ""}</span>
       <span class="r"><button class="switch" role="switch" aria-checked="${x.live}" data-tenant="${x.id}" aria-label="${esc(x.name)} on or off"></button></span></div>`).join("")}</div>` : `<div class="empty">No licensees yet.</div>`}
@@ -545,3 +545,17 @@ function route() { if (/^#setup=/.test(location.hash)) return boot(); if (!token
 window.addEventListener("hashchange", route);
 boot();
 })();
+
+
+/* Owner Atlas upload link — an account here, a write-only key there, one button.
+   Prompts for the account name so it works from the accounts list without
+   restructuring the row template. */
+document.addEventListener("click", async (e) => {
+  if (!e.target || e.target.id !== "atlasall") return;
+  const name = prompt("Which account? Type the agency or agent name exactly as it appears above.");
+  if (!name) return;
+  const r = await api("/accounts/atlas-link", { body: { name } });
+  if (!r.ok) return toast(r.error || "Could not make the link");
+  try { await navigator.clipboard.writeText(r.link); } catch (_) {}
+  toast((r.new ? "Link created and copied" : "Existing link copied") + " — send it to " + name);
+});

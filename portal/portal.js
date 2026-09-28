@@ -392,7 +392,7 @@ V.accounts = async () => {
   return `<h1>${t("accounts")}</h1><p class="lede">Agents and agencies on the BRX licence. The switch turns an account off at once: their portal, their API key and their agent node stop.</p>
     <button class="btn g" id="newacc">Create account</button><div id="accform"></div>
     <h2>Licensees (${ts.length})</h2>${ts.length ? `<div class="list">${ts.map(x => `<div class="li"><span class="t">${esc(x.name)} <span class="muted small">· ${esc(x.kind)} · ${esc(x.slug)}</span></span>
-      <span class="s">${fmt(x.users)} logins · ${fmt(x.leads)} leads · ${fmt(x.seats)} seats · ${x.stripe_subscription_id ? esc(x.stripe_subscription_id) : "no subscription id yet"} · licence ${esc(x.license)}</span>
+      <span class="s">${fmt(x.users)} logins · ${fmt(x.leads)} leads · ${fmt(x.seats)} seats · ${x.stripe_subscription_id ? esc(x.stripe_subscription_id) : "no subscription id yet"} · licence ${esc(x.license)}${x.node ? ` · agent node ${x.node.online ? "online" : "last seen " + day(x.node.last_seen)}` : ""}</span>
       <span class="r"><button class="switch" role="switch" aria-checked="${x.live}" data-tenant="${x.id}" aria-label="${esc(x.name)} on or off"></button></span></div>`).join("")}</div>` : `<div class="empty">No licensees yet.</div>`}
     <p class="muted small" style="margin-top:14px">Plan on new accounts: ${esc(d.price)}. Nothing is charged from here.</p>`;
 };

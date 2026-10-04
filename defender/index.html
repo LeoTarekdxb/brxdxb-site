@@ -93,6 +93,15 @@ html[lang="ar"] .svc .free-now { font-family: var(--ar); letter-spacing: 0; }
 .path h3 { font-size: 18px; margin-bottom: 4px; }
 .path p { font-size: 14px; color: var(--ink3); }
 
+/* Detail on demand: the engineering table stays one tap away */
+.more { margin-top: 56px; border-top: 2px solid var(--ink); }
+.more > summary { list-style: none; cursor: pointer; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; font: 600 clamp(18px, 1.8vw, 24px)/1.3 var(--display); letter-spacing: -.01em; color: var(--ink); }
+html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; letter-spacing: 0; }
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary::after { content: "+"; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); display: flex; align-items: center; justify-content: center; font: 400 24px/1 var(--en); transition: transform .3s; }
+.more[open] > summary::after { transform: rotate(45deg); }
+.more > .tbl-wrap { margin-top: 8px; }
+
 /* Sticky phone CTA */
 .dock { position: fixed; inset-inline: 0; bottom: 0; z-index: 90; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); display: none; transform: translateY(110%); visibility: hidden; transition: transform .3s ease, visibility .3s; }
 .dock .btn { width: 100%; min-height: 50px; }
@@ -442,10 +451,9 @@ html[lang="ar"] .svc .free-now { font-family: var(--ar); letter-spacing: 0; }
       </table>
     </div>
 
-    <div class="sec-head reveal" style="margin:88px 0 32px">
-      <h2 class="display" data-en="What each piece touches." data-ar="ما يلمسه كل جزء.">What each piece touches.</h2>
-    </div>
-    <div class="tbl-wrap reveal">
+    <details class="more reveal">
+      <summary><span data-en="What each piece touches, and where it runs" data-ar="ما يلمسه كل جزء، وأين يعمل">What each piece touches, and where it runs</span></summary>
+    <div class="tbl-wrap">
       <table class="tbl tbl--stack">
         <thead><tr><th scope="col" data-en="Piece" data-ar="الجزء">Piece</th><th scope="col" data-en="What it does" data-ar="ماذا يفعل">What it does</th><th scope="col" data-en="Where it runs" data-ar="أين يعمل">Where it runs</th></tr></thead>
         <tbody>
@@ -457,6 +465,7 @@ html[lang="ar"] .svc .free-now { font-family: var(--ar); letter-spacing: 0; }
         </tbody>
       </table>
     </div>
+    </details>
   </div>
 </section>
 

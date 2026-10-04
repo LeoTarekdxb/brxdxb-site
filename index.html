@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BRX·DXB | Turn it on. Every lead gets called.</title>
-<meta name="description" content="BRX calls, texts and emails every new real-estate lead in their language, in their daytime. Your agents take the live ones. Built in Dubai.">
-<meta property="og:title" content="BRX | Turn it on. Every lead gets called.">
-<meta property="og:description" content="Every new lead called, texted and emailed in their language, in their daytime. Your agents take the live ones.">
+<title>BRX·DXB | Custom AI agents and AI agencies for any business</title>
+<meta name="description" content="BRX builds custom AI agents and AI agencies for any business with a process, public or private. Up to 80% less operating cost on the process we automate. Built in Dubai.">
+<meta property="og:title" content="BRX | We build the AI that runs your operations.">
+<meta property="og:description" content="Custom AI agents and AI agencies for any business with a process. Public or private. Up to 80% less operating cost.">
 <meta property="og:image" content="https://www.brxdxb.com/assets/brx-film-poster.jpg">
 <meta property="og:url" content="https://www.brxdxb.com/">
 <link rel="preload" as="image" href="/assets/brx-film-poster-sm.jpg" media="(max-width: 767px)" fetchpriority="high">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/brx.css?v=20261004c">
+<link rel="stylesheet" href="/assets/brx.css?v=20261005a">
 <link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
@@ -73,68 +73,22 @@ html[lang="ar"] .hero h1 { font-size: clamp(38px, 5.4vw, 80px); line-height: 1.2
 .scr .btnrow span { flex: 1; text-align: center; font-weight: 700; font-size: 12px; padding: 9px 0; border-radius: 999px; background: #EEF0EA; }
 .scr .btnrow span.go { background: var(--g); }
 
-/* BEATS: one lead, start to finish (pinned on desktop) */
-.beats { position: relative; border-top: 1px solid var(--line); }
-.beats-in { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; align-items: center; min-height: calc(100svh - var(--nav-h)); }
-.beats-copy { position: relative; padding-inline-start: 40px; }
-.beats-rail { position: absolute; inset-inline-start: 0; top: 6px; bottom: 6px; width: 3px; background: #E6E9E1; border-radius: 2px; overflow: hidden; }
-.beats-rail i { position: absolute; inset: 0; background: var(--g); transform-origin: top; transform: scaleY(.25); }
-.beats-kicker { font: 700 15px/1.3 var(--en); letter-spacing: 0; color: var(--ink3); margin-bottom: 28px; }
-.beat .t { font: 700 15px/1 var(--en); font-variant-numeric: tabular-nums; color: var(--ink3); margin-bottom: 18px; display: block; }
-.beat h3 { font: 700 clamp(30px, 3.6vw, 54px)/1.04 var(--display); letter-spacing: -.03em; max-width: 14ch; }
-html[lang="ar"] .beat h3 { font-family: var(--ar); line-height: 1.35; letter-spacing: 0; }
-.beat p { font-size: clamp(16px, 1.3vw, 19px); color: var(--ink3); max-width: 38ch; margin-top: 18px; }
-.beats-phone .phone { width: 280px; }
-.beat-phone { display: none; }
-@media (min-width: 961px) {
-  .js .beats-list { position: relative; height: 22rem; }
-  .js .beat { position: absolute; inset: 0 0 auto 0; opacity: 0; transform: translateY(28px); transition: opacity .45s ease, transform .7s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
-  .js .beat.on { opacity: 1; transform: none; pointer-events: auto; }
-  .js .beat.past { transform: translateY(-28px); }
-}
-
-/* OWNERS: the numbers */
-.owners { padding: var(--sec) 0 0; border-top: 1px solid var(--line); }
-.owners h2 { max-width: 16ch; }
-.ledger { margin-top: 64px; }
-.ledger .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: 24px; align-items: baseline; padding: 18px 0; }
-.ledger .row + .row { border-top: 1px solid var(--line); }
-.ledger dd { font: 800 clamp(52px, 10.5vw, 158px)/.95 var(--display); letter-spacing: -.045em; color: var(--ink); font-variant-numeric: tabular-nums; direction: ltr; }
-html[dir="rtl"] .ledger dd { text-align: right; }
-.ledger .row:first-child dd { color: var(--ink); }
-.ledger .row:nth-child(2) dd, .ledger .row:nth-child(3) dd { -webkit-text-stroke: 0; }
-.ledger dt { font-size: clamp(16px, 1.4vw, 19px); font-weight: 600; color: var(--ink); max-width: 22ch; order: 2; }
-.ledger .src { margin-top: 20px; }
-.proof .src { margin-top: 16px; }
-.names { margin-top: 72px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--g); overflow: hidden; padding: 18px 0; }
-.names-track { display: flex; width: max-content; animation: names 55s linear infinite; }
-.names:hover .names-track { animation-play-state: paused; }
-html[dir="rtl"] .names-track { animation-name: names-rtl; }
-@keyframes names { to { transform: translateX(-50%); } }
-@keyframes names-rtl { to { transform: translateX(50%); } }
-.names span { white-space: nowrap; padding: 0 28px; font: 600 15px/1.2 var(--en); color: var(--ink); }
-.names span b { font-family: var(--display); font-weight: 700; margin-inline-end: 10px; }
-.names-cap { max-width: var(--wrap); margin: 12px auto 0; padding: 0 var(--gut); }
-
-/* PROOF */
-.proof { padding: var(--sec) 0; }
-.proof-line { font: 600 clamp(26px, 3.3vw, 48px)/1.18 var(--display); letter-spacing: -.025em; color: var(--ink); max-width: 26ch; }
-html[lang="ar"] .proof-line { font-family: var(--ar); font-weight: 700; line-height: 1.5; letter-spacing: 0; }
+/* HOW WE WORK */
+.how { padding: var(--sec) 0; border-top: 1px solid var(--line); }
+.how h2 { max-width: 18ch; margin-bottom: 48px; }
+.chips-label { margin-top: 48px; font-weight: 700; font-size: 15px; color: var(--ink); }
+.chips-label + .chips { margin-top: 14px; }
+.starter { margin-top: 22px; font-size: 16px; max-width: 34rem; }
+.starter a { display: inline-block; padding: 10px 0; color: var(--ink2); text-decoration: none; border-bottom: 1px solid var(--g); }
+.starter a:hover { color: var(--ink); }
+.starter b { color: var(--ink); }
+.scr .line { font-size: 12.5px; }
 
 /* CONTACT */
 .talk { padding: var(--sec) 0; background: var(--bg2); border-top: 1px solid var(--line); }
 .talk h2 { font-size: clamp(44px, 8vw, 120px); font-weight: 800; letter-spacing: -.045em; line-height: .95; }
 html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
 
-/* static beats: mobile, reduced motion, no GSAP */
-.beats-static .beat { position: static !important; opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
-.beats-static .beats-list { height: auto !important; }
-.beats-static .beat + .beat { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
-.beats-static .beat-phone { display: block; margin-top: 24px; }
-.beats-static .beat-phone .phone { width: 200px; }
-.beats-static .beats-phone, .beats-static .beats-rail { display: none; }
-.beats-static .beats-in { grid-template-columns: 1fr; min-height: 0; padding-top: var(--sec); padding-bottom: var(--sec); }
-.beats-static .beats-copy { padding: 0; }
 .film-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .film-toggle svg { width: 16px; height: 16px; fill: currentColor; }
 .film-toggle.paused svg { opacity: .5; }
@@ -149,23 +103,9 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
   .hero-veil { background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.9) 60%, rgba(255,255,255,.7) 100%); }
   .hero-in { grid-template-columns: 1fr; grid-template-areas: "h" "c" "p"; padding-top: 36px; padding-bottom: 56px; row-gap: 28px; }
   .hero .phone { justify-self: start; width: 220px; }
-  .beats-in { grid-template-columns: 1fr; min-height: 0; padding-top: var(--sec); padding-bottom: var(--sec); }
-  .beats-phone, .beats-rail { display: none; }
-  .beats-copy { padding: 0; }
-  .beat + .beat { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
-  .beat-phone, .beats-static .beat-phone { display: none; }
-  .beat .t { margin-bottom: 8px; }
-  .beat h3 { font-size: 24px; max-width: none; }
-  .beat p { margin-top: 6px; font-size: 16px; }
-  .beats-static .beat + .beat { margin-top: 20px; padding-top: 20px; }
-  .beats-kicker { margin-bottom: 16px; }
-  .ledger { margin-top: 28px; }
-  .ledger .row { padding: 10px 0; }
-  .ledger dd { font-size: 48px; }
-  .names { margin-top: 32px; }
-  .proof { padding: 56px 0; }
   .talk h2 { font-size: 44px; }
-  .ledger .row { grid-template-columns: 1fr; gap: 4px; }
+  .how h2 { margin-bottom: 28px; }
+  .chips-label { margin-top: 32px; }
 }
 @media (max-width: 520px) {
   /* iPhone Air (420 pt): the inline switch pushed "Tap or scroll" off screen */
@@ -175,8 +115,6 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
   .hero h1 { font-size: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .names-track { animation: none; flex-wrap: wrap; width: auto; }
-  .names span { padding: 4px 16px; }
   .hero-film video { display: none; }
 }
 </style>
@@ -191,10 +129,10 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
       <b>BRX</b>
     </a>
     <nav class="nav-links" aria-label="Main">
-      <a href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
-      <a href="/agent.html" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
-      <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
-      <a href="/get-whitepaper.html" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+      <a href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
+      <a href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+      <a href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+      <a href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
     </nav>
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Language">
@@ -207,10 +145,19 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
   </div>
 </header>
 <div class="sheet" id="sheet" aria-hidden="true">
-  <a class="sheet-link" href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
-  <a class="sheet-link" href="/agent.html" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
-  <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
-  <a class="sheet-link" href="/get-whitepaper.html" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+  <a class="sheet-link" href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
+  <div class="sheet-sub">
+    <a href="/solutions/#agents" data-en="Agents by profession" data-ar="وكلاء حسب المهنة">Agents by profession</a>
+    <a href="/flow/" data-en="Industries" data-ar="القطاعات">Industries</a>
+  </div>
+  <a class="sheet-link" href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+  <div class="sheet-sub">
+    <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
+    <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
+    <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+  </div>
+  <a class="sheet-link" href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+  <a class="sheet-link" href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
   <a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
   <p class="fine" data-en="BRX · Dubai" data-ar="BRX · دبي">BRX · Dubai</p>
 </div>
@@ -218,7 +165,7 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
 
 <main id="main">
 
-<!-- ═══ HERO: the switch ═══ -->
+<!-- ═══ HERO: the company, and the switch ═══ -->
 <section class="hero" id="hero" data-wake>
   <div class="hero-film" aria-hidden="true">
     <picture>
@@ -232,133 +179,101 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
   <div class="hero-in">
     <h1>
       <span class="l1"><span data-en="Turn it on." data-ar="شغّله.">Turn it on.</span>
-        <button class="bigswitch" type="button" role="switch" aria-checked="false" data-wake-switch data-cursor="switch" aria-label="Defender switch" data-en-aria="Defender switch" data-ar-aria="مفتاح حماية العملاء"><span class="knob"></span><span class="hint" aria-hidden="true" data-en="Tap or scroll" data-ar="اضغط أو مرّر">Tap or scroll</span></button>
+        <button class="bigswitch" type="button" role="switch" aria-checked="false" data-wake-switch data-cursor="switch" aria-label="BRX switch" data-en-aria="BRX switch" data-ar-aria="مفتاح BRX"><span class="knob"></span><span class="hint" aria-hidden="true" data-en="Tap or scroll" data-ar="اضغط أو مرّر">Tap or scroll</span></button>
       </span>
-      <span class="l2" data-en="Every lead gets called." data-ar="كل عميل يتلقى اتصالاً.">Every lead gets called.</span>
+      <span class="l2" data-en="We build the AI that runs your operations." data-ar="نبني الذكاء الاصطناعي الذي يدير عملياتك.">We build the AI that runs your operations.</span>
     </h1>
     <div class="hero-copy">
-      <p class="lede" data-en="BRX calls, texts and emails every new lead in their language, in their daytime. Your agents take the live ones." data-ar="يتصل BRX بكل عميل جديد ويراسله ويرسل له بريداً، بلغته وفي ساعات نهاره. ووكلاؤك يتولّون المحادثات الحيّة.">BRX calls, texts and emails every new lead in their language, in their daytime. Your agents take the live ones.</p>
+      <p class="lede" data-en="Custom AI agents and AI agencies for any business with a process. Public or private. &lt;a class=&quot;link&quot; href=&quot;/savings/&quot;&gt;Up to 80% less operating cost&lt;/a&gt; on the work we automate." data-ar="وكلاء ووكالات ذكاء اصطناعي مصمّمة لأي عمل فيه إجراءات. في القطاع العام أو الخاص. &lt;a class=&quot;link&quot; href=&quot;/savings/&quot;&gt;خفض تكلفة التشغيل حتى 80%&lt;/a&gt; في العمل الذي نؤتمته.">Custom AI agents and AI agencies for any business with a process. Public or private. <a class="link" href="/savings/">Up to 80% less operating cost</a> on the work we automate.</p>
       <div class="btn-row">
         <a href="https://calendly.com/leanderkhatib/30min" class="btn" target="_blank" rel="noopener" data-magnetic data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
-        <a href="#how" class="btn btn--ghost" data-en="How it works" data-ar="كيف يعمل">How it works</a>
+        <a href="/solutions/" class="btn btn--ghost" data-en="See what we automate" data-ar="شاهد ما نؤتمته">See what we automate</a>
       </div>
+      <p class="starter"><a href="/ai-first/"><b data-en="Starting out?" data-ar="تبدأ للتو؟">Starting out?</b> <span data-en="We build your company AI-first: no-staff operations from day one." data-ar="نبني شركتك بالذكاء الاصطناعي أولاً: عمليات بلا موظفين من اليوم الأول.">We build your company AI-first: no-staff operations from day one.</span></a></p>
     </div>
     <div class="phone" aria-hidden="true">
       <div class="screen"><div class="island"></div>
         <div class="scr on" data-hero="off">
-          <div class="top"><span>BRX desk</span><span data-en="Off" data-ar="متوقف">Off</span></div>
-          <div class="mid"><div class="av grey">BRX</div><div class="nm" data-en="Desk is off" data-ar="المكتب متوقف">Desk is off</div><div class="sub" data-en="No calls going out." data-ar="لا مكالمات صادرة.">No calls going out.</div></div>
-          <div class="foot"><span data-en="Called today" data-ar="اتصالات اليوم">Called today</span><b>0</b></div>
+          <div class="top"><span>BRX</span><span data-en="Off" data-ar="متوقف">Off</span></div>
+          <div class="mid"><div class="av grey">BRX</div><div class="nm" data-en="Agents are off" data-ar="الوكلاء متوقفون">Agents are off</div><div class="sub" data-en="Your team does it all by hand." data-ar="فريقك ينجز كل شيء يدوياً.">Your team does it all by hand.</div></div>
+          <div class="foot"><span data-en="Tasks done today" data-ar="مهام اليوم">Tasks done today</span><b>0</b></div>
         </div>
         <div class="scr" data-hero="on">
-          <div class="top"><span>BRX desk</span><span id="heroTimer">00:00</span></div>
-          <div class="mid"><div class="av ring"><i></i><i></i>DV</div><div class="nm">Dmitri V.</div><div class="sub" data-en="Calling in Russian" data-ar="اتصال بالروسية">Calling in Russian</div><span class="chip" data-en="20:05 in Moscow" data-ar="20:05 بتوقيت موسكو">20:05 in Moscow</span></div>
-          <div class="foot"><span data-en="Called today (sample)" data-ar="اتصالات اليوم (عيّنة)">Called today (sample)</span><b id="heroCount">0</b></div>
+          <div class="top"><span>BRX</span><span id="heroTimer">00:00</span></div>
+          <div class="mid" style="justify-content:flex-start;gap:0">
+            <div class="line"><span class="tick"></span><span data-en="Inquiry answered in Arabic" data-ar="رُدّ على استفسار بالعربية">Inquiry answered in Arabic</span></div>
+            <div class="line"><span class="tick"></span><span data-en="Booking confirmed for 11:00" data-ar="تأكيد حجز الساعة 11:00">Booking confirmed for 11:00</span></div>
+            <div class="line"><span class="tick"></span><span data-en="Invoice sent, reminder set" data-ar="أُرسلت فاتورة وضُبط تذكير">Invoice sent, reminder set</span></div>
+            <div class="line"><span class="tick"></span><span data-en="Documents chased, 2 of 3 in" data-ar="متابعة المستندات، وصل 2 من 3">Documents chased, 2 of 3 in</span></div>
+            <div class="line"><span class="tick"></span><span data-en="New lead called in minutes" data-ar="اتصال بعميل جديد خلال دقائق">New lead called in minutes</span></div>
+          </div>
+          <div class="foot"><span data-en="Tasks done today (example)" data-ar="مهام اليوم (مثال)">Tasks done today (example)</span><b id="heroCount">0</b></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ BEATS: one lead, start to finish ═══ -->
-<section class="beats" id="how">
-  <div class="beats-in">
-    <div class="beats-copy">
-      <div class="beats-rail" aria-hidden="true"><i id="rail"></i></div>
-      <h2 class="beats-kicker" data-en="One lead, start to finish" data-ar="عميل واحد، من البداية إلى النهاية">One lead, start to finish</h2>
-      <ol class="beats-list" style="list-style:none">
-        <li class="beat on" data-i="0">
-          <span class="t">21:05</span>
-          <h3 data-en="A new lead lands." data-ar="يصل عميل جديد.">A new lead lands.</h3>
-          <p data-en="Dmitri asks about a 2-bed in Dubai Marina. Every agent on your floor is at a viewing." data-ar="يسأل دميتري عن شقة بغرفتين في دبي مارينا. وكل وكلائك في معاينات.">Dmitri asks about a 2-bed in Dubai Marina. Every agent on your floor is at a viewing.</p>
-          <div class="beat-phone" aria-hidden="true"></div>
-        </li>
-        <li class="beat" data-i="1">
-          <span class="t">21:08</span>
-          <h3 data-en="Called in minutes. In Russian." data-ar="اتصال خلال دقائق. بالروسية.">Called in minutes. In Russian.</h3>
-          <p data-en="The desk handset rings him in his own language, only between 10:00 and 22:00 where he is." data-ar="يتصل به هاتف المكتب بلغته، فقط بين 10:00 و22:00 بتوقيته.">The desk handset rings him in his own language, only between 10:00 and 22:00 where he is.</p>
-          <div class="beat-phone" aria-hidden="true"></div>
-        </li>
-        <li class="beat" data-i="2">
-          <span class="t">21:09</span>
-          <h3 data-en="No answer. A text and an email." data-ar="لا رد. رسالة وبريد.">No answer. A text and an email.</h3>
-          <p data-en="Two touches, then it stops. Written in Russian, with the listing he asked about." data-ar="محاولتان ثم يتوقف. مكتوبة بالروسية، مع العقار الذي سأل عنه.">Two touches, then it stops. Written in Russian, with the listing he asked about.</p>
-          <div class="beat-phone" aria-hidden="true"></div>
-        </li>
-        <li class="beat" data-i="3">
-          <span class="t" data-en="Next day, 13:40" data-ar="اليوم التالي، 13:40">Next day, 13:40</span>
-          <h3 data-en="He calls back. Your agent takes it." data-ar="يعاود الاتصال. ووكيلك يتولّى.">He calls back. Your agent takes it.</h3>
-          <p data-en="The moment Dmitri answers, the system steps back and hands the live conversation to your agent." data-ar="لحظة يرد دميتري، يتراجع النظام ويسلّم المحادثة الحيّة لوكيلك.">The moment Dmitri answers, the system steps back and hands the live conversation to your agent.</p>
-          <div class="beat-phone" aria-hidden="true"></div>
-        </li>
-      </ol>
-    </div>
-    <div class="beats-phone">
-      <div class="phone" id="beatPhone" aria-hidden="true">
-        <div class="screen"><div class="island"></div>
-          <div class="scr on" data-b="0">
-            <div class="top"><span>BRX desk</span><span>21:05</span></div>
-            <div class="note"><b data-en="New lead" data-ar="عميل جديد">New lead</b>Dmitri V.<br><span class="sub" data-en="2-bed, Dubai Marina" data-ar="غرفتان، دبي مارينا">2-bed, Dubai Marina</span></div>
-            <div class="mid"><div class="av grey">DV</div><div class="sub" data-en="Agents free right now" data-ar="وكلاء متاحون الآن">Agents free right now</div><div class="nm">0</div></div>
-          </div>
-          <div class="scr" data-b="1">
-            <div class="top"><span>BRX desk</span><span>21:08</span></div>
-            <div class="mid"><div class="av ring"><i></i><i></i>DV</div><div class="nm">Dmitri V.</div><div class="sub" data-en="Calling in Russian" data-ar="اتصال بالروسية">Calling in Russian</div><span class="chip" lang="ru">Добрый вечер, Дмитрий</span></div>
-            <div class="foot"><span data-en="Touch 1 of 2" data-ar="المحاولة 1 من 2">Touch 1 of 2</span><b>RU</b></div>
-          </div>
-          <div class="scr" data-b="2">
-            <div class="top"><span>BRX desk</span><span>21:09</span></div>
-            <div class="bubble" lang="ru">Дмитрий, добрый вечер! Вот квартира в Марине, о которой вы спрашивали.</div>
-            <div class="mid" style="justify-content:flex-end">
-              <div class="line"><span class="tick"></span><span data-en="Text sent in Russian" data-ar="رسالة بالروسية">Text sent in Russian</span></div>
-              <div class="line"><span class="tick"></span><span data-en="Email sent, listing attached" data-ar="بريد مع العقار">Email sent, listing attached</span></div>
-            </div>
-            <div class="foot"><span data-en="Touch 2 of 2, then stop" data-ar="المحاولة 2 من 2، ثم توقف">Touch 2 of 2, then stop</span><b>RU</b></div>
-          </div>
-          <div class="scr" data-b="3">
-            <div class="top"><span>BRX desk</span><span>13:40</span></div>
-            <div class="mid"><div class="av">DV</div><div class="nm" data-en="Dmitri calls back" data-ar="دميتري يعاود الاتصال">Dmitri calls back</div><div class="sub" data-en="Handed to Sara M." data-ar="تم التسليم إلى سارة م.">Handed to Sara M.</div>
-              <div class="btnrow" style="width:100%"><span data-en="Later" data-ar="لاحقاً">Later</span><span class="go" data-en="Answer" data-ar="رد">Answer</span></div></div>
-            <div class="foot"><span data-en="Automation stopped for this lead" data-ar="توقفت الأتمتة لهذا العميل">Automation stopped for this lead</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ═══ HOW WE WORK: map, build, run ═══ -->
+<section class="how" id="how">
+  <div class="wrap">
+    <h2 class="display" data-en="If your team repeats it, we can automate it." data-ar="إن كان فريقك يكرّره، يمكننا أتمتته.">If your team repeats it, we can automate it.</h2>
+    <ol class="method">
+      <li><span class="k">1</span><h3 data-en="Map" data-ar="نرسم">Map</h3><p data-en="We sit with your team and map one process, step by step. You see where the hours and the money go." data-ar="نجلس مع فريقك ونرسم إجراءً واحداً خطوة بخطوة. وترى أين تذهب الساعات والأموال.">We sit with your team and map one process, step by step. You see where the hours and the money go.</p></li>
+      <li><span class="k">2</span><h3 data-en="Build" data-ar="نبني">Build</h3><p data-en="We build the agents that run it, on the tools you already use. You keep the keys and the data." data-ar="نبني الوكلاء الذين يشغّلونه، على الأدوات التي تستخدمها أصلاً. والمفاتيح والبيانات تبقى لك.">We build the agents that run it, on the tools you already use. You keep the keys and the data.</p></li>
+      <li><span class="k">3</span><h3 data-en="Run" data-ar="نشغّل">Run</h3><p data-en="We run and watch it every day. People sign off on what matters. One switch stops it." data-ar="نشغّله ونراقبه كل يوم. والقرارات المهمة يوقّعها إنسان. ومفتاح واحد يوقفه.">We run and watch it every day. People sign off on what matters. One switch stops it.</p></li>
+    </ol>
+    <p class="chips-label" data-en="Agents by profession" data-ar="وكلاء حسب المهنة">Agents by profession</p>
+    <nav class="chips" aria-label="Agents by profession" data-en-aria="Agents by profession" data-ar-aria="وكلاء حسب المهنة">
+      <a href="/agents/lawyer.html" data-en="Lawyers" data-ar="المحامون">Lawyers</a>
+      <a href="/agents/advisor.html" data-en="Advisors" data-ar="المستشارون">Advisors</a>
+      <a href="/agents/wealth-manager.html" data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</a>
+      <a href="/agents/broker.html" data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</a>
+      <a href="/agents/clinic.html" data-en="Clinics" data-ar="العيادات">Clinics</a>
+      <a href="/agents/hospitality.html" data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</a>
+      <a href="/flow/public-sector.html" data-en="Public entities" data-ar="الجهات الحكومية">Public entities</a>
+      <a class="chip--any" href="/solutions/#any" data-en="Any process" data-ar="أي إجراء">Any process</a>
+    </nav>
   </div>
 </section>
 
-<!-- ═══ OWNERS: the numbers ═══ -->
-<section class="owners" id="owners">
+<!-- ═══ PRODUCTS: the proof ═══ -->
+<section class="sec sec--alt" id="products">
   <div class="wrap">
-    <h2 class="display" data-en="Know who already owns in Dubai." data-ar="اعرف من يملك في دبي أصلاً.">Know who already owns in Dubai.</h2>
-    <p class="lede" data-en="Every lead is matched against owner records, so your agent opens with the right question." data-ar="يُطابق كل عميل مع سجلات الملّاك، ليبدأ وكيلك بالسؤال الصحيح.">Every lead is matched against owner records, so your agent opens with the right question.</p>
-    <dl class="ledger">
-      <div class="row"><dd data-count="69312">69,312</dd><dt data-en="lead records loaded and matched" data-ar="سجل عميل حُمّل وطُوبق">lead records loaded and matched</dt></div>
-      <div class="row"><dd data-count="3204">3,204</dd><dt data-en="own or owned property in Dubai" data-ar="يملكون أو ملكوا عقاراً في دبي">own or owned property in Dubai</dt></div>
-      <div class="row"><dd data-count="2252">2,252</dd><dt data-en="asked about off-plan and already own" data-ar="سألوا عن مشاريع على الخارطة ويملكون أصلاً">asked about off-plan and already own</dt></div>
-    </dl>
-    <p class="fine src" data-en="One live Dubai desk, September 2026. A full re-match of every record takes 28 seconds." data-ar="مكتب حيّ واحد في دبي، سبتمبر 2026. إعادة مطابقة كل السجلات تستغرق 28 ثانية.">One live Dubai desk, September 2026. A full re-match of every record takes 28 seconds.</p>
-  </div>
-  <div class="names" role="img" aria-label="Sample of matched leads with names masked" data-en-aria="Sample of matched leads with names masked" data-ar-aria="عيّنة من العملاء المطابَقين بأسماء مخفية">
-    <div class="names-track" id="namesTrack"></div>
-  </div>
-  <p class="fine names-cap" data-en="Sample of matched leads. Names masked." data-ar="عيّنة من العملاء المطابَقين. الأسماء مخفية.">Sample of matched leads. Names masked.</p>
-</section>
-
-<!-- ═══ PROOF ═══ -->
-<section class="proof" id="proof">
-  <div class="wrap">
-    <p class="proof-line" data-en="Live on a Dubai desk for 3+ weeks. Under 5 minutes from new lead to first message, in 6 languages, with 0 leads missed." data-ar="يعمل على مكتب في دبي منذ أكثر من 3 أسابيع. أقل من 5 دقائق من العميل الجديد إلى أول رسالة، بـ6 لغات، دون أي عميل فائت.">Live on a Dubai desk for 3+ weeks. Under 5 minutes from new lead to first message, in 6 languages, with 0 leads missed.</p>
-    <p class="fine src" data-en="Source: one live Dubai desk, September 2026." data-ar="المصدر: مكتب مباشر واحد في دبي، سبتمبر 2026.">Source: one live Dubai desk, September 2026.</p>
-    <div class="btn-row"><a class="btn btn--ghost" href="/defender/" data-en="See the Defender" data-ar="شاهد Defender">See the Defender</a></div>
+    <div class="sec-head">
+      <h2 class="display" data-en="Proof: three products we built and run." data-ar="الدليل: ثلاثة منتجات بنيناها ونشغّلها.">Proof: three products we built and run.</h2>
+    </div>
+    <div class="grid-3">
+      <a class="card prod" href="/defender/">
+        <span class="meta" data-en="Defender · real estate" data-ar="Defender · العقارات">Defender · real estate</span>
+        <h3 data-en="Every new lead called in minutes, in their language." data-ar="كل عميل جديد يُتّصل به خلال دقائق، بلغته.">Every new lead called in minutes, in their language.</h3>
+        <div class="n">&lt;5 min</div>
+        <p class="fine" data-en="New lead to first message. One live Dubai desk, Sep 2026." data-ar="من العميل الجديد إلى أول رسالة. مكتب حيّ واحد في دبي، سبتمبر 2026.">New lead to first message. One live Dubai desk, Sep 2026.</p>
+        <span class="go" data-en="See the Defender" data-ar="شاهد Defender">See the Defender</span>
+      </a>
+      <a class="card prod" href="/atlas/">
+        <span class="meta" data-en="Owner Atlas · real estate" data-ar="أطلس الملّاك · العقارات">Owner Atlas · real estate</span>
+        <h3 data-en="Every building and unit in 3D, from the public register." data-ar="كل مبنى ووحدة بالأبعاد الثلاثة، من السجل العام.">Every building and unit in 3D, from the public register.</h3>
+        <div class="n">1,106</div>
+        <p class="fine" data-en="Buildings mapped. DLD register, Sep 2026." data-ar="مبنى مرسوم. سجل دائرة الأراضي، سبتمبر 2026.">Buildings mapped. DLD register, Sep 2026.</p>
+        <span class="go" data-en="See the Owner Atlas" data-ar="شاهد أطلس الملّاك">See the Owner Atlas</span>
+      </a>
+      <a class="card prod" href="/get-whitepaper.html">
+        <span class="meta" data-en="Trading agents · your own account" data-ar="وكلاء التداول · حسابك الخاص">Trading agents · your own account</span>
+        <h3 data-en="Rule-based trading software you run on your own broker account." data-ar="برنامج تداول قائم على القواعد تشغّله على حسابك لدى وسيطك.">Rule-based trading software you run on your own broker account.</h3>
+        <div class="n">7</div>
+        <p class="fine" data-en="Gates every trade must pass. Your rules, your keys." data-ar="بوابات يجب أن تجتازها كل صفقة. قواعدك ومفاتيحك.">Gates every trade must pass. Your rules, your keys.</p>
+        <span class="go" data-en="See the trading agents" data-ar="شاهد وكلاء التداول">See the trading agents</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- ═══ CONTACT ═══ -->
 <section class="talk" id="cta">
   <div class="wrap">
-    <h2 data-en="See it run." data-ar="شاهده يعمل.">See it run.</h2>
-    <p class="lede" data-en="30 minutes on a screen-share with Saud or Leo: the live board and one lead, start to finish. Bring your worst week of lost leads." data-ar="30 دقيقة عبر مشاركة الشاشة مع سعود أو ليو: اللوحة المباشرة وعميل واحد من البداية إلى النهاية. أحضر أسوأ أسبوع خسرت فيه عملاء.">30 minutes on a screen-share with Saud or Leo: the live board and one lead, start to finish. Bring your worst week of lost leads.</p>
+    <h2 data-en="Bring one process." data-ar="أحضر إجراءً واحداً.">Bring one process.</h2>
+    <p class="lede" data-en="30 minutes with Saud or Leo. Tell us the work that eats your week. We map it with you on the call." data-ar="30 دقيقة مع سعود أو ليو. أخبرنا بالعمل الذي يستهلك أسبوعك. ونرسمه معك خلال المكالمة.">30 minutes with Saud or Leo. Tell us the work that eats your week. We map it with you on the call.</p>
     <div id="team">
 <!-- founders:start -->
 <div class="btn-row" style="margin:28px 0 24px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
@@ -402,7 +317,15 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
       <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
       <b>BRX</b>
     </a>
-    <p data-en="AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ذكاء اصطناعي يتولّون العمل المتكرر، يُبنون ويعملون في دبي. © 2026 BRX Technologies.">AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies.</p>
+    <p data-en="Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ووكالات ذكاء اصطناعي مصمّمة لأي عمل فيه إجراءات. تُبنى وتعمل في دبي. © 2026 BRX Technologies.">Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies.</p>
+    <nav class="foot-nav" aria-label="Site" data-en-aria="Site" data-ar-aria="الموقع">
+      <a href="/solutions/" data-en="Solutions" data-ar="الحلول">Solutions</a>
+      <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
+      <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
+      <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+      <a href="/ai-first/" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+      <a href="/savings/" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+    </nav>
     <div class="foot-links">
       <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
       <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
@@ -410,12 +333,12 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
     </div>
   </div>
 </footer>
-<script src="/assets/brx.js?v=20261004c" defer></script>
+<script src="/assets/brx.js?v=20261005a" defer></script>
 <!-- foot:end -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/assets/wake.js" defer></script>
-<script src="/assets/home.js?v=20261004d" defer></script>
+<script src="/assets/home.js?v=20261005a" defer></script>
 </body>
 </html>

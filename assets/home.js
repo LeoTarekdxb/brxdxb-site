@@ -1,4 +1,4 @@
-/* Homepage choreography: switch wake, film, pinned beats, count-ups, name ticker, lazy 3D, Lenis. */
+/* Homepage choreography: switch wake, film, count-ups, lazy 3D, Lenis. Beats and the name ticker only run if their markup exists. */
 (function () {
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -67,8 +67,8 @@
   var bScr = [].slice.call(document.querySelectorAll('#beatPhone .scr'));
   var rail = document.getElementById('rail');
   // Mobile, reduced motion, or no GSAP: every beat gets its own phone snapshot
-  var pinBeats = desktop && !reduce && hasGsap;
-  if (!pinBeats) {
+  var pinBeats = beats.length > 0 && desktop && !reduce && hasGsap;
+  if (!pinBeats && beats.length) {
     root.classList.add('beats-static');
     beats.forEach(function (b, i) {
       var slot = b.querySelector('.beat-phone'); if (!slot || !bScr[i]) return;
@@ -149,6 +149,7 @@
   };
   var track = document.getElementById('namesTrack');
   function buildNames(l) {
+    if (!track) return;
     var items = N[l] || N.en, html = items.concat(items).map(function (n) { return '<span><b dir="ltr">' + n[0] + '</b>' + n[1] + '</span>'; }).join('');
     track.innerHTML = html;
   }

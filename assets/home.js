@@ -156,7 +156,7 @@
       m.src = 'https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';
       document.head.appendChild(m);
       var mv = document.createElement('model-viewer');
-      var attrs = { src: '/assets/brx-logo.glb', poster: '/assets/brx-logo-poster.png', alt: 'The BRX brick mark in green glass, drag to turn', 'camera-controls': '', 'disable-zoom': '', 'disable-pan': '', 'interaction-prompt': 'none', 'shadow-intensity': '1.1', exposure: '1.05', 'environment-image': 'neutral', 'camera-orbit': '30deg 78deg 105%', 'touch-action': 'pan-y' };
+      var attrs = { src: '/assets/brx-logo.glb', poster: '/assets/brx-logo-poster.webp', alt: 'The BRX brick mark in green glass, drag to turn', 'camera-controls': '', 'disable-zoom': '', 'disable-pan': '', 'interaction-prompt': 'none', 'shadow-intensity': '1.1', exposure: '1.05', 'environment-image': 'neutral', 'camera-orbit': '30deg 78deg 105%', 'touch-action': 'pan-y' };
       if (!reduce) { attrs['auto-rotate'] = ''; attrs['auto-rotate-delay'] = '0'; attrs['rotation-per-second'] = '16deg'; }
       Object.keys(attrs).forEach(function (k) { mv.setAttribute(k, attrs[k]); });
       lab.innerHTML = ''; lab.appendChild(mv);

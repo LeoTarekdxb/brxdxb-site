@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/brx.css">
+<link rel="stylesheet" href="/assets/brx.css?v=20261004">
 <link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
@@ -51,7 +51,7 @@ html[lang="ar"] .hero h1 { font-size: clamp(38px, 5.4vw, 80px); line-height: 1.2
 .phone .island { position: absolute; top: 9px; left: 50%; width: 74px; height: 21px; margin-left: -37px; background: #111; border-radius: 12px; z-index: 3; }
 .scr { position: absolute; inset: 0; padding: 46px 16px 16px; display: flex; flex-direction: column; opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .4s ease, transform .6s cubic-bezier(.2,.8,.2,1); font-size: 13px; line-height: 1.4; color: var(--ink); }
 .scr.on { opacity: 1; transform: none; }
-.scr .top { display: flex; justify-content: space-between; font-weight: 700; font-size: 11px; color: var(--ink3); margin-bottom: 18px; }
+.scr .top { display: flex; justify-content: space-between; font-weight: 700; font-size: 12px; color: var(--ink3); margin-bottom: 18px; }
 .scr .mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; }
 .scr .av { position: relative; width: 78px; height: 78px; border-radius: 50%; background: var(--g); color: var(--ink); display: flex; align-items: center; justify-content: center; font: 700 24px/1 var(--display); margin-bottom: 10px; }
 .scr .av.grey { background: #E6E9E1; color: #4F5649; }
@@ -61,11 +61,11 @@ html[lang="ar"] .hero h1 { font-size: clamp(38px, 5.4vw, 80px); line-height: 1.2
 @keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
 .scr .nm { font: 700 17px/1.2 var(--display); letter-spacing: -.02em; }
 .scr .sub { color: var(--ink3); font-size: 12px; }
-.scr .chip { display: inline-block; font-weight: 700; font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #EEF4E2; color: #2F5409; }
-.scr .foot { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 10px; font-size: 11px; color: var(--ink3); }
+.scr .chip { display: inline-block; font-weight: 700; font-size: 12px; padding: 3px 9px; border-radius: 999px; background: #EEF4E2; color: #2F5409; }
+.scr .foot { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12px; color: var(--ink3); }
 .scr .foot b { font: 700 20px/1 var(--display); color: var(--ink); }
 .scr .note { background: #F2F4EE; border-radius: 16px; padding: 12px; text-align: left; }
-.scr .note b { display: block; font-size: 11px; color: var(--ink3); margin-bottom: 2px; }
+.scr .note b { display: block; font-size: 12px; color: var(--ink3); margin-bottom: 2px; }
 .scr .bubble { align-self: flex-start; background: #EEF4E2; border-radius: 16px 16px 16px 4px; padding: 10px 12px; text-align: left; max-width: 92%; }
 .scr .line { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 12px; padding: 8px 0; border-top: 1px solid var(--line); width: 100%; }
 .scr .tick { width: 18px; height: 18px; border-radius: 50%; background: var(--g); flex: none; position: relative; }
@@ -189,7 +189,7 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
 .beats-static .beats-phone, .beats-static .beats-rail { display: none; }
 .beats-static .beats-in { grid-template-columns: 1fr; min-height: 0; padding-top: var(--sec); padding-bottom: var(--sec); }
 .beats-static .beats-copy { padding: 0; }
-.film-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.film-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--ink); cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .film-toggle svg { width: 16px; height: 16px; fill: currentColor; }
 .film-toggle.paused svg { opacity: .5; }
 .is-on .film-toggle { background: #fff; }
@@ -419,7 +419,7 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
 <section class="lab" id="lab">
   <div class="wrap lab-in">
     <div class="lab-3d" id="lab3d">
-      <img src="/assets/brx-logo-poster.png" alt="The BRX brick mark in green glass" width="520" height="520" loading="lazy" decoding="async">
+      <img src="/assets/brx-logo-poster.webp" alt="The BRX brick mark in green glass" width="520" height="520" loading="lazy" decoding="async">
     </div>
     <div>
       <h2 class="display" data-en="The lab. Agents we run." data-ar="المختبر. وكلاء نشغّلهم.">The lab. Agents we run.</h2>
@@ -498,7 +498,7 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
     </div>
     <div id="team">
 <!-- founders:start -->
-<div class="btn-row" style="margin:0 0 24px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
+<div class="btn-row" style="margin:0 0 24px"><a class="btn btn--ghost" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
 <div class="founders">
   <div class="card founder">
     <div class="initials" aria-hidden="true">SZ</div>
@@ -553,6 +553,6 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/assets/wake.js" defer></script>
-<script src="/assets/home.js" defer></script>
+<script src="/assets/home.js?v=20261004" defer></script>
 </body>
 </html>

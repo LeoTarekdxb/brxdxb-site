@@ -222,6 +222,14 @@ html:not(.js) .rules-all { display: none; }
   .atlas-n { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 2px 24px; }
   .atlas-n > span:not(.atlas-src) { display: flex; flex-direction: column; line-height: 1.3; }
   .atlas-n .atlas-src { grid-column: 1 / -1; }
+  #atlas h3 { font-size: 21px; }
+  #owners .tbl td, #owners .tbl tbody th { padding: 11px 16px; }
+  .sec-head { margin-bottom: 20px; }
+  .svc .terms li { padding: 7px 0; }
+  .story-feed li { padding: 7px 0; }
+  .atlas .btn-row { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .atlas .btn-row .btn { padding-inline: 8px; min-width: 0; }
+  #cta .founder { padding: 16px; }
 }
 </style>
 <link rel="stylesheet" href="/assets/atlas.css">
@@ -453,10 +461,10 @@ html:not(.js) .rules-all { display: none; }
       <div>
         <p class="eyebrow" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</p>
         <h3 data-en="Dubai in 3D, one tower at a time." data-ar="دبي بالأبعاد الثلاثة، برجاً برجاً.">Dubai in 3D, one tower at a time.</h3>
-        <p class="promise" data-en="See who owns every unit in a building. Access is by request. &lt;a class=&quot;link&quot; href=&quot;/atlas/&quot;&gt;See the Owner Atlas&lt;/a&gt;" data-ar="اعرف مالك كل وحدة في المبنى. الوصول بطلب فقط. &lt;a class=&quot;link&quot; href=&quot;/atlas/&quot;&gt;شاهد أطلس الملّاك&lt;/a&gt;">See who owns every unit in a building. Access is by request. <a class="link" href="/atlas/">See the Owner Atlas</a></p>
+        <p class="promise" data-en="See who owns every unit in a building. Access is by request." data-ar="اعرف مالك كل وحدة في المبنى. الوصول بطلب فقط.">See who owns every unit in a building. Access is by request.</p>
         <p class="atlas-n"><span><b>14</b> <span data-en="communities" data-ar="مجتمعاً">communities</span></span><span><b>1,106</b> <span data-en="buildings" data-ar="مبنى">buildings</span></span><span><b>60,968</b> <span data-en="owners on file" data-ar="مالكاً في السجل">owners on file</span></span><span class="atlas-src" data-en="DLD register, Sep 2026" data-ar="سجل دائرة الأراضي، سبتمبر 2026">DLD register, Sep 2026</span></p>
         <p class="fine" data-en="Built from the DLD register, September 2026. You get a personal code; names stay hidden until it is approved." data-ar="مبني على سجل دائرة الأراضي والأملاك، سبتمبر 2026. تحصل على رمز شخصي، وتبقى الأسماء مخفية حتى تتم الموافقة.">Built from the DLD register, September 2026. You get a personal code; names stay hidden until it is approved.</p>
-        <div class="btn-row"><button class="btn" type="button" id="atlasOpen" aria-haspopup="dialog" aria-controls="atlasDlg" data-en="Request access" data-ar="اطلب الوصول">Request access</button></div>
+        <div class="btn-row"><button class="btn" type="button" id="atlasOpen" aria-haspopup="dialog" aria-controls="atlasDlg" data-en="Request access" data-ar="اطلب الوصول">Request access</button><a class="btn btn--ghost" href="/atlas/" data-en="See the Owner Atlas" data-ar="شاهد أطلس الملّاك">See the Owner Atlas</a></div>
       </div>
     </div>
     <dialog class="atlas-dlg" id="atlasDlg" aria-labelledby="ar-title">
@@ -486,7 +494,7 @@ html:not(.js) .rules-all { display: none; }
     <div class="sec-head reveal">
       <p class="eyebrow" data-en="Safety" data-ar="الأمان">Safety</p>
       <h2 class="display" data-en="Built by breaking it first." data-ar="بنيناه بعد أن كسرناه أولاً.">Built by breaking it first.</h2>
-      <p class="lede" data-en="It runs on a Mac and a handset you own. Your book never sits on our server. Each rule exists because something once went wrong." data-ar="يعمل على جهاز Mac وهاتف تملكهما. سجلّ عملائك لا يبقى أبداً على خادمنا. كل قاعدة موجودة لأن شيئاً ما أخطأ مرة.">It runs on a Mac and a handset you own. Your book never sits on our server. Each rule exists because something once went wrong.</p>
+      <p class="lede" data-en="It runs on a Mac and a handset you own. Your book never sits on our server." data-ar="يعمل على جهاز Mac وهاتف تملكهما. سجلّ عملائك لا يبقى أبداً على خادمنا.">It runs on a Mac and a handset you own. Your book never sits on our server.</p>
     </div>
     <div class="tbl-wrap reveal">
       <table class="tbl tbl--stack tbl--rules" id="rules">

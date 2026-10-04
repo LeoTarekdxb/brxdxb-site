@@ -107,7 +107,7 @@
     }
     if (pinBeats) {
       setBeat(0);
-      ScrollTrigger.create({ trigger: '#how', start: function () { return 'top top+=' + navH(); }, end: '+=300%', pin: true, pinSpacing: true,
+      ScrollTrigger.create({ trigger: '#how', start: function () { return 'top top+=' + navH(); }, end: '+=200%', pin: true, pinSpacing: true,
         onUpdate: function (s) { setBeat(Math.min(3, Math.floor(s.progress * 4))); gsap.set(rail, { scaleY: 0.25 + s.progress * 0.75 }); } });
     }
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });

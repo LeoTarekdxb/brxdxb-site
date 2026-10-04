@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solutions: custom AI agents and AI agencies | BRXDXB</title>
-<meta name="description" content="BRX maps a process, builds the AI agents that run it and runs them. Any sector, public or private. Up to 80% less operating cost on the work we automate.">
-<meta property="og:title" content="Solutions: custom AI agents and AI agencies | BRXDXB">
-<meta property="og:description" content="BRX maps a process, builds the AI agents that run it and runs them. Any sector, public or private. Up to 80% less operating cost on the work we automate.">
+<title>BRX Flow: AI agents built for your process | BRXDXB</title>
+<meta name="description" content="BRX Flow is the BRXDXB custom offer. We map one process, build the AI agents that run it and run them on your tools. A fixed build fee, then a monthly run fee, quoted after the map.">
+<meta property="og:title" content="BRX Flow: AI agents built for your process | BRXDXB">
+<meta property="og:description" content="We map one process, build the AI agents that run it and run them on your tools. Any sector, private or public.">
 <meta property="og:image" content="https://www.brxdxb.com/assets/brx-film-poster.jpg">
-<meta property="og:url" content="https://www.brxdxb.com/solutions/">
-<link rel="canonical" href="https://www.brxdxb.com/solutions/">
+<meta property="og:url" content="https://www.brxdxb.com/flow/">
+<link rel="canonical" href="https://www.brxdxb.com/flow/">
 <!-- head:start -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,16 @@
 <meta name="theme-color" content="#FFFFFF">
 <script>document.documentElement.classList.add('js')</script>
 <!-- head:end -->
-
+<style>
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+.price-grid .card h3 { font-size: clamp(20px, 2vw, 26px); }
+.sub-h { font-size: clamp(20px, 2vw, 26px); margin: 0 0 20px; }
+.sub-h + .grid-3, .sub-h + .grid-2 { margin-bottom: 48px; }
+@media (max-width: 960px) { .price-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { #who .card { padding: 16px 18px; } #who .card p { font-size: 14px; line-height: 1.5; } #who .card .go { margin-top: 8px; } #who .grid-3, #who .grid-2 { gap: 12px; } }
+</style>
 </head>
-<body data-page="solutions">
+<body data-page="flow">
 <!-- nav:start -->
 <a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
 <header class="site-nav" id="nav">
@@ -99,17 +106,15 @@
   <p class="fine" data-en="BRXDXB · Dubai" data-ar="BRXDXB · دبي">BRXDXB · Dubai</p>
 </div>
 <!-- nav:end -->
-
 <main id="main">
 <section class="page-hero">
   <div class="wrap">
-    <p class="eyebrow" data-en="Solutions" data-ar="الحلول">Solutions</p>
-    <h1 class="display--xl" style="max-width:20ch" data-en="Custom AI agents and AI agencies for any business with a process." data-ar="وكلاء ووكالات ذكاء اصطناعي مصمّمة لأي عمل فيه إجراءات.">Custom AI agents and AI agencies for any business with a process.</h1>
-    <p class="lede" data-en="Public or private. We map the process, build the agents and run them. &lt;a class=&quot;link&quot; href=&quot;/savings/&quot;&gt;Up to 80% less operating cost&lt;/a&gt; on the work we automate." data-ar="في القطاع العام أو الخاص. نرسم الإجراء ونبني الوكلاء ونشغّلهم. &lt;a class=&quot;link&quot; href=&quot;/savings/&quot;&gt;خفض تكلفة التشغيل حتى 80%&lt;/a&gt; في العمل الذي نؤتمته.">Public or private. We map the process, build the agents and run them. <a class="link" href="/savings/">Up to 80% less operating cost</a> on the work we automate.</p>
-    <div class="btn-row"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a><a class="btn btn--ghost" href="/savings/" data-en="Work out your saving" data-ar="احسب توفيرك">Work out your saving</a></div>
+    <p class="fam"><b>BRX Flow</b><span data-en="the BRXDXB custom offer" data-ar="العرض المخصّص من BRXDXB">the BRXDXB custom offer</span></p>
+    <h1 class="display--xl" style="max-width:18ch" data-en="AI agents built for your process." data-ar="وكلاء ذكاء اصطناعي مبنيّون لإجراءاتك.">AI agents built for your process.</h1>
+    <p class="lede" data-en="Bring the process that eats your week. We map it, build the agents and run them on your tools. Any sector, private or public." data-ar="أحضر الإجراء الذي يستهلك أسبوعك. نرسمه ونبني الوكلاء ونشغّلهم على أدواتك. في أي قطاع، خاص أو عام.">Bring the process that eats your week. We map it, build the agents and run them on your tools. Any sector, private or public.</p>
+    <div class="btn-row"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a><a class="btn btn--ghost" href="#calc" data-en="Work out your saving" data-ar="احسب توفيرك">Work out your saving</a></div>
   </div>
 </section>
-
 <section class="sec" id="method"><span id="agency"></span>
   <div class="wrap">
     <div class="sec-head">
@@ -123,48 +128,73 @@
     </ol>
   </div>
 </section>
-
-<section class="sec sec--alt" id="agents">
+<section class="sec sec--alt" id="price">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="display" data-en="Agents by profession" data-ar="وكلاء حسب المهنة">Agents by profession</h2>
-      <p class="lede" data-en="Each page shows the work an agent takes off the desk, and one example day." data-ar="تعرض كل صفحة العمل الذي يرفعه الوكيل عن المكتب، ومثالاً ليوم واحد.">Each page shows the work an agent takes off the desk, and one example day.</p>
+      <h2 class="display" data-en="How the price works" data-ar="كيف يُحسب السعر">How the price works</h2>
+      <p class="lede" data-en="The map comes first. It shows what each step costs you today, so the quote rests on your numbers." data-ar="الخريطة تأتي أولاً. تُظهر تكلفة كل خطوة عليك اليوم، فيُبنى العرض على أرقامك أنت.">The map comes first. It shows what each step costs you today, so the quote rests on your numbers.</p>
     </div>
+    <div class="price-grid">
+      <div class="card"><span class="meta" data-en="Once" data-ar="مرة واحدة">Once</span><h3 data-en="A fixed build fee" data-ar="رسم بناء ثابت">A fixed build fee</h3><p data-en="Quoted after the map. You know the full build cost before we start." data-ar="يُحدَّد بعد رسم الإجراء. تعرف تكلفة البناء كاملة قبل أن نبدأ.">Quoted after the map. You know the full build cost before we start.</p></div>
+      <div class="card"><span class="meta" data-en="Monthly" data-ar="شهرياً">Monthly</span><h3 data-en="A run fee" data-ar="رسم تشغيل">A run fee</h3><p data-en="Covers running, watching and fixing the agents, and the weekly report." data-ar="يشمل تشغيل الوكلاء ومراقبتهم وإصلاحهم، والتقرير الأسبوعي.">Covers running, watching and fixing the agents, and the weekly report.</p></div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="who">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-en="Where BRX Flow already has a map" data-ar="حيث لدى BRX Flow خريطة جاهزة">Where BRX Flow already has a map</h2><p class="lede" data-en="Each page shows the work agents take off the desk, an Example day and what stays with the person." data-ar="تعرض كل صفحة العمل الذي يرفعه الوكلاء عن المكتب، ومثالاً ليوم واحد، وما يبقى للشخص.">Each page shows the work agents take off the desk, an Example day and what stays with the person.</p></div>
+    <h3 class="sub-h" data-en="Professions" data-ar="المهن">Professions</h3>
     <div class="grid-3">
-      <a class="card" href="/agents/lawyer.html"><h3 data-en="Lawyers" data-ar="المحامون">Lawyers</h3><p data-en="Intake, conflict checks, first drafts, deadlines." data-ar="الاستقبال وفحص التعارض والمسودات الأولى والمواعيد النهائية.">Intake, conflict checks, first drafts, deadlines.</p><span class="go" data-en="See the agents" data-ar="شاهد الوكلاء">See the agents</span></a>
-      <a class="card" href="/agents/advisor.html"><h3 data-en="Advisors" data-ar="المستشارون">Advisors</h3><p data-en="Onboarding, KYC paperwork, meeting prep, follow-up." data-ar="التسجيل وأوراق «اعرف عميلك» والتحضير للاجتماعات والمتابعة.">Onboarding, KYC paperwork, meeting prep, follow-up.</p><span class="go" data-en="See the agents" data-ar="شاهد الوكلاء">See the agents</span></a>
-      <a class="card" href="/agents/wealth-manager.html"><h3 data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</h3><p data-en="Onboarding, KYC refresh, client reports, invoices." data-ar="التسجيل وتحديث «اعرف عميلك» وتقارير العملاء والفواتير.">Onboarding, KYC refresh, client reports, invoices.</p><span class="go" data-en="See the agents" data-ar="شاهد الوكلاء">See the agents</span></a>
-      <a class="card" href="/agents/broker.html"><h3 data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</h3><p data-en="Lead response, viewings, listings, deal paperwork." data-ar="الرد على العملاء والمعاينات والإعلانات وأوراق الصفقة.">Lead response, viewings, listings, deal paperwork.</p><span class="go" data-en="See the agents" data-ar="شاهد الوكلاء">See the agents</span></a>
-      <a class="card" href="/agents/clinic.html"><h3 data-en="Clinics" data-ar="العيادات">Clinics</h3><p data-en="Bookings, reminders, intake forms, insurance paperwork." data-ar="الحجوزات والتذكيرات ونماذج الاستقبال وأوراق التأمين.">Bookings, reminders, intake forms, insurance paperwork.</p><span class="go" data-en="See the agents" data-ar="شاهد الوكلاء">See the agents</span></a>
-      <a class="card" href="/agents/hospitality.html"><h3 data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</h3><p data-en="Reservations, guest messages, review replies, supplier orders." data-ar="الحجوزات ورسائل الضيوف والرد على التقييمات وطلبات الموردين.">Reservations, guest messages, review replies, supplier orders.</p><span class="go" data-en="See the agents" data-ar="شاهد الوكلاء">See the agents</span></a>
-      <a class="card" id="any" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" style="border-style:dashed"><h3 data-en="Any other process" data-ar="أي إجراء آخر">Any other process</h3><p data-en="If a person does it the same way many times a week, an agent can likely take most of it. Tell us which one." data-ar="إن كان شخص ينفّذه بالطريقة نفسها مرات كثيرة في الأسبوع، فالأرجح أن الوكيل يستطيع تولّي معظمه. أخبرنا أيّه.">If a person does it the same way many times a week, an agent can likely take most of it. Tell us which one.</p><span class="go" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</span></a>
+      <a class="card" href="/agents/lawyer.html"><h3 data-en="Lawyers" data-ar="المحامون">Lawyers</h3><p data-en="Intake, conflict checks, first drafts, deadlines." data-ar="الاستقبال وفحص التعارض والمسودات الأولى والمواعيد النهائية.">Intake, conflict checks, first drafts, deadlines.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
+      <a class="card" href="/agents/advisor.html"><h3 data-en="Advisors" data-ar="المستشارون">Advisors</h3><p data-en="Onboarding, KYC paperwork, meeting prep, follow-up." data-ar="التسجيل وأوراق «اعرف عميلك» والتحضير للاجتماعات والمتابعة.">Onboarding, KYC paperwork, meeting prep, follow-up.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
+      <a class="card" href="/agents/wealth-manager.html"><h3 data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</h3><p data-en="Onboarding, KYC refresh, client reports, invoices." data-ar="التسجيل وتحديث «اعرف عميلك» وتقارير العملاء والفواتير.">Onboarding, KYC refresh, client reports, invoices.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
+      <a class="card" href="/agents/broker.html"><h3 data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</h3><p data-en="Lead response, viewings, listings, deal paperwork." data-ar="الرد على العملاء والمعاينات والإعلانات وأوراق الصفقة.">Lead response, viewings, listings, deal paperwork.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
+      <a class="card" href="/agents/clinic.html"><h3 data-en="Clinics" data-ar="العيادات">Clinics</h3><p data-en="Bookings, reminders, intake forms, insurance paperwork." data-ar="الحجوزات والتذكيرات ونماذج الاستقبال وأوراق التأمين.">Bookings, reminders, intake forms, insurance paperwork.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
+      <a class="card" href="/agents/hospitality.html"><h3 data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</h3><p data-en="Reservations, guest messages, review replies, supplier orders." data-ar="الحجوزات ورسائل الضيوف والرد على التقييمات وطلبات الموردين.">Reservations, guest messages, review replies, supplier orders.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="sectors">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="display" data-en="Same method. Public and private sector." data-ar="المنهج نفسه. في القطاعين العام والخاص.">Same method. Public and private sector.</h2>
-    </div>
+    <h3 class="sub-h" data-en="Sectors" data-ar="القطاعات">Sectors</h3>
     <div class="grid-2">
-      <a class="card" href="/flow/"><span class="meta" data-en="Private sector" data-ar="القطاع الخاص">Private sector</span><h3 data-en="Real estate, legal, hospitality, healthcare and more" data-ar="العقارات والقانون والضيافة والرعاية الصحية وغيرها">Real estate, legal, hospitality, healthcare and more</h3><p data-en="Set-ups with pipelines and flat pricing." data-ar="إعدادات جاهزة بمسارات وأسعار ثابتة.">Set-ups with pipelines and flat pricing.</p><span class="go" data-en="See the industries" data-ar="شاهد القطاعات">See the industries</span></a>
-      <a class="card" href="/flow/public-sector.html"><span class="meta" data-en="Public sector" data-ar="القطاع العام">Public sector</span><h3 data-en="Process automation for public entities" data-ar="أتمتة الإجراءات للجهات الحكومية">Process automation for public entities</h3><p data-en="Requests, applications, approvals and reports, Arabic first, on your own infrastructure." data-ar="الطلبات والمعاملات والموافقات والتقارير، بالعربية أولاً، وعلى بنيتك التحتية.">Requests, applications, approvals and reports, Arabic first, on your own infrastructure.</p><span class="go" data-en="See public sector" data-ar="شاهد القطاع العام">See public sector</span></a>
+      <a class="card" href="/flow/private-sector.html"><h3 data-en="Private companies" data-ar="الشركات الخاصة">Private companies</h3><p data-en="Enquiries, quotes, orders, invoices and reports." data-ar="الاستفسارات والعروض والطلبات والفواتير والتقارير.">Enquiries, quotes, orders, invoices and reports.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
+      <a class="card" href="/flow/public-sector.html"><h3 data-en="Public entities" data-ar="الجهات الحكومية">Public entities</h3><p data-en="Process automation for public entities: requests, applications, approvals and reports, Arabic first." data-ar="أتمتة الإجراءات للجهات الحكومية: الطلبات والمعاملات والموافقات والتقارير، بالعربية أولاً.">Process automation for public entities: requests, applications, approvals and reports, Arabic first.</p><span class="go" data-en="See the page" data-ar="شاهد الصفحة">See the page</span></a>
     </div>
+    <p class="more-link" id="any"><a class="link" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Not on the list? If a person does it the same way many times a week, book a demo." data-ar="غير موجود في القائمة؟ إن كان شخص ينفّذه بالطريقة نفسها مرات كثيرة في الأسبوع، احجز عرضاً.">Not on the list? If a person does it the same way many times a week, book a demo.</a></p>
   </div>
 </section>
-
-<section class="sec sec--alt" id="cta">
+<section class="sec sec--alt" id="calc">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-en="What does one process cost you today?" data-ar="كم يكلّفك إجراء واحد اليوم؟">What does one process cost you today?</h2><p class="lede" data-en="Enter your own numbers. We plan for up to 80% of the cost of the steps agents run, never more." data-ar="أدخل أرقامك. نخطّط لرفع حتى 80% من تكلفة الخطوات التي يتولّاها الوكلاء، لا أكثر.">Enter your own numbers. We plan for up to 80% of the cost of the steps agents run, never more.</p></div>
+    <div class="calc">
+    <div class="card">
+      <div class="field"><div class="field-head"><label for="ppl" data-en="People who do this process" data-ar="عدد من ينفّذون هذا الإجراء">People who do this process</label><span class="val" id="pplV">4</span></div><input type="range" id="ppl" min="1" max="100" value="4"></div>
+      <div class="field"><div class="field-head"><label for="cost" data-en="Cost per person, per month (AED)" data-ar="تكلفة الفرد شهرياً (درهم)">Cost per person, per month (AED)</label><span class="val" id="costV">12,000</span></div><input type="range" id="cost" min="3000" max="60000" step="500" value="12000"></div>
+      <div class="field"><div class="field-head"><label for="share" data-en="Share of their time on this process" data-ar="نسبة وقتهم في هذا الإجراء">Share of their time on this process</label><span class="val" id="shareV">50%</span></div><input type="range" id="share" min="5" max="100" step="5" value="50"></div>
+      <div class="field"><div class="field-head"><label for="auto" data-en="Share agents could take (max 80%)" data-ar="النسبة التي قد يتولّاها الوكلاء (حد أقصى 80%)">Share agents could take (max 80%)</label><span class="val" id="autoV">60%</span></div><input type="range" id="auto" min="10" max="80" step="5" value="60"></div>
+    </div>
+    <div class="card result" aria-live="polite">
+      <div class="result-head" data-en="Your estimate" data-ar="تقديرك">Your estimate</div>
+      <div class="result-grid">
+        <div class="result-stat"><div class="k" data-en="Process cost a month" data-ar="تكلفة الإجراء شهرياً">Process cost a month</div><div class="v" id="oc">—</div></div>
+        <div class="result-stat"><div class="k" data-en="Could come off it a month" data-ar="يمكن خفضه شهرياً">Could come off it a month</div><div class="v" id="sv">—</div></div>
+        <div class="result-stat"><div class="k" data-en="A year" data-ar="سنوياً">A year</div><div class="v" id="yr">—</div></div>
+        <div class="result-stat"><div class="k" data-en="Hours freed a month" data-ar="ساعات تتحرر شهرياً">Hours freed a month</div><div class="v" id="hr">—</div></div>
+      </div>
+      <p class="fine" style="margin-top:18px" data-en="An estimate from your inputs, before BRXDXB fees. Not a quote and not a promised result. The real figure comes from mapping the process with you." data-ar="تقدير من مدخلاتك، قبل رسوم BRXDXB. ليس عرض سعر ولا نتيجة مضمونة. الرقم الحقيقي يأتي من رسم الإجراء معك.">An estimate from your inputs, before BRXDXB fees. Not a quote and not a promised result. The real figure comes from mapping the process with you.</p>
+      <div class="btn-row" style="margin-top:20px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
+    </div>
+  </div>
+  </div>
+</section>
+<section class="sec" id="cta">
   <div class="wrap">
     <div class="sec-head" style="margin-bottom:0">
       <h2 class="display" data-en="Bring one process." data-ar="أحضر إجراءً واحداً.">Bring one process.</h2>
       <p class="lede" data-en="30 minutes with Saud or Leo. We map it with you on the call." data-ar="30 دقيقة مع سعود أو ليو. نرسمه معك خلال المكالمة.">30 minutes with Saud or Leo. We map it with you on the call.</p>
     </div>
-<div class="btn-row" style="margin-top:28px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a><a class="btn btn--ghost" href="/savings/" data-en="Work out your saving" data-ar="احسب توفيرك">Work out your saving</a></div>
+    <div class="btn-row" style="margin-top:28px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
+    <p class="back-flow" data-en="Want it ready-made? &lt;a href=&quot;/products/&quot;&gt;See the BRXDXB products&lt;/a&gt;." data-ar="تريده جاهزاً؟ &lt;a href=&quot;/products/&quot;&gt;شاهد منتجات BRXDXB&lt;/a&gt;.">Want it ready-made? <a href="/products/">See the BRXDXB products</a>.</p>
   </div>
 </section>
 </main>
-
 <!-- foot:start -->
 <footer class="site-foot">
   <div class="wrap foot-in">
@@ -190,6 +220,6 @@
 </footer>
 <script src="/assets/brx.js?v=20261005r6" defer></script>
 <!-- foot:end -->
-
+<script src="/assets/savings.js?v=20261005r6" defer></script>
 </body>
 </html>

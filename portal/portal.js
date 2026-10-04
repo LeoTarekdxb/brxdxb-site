@@ -5,6 +5,7 @@ const API = /(^|\.)brxdxb\.com$/.test(location.hostname) ? "https://defender.brx
 const $ = (s, el = document) => el.querySelector(s);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const fmt = n => (n == null || n === "") ? "—" : Number(n).toLocaleString("en-US");
+const num = n => fmt(n == null || n === "" ? 0 : n);  // home counts: nothing yet reads 0, not a dash
 const day = ts => ts ? new Date(ts * 1000).toLocaleDateString(L() === "ar" ? "ar-AE" : "en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—";
 const store = { get(k) { try { return sessionStorage.getItem(k) || localStorage.getItem(k); } catch (e) { return null; } },
   set(k, v, keep) { try { (keep ? localStorage : sessionStorage).setItem(k, v); } catch (e) {} },
@@ -23,6 +24,7 @@ const W = {
     search: "Search name, phone or project", all: "All", none: "Nothing here yet.", loading: "Loading…", offline: "Server offline. Try again in a minute.",
     setup_t: "Choose your password", setup_p: "This link works once. Nobody at BRX will ever know this password.", repeat: "Repeat it",
     save: "Save and sign in", mismatch: "The two passwords are not the same.", copy: "Copy", copied: "Copied",
+    lists_empty: "No lists yet.", lists_empty_p: "Plug your CRM and your lists show up here, with owners counted.", lists_go: "Plug your CRM", pipe_empty: "No one in the pipeline yet.",
     desk: "The desk", desk_p: "These pages stay on the call desk and ask for its PIN.", next: "Next", back: "Back", hi: "Good to see you, Leo.", hi_p: "Your desk, your owners, your outreach and your licensees. Numbers are live from the mini.", k_people: "People in your CRM", k_worked: "Being worked (not Prospect)", k_due: "Follow-ups due in 24 h", k_new: "New, never touched", k_req: "Requests waiting", k_lic: "Licensee accounts", pipeline: "Pipeline", lists: "Lists in your CRM", recent: "Recent imports", plug_p: "Bring every record out of your old CRM into BRX. Each one is kept exactly as it came, then matched, de-duplicated and checked against Dubai owner records. Run it again any time: nothing doubles.", drop: "Drop your CRM export here", drop_p: "CSV, Excel, JSON or XML, up to 60 MB. Or tap to pick the file.", direct: "Or connect the CRM directly", direct_p: "Paste your own key. We only read. We never write to your old CRM.", history: "History", t_leads: "Leads", t_new: "New" },
   ar: { signin: "تسجيل الدخول", email: "البريد الإلكتروني", password: "كلمة المرور", keep: "إبقني مسجلاً على هذا الجهاز", code: "رمز من 6 أرقام",
     tag: "مكتب مبيعاتك الذكي.", tagp: "العملاء والملاك والمكالمات والتواصل وكل نظام CRM استخدمته، في مكان خاص واحد.",
@@ -32,6 +34,7 @@ const W = {
     search: "ابحث بالاسم أو الهاتف أو المشروع", all: "الكل", none: "لا شيء هنا بعد.", loading: "جارٍ التحميل…", offline: "الخادم غير متاح. حاول بعد دقيقة.",
     setup_t: "اختر كلمة المرور", setup_p: "يعمل هذا الرابط مرة واحدة. لن يعرف أحد في BRX كلمة المرور.", repeat: "أعدها",
     save: "احفظ وادخل", mismatch: "كلمتا المرور غير متطابقتين.", copy: "نسخ", copied: "تم النسخ",
+    lists_empty: "لا توجد قوائم بعد.", lists_empty_p: "اربط نظامك وستظهر قوائمك هنا مع عدد الملّاك.", lists_go: "اربط نظامك", pipe_empty: "لا أحد في المسار بعد.",
     desk: "المكتب", desk_p: "هذه الصفحات على مكتب الاتصال وتطلب الرمز.", next: "التالي", back: "رجوع" } };
 const t = k => (W[lang] && W[lang][k]) || W.en[k] || k;
 
@@ -154,20 +157,21 @@ V.home = async () => {
     const st = d.stages || {}; const work = Object.entries(st).filter(([s]) => s !== "Prospect");
     const tot = work.reduce((a, [, n]) => a + n, 0) || 1;
     h += `<div class="kpis">
-      <a class="kpi" href="#/leads"><div class="num">${fmt(d.people)}</div><div class="l">${t("k_people")}</div></a>
-      <a class="kpi" href="#/leads?stage=New"><div class="num">${fmt(tot === 1 ? 0 : tot)}</div><div class="l">${t("k_worked")}</div></a>
-      <a class="kpi" href="#/calendar"><div class="num">${fmt(d.due)}</div><div class="l">${t("k_due")}</div></a>
-      <a class="kpi" href="#/unassigned"><div class="num">${fmt(d.untouched_new)}</div><div class="l">${t("k_new")}</div></a>
-      <a class="kpi" href="#/requests"><div class="num">${fmt(d.requests)}</div><div class="l">${t("k_req")}</div></a>
-      <a class="kpi" href="#/accounts"><div class="num">${fmt(d.tenants)}</div><div class="l">${t("k_lic")}</div></a></div>
-      <h2>${t("pipeline")}</h2><div class="bar">${work.map(([s, n]) => `<i style="width:${100 * n / tot}%;background:${STAGE_COL[s] || "#ccc"}" title="${esc(s)} ${n}"></i>`).join("")}</div>
-      <div class="legend">${work.map(([s, n]) => `<span><b style="background:${STAGE_COL[s] || "#ccc"}"></b>${esc(s)} ${fmt(n)}</span>`).join("")}</div>
+      <a class="kpi" href="#/leads"><div class="num">${num(d.people)}</div><div class="l">${t("k_people")}</div></a>
+      <a class="kpi" href="#/leads?stage=New"><div class="num">${num(tot === 1 ? 0 : tot)}</div><div class="l">${t("k_worked")}</div></a>
+      <a class="kpi" href="#/calendar"><div class="num">${num(d.due)}</div><div class="l">${t("k_due")}</div></a>
+      <a class="kpi" href="#/unassigned"><div class="num">${num(d.untouched_new)}</div><div class="l">${t("k_new")}</div></a>
+      <a class="kpi" href="#/requests"><div class="num">${num(d.requests)}</div><div class="l">${t("k_req")}</div></a>
+      <a class="kpi" href="#/accounts"><div class="num">${num(d.tenants)}</div><div class="l">${t("k_lic")}</div></a></div>
+      <h2>${t("pipeline")}</h2>${work.length ? `<div class="bar">${work.map(([s, n]) => `<i style="width:${100 * n / tot}%;background:${STAGE_COL[s] || "#ccc"}" title="${esc(s)} ${n}"></i>`).join("")}</div>
+      <div class="legend">${work.map(([s, n]) => `<span><b style="background:${STAGE_COL[s] || "#ccc"}"></b>${esc(s)} ${num(n)}</span>`).join("")}</div>` : `<p class="muted">${t("pipe_empty")}</p>`}
       <h2>${t("desk")}</h2><p class="muted small" style="margin:-4px 0 12px">${t("desk_p")}</p>
       <div class="cards">${(d.links || []).map(l => `<a class="card" href="${esc(l.url)}" target="_blank" rel="noopener"><h3>${esc(lang === "ar" ? l.ar : l.en)}</h3><p>${esc(lang === "ar" && l.what_ar ? l.what_ar : l.what)}</p></a>`).join("")}</div>
-      <h2>${t("lists")}</h2><div class="list">${(d.crm_tabs || []).map(x => `<div class="li"><span class="t">${esc(x.label)}</span><span class="s">${fmt(x.owners)} owners · ${fmt(x.sharks)} big owners</span><span class="r">${fmt(x.n)}</span></div>`).join("")}</div>`;
+      <h2>${t("lists")}</h2>${(d.crm_tabs || []).length ? `<div class="list">${d.crm_tabs.map(x => `<div class="li"><span class="t">${esc(x.label)}</span><span class="s">${num(x.owners)} owners · ${num(x.sharks)} big owners</span><span class="r">${num(x.n)}</span></div>`).join("")}</div>`
+        : `<div class="note"><b>${t("lists_empty")}</b> ${t("lists_empty_p")} <a href="#/plug">${t("lists_go")}</a></div>`}`;
   } else {
-    h += `<div class="kpis"><a class="kpi" href="#/leads"><div class="num">${fmt(d.leads)}</div><div class="l">${t("t_leads")}</div></a>
-      <a class="kpi" href="#/unassigned"><div class="num">${fmt(d.new)}</div><div class="l">${t("t_new")}</div></a></div>
+    h += `<div class="kpis"><a class="kpi" href="#/leads"><div class="num">${num(d.leads)}</div><div class="l">${t("t_leads")}</div></a>
+      <a class="kpi" href="#/unassigned"><div class="num">${num(d.new)}</div><div class="l">${t("t_new")}</div></a></div>
       ${d.leads ? "" : `<div class="note" style="margin-top:18px"><b>Start here.</b> Bring your leads in with <a href="#/plug">Plug your CRM</a>. Nothing is lost: every record is kept as it came.</div>`}`;
   }
   if ((d.migrations || []).length) h += `<h2>${t("recent")}</h2>${migList(d.migrations)}`;

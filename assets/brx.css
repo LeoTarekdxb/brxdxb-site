@@ -367,3 +367,68 @@ a.card:active { background: var(--g-soft); border-color: var(--g); transition: n
 a:not(.btn):not(.card):active { opacity: .55; transition: none; }
 button:not(.btn):not(.bigswitch):active, summary:active, [role="button"]:not(.bigswitch):active { opacity: .6; transition: none; }
 .bigswitch:active { transform: scale(.98); transition: background .5s; }
+
+/* ── Positioning round (2026-10-05): sheet sub-links, footer nav, shared offer components ── */
+.sheet .sheet-sub { display: flex; flex-direction: column; padding: 4px 0 10px; border-bottom: 1px solid var(--line); }
+.sheet .sheet-sub a { display: flex; align-items: center; min-height: 44px; padding-inline-start: 18px; font-size: 17px; color: var(--ink3); text-decoration: none; }
+.sheet .sheet-sub a::before { content: ""; width: 8px; height: 2px; background: var(--g); margin-inline-end: 12px; flex: none; }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 0 20px; flex-basis: 100%; order: 3; font-size: 13px; }
+.foot-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink2); text-decoration: none; }
+.foot-nav a:hover { color: var(--g-ink); text-decoration: underline; }
+
+/* Method: map, build, run */
+.method { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 2px solid var(--g); }
+.method li { list-style: none; padding: 28px 28px 8px 0; }
+.method li + li { padding-inline-start: 28px; border-inline-start: 1px solid var(--line); }
+.method .k { display: block; font: 600 15px/1 var(--en); color: var(--g-ink); margin-bottom: 14px; font-variant-numeric: tabular-nums; }
+.method h3 { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -.02em; }
+html[lang="ar"] .method h3 { font-family: var(--ar); font-weight: 700; letter-spacing: 0; }
+.method p { margin-top: 8px; font-size: 16px; color: var(--ink3); max-width: 34ch; }
+
+/* Chips that link (professions, sectors) */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid var(--ghost); border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--ink); text-decoration: none; background: #fff; }
+.chips a:hover { border-color: var(--g); background: var(--g-soft); }
+.chips a.chip--any { border-style: dashed; }
+
+/* Process list: what an agent takes off the desk */
+.proc { list-style: none; border-top: 1px solid var(--line); counter-reset: p; }
+.proc li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--line); counter-increment: p; }
+.proc li::before { content: counter(p); font: 600 15px/1.6 var(--en); color: var(--g-ink); font-variant-numeric: tabular-nums; }
+.proc b { display: block; color: var(--ink); font-size: 17px; }
+.proc span { display: block; color: var(--ink3); font-size: 15px; margin-top: 2px; }
+
+/* Example scenario card */
+.example { border-top: 3px solid var(--g); background: #fff; border-radius: 14px; border-inline: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px; }
+.example .meta { font-size: 13px; font-weight: 700; color: var(--g-ink); display: block; margin-bottom: 10px; }
+.example h3 { font-size: clamp(19px, 1.8vw, 23px); }
+.example ol { list-style: none; margin-top: 18px; border-top: 1px solid var(--line); }
+.example ol li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.example ol time { font-variant-numeric: tabular-nums; color: var(--ink3); font-weight: 600; direction: ltr; }
+.example .after { margin-top: 14px; font-size: 15px; color: var(--ink2); }
+
+/* The regulated-area line under a page */
+.reg-line { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--ink2); }
+
+/* Product proof cards */
+.prod { display: flex; flex-direction: column; height: 100%; }
+.prod .shot { margin: -28px -28px 20px; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 13px 13px 0 0; background: var(--bg2); border-bottom: 1px solid var(--line); }
+.prod .shot img { width: 100%; height: 100%; object-fit: cover; }
+.prod .n { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 3vw, 42px); color: var(--ink); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; margin-top: 14px; direction: ltr; text-align: start; }
+html[dir="rtl"] .prod .n { text-align: right; }
+.prod .n + .fine { margin-top: 6px; }
+.prod .go { margin-top: auto; padding-top: 18px; }
+.prod p { margin-top: 6px; }
+
+@media (max-width: 960px) {
+  .method { grid-template-columns: 1fr; }
+  .method li, .method li + li { padding: 20px 0 16px; border-inline-start: 0; }
+  .method li + li { border-top: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .example { padding: 22px 18px; }
+  .prod .shot { margin: -24px -20px 18px; }
+  .example ol li { grid-template-columns: 56px 1fr; }
+}
+/* Standalone text links get a 44 px box. Links inside a sentence stay inline (WCAG 2.5.8 inline exception): padding them broke Safari line spacing. */
+p > a.link:only-child, .more-link a { display: inline-flex; align-items: center; min-height: 44px; }

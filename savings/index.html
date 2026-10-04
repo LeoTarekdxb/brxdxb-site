@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings calculator: what one process costs you | BRX</title>
+<meta name="description" content="Enter your own numbers and see what one process costs and what AI agents could take off it. BRX plans for up to 80%, never more.">
+<meta property="og:title" content="Savings calculator: what one process costs you | BRX">
+<meta property="og:description" content="Enter your own numbers and see what one process costs and what AI agents could take off it. BRX plans for up to 80%, never more.">
+<meta property="og:image" content="https://www.brxdxb.com/assets/brx-film-poster.jpg">
+<meta property="og:url" content="https://www.brxdxb.com/savings/">
+<link rel="canonical" href="https://www.brxdxb.com/savings/">
+<!-- head:start -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/brx.css?v=20261005a">
+<link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>document.documentElement.classList.add('js')</script>
+<!-- head:end -->
+<style>
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.field + .field { margin-top: 26px; }
+.field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; gap: 12px; }
+.field label { font-size: 15px; font-weight: 600; color: var(--ink); }
+.field .val { font-family: var(--mono); font-size: 16px; font-weight: 700; color: var(--g-ink); direction: ltr; }
+input[type=range] { width: 100%; height: 44px; -webkit-appearance: none; appearance: none; background: linear-gradient(var(--line), var(--line)) center / 100% 6px no-repeat; outline: none; }
+input[type=range]:focus-visible { outline: 2px solid var(--g2); outline-offset: 6px; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--g); cursor: pointer; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--g); }
+input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--g); cursor: pointer; border: 3px solid #fff; }
+.result { border-top: 3px solid var(--g); }
+.result-head { font-size: 15px; font-weight: 700; color: var(--g-ink); margin-bottom: 10px; }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.result-stat { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.result-stat .k { font-size: 13px; color: var(--ink3); }
+.result-stat .v { font-size: 26px; font-weight: 300; color: var(--ink); font-variant-numeric: tabular-nums; direction: ltr; text-align: start; }
+html[dir="rtl"] .result-stat .v { text-align: right; }
+@media (max-width: 960px) { .calc { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="calculator">
+<!-- nav:start -->
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+<header class="site-nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
+      <a href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+      <a href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+      <a href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button type="button" id="btn-ar" onclick="setLang('ar')" aria-pressed="false" lang="ar">AR</button>
+      </div>
+      <a class="btn btn--sm nav-cta" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
+      <button class="burger" id="burger" type="button" aria-controls="sheet" aria-expanded="false" aria-label="Menu" data-en-aria="Menu" data-ar-aria="القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet-link" href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
+  <div class="sheet-sub">
+    <a href="/solutions/#agents" data-en="Agents by profession" data-ar="وكلاء حسب المهنة">Agents by profession</a>
+    <a href="/flow/" data-en="Industries" data-ar="القطاعات">Industries</a>
+  </div>
+  <a class="sheet-link" href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+  <div class="sheet-sub">
+    <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
+    <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
+    <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+  </div>
+  <a class="sheet-link" href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+  <a class="sheet-link" href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+  <a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
+  <p class="fine" data-en="BRX · Dubai" data-ar="BRX · دبي">BRX · Dubai</p>
+</div>
+<!-- nav:end -->
+
+<main id="main">
+<section class="page-hero" style="padding-bottom:48px">
+  <div class="wrap">
+    <p class="eyebrow" data-en="Savings calculator" data-ar="حاسبة التوفير">Savings calculator</p>
+    <h1 class="display--xl" style="max-width:20ch" data-en="What does one process cost you today?" data-ar="كم يكلّفك إجراء واحد اليوم؟">What does one process cost you today?</h1>
+    <p class="lede" data-en="Enter your own numbers. See the cost of the process and what agents could take off it. We plan for up to 80%, never more: the rest stays with people." data-ar="أدخل أرقامك. وشاهد تكلفة الإجراء وما يمكن أن يرفعه الوكلاء عنه. نخطط حتى 80%، لا أكثر: والباقي يبقى بيد الناس.">Enter your own numbers. See the cost of the process and what agents could take off it. We plan for up to 80%, never more: the rest stays with people.</p>
+  </div>
+</section>
+<section class="sec sec--alt">
+  <div class="wrap calc">
+    <div class="card">
+      <div class="field"><div class="field-head"><label for="ppl" data-en="People who do this process" data-ar="عدد من ينفّذون هذا الإجراء">People who do this process</label><span class="val" id="pplV">4</span></div><input type="range" id="ppl" min="1" max="100" value="4"></div>
+      <div class="field"><div class="field-head"><label for="cost" data-en="Cost per person, per month (AED)" data-ar="تكلفة الفرد شهرياً (درهم)">Cost per person, per month (AED)</label><span class="val" id="costV">12,000</span></div><input type="range" id="cost" min="3000" max="60000" step="500" value="12000"></div>
+      <div class="field"><div class="field-head"><label for="share" data-en="Share of their time on this process" data-ar="نسبة وقتهم في هذا الإجراء">Share of their time on this process</label><span class="val" id="shareV">50%</span></div><input type="range" id="share" min="5" max="100" step="5" value="50"></div>
+      <div class="field"><div class="field-head"><label for="auto" data-en="Share agents could take (max 80%)" data-ar="النسبة التي قد يتولّاها الوكلاء (حد أقصى 80%)">Share agents could take (max 80%)</label><span class="val" id="autoV">60%</span></div><input type="range" id="auto" min="10" max="80" step="5" value="60"></div>
+    </div>
+    <div class="card result" aria-live="polite">
+      <div class="result-head" data-en="Your estimate" data-ar="تقديرك">Your estimate</div>
+      <div class="result-grid">
+        <div class="result-stat"><div class="k" data-en="Process cost a month" data-ar="تكلفة الإجراء شهرياً">Process cost a month</div><div class="v" id="oc">—</div></div>
+        <div class="result-stat"><div class="k" data-en="Could come off it a month" data-ar="يمكن خفضه شهرياً">Could come off it a month</div><div class="v" id="sv">—</div></div>
+        <div class="result-stat"><div class="k" data-en="A year" data-ar="سنوياً">A year</div><div class="v" id="yr">—</div></div>
+        <div class="result-stat"><div class="k" data-en="Hours freed a month" data-ar="ساعات تتحرر شهرياً">Hours freed a month</div><div class="v" id="hr">—</div></div>
+      </div>
+      <p class="fine" style="margin-top:18px" data-en="An estimate from your inputs, before BRX fees. Not a quote and not a promised result. The real figure comes from mapping the process with you." data-ar="تقدير من مدخلاتك، قبل رسوم BRX. ليس عرض سعر ولا نتيجة مضمونة. الرقم الحقيقي يأتي من رسم الإجراء معك.">An estimate from your inputs, before BRX fees. Not a quote and not a promised result. The real figure comes from mapping the process with you.</p>
+      <div class="btn-row" style="margin-top:20px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
+    </div>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap">
+    <h2 class="display" data-en="Why &quot;up to&quot; 80%" data-ar="لماذا «حتى» 80%">Why "up to" 80%</h2>
+    <p class="lede" data-en="Most processes are repeat steps plus judgement. Agents take the repeat steps. People keep the judgement, the exceptions and the sign-off. On some processes that is 80% of the time. On others it is far less, and the map shows which." data-ar="معظم الإجراءات خطوات متكررة مع قدر من التقدير. يتولّى الوكلاء الخطوات المتكررة، ويحتفظ الناس بالتقدير والاستثناءات والتوقيع. في بعض الإجراءات يعادل ذلك 80% من الوقت، وفي غيرها أقل بكثير، والخريطة تُظهر أيّها.">Most processes are repeat steps plus judgement. Agents take the repeat steps. People keep the judgement, the exceptions and the sign-off. On some processes that is 80% of the time. On others it is far less, and the map shows which.</p>
+    <p class="more-link" style="margin-top:20px"><a class="link" href="/calculator.html" data-en="Trading tool instead? The breakeven win-rate calculator" data-ar="تبحث عن أداة التداول؟ حاسبة نسبة الربح للتعادل">Trading tool instead? The breakeven win-rate calculator</a></p>
+  </div>
+</section>
+</main>
+
+<!-- foot:start -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/" aria-label="BRX home">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <p data-en="Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ووكالات ذكاء اصطناعي مصمّمة لأي عمل فيه إجراءات. تُبنى وتعمل في دبي. © 2026 BRX Technologies.">Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies.</p>
+    <nav class="foot-nav" aria-label="Site" data-en-aria="Site" data-ar-aria="الموقع">
+      <a href="/solutions/" data-en="Solutions" data-ar="الحلول">Solutions</a>
+      <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
+      <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
+      <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+      <a href="/ai-first/" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+      <a href="/savings/" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+    </nav>
+    <div class="foot-links">
+      <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+      <span class="muted" data-en="Dubai" data-ar="دبي">Dubai</span>
+    </div>
+  </div>
+</footer>
+<script src="/assets/brx.js?v=20261005a" defer></script>
+<!-- foot:end -->
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var f = function (n) { return Math.round(n).toLocaleString('en-US'); };
+  function run() {
+    var ppl = +$('ppl').value, cost = +$('cost').value, share = +$('share').value / 100, auto = Math.min(80, +$('auto').value) / 100;
+    var ar = document.documentElement.lang === 'ar', cur = ar ? ' درهم' : '', pre = ar ? '' : 'AED ';
+    $('pplV').textContent = ppl; $('costV').textContent = f(cost); $('shareV').textContent = Math.round(share * 100) + '%'; $('autoV').textContent = Math.round(auto * 100) + '%';
+    var oc = ppl * cost * share, sv = oc * auto;
+    $('oc').textContent = pre + f(oc) + cur; $('sv').textContent = pre + f(sv) + cur; $('yr').textContent = pre + f(sv * 12) + cur;
+    $('hr').textContent = f(ppl * 160 * share * auto);
+  }
+  ['ppl', 'cost', 'share', 'auto'].forEach(function (id) { $(id).addEventListener('input', run); });
+  window.onLangChange = run; run();
+})();
+</script>
+</body>
+</html>

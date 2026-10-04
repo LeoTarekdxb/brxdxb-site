@@ -15,6 +15,7 @@
   }
   function hide() { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); open.focus(); }
   open.addEventListener('click', show);
+  document.querySelectorAll('[data-atlas-open]').forEach(function (b) { b.addEventListener('click', show); });
   dlg.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', hide); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) hide(); });
 

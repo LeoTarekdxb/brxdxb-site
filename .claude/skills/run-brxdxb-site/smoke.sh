@@ -14,6 +14,8 @@ echo "== leaks (must be empty)"
 grep -rnE "C9A84C|00D4FF|#08090D|Syne|Cairo|566030347|PIN [0-9]{4}|defender\.brxdxb\.com/calls|localhost:87|Provident|Bitrix|DIFC[- ,]+(licen|regist|Dubai)|L\.L\.C|[Rr]egulated|owner-atlas-dubai\.netlify|مركز دبي المالي" --include="*.html" . 2>/dev/null | grep -v "^./\.qa\|^./v2\|^./v3\|^./defender/app\|console.html" && fail=1 || echo "clean"
 echo "== portal shell leaks (js/css too, must be empty)"
 grep -nE "C9A84C|00D4FF|566030347|PIN [0-9]{4}|defender\.brxdxb\.com/calls|localhost:87|Provident|Bitrix|DIFC|L\.L\.C|brx_live_[A-Za-z0-9_-]{20}|bps_[A-Za-z0-9_-]{20}|\+971 ?5[0-9] ?[0-9]{3} ?[0-9]{4}" portal/ -r 2>/dev/null && fail=1 || echo "clean"
+echo "== markup leaks in visible text, EN and AR (must be 0)"
+python3 .claude/skills/run-brxdxb-site/check_text.py | tail -15; [ ${pipestatus[1]} = 0 ] || fail=1
 echo "== internal links"
 broken=0
 for p in $PAGES; do d=$(dirname $p); for h in $(grep -oE 'href="[^"#?:]+\.html[^"]*"' $p | cut -d'"' -f2 | cut -d'#' -f1 | cut -d'?' -f1 | sort -u); do case $h in /*) f=".$h";; *) f="$d/$h";; esac; f=${f//\/.\//\/}; [ -f "$f" ] || { echo "BROKEN in $p -> $h"; broken=1; }; done; done

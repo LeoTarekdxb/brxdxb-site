@@ -319,10 +319,12 @@
 
   input.addEventListener('input', function () { current = setName(input.value); renderStatic(current); });
   document.getElementById('replay').addEventListener('click', function () { renderAnimated(current); });
-  var VALUE_SLUGS = ['First-Cup-Masaya','Leens-DIFC','Sucre-Brasserie','Rowleys','Jospereno','Common-Grounds','Lulu-and-the-Beanstalk'];
+  var VALUE_SLUGS = ['First-Cup-Masaya','Leens','Sucre-Brasserie','Rowleys','Jospereno','Common-Grounds','Lulu-and-the-Beanstalk'];
   function setValueLink() {
     var raw = decodeURIComponent((location.hash || '').replace('#', ''));
-    var file = 'value/BRX_Value_' + (VALUE_SLUGS.indexOf(raw) >= 0 ? raw : 'Table_Bot') + '_EN.pdf';
+    // A slug matches its own hash and any older, longer hash that starts with it (links already sent stay working)
+    var slug = VALUE_SLUGS.filter(function (s) { return raw === s || raw.indexOf(s + '-') === 0; })[0];
+    var file = 'value/BRX_Value_' + (slug || 'Table_Bot') + '_EN.pdf';
     ['value-btn', 'value-link'].forEach(function (id) { var el = document.getElementById(id); if (el) el.href = file; });
   }
   setValueLink();

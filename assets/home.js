@@ -35,8 +35,11 @@
     } else countEl.textContent = '0';
   });
 
-  /* ── 2. Film: desktop only, never on reduced motion or save-data, paused off-screen ── */
-  if (!reduce && !saveData && window.matchMedia('(min-width: 961px)').matches) {
+  /* ── 2. Film: poster paints first. The 580 KB film loads only after the page has fully loaded and the
+        browser is idle — desktop only, never on reduced motion, Save-Data or a slow connection. Paused off-screen. ── */
+  var conn = navigator.connection || {};
+  var slowNet = /(^|-)2g$|^3g$/.test(conn.effectiveType || '') || (conn.downlink && conn.downlink < 1.5);
+  if (!reduce && !saveData && !slowNet && window.matchMedia('(min-width: 961px)').matches) {
     var addFilm = function () {
       var v = document.createElement('video');
       v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true; v.preload = 'auto';
@@ -55,7 +58,8 @@
       });
       hero.appendChild(btn);
     };
-    if ('requestIdleCallback' in window) requestIdleCallback(addFilm, { timeout: 1500 }); else setTimeout(addFilm, 600);
+    var whenIdle = function () { if ('requestIdleCallback' in window) requestIdleCallback(addFilm, { timeout: 4000 }); else setTimeout(addFilm, 1200); };
+    if (document.readyState === 'complete') whenIdle(); else window.addEventListener('load', whenIdle, { once: true });
   }
 
   /* ── 3. Beats ── */
@@ -81,23 +85,23 @@
   }
 
   /* ── 4. Scroll: Lenis (fine pointers) + ScrollTrigger ── */
-  function wireScroll(lenis) {
+  function attachLenis(lenis) {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"], a[href^="/#"]');
+      if (!a) return;
+      var href = a.getAttribute('href'), onHome = location.pathname === '/' || location.pathname === '/index.html';
+      if (href[0] === '/' && !onHome) return;
+      var id = href.replace(/^\//, ''); if (id.length < 2) return;
+      var el = document.querySelector(id); if (!el) return;
+      e.preventDefault(); lenis.scrollTo(el, { offset: -navH() });
+      history.replaceState(null, '', id);
+    });
+  }
+  function wireScroll() {
     if (!hasGsap) return;
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-      gsap.ticker.lagSmoothing(0);
-      document.addEventListener('click', function (e) {
-        var a = e.target.closest && e.target.closest('a[href^="#"], a[href^="/#"]');
-        if (!a) return;
-        var href = a.getAttribute('href'), onHome = location.pathname === '/' || location.pathname === '/index.html';
-        if (href[0] === '/' && !onHome) return;
-        var id = href.replace(/^\//, ''); if (id.length < 2) return;
-        var el = document.querySelector(id); if (!el) return;
-        e.preventDefault(); lenis.scrollTo(el, { offset: -navH() });
-        history.replaceState(null, '', id);
-      });
-    }
     // Hero: pinned briefly on desktop so the wake plays in view; any scroll flips it on
     if (desktop && !reduce) {
       ScrollTrigger.create({ trigger: hero, start: function () { return 'top top+=' + navH(); }, end: '+=45%', pin: true, pinSpacing: true,
@@ -113,13 +117,17 @@
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
   }
+  // ScrollTrigger is wired at once; Lenis smooth scroll is extra, so it loads after the page load event.
+  wireScroll();
   if (hasGsap && fine && !reduce) {
-    var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js';
-    s.onload = function () { wireScroll(new Lenis({ lerp: 0.11, wheelMultiplier: 1 })); };
-    s.onerror = function () { wireScroll(null); };
-    document.head.appendChild(s);
-  } else wireScroll(null);
+    var addLenis = function () {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js';
+      s.onload = function () { attachLenis(new Lenis({ lerp: 0.11, wheelMultiplier: 1 })); };
+      document.head.appendChild(s);
+    };
+    if (document.readyState === 'complete') addLenis(); else window.addEventListener('load', addLenis, { once: true });
+  }
 
   /* ── 5. Owner numbers count up once, when they are read ── */
   var dds = [].slice.call(document.querySelectorAll('.ledger dd[data-count]'));

@@ -279,48 +279,24 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
     </div>
     <ol class="path" id="path" aria-label="Three steps" data-en-aria="Three steps" data-ar-aria="ثلاث خطوات">
       <li class="is-done" data-step="try"><span class="k" aria-hidden="true">1</span><h3 data-en="Try it free" data-ar="جرّبه مجاناً">Try it free</h3><p data-en="You're here. Nothing to install yet." data-ar="أنت هنا. لا شيء لتثبّته بعد.">You're here. Nothing to install yet.</p></li>
-      <li data-step="sent"><span class="k" aria-hidden="true">2</span><h3 data-en="Send your details" data-ar="أرسل بياناتك">Send your details</h3><p data-en="Name, phone, what to fix. No card. We reply within 24 hours." data-ar="الاسم والهاتف وما تريد حلّه. بلا بطاقة. نردّ خلال 24 ساعة.">Name, phone, what to fix. No card. We reply within 24 hours.</p></li>
+      <li data-step="sent"><span class="k" aria-hidden="true">2</span><h3 data-en="Send your details" data-ar="أرسل بياناتك">Send your details</h3><p data-en="Name, phone and team size. No card. We reply within 24 hours." data-ar="الاسم والهاتف وحجم الفريق. بلا بطاقة. نردّ خلال 24 ساعة.">Name, phone and team size. No card. We reply within 24 hours.</p></li>
       <li data-step="pay"><span class="k" aria-hidden="true">3</span><h3 data-en="Pay the set-up" data-ar="ادفع التجهيز">Pay the set-up</h3><p data-en="When you're sure, not before. AED 50,000 once, by secure checkout." data-ar="حين تتأكد، لا قبل ذلك. 50,000 درهم مرة واحدة، بدفع آمن.">When you're sure, not before. AED 50,000 once, by secure checkout.</p></li>
     </ol>
 <!-- leadform:start -->
 <form class="lead-form" id="leadForm" novalidate>
   <div class="grid">
-    <div class="field"><label for="lf-first" data-en="First name" data-ar="الاسم الأول">First name</label><input id="lf-first" name="first" type="text" autocomplete="given-name" required></div>
-    <div class="field"><label for="lf-last" data-en="Surname" data-ar="اسم العائلة">Surname</label><input id="lf-last" name="last" type="text" autocomplete="family-name"></div>
+    <div class="field"><label for="lf-first" data-en="Your name" data-ar="اسمك">Your name</label><input id="lf-first" name="name" type="text" autocomplete="name" maxlength="80" required></div>
     <div class="field"><label for="lf-phone" data-en="Phone (WhatsApp)" data-ar="الهاتف (واتساب)">Phone (WhatsApp)</label><input id="lf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+971 5x xxx xxxx" required></div>
-    <div class="field"><label for="lf-email" data-en="Email" data-ar="البريد الإلكتروني">Email</label><input id="lf-email" name="email" type="email" autocomplete="email" required></div>
-    <div class="field"><label for="lf-role" data-en="You are" data-ar="أنت">You are</label>
-      <select id="lf-role" name="role" required>
+    <div class="field"><label for="lf-team" data-en="Your team" data-ar="فريقك">Your team</label>
+      <select id="lf-team" name="team" required>
         <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
-        <option value="Agent" data-en="An agent" data-ar="وسيط عقاري">An agent</option>
-        <option value="Agency owner / manager" data-en="Agency owner or manager" data-ar="مالك أو مدير وكالة">Agency owner or manager</option>
-        <option value="Developer / other" data-en="Developer or other" data-ar="مطوّر أو غير ذلك">Developer or other</option>
+        <option value="Agent|1" data-en="Just me, I'm an agent" data-ar="أنا فقط، وسيط عقاري">Just me, I'm an agent</option>
+        <option value="Agency owner / manager|2-10" data-en="An agency, 2 to 10 agents" data-ar="وكالة، من 2 إلى 10 وسطاء">An agency, 2 to 10 agents</option>
+        <option value="Agency owner / manager|11-50" data-en="An agency, 11 to 50 agents" data-ar="وكالة، من 11 إلى 50 وسيطاً">An agency, 11 to 50 agents</option>
+        <option value="Agency owner / manager|50+" data-en="An agency, more than 50 agents" data-ar="وكالة، أكثر من 50 وسيطاً">An agency, more than 50 agents</option>
+        <option value="Developer / other|" data-en="A developer or something else" data-ar="مطوّر أو غير ذلك">A developer or something else</option>
       </select></div>
-    <div class="field"><label for="lf-agency"><span data-en="Agency name" data-ar="اسم الوكالة">Agency name</span> <small data-en="(optional)" data-ar="(اختياري)">(optional)</small></label><input id="lf-agency" name="agency" type="text" autocomplete="organization"></div>
-    <div class="field"><label for="lf-agents" data-en="Number of agents" data-ar="عدد الوسطاء">Number of agents</label><input id="lf-agents" name="agents" type="number" inputmode="numeric" min="1" max="5000" placeholder="12"></div>
-    <div class="field"><label for="lf-source" data-en="How did you hear about us?" data-ar="كيف سمعت عنا؟">How did you hear about us?</label>
-      <select id="lf-source" name="source">
-        <option value="" data-en="Choose one" data-ar="اختر">Choose one</option>
-        <option value="Google" data-en="Google search" data-ar="بحث جوجل">Google search</option>
-        <option value="Instagram" data-en="Instagram" data-ar="إنستغرام">Instagram</option>
-        <option value="LinkedIn" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</option>
-        <option value="WhatsApp forward" data-en="A WhatsApp forward" data-ar="رسالة واتساب محوّلة">A WhatsApp forward</option>
-        <option value="Referral" data-en="A friend or colleague" data-ar="صديق أو زميل">A friend or colleague</option>
-        <option value="Event" data-en="An event" data-ar="فعالية">An event</option>
-        <option value="Other" data-en="Other" data-ar="غير ذلك">Other</option>
-      </select></div>
-    <div class="field field--full"><label for="lf-why" data-en="What do you want it to fix?" data-ar="ما الذي تريده أن يحلّه؟">What do you want it to fix?</label>
-      <select id="lf-why" name="why" required>
-        <option value="" data-en="Choose the closest one" data-ar="اختر الأقرب">Choose the closest one</option>
-        <option value="Slow reply, lose leads" data-en="I reply too slowly and lose leads to other agents" data-ar="أردّ ببطء وأخسر العملاء لوسطاء آخرين">I reply too slowly and lose leads to other agents</option>
-        <option value="Portal leads go cold" data-en="Bayut / Property Finder leads go cold before I call" data-ar="عملاء بيوت / بروبرتي فايندر يبردون قبل أن أتصل">Bayut / Property Finder leads go cold before I call</option>
-        <option value="No follow-up on old leads" data-en="Nobody follows up with old leads" data-ar="لا أحد يتابع العملاء القدامى">Nobody follows up with old leads</option>
-        <option value="Too many WhatsApp chats" data-en="Too many WhatsApp chats to keep track of" data-ar="محادثات واتساب أكثر من أن أتابعها">Too many WhatsApp chats to keep track of</option>
-        <option value="CRM nobody uses" data-en="We have a CRM but nobody uses it" data-ar="لدينا CRM لكن لا أحد يستخدمه">We have a CRM but nobody uses it</option>
-        <option value="Automate calls and reminders" data-en="I want calls and reminders to run on their own" data-ar="أريد أن تعمل المكالمات والتذكيرات تلقائياً">I want calls and reminders to run on their own</option>
-        <option value="See which agents follow up" data-en="I want to see which agents actually follow up" data-ar="أريد أن أرى أي الوسطاء يتابعون فعلاً">I want to see which agents actually follow up</option>
-        <option value="Comparing options" data-en="Just comparing options for now" data-ar="أقارن الخيارات فقط حالياً">Just comparing options for now</option>
-      </select></div>
+    <div class="field"><label for="lf-email"><span data-en="Email" data-ar="البريد الإلكتروني">Email</span> <small data-en="(optional)" data-ar="(اختياري)">(optional)</small></label><input id="lf-email" name="email" type="email" autocomplete="email" maxlength="120"></div>
     <p class="err" id="lf-err" role="alert" hidden></p>
     <div class="actions">
       <button class="btn" id="lf-submit" type="submit" data-en="Start the free month" data-ar="ابدأ الشهر المجاني">Start the free month</button>
@@ -330,7 +306,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
 </form>
 <div class="lead-done" id="leadDone" tabindex="-1" hidden>
   <h3 data-en="Got it. We'll be in touch within 24 hours." data-ar="وصلنا. سنتواصل معك خلال 24 ساعة.">Got it. We'll be in touch within 24 hours.</h3>
-  <p data-en="Want to talk sooner? Pick a slot, or message either founder below." data-ar="تريد التحدث أسرع؟ اختر موعداً، أو راسل أيّاً من المؤسسَين أدناه.">Want to talk sooner? Pick a 10-minute slot, or message either founder below.</p>
+  <p data-en="Want to talk sooner? Pick a slot, or message either founder below." data-ar="تريد التحدث أسرع؟ اختر موعداً، أو راسل أيّاً من المؤسسَين أدناه.">Want to talk sooner? Pick a slot, or message either founder below.</p>
   <div class="btn-row" id="bookRow">
     <a class="btn" id="bookBtn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Pick a time with Leo" data-ar="اختر وقتاً مع ليو">Pick a time with Leo</a>
   </div>

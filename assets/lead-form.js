@@ -28,13 +28,15 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     err.hidden = true;
+    // 4 fields: name, phone, team, optional email. The server payload keeps its old keys.
+    var name = v('lf-first').split(/\s+/), team = v('lf-team').split('|');
     var payload = {
-      first: v('lf-first'), last: v('lf-last'), phone: v('lf-phone'), email: v('lf-email'),
-      role: v('lf-role'), agency: v('lf-agency'), agents: v('lf-agents'), source: v('lf-source'), why: v('lf-why'),
+      first: name[0] || '', last: name.slice(1).join(' '), phone: v('lf-phone'), email: v('lf-email'),
+      role: team[0] || '', agency: '', agents: team[1] || '', source: '', why: '',
       page: location.pathname, lang: document.documentElement.lang
     };
-    if (!payload.first || !payload.phone || !payload.email || !payload.role || !payload.why) {
-      err.textContent = ar() ? 'الاسم، الهاتف، البريد، دورك وما تريد حلّه — مطلوبة.' : 'Name, phone, email, your role and what to fix are required.';
+    if (!payload.first || !payload.phone || !payload.role) {
+      err.textContent = ar() ? 'الاسم والهاتف وفريقك — مطلوبة.' : 'Name, phone and your team are required.';
       err.hidden = false;
       return;
     }
@@ -53,8 +55,8 @@
       })
       .catch(function () {
         var wa = FALLBACK_WA + encodeURIComponent(
-          'Free month request — ' + payload.first + ' ' + payload.last + ', ' + payload.role + (payload.agency ? ' at ' + payload.agency : '') +
-          (payload.agents ? ' (' + payload.agents + ' agents)' : '') + '. Phone ' + payload.phone + ', email ' + payload.email + '. Fix: ' + payload.why);
+          'Free month request — ' + (payload.first + ' ' + payload.last).trim() + ', ' + payload.role +
+          (payload.agents ? ' (' + payload.agents + ' agents)' : '') + '. Phone ' + payload.phone + (payload.email ? ', email ' + payload.email : '') + '.');
         err.textContent = ar() ? 'تعذّر الإرسال. ' : 'Could not send. ';
         var a = document.createElement('a');
         a.className = 'link'; a.target = '_blank'; a.rel = 'noopener'; a.href = wa;

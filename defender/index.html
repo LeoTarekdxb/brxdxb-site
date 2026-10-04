@@ -209,6 +209,20 @@ html:not(.js) .rules-all { display: none; }
   #cta .founder .btn-row { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
   #cta .founder .btn-row .btn { padding: 10px 8px; font-size: 14px; min-width: 0; white-space: normal; }
 }
+/* Phone budget: 6.5 screens or fewer (launch audit r5) */
+@media (max-width: 640px) {
+  .sec { padding: 32px 0; }
+  .df-hero { padding: 24px 0 32px; }
+  #atlas { margin-top: 32px; }
+  .df-eyebrow { margin-bottom: 12px; }
+  /* the form sits right below and the dock button is always on screen */
+  .svc--pay > .btn, .svc--pay > .fine { display: none; }
+  .svc .terms { margin-bottom: 0; }
+  /* Owner Atlas numbers: three columns, number over label */
+  .atlas-n { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 2px 24px; }
+  .atlas-n > span:not(.atlas-src) { display: flex; flex-direction: column; line-height: 1.3; }
+  .atlas-n .atlas-src { grid-column: 1 / -1; }
+}
 </style>
 <link rel="stylesheet" href="/assets/atlas.css">
 </head>
@@ -272,7 +286,7 @@ html:not(.js) .rules-all { display: none; }
           <span data-en="Every agent is at a viewing." data-ar="كل الوسطاء في معاينات.">Every agent is at a viewing.</span>
           <span data-en="Whoever calls first wins the deal." data-ar="من يتصل أولاً يربح الصفقة.">Whoever calls first wins the deal.</span>
         </h1>
-        <p class="lede" data-en="The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over. Switch it off and it stops within 2 minutes." data-ar="Defender يتصل أولاً. بكل عميل جديد، خلال دقائق، وبلغته. لحظة يرد، يتولّى وكيلك. أوقف المفتاح فيتوقف كل شيء خلال دقيقتين.">The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over. Switch it off and it stops within 2 minutes.</p>
+        <p class="lede" data-en="The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over." data-ar="Defender يتصل أولاً. بكل عميل جديد، خلال دقائق، وبلغته. لحظة يرد، يتولّى وكيلك.">The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over.</p>
         <div class="btn-row">
           <a class="btn" href="#try" data-magnetic data-en="Try it free for a month" data-ar="جرّبه مجاناً لمدة شهر">Try it free for a month</a>
           <a class="btn btn--ghost hero-2nd" href="#free" data-en="See what's free forever" data-ar="اطّلع على المجاني دائماً">See what's free forever</a>
@@ -340,7 +354,7 @@ html:not(.js) .rules-all { display: none; }
         <span class="mini-sw" aria-hidden="true"></span>
         <span class="kind" data-en="The one that pays" data-ar="الخدمة المدفوعة">The one that pays</span>
         <h3 id="payTitle" data-en="The Defender" data-ar="Defender">The Defender</h3>
-        <p data-en="Every new lead called within minutes, in their language, then handed to your agent. Only in the lead's daytime. Never from an agent's personal number." data-ar="كل عميل جديد يُتّصل به خلال دقائق، بلغته، ثم يُسلَّم لوكيلك. فقط في ساعات نهار العميل. ولا يكون أبداً من رقم شخصي لوكيل.">Every new lead called within minutes, in their language, then handed to your agent. Only in the lead's daytime. Never from an agent's personal number.</p>
+        <p data-en="Only in the lead's daytime. Never from an agent's personal number." data-ar="فقط في ساعات نهار العميل. ولا يكون أبداً من رقم شخصي لوكيل.">Only in the lead's daytime. Never from an agent's personal number.</p>
         <p class="free-now" data-en="First month free." data-ar="الشهر الأول مجاناً.">First month free.</p>
         <ul class="terms">
           <li data-en="Then the licence: <b>AED 5,000 per agent per month</b>." data-ar="بعدها الترخيص: <b>5,000 درهم لكل وكيل شهرياً</b>.">Then the licence: <b>AED 5,000 per agent per month</b>.</li>

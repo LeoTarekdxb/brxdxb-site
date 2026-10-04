@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/brx.css?v=20261005a">
+<link rel="stylesheet" href="/assets/brx.css?v=20261005r6">
 <link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
@@ -28,15 +28,42 @@
 <a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
 <header class="site-nav" id="nav">
   <div class="nav-in">
-    <a class="brand" href="/" aria-label="BRX home">
+    <a class="brand" href="/" aria-label="BRXDXB home" data-en-aria="BRXDXB home" data-ar-aria="BRXDXB، الصفحة الرئيسية">
       <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
       <b>BRX</b>
     </a>
-    <nav class="nav-links" aria-label="Main">
-      <a href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
-      <a href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
-      <a href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
-      <a href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+    <nav class="nav-links" aria-label="Main" data-en-aria="Main" data-ar-aria="الرئيسية">
+      <a href="/flow/" data-nav="flow">BRX Flow</a>
+      <div class="dd">
+        <button type="button" class="dd-btn" data-nav="products" aria-expanded="false" aria-controls="dd-products"><span data-en="Products" data-ar="المنتجات">Products</span></button>
+        <div class="dd-menu" id="dd-products">
+          <a href="/defender/"><b>BRX Defender</b><span data-en="Real-estate leads, called in minutes" data-ar="عملاء العقارات، اتصال خلال دقائق">Real-estate leads, called in minutes</span></a>
+          <a href="/atlas/"><b>BRX Atlas</b><span data-en="Owner and building data in 3D" data-ar="بيانات الملّاك والمباني بالأبعاد الثلاثة">Owner and building data in 3D</span></a>
+          <a href="/terminal/"><b>BRX Terminal</b><span data-en="Rule-based trading on your own account" data-ar="تداول قائم على القواعد على حسابك">Rule-based trading on your own account</span></a>
+          <a class="dd-all" href="/products/" data-en="Compare the 3 products" data-ar="قارن المنتجات الثلاثة">Compare the 3 products</a>
+        </div>
+      </div>
+      <a href="/launch/" data-nav="launch">BRX Launch</a>
+      <div class="dd">
+        <button type="button" class="dd-btn" data-nav="industries" aria-expanded="false" aria-controls="dd-industries"><span data-en="Industries" data-ar="القطاعات">Industries</span></button>
+        <div class="dd-menu dd-menu--2" id="dd-industries">
+          <div>
+            <p class="dd-h" data-en="Professions" data-ar="المهن">Professions</p>
+            <a href="/agents/lawyer.html" data-en="Lawyers" data-ar="المحامون">Lawyers</a>
+            <a href="/agents/advisor.html" data-en="Advisors" data-ar="المستشارون">Advisors</a>
+            <a href="/agents/wealth-manager.html" data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</a>
+            <a href="/agents/broker.html" data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</a>
+            <a href="/agents/clinic.html" data-en="Clinics" data-ar="العيادات">Clinics</a>
+            <a href="/agents/hospitality.html" data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</a>
+          </div>
+          <div>
+            <p class="dd-h" data-en="Sectors" data-ar="القطاعات">Sectors</p>
+            <a href="/flow/private-sector.html" data-en="Private companies" data-ar="الشركات الخاصة">Private companies</a>
+            <a href="/flow/public-sector.html" data-en="Public entities" data-ar="الجهات الحكومية">Public entities</a>
+            <a class="dd-all" href="/industries/" data-en="All industries" data-ar="كل القطاعات">All industries</a>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Language">
@@ -49,21 +76,27 @@
   </div>
 </header>
 <div class="sheet" id="sheet" aria-hidden="true">
-  <a class="sheet-link" href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
-  <div class="sheet-sub">
-    <a href="/solutions/#agents" data-en="Agents by profession" data-ar="وكلاء حسب المهنة">Agents by profession</a>
-    <a href="/flow/" data-en="Industries" data-ar="القطاعات">Industries</a>
-  </div>
+  <a class="sheet-link" href="/flow/" data-nav="flow">BRX Flow</a>
   <a class="sheet-link" href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
   <div class="sheet-sub">
-    <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
-    <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
-    <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+    <a href="/defender/">BRX Defender</a>
+    <a href="/atlas/">BRX Atlas</a>
+    <a href="/terminal/">BRX Terminal</a>
   </div>
-  <a class="sheet-link" href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
-  <a class="sheet-link" href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+  <a class="sheet-link" href="/launch/" data-nav="launch">BRX Launch</a>
+  <a class="sheet-link" href="/industries/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+  <div class="sheet-sub sheet-sub--2">
+    <a href="/agents/lawyer.html" data-en="Lawyers" data-ar="المحامون">Lawyers</a>
+    <a href="/agents/advisor.html" data-en="Advisors" data-ar="المستشارون">Advisors</a>
+    <a href="/agents/wealth-manager.html" data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</a>
+    <a href="/agents/broker.html" data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</a>
+    <a href="/agents/clinic.html" data-en="Clinics" data-ar="العيادات">Clinics</a>
+    <a href="/agents/hospitality.html" data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</a>
+    <a href="/flow/private-sector.html" data-en="Private companies" data-ar="الشركات الخاصة">Private companies</a>
+    <a href="/flow/public-sector.html" data-en="Public entities" data-ar="الجهات الحكومية">Public entities</a>
+  </div>
   <a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
-  <p class="fine" data-en="BRX · Dubai" data-ar="BRX · دبي">BRX · Dubai</p>
+  <p class="fine" data-en="BRXDXB · Dubai" data-ar="BRXDXB · دبي">BRXDXB · Dubai</p>
 </div>
 <!-- nav:end -->
 
@@ -94,27 +127,27 @@
 <!-- foot:start -->
 <footer class="site-foot">
   <div class="wrap foot-in">
-    <a class="brand" href="/" aria-label="BRX home">
+    <a class="brand" href="/" aria-label="BRXDXB home" data-en-aria="BRXDXB home" data-ar-aria="BRXDXB، الصفحة الرئيسية">
       <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
       <b>BRX</b>
     </a>
-    <p data-en="Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ووكالات ذكاء اصطناعي مصمّمة لأي عمل فيه إجراءات. تُبنى وتعمل في دبي. © 2026 BRX Technologies.">Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies.</p>
+    <p data-en="BRXDXB builds and runs AI agents for companies and public entities. © 2026 BRXDXB · Dubai" data-ar="BRXDXB تبني وتشغّل وكلاء ذكاء اصطناعي للشركات والجهات الحكومية. © 2026 BRXDXB · دبي">BRXDXB builds and runs AI agents for companies and public entities. © 2026 BRXDXB · Dubai</p>
     <nav class="foot-nav" aria-label="Site" data-en-aria="Site" data-ar-aria="الموقع">
-      <a href="/solutions/" data-en="Solutions" data-ar="الحلول">Solutions</a>
-      <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
-      <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
-      <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
-      <a href="/ai-first/" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
-      <a href="/savings/" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+      <a href="/flow/">BRX Flow</a>
+      <a href="/defender/">BRX Defender</a>
+      <a href="/atlas/">BRX Atlas</a>
+      <a href="/terminal/">BRX Terminal</a>
+      <a href="/launch/">BRX Launch</a>
+      <a href="/industries/" data-en="Industries" data-ar="القطاعات">Industries</a>
+      <a href="/savings/" data-en="Savings calculator" data-ar="حاسبة التوفير">Savings calculator</a>
     </nav>
     <div class="foot-links">
       <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
       <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
-      <span class="muted" data-en="Dubai" data-ar="دبي">Dubai</span>
     </div>
   </div>
 </footer>
-<script src="/assets/brx.js?v=20261005a" defer></script>
+<script src="/assets/brx.js?v=20261005r6" defer></script>
 <!-- foot:end -->
 
 </body>

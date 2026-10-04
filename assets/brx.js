@@ -1,4 +1,4 @@
-/* BRX·DXB shared behaviour: language toggle, mobile sheet, active nav, reveal. No dependencies. */
+/* BRXDXB shared behaviour: language toggle, mobile sheet, active nav, reveal. No dependencies. */
 (function () {
   var root = document.documentElement;
   // iOS Safari only paints :active (the pressed state) when a touch listener exists
@@ -56,17 +56,31 @@
   }
   var page = document.body.getAttribute('data-page');
   if (page && page !== 'home') mark(page);
-  if (page === 'home' && 'IntersectionObserver' in window) {
-    var spy = { how: 'solutions', products: 'products', cta: 'contact' };
-    var seen = {};
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { seen[e.target.id] = e.isIntersecting; });
-      var hit = null;
-      ['cta', 'products', 'how'].some(function (id) { if (seen[id]) { hit = spy[id]; return true; } });
-      mark(hit);
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    Object.keys(spy).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+
+  // ── Desktop dropdowns (Products, Industries): click, keyboard and hover ──
+  var dds = document.querySelectorAll('.dd');
+  function closeDd(except) {
+    dds.forEach(function (d) {
+      if (d === except) return;
+      d.classList.remove('open');
+      var b = d.querySelector('.dd-btn'); if (b) b.setAttribute('aria-expanded', 'false');
+    });
   }
+  dds.forEach(function (d) {
+    var b = d.querySelector('.dd-btn');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var open = !d.classList.contains('open');
+      closeDd(d); d.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    });
+    d.addEventListener('focusout', function (e) { if (!d.contains(e.relatedTarget)) { d.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); } });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest || !e.target.closest('.dd')) closeDd(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var o = document.querySelector('.dd.open'); closeDd();
+    if (o) { var b = o.querySelector('.dd-btn'); if (b) b.focus(); }
+  });
 
   // ── Reveal on scroll ──
   var els = document.querySelectorAll('.reveal');

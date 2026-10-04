@@ -432,3 +432,63 @@ html[dir="rtl"] .prod .n { text-align: right; }
 }
 /* Standalone text links get a 44 px box. Links inside a sentence stay inline (WCAG 2.5.8 inline exception): padding them broke Safari line spacing. */
 p > a.link:only-child, .more-link a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ── Round 6 (2026-10-05): one company, a product family. Nav dropdowns. ── */
+.nav-links { align-items: center; }
+.dd { position: relative; }
+.dd-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: none; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink3); }
+.dd-btn::after { content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; transform: translateY(-2px) rotate(45deg); transition: transform .2s; }
+.dd-btn:hover, .dd.open .dd-btn, .dd-btn.is-active { color: var(--ink); }
+.dd.open .dd-btn::after { transform: translateY(1px) rotate(-135deg); }
+.dd-menu { position: absolute; top: calc(100% + 12px); inset-inline-start: -20px; min-width: 300px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--g); border-radius: 14px; box-shadow: 0 24px 48px -24px rgba(30,50,10,.35); padding: 10px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .15s, transform .15s, visibility .15s; z-index: 120; }
+.dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.dd.open .dd-menu { opacity: 1; visibility: visible; transform: none; }
+@media (hover: hover) and (pointer: fine) { .dd:hover .dd-menu { opacity: 1; visibility: visible; transform: none; } }
+.dd-menu a { display: flex; flex-direction: column; justify-content: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink); }
+.dd-menu a::after { display: none; }
+.dd-menu a span { font-size: 13px; font-weight: 400; color: var(--ink3); }
+.dd-menu a:hover, .dd-menu a:focus-visible { background: var(--g-soft); }
+.dd-menu a.dd-all { color: var(--g-ink); font-size: 14px; border-top: 1px solid var(--line); border-radius: 0 0 8px 8px; margin-top: 6px; }
+.dd-menu--2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-width: 460px; }
+.dd-menu--2 a { font-weight: 400; }
+.dd-h { font-size: 12px; font-weight: 700; color: var(--ink3); padding: 6px 12px 2px; }
+.sheet .sheet-sub--2 { display: grid; grid-template-columns: 1fr 1fr; }
+@media (max-width: 420px) { .sheet .sheet-sub--2 { grid-template-columns: 1fr; } }
+
+/* Product family header: "BRX <Name> · a BRXDXB product" + the way back to BRX Flow */
+.fam { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 14px; color: var(--ink3); margin-bottom: 20px; }
+.fam b { color: var(--ink); font-weight: 700; }
+.fam a { color: var(--g-ink); font-weight: 600; }
+.back-flow { margin-top: 18px; font-size: 15px; color: var(--ink3); }
+.back-flow a { color: var(--g-ink); font-weight: 600; }
+
+/* Savings calculator (shared by /savings/, /flow/ and home) */
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.calc .field + .field { margin-top: 26px; }
+.field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; gap: 12px; }
+.calc .field label { font-size: 15px; font-weight: 600; color: var(--ink); }
+.calc .field .val { font-family: var(--mono); font-size: 16px; font-weight: 700; color: var(--g-ink); direction: ltr; }
+.calc input[type=range] { width: 100%; height: 44px; -webkit-appearance: none; appearance: none; background: linear-gradient(var(--line), var(--line)) center / 100% 6px no-repeat; outline: none; }
+.calc input[type=range]:focus-visible { outline: 2px solid var(--g2); outline-offset: 6px; }
+.calc input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--g); cursor: pointer; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--g); }
+.calc input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--g); cursor: pointer; border: 3px solid #fff; }
+.result { border-top: 3px solid var(--g); }
+.result-head { font-size: 15px; font-weight: 700; color: var(--g-ink); margin-bottom: 10px; }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.result-stat { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.result-stat .k { font-size: 13px; color: var(--ink3); }
+.result-stat .v { font-size: 26px; font-weight: 300; color: var(--ink); font-variant-numeric: tabular-nums; direction: ltr; text-align: start; }
+html[dir="rtl"] .result-stat .v { text-align: right; }
+@media (max-width: 960px) { .calc { grid-template-columns: 1fr; } }
+
+/* Ways to work with us: 3 equal cards */
+.ways .card { display: flex; flex-direction: column; }
+.ways .card .go { margin-top: auto; padding-top: 18px; }
+.ways h3 { font-size: clamp(20px, 1.9vw, 24px); }
+
+/* Industries template (professions and sectors), built by _partials/industries.py */
+.prof-hero h1 { max-width: 18ch; }
+.prof-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 64px; align-items: start; }
+.stays { margin-top: 28px; font-size: 17px; font-weight: 600; color: var(--ink); max-width: 44ch; }
+.more-link { margin-top: 20px; }
+@media (max-width: 960px) { .prof-grid { grid-template-columns: 1fr; gap: 40px; } }

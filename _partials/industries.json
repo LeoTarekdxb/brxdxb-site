@@ -1,0 +1,799 @@
+{
+ "lawyer": {
+  "title": "AI agents for law firms | BRXDXB",
+  "desc": "BRXDXB builds AI agents that take intake, first drafts, deadlines and filing off a law firm's desk. The lawyer stays the one who advises.",
+  "eyebrow": [
+   "Agents for lawyers",
+   "وكلاء للمحامين"
+  ],
+  "h1": [
+   "Less admin. More time for the law.",
+   "أعمال إدارية أقل. وقت أكثر للقانون."
+  ],
+  "lede": [
+   "Agents that run intake, first drafts, deadlines and filing for your firm. The lawyer stays the one who advises.",
+   "وكلاء يتولّون استقبال الموكّلين والمسودات الأولى والمواعيد النهائية والإيداع لمكتبك. ويبقى المحامي هو من يقدّم المشورة."
+  ],
+  "proc": [
+   [
+    "Client intake",
+    "استقبال الموكّلين",
+    "Every inquiry gets the intake questions, in Arabic or English, day or night.",
+    "كل استفسار يتلقى أسئلة الاستقبال، بالعربية أو الإنجليزية، ليلاً ونهاراً."
+   ],
+   [
+    "Conflict check",
+    "فحص تعارض المصالح",
+    "New names are checked against your client list before anyone calls back.",
+    "تُطابق الأسماء الجديدة مع قائمة موكّليك قبل أن يعاود أحد الاتصال."
+   ],
+   [
+    "First drafts",
+    "المسودات الأولى",
+    "Engagement letters, NDAs and notices drafted from your own templates, for a lawyer to review.",
+    "خطابات التعاقد واتفاقيات السرية والإنذارات تُصاغ من نماذجك، ليراجعها محامٍ."
+   ],
+   [
+    "Deadlines",
+    "المواعيد النهائية",
+    "Hearing and filing dates go into one calendar, with reminders before each one.",
+    "مواعيد الجلسات والإيداع تدخل تقويماً واحداً، مع تذكير قبل كل موعد."
+   ],
+   [
+    "Documents and filing",
+    "المستندات والإيداع",
+    "Missing documents are chased and filed to the right matter.",
+    "تُتابَع المستندات الناقصة وتُحفظ في الملف الصحيح."
+   ]
+  ],
+  "stays": [
+   "What stays with the lawyer: advice, strategy, signing and court.",
+   "ما يبقى للمحامي: المشورة والاستراتيجية والتوقيع والمحكمة."
+  ],
+  "ex_meta": [
+   "Example · a 6-lawyer firm",
+   "مثال · مكتب من 6 محامين"
+  ],
+  "ex_h3": [
+   "An inquiry at 22:10. A signed engagement letter by noon.",
+   "استفسار الساعة 22:10. وخطاب تعاقد موقّع قبل الظهر."
+  ],
+  "ex_steps": [
+   [
+    "22:10",
+    "A WhatsApp inquiry arrives in Arabic about a rental dispute.",
+    "يصل استفسار عبر واتساب بالعربية عن نزاع إيجاري."
+   ],
+   [
+    "22:12",
+    "The agent asks 5 intake questions and runs the conflict list. Clear.",
+    "يطرح الوكيل 5 أسئلة استقبال ويفحص قائمة التعارض. لا تعارض."
+   ],
+   [
+    "22:15",
+    "It drafts the engagement letter from the firm's template.",
+    "يصوغ خطاب التعاقد من نموذج المكتب."
+   ],
+   [
+    "09:30",
+    "A lawyer reviews, edits one line and sends it.",
+    "يراجعه محامٍ ويعدّل سطراً ويرسله."
+   ],
+   [
+    "11:40",
+    "Signed. The hearing date is in the calendar with reminders.",
+    "تم التوقيع. وموعد الجلسة في التقويم مع التذكيرات."
+   ]
+  ],
+  "ex_after": [
+   "The agent never gives an opinion on the case. It collects, drafts and reminds.",
+   "لا يبدي الوكيل رأياً في القضية أبداً. يجمع ويصوغ ويذكّر."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ],
+  "reg": [
+   "BRXDXB builds software. It does not give legal advice.",
+   "BRXDXB تبني البرمجيات. ولا تقدّم استشارات قانونية."
+  ],
+  "group": "Professions",
+  "path": "agents/lawyer.html",
+  "product": null
+ },
+ "advisor": {
+  "title": "AI agents for advisors | BRXDXB",
+  "desc": "BRXDXB builds AI agents that take onboarding, KYC paperwork, reporting and follow-up off an advisor's desk. Software only, no investment advice.",
+  "eyebrow": [
+   "Agents for advisors",
+   "وكلاء للمستشارين"
+  ],
+  "h1": [
+   "Spend your day with clients, not forms.",
+   "اقضِ يومك مع العملاء، لا مع النماذج."
+  ],
+  "lede": [
+   "Agents that handle onboarding, KYC paperwork, meeting prep and follow-up. You stay the one who advises.",
+   "وكلاء يتولّون تسجيل العملاء وأوراق «اعرف عميلك» والتحضير للاجتماعات والمتابعة. وتبقى أنت من يقدّم المشورة."
+  ],
+  "proc": [
+   [
+    "Onboarding",
+    "تسجيل العملاء",
+    "New clients get the right forms, filled where we can, checked for gaps.",
+    "يتلقى العملاء الجدد النماذج الصحيحة، مملوءة قدر الإمكان، ومفحوصة بحثاً عن النواقص."
+   ],
+   [
+    "KYC paperwork",
+    "أوراق «اعرف عميلك»",
+    "IDs and proofs are collected, and you get a reminder before any of them expire.",
+    "تُجمع الهويات والإثباتات، ويصلك تذكير قبل انتهاء صلاحية أيٍّ منها."
+   ],
+   [
+    "Meeting prep",
+    "التحضير للاجتماعات",
+    "A one-page pack before each meeting: last notes, open items, documents due.",
+    "ملف من صفحة واحدة قبل كل اجتماع: آخر الملاحظات والبنود المفتوحة والمستندات المستحقة."
+   ],
+   [
+    "Follow-up",
+    "المتابعة",
+    "Notes turn into tasks, and reviews get booked on time.",
+    "تتحول الملاحظات إلى مهام، وتُحجز المراجعات في وقتها."
+   ]
+  ],
+  "stays": [
+   "What stays with you: the advice, the relationship and every recommendation.",
+   "ما يبقى لك: المشورة والعلاقة وكل توصية."
+  ],
+  "ex_meta": [
+   "Example · a 3-person advisory practice",
+   "مثال · مكتب استشاري من 3 أشخاص"
+  ],
+  "ex_h3": [
+   "A new client onboarded without one chasing email from you.",
+   "عميل جديد يُسجَّل دون رسالة متابعة واحدة منك."
+  ],
+  "ex_steps": [
+   [
+    "Mon",
+    "The client says yes on a call. The agent sends the onboarding pack.",
+    "يوافق العميل خلال مكالمة. فيرسل الوكيل ملف التسجيل."
+   ],
+   [
+    "Tue",
+    "It collects the ID and proof of address. One file is blurry, so it asks again.",
+    "يجمع الهوية وإثبات العنوان. ملف غير واضح، فيطلبه مجدداً."
+   ],
+   [
+    "Wed",
+    "The file is complete. The advisor gets a one-page summary to check.",
+    "اكتمل الملف. ويتلقى المستشار ملخصاً من صفحة واحدة للمراجعة."
+   ],
+   [
+    "Thu",
+    "The first meeting is booked, with the prep pack attached.",
+    "حُجز الاجتماع الأول مع ملف التحضير مرفقاً."
+   ]
+  ],
+  "ex_after": [
+   "The agent never suggests a product or a figure. It handles the paperwork around your advice.",
+   "لا يقترح الوكيل منتجاً أو رقماً أبداً. يتولّى الأوراق المحيطة بمشورتك."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ],
+  "reg": [
+   "BRXDXB builds software. It does not give investment advice or manage funds.",
+   "BRXDXB تبني البرمجيات. ولا تقدّم نصائح استثمارية ولا تدير أموالاً."
+  ],
+  "group": "Professions",
+  "path": "agents/advisor.html",
+  "product": null
+ },
+ "wealth-manager": {
+  "title": "AI agents for wealth managers | BRXDXB",
+  "desc": "BRXDXB builds AI agents that run onboarding, KYC refresh, client reporting and follow-up for wealth managers. Software only. BRXDXB does not manage funds.",
+  "eyebrow": [
+   "Agents for wealth managers",
+   "وكلاء لمديري الثروات"
+  ],
+  "h1": [
+   "The reporting runs itself. You keep the client.",
+   "التقارير تُنجز نفسها. والعميل يبقى لك."
+  ],
+  "lede": [
+   "Agents that run onboarding, KYC refresh, client reporting and follow-up, from the systems you already use.",
+   "وكلاء يتولّون تسجيل العملاء وتحديث بيانات «اعرف عميلك» وتقارير العملاء والمتابعة، من الأنظمة التي تستخدمها أصلاً."
+  ],
+  "proc": [
+   [
+    "Onboarding",
+    "تسجيل العملاء",
+    "Forms, IDs and source-of-funds documents collected and checked for gaps.",
+    "تُجمع النماذج والهويات ومستندات مصدر الأموال وتُفحص بحثاً عن النواقص."
+   ],
+   [
+    "KYC refresh",
+    "تحديث «اعرف عميلك»",
+    "Expiring documents are found early and requested from the client.",
+    "تُكتشف المستندات القريبة من الانتهاء مبكراً وتُطلب من العميل."
+   ],
+   [
+    "Client reporting",
+    "تقارير العملاء",
+    "Periodic reports put together from your custodian statements, ready for you to check and send.",
+    "تقارير دورية تُجمع من كشوف أمين الحفظ لديك، جاهزة لتراجعها وترسلها."
+   ],
+   [
+    "Meetings and minutes",
+    "الاجتماعات والمحاضر",
+    "Reviews booked, minutes drafted, actions tracked.",
+    "تُحجز المراجعات وتُصاغ المحاضر وتُتابع الإجراءات."
+   ],
+   [
+    "Fees and invoices",
+    "الرسوم والفواتير",
+    "Fee invoices prepared each quarter and chased when late.",
+    "تُعدّ فواتير الرسوم كل ربع سنة وتُتابع عند التأخر."
+   ]
+  ],
+  "stays": [
+   "What stays with you: every investment decision and every client conversation.",
+   "ما يبقى لك: كل قرار استثماري وكل حديث مع العميل."
+  ],
+  "ex_meta": [
+   "Example · a family-office desk with 40 clients",
+   "مثال · مكتب عائلي يخدم 40 عميلاً"
+  ],
+  "ex_h3": [
+   "Quarter-end reports drafted in a morning, not a week.",
+   "تقارير نهاية الربع تُصاغ في صباح، لا في أسبوع."
+  ],
+  "ex_steps": [
+   [
+    "08:00",
+    "The agent pulls the quarter's statements from the custodian portal.",
+    "يسحب الوكيل كشوف الربع من بوابة أمين الحفظ."
+   ],
+   [
+    "09:30",
+    "It drafts 40 client reports in the firm's layout.",
+    "يصوغ 40 تقريراً للعملاء بتنسيق المكتب."
+   ],
+   [
+    "10:00",
+    "It flags 3 clients whose KYC documents expire this quarter.",
+    "ينبّه إلى 3 عملاء تنتهي مستنداتهم هذا الربع."
+   ],
+   [
+    "11:30",
+    "The manager checks and approves. The reports go out.",
+    "يراجع المدير ويوافق. وتُرسل التقارير."
+   ]
+  ],
+  "ex_after": [
+   "The agent never picks investments, moves money or writes a return figure of its own.",
+   "لا يختار الوكيل استثمارات ولا ينقل أموالاً ولا يكتب رقم عائد من عنده أبداً."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ],
+  "reg": [
+   "BRXDXB builds software. It does not give investment advice or manage funds.",
+   "BRXDXB تبني البرمجيات. ولا تقدّم نصائح استثمارية ولا تدير أموالاً."
+  ],
+  "group": "Professions",
+  "path": "agents/wealth-manager.html",
+  "product": null
+ },
+ "broker": {
+  "title": "AI agents for real-estate brokers | BRXDXB",
+  "desc": "BRXDXB builds AI agents for brokers: every new lead called in minutes, viewings booked, listings kept fresh, paperwork chased.",
+  "eyebrow": [
+   "Agents for real-estate brokers",
+   "وكلاء للوسطاء العقاريين"
+  ],
+  "h1": [
+   "Call first. Without picking up the phone.",
+   "اتصل أولاً. دون أن ترفع السماعة."
+  ],
+  "lede": [
+   "Agents that call every new lead in minutes, book the viewing and chase the paperwork. This is where BRX started.",
+   "وكلاء يتصلون بكل عميل جديد خلال دقائق، ويحجزون المعاينة، ويتابعون الأوراق. ومن هنا بدأت BRX."
+  ],
+  "proc": [
+   [
+    "Lead response",
+    "الرد على العملاء",
+    "Every new lead called, texted and emailed in their language, in their daytime.",
+    "كل عميل جديد يُتّصل به ويُراسَل ويُرسل له بريد بلغته وفي نهاره."
+   ],
+   [
+    "Viewings",
+    "المعاينات",
+    "Slots offered, booked, confirmed and reminded.",
+    "تُعرض المواعيد وتُحجز وتُؤكد ويُذكّر بها."
+   ],
+   [
+    "Listings",
+    "الإعلانات",
+    "Prices, photos and status kept in line across portals.",
+    "الأسعار والصور والحالة متطابقة عبر البوابات."
+   ],
+   [
+    "Building research",
+    "دراسة المباني",
+    "Know a building's units and sale history before you call.",
+    "اعرف وحدات المبنى وتاريخ مبيعاته قبل أن تتصل."
+   ],
+   [
+    "Deal paperwork",
+    "أوراق الصفقة",
+    "Forms, IDs and cheques chased until the file is complete.",
+    "تُتابع النماذج والهويات والشيكات حتى يكتمل الملف."
+   ]
+  ],
+  "stays": [
+   "What stays with the broker: the viewing, the negotiation and the client.",
+   "ما يبقى للوسيط: المعاينة والتفاوض والعميل."
+  ],
+  "ex_meta": [
+   "Example · an agency with 12 agents",
+   "مثال · وكالة من 12 وسيطاً"
+  ],
+  "ex_h3": [
+   "A lead at 21:05 while every agent is at a viewing.",
+   "عميل الساعة 21:05 وكل الوسطاء في معاينات."
+  ],
+  "ex_steps": [
+   [
+    "21:05",
+    "A new lead asks about a 2-bed in Dubai Marina.",
+    "عميل جديد يسأل عن شقة بغرفتين في دبي مارينا."
+   ],
+   [
+    "21:08",
+    "The agent calls him in his language. No answer.",
+    "يتصل به الوكيل بلغته. لا رد."
+   ],
+   [
+    "21:09",
+    "A text and an email follow, with the listing. Then it stops.",
+    "تتبعها رسالة وبريد مع العقار. ثم يتوقف."
+   ],
+   [
+    "13:40",
+    "He calls back the next day. A human agent takes the call.",
+    "يعاود الاتصال في اليوم التالي. ووسيط بشري يتولّى المكالمة."
+   ]
+  ],
+  "ex_after": [
+   "Built as the Defender and run on a live Dubai desk.",
+   "بُني باسم Defender ويعمل على مكتب حيّ في دبي."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ],
+  "reg": null,
+  "group": "Professions",
+  "path": "agents/broker.html",
+  "product": [
+   "/defender/",
+   "BRX Defender",
+   "Want lead response ready-made? BRX Defender is our product for real-estate leads.",
+   "تريد الرد على العملاء جاهزاً؟ BRX Defender هو منتجنا لعملاء العقارات."
+  ]
+ },
+ "clinic": {
+  "title": "AI agents for clinics | BRXDXB",
+  "desc": "BRXDXB builds AI agents for clinics: bookings, reminders, no-show recovery, intake forms and insurance paperwork. Clinicians keep every medical decision.",
+  "eyebrow": [
+   "Agents for clinics",
+   "وكلاء للعيادات"
+  ],
+  "h1": [
+   "Full diary. Fewer empty chairs.",
+   "جدول ممتلئ. ومقاعد فارغة أقل."
+  ],
+  "lede": [
+   "Agents that book, confirm and remind patients, collect forms before the visit and chase insurance paperwork.",
+   "وكلاء يحجزون للمرضى ويؤكدون ويذكّرون، ويجمعون النماذج قبل الزيارة، ويتابعون أوراق التأمين."
+  ],
+  "proc": [
+   [
+    "Bookings",
+    "الحجوزات",
+    "Patients book on WhatsApp or the web, in their language, at any hour.",
+    "يحجز المرضى عبر واتساب أو الموقع، بلغتهم، في أي ساعة."
+   ],
+   [
+    "Reminders and no-shows",
+    "التذكيرات والغياب",
+    "A reminder the day before. A missed slot is offered again the same day.",
+    "تذكير قبل يوم. والموعد الفائت يُعرض مجدداً في اليوم نفسه."
+   ],
+   [
+    "Intake forms",
+    "نماذج الاستقبال",
+    "History and consent forms filled before the patient arrives.",
+    "نماذج التاريخ المرضي والموافقة تُملأ قبل وصول المريض."
+   ],
+   [
+    "Insurance paperwork",
+    "أوراق التأمين",
+    "Pre-approval requests prepared and chased until there is an answer.",
+    "طلبات الموافقة المسبقة تُعدّ وتُتابع حتى يصل رد."
+   ],
+   [
+    "Reviews",
+    "التقييمات",
+    "Happy patients are asked for a review. Unhappy ones reach a person.",
+    "يُطلب من المرضى الراضين تقييم. وغير الراضين يصلون إلى إنسان."
+   ]
+  ],
+  "stays": [
+   "What stays with the clinic: diagnosis, treatment and every medical decision.",
+   "ما يبقى للعيادة: التشخيص والعلاج وكل قرار طبي."
+  ],
+  "ex_meta": [
+   "Example · a 4-doctor dental clinic",
+   "مثال · عيادة أسنان بأربعة أطباء"
+  ],
+  "ex_h3": [
+   "A cancelled 10:00 slot filled by 10:20.",
+   "موعد 10:00 أُلغي ثم امتلأ قبل 10:20."
+  ],
+  "ex_steps": [
+   [
+    "08:30",
+    "A patient cancels the 10:00 cleaning by WhatsApp.",
+    "مريض يلغي موعد التنظيف الساعة 10:00 عبر واتساب."
+   ],
+   [
+    "08:31",
+    "The agent offers the slot to 5 patients on the waiting list.",
+    "يعرض الوكيل الموعد على 5 مرضى في قائمة الانتظار."
+   ],
+   [
+    "08:44",
+    "One accepts. Their intake form is sent and filled.",
+    "يقبل أحدهم. ويُرسل له نموذج الاستقبال فيملؤه."
+   ],
+   [
+    "10:00",
+    "The chair is full. The front desk did nothing.",
+    "الكرسي ممتلئ. ولم يفعل الاستقبال شيئاً."
+   ]
+  ],
+  "ex_after": [
+   "The agent never gives medical advice. Symptoms and questions go to the clinic team.",
+   "لا يقدّم الوكيل نصيحة طبية أبداً. الأعراض والأسئلة تذهب إلى فريق العيادة."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ],
+  "reg": null,
+  "group": "Professions",
+  "path": "agents/clinic.html",
+  "product": null
+ },
+ "hospitality": {
+  "title": "AI agents for restaurants and hotels | BRXDXB",
+  "desc": "BRXDXB builds AI agents for restaurants and hotels: reservations, guest messages, review replies, supplier orders and rota reminders.",
+  "eyebrow": [
+   "Agents for restaurants and hotels",
+   "وكلاء للمطاعم والفنادق"
+  ],
+  "h1": [
+   "Every guest answered. Every table filled.",
+   "كل ضيف يتلقى رداً. وكل طاولة ممتلئة."
+  ],
+  "lede": [
+   "Agents that take reservations, answer guests, draft review replies and keep supplier orders on time.",
+   "وكلاء يتولّون الحجوزات، ويردّون على الضيوف، ويصوغون الردود على التقييمات، ويُبقون طلبات الموردين في وقتها."
+  ],
+  "proc": [
+   [
+    "Reservations",
+    "الحجوزات",
+    "Bookings on WhatsApp, Instagram and the web, in the guest's language.",
+    "حجوزات عبر واتساب وإنستغرام والموقع، بلغة الضيف."
+   ],
+   [
+    "Guest messages",
+    "رسائل الضيوف",
+    "Questions about menus, parking and check-in answered at any hour.",
+    "أسئلة القوائم والمواقف وتسجيل الوصول تُجاب في أي ساعة."
+   ],
+   [
+    "Guest memory",
+    "ذاكرة الضيف",
+    "Allergies, favourite tables and birthdays remembered for the next visit.",
+    "الحساسية والطاولات المفضلة وأعياد الميلاد تُحفظ للزيارة التالية."
+   ],
+   [
+    "Review replies",
+    "الرد على التقييمات",
+    "A reply drafted for every review. A manager approves the hard ones.",
+    "رد مصاغ لكل تقييم. ويوافق المدير على الصعبة منها."
+   ],
+   [
+    "Supplier orders",
+    "طلبات الموردين",
+    "Stock counts turn into orders, sent on time.",
+    "جرد المخزون يتحول إلى طلبات تُرسل في وقتها."
+   ]
+  ],
+  "stays": [
+   "What stays with your team: the welcome, the food and the service.",
+   "ما يبقى لفريقك: الترحيب والطعام والخدمة."
+  ],
+  "ex_meta": [
+   "Example · a 60-cover restaurant",
+   "مثال · مطعم بـ60 مقعداً"
+  ],
+  "ex_h3": [
+   "A Friday night that books itself.",
+   "ليلة جمعة تحجز نفسها."
+  ],
+  "ex_steps": [
+   [
+    "14:00",
+    "Twelve WhatsApp requests for Friday arrive during lunch service.",
+    "يصل اثنا عشر طلب حجز ليوم الجمعة عبر واتساب أثناء الغداء."
+   ],
+   [
+    "14:02",
+    "The agent books 10, offers 2 a later time, and notes 1 nut allergy.",
+    "يحجز الوكيل 10، ويعرض على 2 وقتاً لاحقاً، ويسجّل حساسية مكسرات."
+   ],
+   [
+    "Fri 12:00",
+    "Every booking gets a reminder. Two cancel, two from the waitlist fill in.",
+    "كل حجز يتلقى تذكيراً. اثنان يلغيان، واثنان من قائمة الانتظار يحلّان محلّهما."
+   ],
+   [
+    "Sat 10:00",
+    "Review replies are drafted. The manager approves them in 5 minutes.",
+    "تُصاغ الردود على التقييمات. ويوافق المدير عليها في 5 دقائق."
+   ]
+  ],
+  "ex_after": [
+   "Staff spend the night on the floor, not on the phone.",
+   "يقضي الفريق الليلة في الصالة، لا على الهاتف."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ],
+  "reg": null,
+  "group": "Professions",
+  "path": "agents/hospitality.html",
+  "product": null
+ },
+ "private-sector": {
+  "path": "flow/private-sector.html",
+  "group": "Sectors",
+  "product": null,
+  "reg": null,
+  "title": "AI agents for private companies | BRXDXB",
+  "desc": "BRXDXB builds AI agents for private companies: enquiries, quotes, orders, invoices and reports. People keep prices, credit and decisions.",
+  "eyebrow": [
+   "Private companies",
+   "الشركات الخاصة"
+  ],
+  "h1": [
+   "Fewer steps by hand. Same people in charge.",
+   "خطوات يدوية أقل. والقرار بيد الفريق نفسه."
+  ],
+  "lede": [
+   "For trading, services, logistics and family companies. Agents take the enquiries, quotes, orders, invoices and reports that fill your team's week.",
+   "لشركات التجارة والخدمات والخدمات اللوجستية والشركات العائلية. يتولّى الوكلاء الاستفسارات والعروض والطلبات والفواتير والتقارير التي تملأ أسبوع فريقك."
+  ],
+  "proc": [
+   [
+    "Enquiries",
+    "الاستفسارات",
+    "Every enquiry from the web, email and WhatsApp answered and routed, in Arabic or English.",
+    "كل استفسار من الموقع والبريد وواتساب يُرد عليه ويُحوَّل، بالعربية أو الإنجليزية."
+   ],
+   [
+    "Quotes",
+    "عروض الأسعار",
+    "Quotes drafted from your price list, for a person to check and send.",
+    "تُصاغ العروض من قائمة أسعارك، ليراجعها شخص ويرسلها."
+   ],
+   [
+    "Orders and bookings",
+    "الطلبات والحجوزات",
+    "Orders logged, confirmed and tracked. Customers get updates without calling.",
+    "تُسجَّل الطلبات وتُؤكَّد وتُتابَع. ويصل العميلَ التحديث دون أن يتصل."
+   ],
+   [
+    "Invoices and collections",
+    "الفواتير والتحصيل",
+    "Invoices sent, reminders on the due date, and a weekly list of who still owes.",
+    "تُرسل الفواتير، ويُرسل تذكير في موعد الاستحقاق، وقائمة أسبوعية بمن لم يسدّد بعد."
+   ],
+   [
+    "Reports",
+    "التقارير",
+    "A Monday pack from your own systems: sales, open orders, cash due.",
+    "ملف كل يوم اثنين من أنظمتك: المبيعات والطلبات المفتوحة والمبالغ المستحقة."
+   ]
+  ],
+  "stays": [
+   "What stays with your team: prices, credit, hiring, and every customer who asks for a person.",
+   "ما يبقى لفريقك: الأسعار والائتمان والتوظيف، وكل عميل يطلب التحدث إلى شخص."
+  ],
+  "ex_meta": [
+   "Example · a 20-person trading company",
+   "مثال · شركة تجارية من 20 موظفاً"
+  ],
+  "ex_h3": [
+   "60 enquiries a day. None left for tomorrow.",
+   "60 استفساراً في اليوم. لا شيء يُؤجَّل إلى الغد."
+  ],
+  "ex_steps": [
+   [
+    "08:00",
+    "Overnight: 14 enquiries answered, 6 quotes drafted.",
+    "خلال الليل: الرد على 14 استفساراً وصياغة 6 عروض أسعار."
+   ],
+   [
+    "09:15",
+    "Sales checks the 6 quotes, changes 1 price and sends them.",
+    "يراجع فريق المبيعات العروض الستة، ويعدّل سعراً واحداً، ويرسلها."
+   ],
+   [
+    "13:00",
+    "3 invoices fall due. The reminders go out on time.",
+    "يحين موعد 3 فواتير. وتُرسل التذكيرات في وقتها."
+   ],
+   [
+    "17:30",
+    "Orders, quotes and cash due land in one report.",
+    "تصل الطلبات والعروض والمبالغ المستحقة في تقرير واحد."
+   ]
+  ],
+  "ex_after": [
+   "The agents never set a price or give credit. People do.",
+   "لا يحدد الوكلاء سعراً ولا يمنحون ائتماناً. هذا قرار البشر."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We map it with you and tell you what an agent can take off it.",
+   "30 دقيقة مع سعود أو ليو. نرسمه معك ونخبرك بما يمكن أن يرفعه الوكيل عنك."
+  ]
+ },
+ "public-sector": {
+  "title": "Process automation for public entities | BRXDXB",
+  "desc": "BRXDXB builds AI agents for public entities: request intake, application checks, appointments, approvals and reports. Arabic first, on your infrastructure.",
+  "eyebrow": [
+   "Public entities",
+   "الجهات الحكومية"
+  ],
+  "h1": [
+   "Process automation for public entities.",
+   "أتمتة الإجراءات للجهات الحكومية."
+  ],
+  "lede": [
+   "The same method we use in business, for requests, applications, approvals and reports. Arabic first. Data stays on your infrastructure.",
+   "المنهج نفسه الذي نستخدمه في القطاع الخاص، للطلبات والمعاملات والموافقات والتقارير. بالعربية أولاً. والبيانات تبقى على بنيتك التحتية."
+  ],
+  "proc": [
+   [
+    "Request intake and routing",
+    "استقبال الطلبات وتوجيهها",
+    "Requests from the web, email and WhatsApp sorted and sent to the right team, Arabic first.",
+    "الطلبات من الموقع والبريد وواتساب تُفرز وتُرسل إلى الفريق الصحيح، بالعربية أولاً."
+   ],
+   [
+    "Application checks",
+    "فحص المعاملات",
+    "Applications checked for missing documents before a person picks them up.",
+    "تُفحص المعاملات بحثاً عن المستندات الناقصة قبل أن يتسلّمها موظف."
+   ],
+   [
+    "Appointments",
+    "المواعيد",
+    "Slots booked, confirmed and reminded. Missed slots offered again.",
+    "تُحجز المواعيد وتُؤكد ويُذكّر بها. والمواعيد الفائتة تُعرض مجدداً."
+   ],
+   [
+    "Internal approvals",
+    "الموافقات الداخلية",
+    "Files move to the next approver with a reminder, and nothing sits unseen.",
+    "تنتقل الملفات إلى المعتمِد التالي مع تذكير، ولا يبقى شيء دون متابعة."
+   ],
+   [
+    "Reports",
+    "التقارير",
+    "Weekly and monthly packs drafted from your own systems.",
+    "تقارير أسبوعية وشهرية تُصاغ من أنظمتك."
+   ]
+  ],
+  "stays": [
+   "What stays with your staff: every decision, approval and signature.",
+   "ما يبقى لموظفيك: كل قرار وموافقة وتوقيع."
+  ],
+  "ex_meta": [
+   "Example · a permits office",
+   "مثال · مكتب تصاريح"
+  ],
+  "ex_h3": [
+   "Incomplete applications caught before they reach a desk.",
+   "المعاملات الناقصة تُكتشف قبل أن تصل إلى المكتب."
+  ],
+  "ex_steps": [
+   [
+    "08:00",
+    "140 new applications overnight.",
+    "140 معاملة جديدة خلال الليل."
+   ],
+   [
+    "08:20",
+    "The agent checks each one. 31 are missing a document.",
+    "يفحص الوكيل كل واحدة. 31 منها ينقصها مستند."
+   ],
+   [
+    "08:25",
+    "Those 31 applicants get a message in Arabic or English saying exactly what is missing.",
+    "يتلقى أصحاب الـ31 رسالة بالعربية أو الإنجليزية تحدد ما ينقص بالضبط."
+   ],
+   [
+    "09:00",
+    "Staff start the day with 109 complete files. Every decision stays with them.",
+    "يبدأ الموظفون يومهم بـ109 ملفات مكتملة. وكل قرار يبقى بيدهم."
+   ]
+  ],
+  "ex_after": [
+   "BRXDXB has no government client to name. This is how a pilot would run.",
+   "لا تذكر BRXDXB أي جهة حكومية كعميل. هكذا يسير المشروع التجريبي."
+  ],
+  "cta_h2": [
+   "Bring one process from your desk.",
+   "أحضر إجراءً واحداً من مكتبك."
+  ],
+  "cta_lede": [
+   "30 minutes with Saud or Leo. We tell you what a pilot would look like.",
+   "30 دقيقة مع سعود أو ليو. ونخبرك كيف تبدو التجربة الأولى."
+  ],
+  "reg": null,
+  "group": "Sectors",
+  "path": "flow/public-sector.html",
+  "product": null
+ }
+}

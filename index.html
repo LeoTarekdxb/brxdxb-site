@@ -220,6 +220,10 @@ html[lang="ar"] .talk h2 { line-height: 1.25; letter-spacing: 0; }
   .ind-list .ds { grid-column: 1; grid-row: 2; }
   .ind-list .ar { grid-column: 2; grid-row: 1 / span 2; }
 }
+@media (max-width: 520px) {
+  /* iPhone Air (420 pt): the inline switch pushed "Tap or scroll" off screen */
+  .hero h1 .l1 { flex-direction: column; align-items: flex-start; }
+}
 @media (max-width: 420px) {
   .hero h1 { font-size: 34px; }
 }

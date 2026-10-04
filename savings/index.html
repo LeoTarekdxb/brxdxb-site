@@ -21,25 +21,6 @@
 <meta name="theme-color" content="#FFFFFF">
 <script>document.documentElement.classList.add('js')</script>
 <!-- head:end -->
-<style>
-.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-.field + .field { margin-top: 26px; }
-.field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; gap: 12px; }
-.field label { font-size: 15px; font-weight: 600; color: var(--ink); }
-.field .val { font-family: var(--mono); font-size: 16px; font-weight: 700; color: var(--g-ink); direction: ltr; }
-input[type=range] { width: 100%; height: 44px; -webkit-appearance: none; appearance: none; background: linear-gradient(var(--line), var(--line)) center / 100% 6px no-repeat; outline: none; }
-input[type=range]:focus-visible { outline: 2px solid var(--g2); outline-offset: 6px; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--g); cursor: pointer; border: 3px solid #fff; box-shadow: 0 0 0 1px var(--g); }
-input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--g); cursor: pointer; border: 3px solid #fff; }
-.result { border-top: 3px solid var(--g); }
-.result-head { font-size: 15px; font-weight: 700; color: var(--g-ink); margin-bottom: 10px; }
-.result-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-.result-stat { padding: 14px 0; border-bottom: 1px solid var(--line); }
-.result-stat .k { font-size: 13px; color: var(--ink3); }
-.result-stat .v { font-size: 26px; font-weight: 300; color: var(--ink); font-variant-numeric: tabular-nums; direction: ltr; text-align: start; }
-html[dir="rtl"] .result-stat .v { text-align: right; }
-@media (max-width: 960px) { .calc { grid-template-columns: 1fr; } }
-</style>
 </head>
 <body data-page="calculator">
 <!-- nav:start -->
@@ -181,21 +162,6 @@ html[dir="rtl"] .result-stat .v { text-align: right; }
 </footer>
 <script src="/assets/brx.js?v=20261005r6" defer></script>
 <!-- foot:end -->
-<script>
-(function () {
-  var $ = function (id) { return document.getElementById(id); };
-  var f = function (n) { return Math.round(n).toLocaleString('en-US'); };
-  function run() {
-    var ppl = +$('ppl').value, cost = +$('cost').value, share = +$('share').value / 100, auto = Math.min(80, +$('auto').value) / 100;
-    var ar = document.documentElement.lang === 'ar', cur = ar ? ' درهم' : '', pre = ar ? '' : 'AED ';
-    $('pplV').textContent = ppl; $('costV').textContent = f(cost); $('shareV').textContent = Math.round(share * 100) + '%'; $('autoV').textContent = Math.round(auto * 100) + '%';
-    var oc = ppl * cost * share, sv = oc * auto;
-    $('oc').textContent = pre + f(oc) + cur; $('sv').textContent = pre + f(sv) + cur; $('yr').textContent = pre + f(sv * 12) + cur;
-    $('hr').textContent = f(ppl * 160 * share * auto);
-  }
-  ['ppl', 'cost', 'share', 'auto'].forEach(function (id) { $(id).addEventListener('input', run); });
-  window.onLangChange = run; run();
-})();
-</script>
+<script src="/assets/savings.js?v=20261005r6" defer></script>
 </body>
 </html>

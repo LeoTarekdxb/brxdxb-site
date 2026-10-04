@@ -104,14 +104,14 @@
     if (!hasGsap) return;
     // Hero: pinned briefly on desktop so the wake plays in view; any scroll flips it on
     if (desktop && !reduce) {
-      ScrollTrigger.create({ trigger: hero, start: function () { return 'top top+=' + navH(); }, end: '+=45%', pin: true, pinSpacing: true,
+      ScrollTrigger.create({ trigger: hero, start: function () { return 'top top+=' + navH(); }, end: '+=20%', pin: true, pinSpacing: true,
         onUpdate: function (s) { if (s.progress > 0.02) wake.set(true, 'scroll'); } });
     } else {
       ScrollTrigger.create({ trigger: hero, start: function () { return 'top+=24 top+=' + navH(); }, onEnter: function () { wake.set(true, 'scroll'); } });
     }
     if (pinBeats) {
       setBeat(0);
-      ScrollTrigger.create({ trigger: '#how', start: function () { return 'top top+=' + navH(); }, end: '+=200%', pin: true, pinSpacing: true,
+      ScrollTrigger.create({ trigger: '#how', start: function () { return 'top top+=' + navH(); }, end: '+=110%', pin: true, pinSpacing: true,
         onUpdate: function (s) { setBeat(Math.min(3, Math.floor(s.progress * 4))); gsap.set(rail, { scaleY: 0.25 + s.progress * 0.75 }); } });
     }
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });

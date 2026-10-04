@@ -57,12 +57,12 @@
   var page = document.body.getAttribute('data-page');
   if (page && page !== 'home') mark(page);
   if (page === 'home' && 'IntersectionObserver' in window) {
-    var spy = { lab: 'lab', terminal: 'terminal', cta: 'contact', industries: 'industries' };
+    var spy = { how: 'solutions', products: 'products', cta: 'contact' };
     var seen = {};
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { seen[e.target.id] = e.isIntersecting; });
       var hit = null;
-      ['cta', 'industries', 'terminal', 'lab'].some(function (id) { if (seen[id]) { hit = spy[id]; return true; } });
+      ['cta', 'products', 'how'].some(function (id) { if (seen[id]) { hit = spy[id]; return true; } });
       mark(hit);
     }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(spy).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });

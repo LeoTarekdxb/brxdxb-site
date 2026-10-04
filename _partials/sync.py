@@ -5,7 +5,10 @@ import pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = {n: (ROOT / '_partials' / f'{n}.html').read_text().rstrip('\n') for n in ('head', 'nav', 'founders', 'foot', 'leadform')}
 PAGES = ['index.html', 'agent.html', 'calculator.html', 'console.html', 'get-whitepaper.html', 'table/index.html', 'defender/index.html',
-         'flow/index.html', 'flow/legal.html', 'flow/hospitality.html', 'flow/healthcare.html']
+         'flow/index.html', 'flow/legal.html', 'flow/hospitality.html', 'flow/healthcare.html', 'flow/public-sector.html',
+         'solutions/index.html', 'products/index.html', 'atlas/index.html', 'ai-first/index.html', 'savings/index.html',
+         'agents/lawyer.html', 'agents/advisor.html', 'agents/wealth-manager.html', 'agents/broker.html',
+         'agents/clinic.html', 'agents/hospitality.html']
 for rel in PAGES:
     f = ROOT / rel
     if not f.exists():

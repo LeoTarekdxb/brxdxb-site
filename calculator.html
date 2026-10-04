@@ -161,10 +161,12 @@ const yourWinOut = document.getElementById('yourWinOut');
 const evOut = document.getElementById('evOut');
 
 const L = {
-  en: { pos: 'Positive expected value', neg: 'Negative expected value',
+  en: { pos: 'Positive expected value', neg: 'Negative expected value', even: 'At breakeven',
+        evenV: () => 'Your numbers sit exactly at breakeven. Any fee or slippage turns this negative.',
         posV: g => `Your numbers clear breakeven by ${g}. Over many trades, this shape of edge compounds.`,
         negV: g => `You need ${g} more win rate to break even at this reward:risk — or fix the geometry instead.` },
-  ar: { pos: 'قيمة متوقعة موجبة', neg: 'قيمة متوقعة سالبة',
+  ar: { pos: 'قيمة متوقعة موجبة', neg: 'قيمة متوقعة سالبة', even: 'عند نقطة التعادل',
+        evenV: () => 'أرقامك عند نقطة التعادل تماماً. أي رسوم أو انزلاق سعري يجعلها سالبة.',
         posV: g => `أرقامك تتجاوز نقطة التعادل بفارق ${g}. عبر صفقات كثيرة، يتراكم هذا النوع من الأفضلية.`,
         negV: g => `تحتاج إلى ${g} إضافية في نسبة الربح لتتعادل عند هذه النسبة — أو أصلح هندسة العائد بدلاً من ذلك.` }
 };
@@ -188,9 +190,14 @@ function recompute() {
   rrrOut.textContent = rrr.toFixed(2);
   breakevenOut.textContent = fmtPct(breakeven * 100);
   yourWinOut.textContent = fmtPct(wr * 100);
-  evOut.textContent = (ev >= 0 ? '+' : '') + ev.toFixed(3) + '%';
+  const flat = Math.abs(ev) < 0.0005;   // shows as 0.000%: neither positive nor negative
+  evOut.textContent = (flat ? '' : ev > 0 ? '+' : '') + (flat ? 0 : ev).toFixed(3) + '%';
 
-  if (ev >= 0) {
+  if (flat) {
+    resultBox.className = 'card result';
+    resultHead.textContent = t.even;
+    resultVerdict.textContent = t.evenV();
+  } else if (ev > 0) {
     resultBox.className = 'card result pos';
     resultHead.textContent = t.pos;
     resultVerdict.textContent = t.posV(fmtPct(Math.abs(gap) * 100));

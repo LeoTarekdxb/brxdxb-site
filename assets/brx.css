@@ -444,7 +444,7 @@ p > a.link:only-child, .more-link a { display: inline-flex; align-items: center;
 .dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
 .dd.open .dd-menu { opacity: 1; visibility: visible; transform: none; }
 @media (hover: hover) and (pointer: fine) { .dd:hover .dd-menu { opacity: 1; visibility: visible; transform: none; } }
-.dd-menu a { display: flex; flex-direction: column; justify-content: center; min-height: 44px; padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink); }
+.dd-menu a { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: start; min-height: 44px; padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink); }
 .dd-menu a::after { display: none; }
 .dd-menu a span { font-size: 13px; font-weight: 400; color: var(--ink3); }
 .dd-menu a:hover, .dd-menu a:focus-visible { background: var(--g-soft); }

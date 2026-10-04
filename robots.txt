@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /portal/
+Disallow: /console.html
+Disallow: /p/
+Sitemap: https://www.brxdxb.com/sitemap.xml

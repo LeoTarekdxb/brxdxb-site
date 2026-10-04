@@ -198,3 +198,11 @@ html[dir="rtl"] .toast { transform: translateX(50%); }
   .kpis { grid-template-columns: repeat(2, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Touch: 44 pt targets on the phone (launch audit 2026-10-04) */
+.btn { min-height: 44px; }
+@media (pointer: coarse) { .btn.sm { min-height: 44px; } }
+.lang button { min-width: 44px; min-height: 44px; padding: 0 12px; font-size: 13px; }
+.brand { min-height: 44px; }
+label.row:has(input[type="checkbox"]) { min-height: 44px; align-items: center; gap: 10px; cursor: pointer; }
+input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--g); }

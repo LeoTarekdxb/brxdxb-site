@@ -9,7 +9,7 @@ Static site, no build step. 11 HTML pages (incl. the private app shell `portal/`
 
 ## Run (agent path)
 
-The driver serves the checkout, hits every page, greps for leaks, checks internal links and screenshots home + Lead Defence at desktop and phone widths:
+The driver serves the checkout, hits every page, greps for leaks, checks internal links and screenshots home + the Defender page at desktop and phone widths:
 
 ```bash
 .claude/skills/run-brxdxb-site/smoke.sh          # local checkout on :8811
@@ -44,7 +44,8 @@ Then `smoke.sh live`. GitHub caches 10 minutes; append `?x=123` to bypass while 
 
 ## Gotchas
 
-- **www vs bare domain.** `www.brxdxb.com` is GitHub Pages (this repo). `brxdxb.com` bare points at an old Netlify site in another account (A 75.2.60.5). Only Leo can fix it in Cloudflare: replace the A record with the 4 GitHub Pages IPs 185.199.108-111.153. The mini's Cloudflare token has no zone access (verified 2026-09-23).
+- **www vs bare domain.** Fixed 2026-10-04: bare `brxdxb.com` now 301s to `www`. If it ever regresses, the bare A record must point at GitHub Pages 185.199.108-111.153 (Cloudflare, Leo only).
+- **One product page.** Lead Defence was merged into `/defender/` on 2026-10-04. `/flow/real-estate.html` is a hash-aware redirect stub; do not rebuild it. Nav stays at 5 items (Defender, Agents, Industries, Terminal + Book a demo). One primary button: the green `.btn`. Home stays at 6 phone screens or fewer.
 - **Headless Chrome clamps window width to ~500 px.** A `--window-size=390` screenshot is really a 500 px layout, cropped, so text looks cut off. It is not a bug in the site. For true phone checks use playwright at 390 and read `document.documentElement.scrollWidth` (must equal 390).
 - **Virtual time hides WebGL.** Headless screenshots show a blank box where the 3D logo is. Check `model-viewer.loaded` in a real browser instead.
 - **The 3D GLB must stay small.** `assets/brx-logo.glb` is draco + webp, 396 KB. The 7.3 MB original is in `.qa/brx-logo.orig.glb`. Re-compress with `npx -y @gltf-transform/cli optimize in.glb out.glb --compress draco --texture-compress webp`.

@@ -127,6 +127,86 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
   .story-top { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .dock { transition: none; } }
+/* Safety rules: 3 visible, the rest one tap away (JS only; without JS all 10 show) */
+.js .tbl--rules:not(.is-all) tbody tr:nth-child(n+4) { display: none; }
+.rules-all { margin-top: 16px; }
+html:not(.js) .rules-all { display: none; }
+.more { margin-top: 32px; }
+
+/* Owner Atlas numbers, moved here from the old "How it runs" block */
+#atlas { margin-top: 72px; }
+.atlas-n { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 14px 0 6px; font-size: 14px; color: var(--ink3); }
+.atlas-n .atlas-src { display: none; flex-basis: 100%; font-size: 13px; }
+.atlas-n b { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 640px) {
+  .sec { padding: 56px 0; }
+  .sec-head { margin-bottom: 28px; }
+  .df-hero { padding: 28px 0 48px; }
+  .desk { gap: 20px; }
+  .desk-lines li { font-size: 17px; }
+  .desk-lines li + li { margin-top: 12px; }
+  .offer { gap: 14px; }
+  .svc .kind { margin-bottom: 10px; }
+  .svc .free-now { margin-top: 14px; }
+  .svc .terms { margin: 10px 0 18px; }
+  /* 1 · 2 · 3 as one compact row on the phone */
+  .path { grid-template-columns: repeat(3, 1fr); }
+  .path li, .path li + li { padding: 14px 8px 0 0; border-top: 0; border-inline-start: 0; }
+  .path li + li { padding-inline-start: 10px; border-inline-start: 1px solid var(--line); }
+  .path .k { width: 30px; height: 30px; font-size: 14px; margin-bottom: 8px; }
+  .path h3 { font-size: 15px; line-height: 1.3; }
+  .path p { display: none; }
+  .lead-form { margin: 24px 0 8px; }
+  .lead-form .grid { gap: 14px; }
+  #atlas { margin-top: 40px; }
+  .rules-all { width: 100%; }
+  #cta .founders { margin-top: 24px; gap: 14px; }
+  #cta .founder .contact { display: none; }
+  #cta .founder .btn-row { margin-top: 12px; }
+}
+/* Phone budget: 7 screens or fewer (launch audit r3) */
+.foot-in .foot-links { align-items: center; }
+@media (max-width: 640px) {
+  .sec { padding: 48px 0; }
+  .sec .eyebrow { display: none; }
+  .hero-2nd { display: none; }
+  #atlas { margin-bottom: 0; }
+  .atlas .fine { margin-top: 4px; }
+  .tbl--rules tbody th { padding: 12px 16px 2px; }
+  .tbl--rules td { padding: 0 16px 12px; }
+  .desk-lines li { font-size: 16px; }
+  .sec { padding: 40px 0; }
+  h2.display, .display { font-size: 26px; }
+  #free .sec-head .lede, #owners .lede { display: none; }
+  #free .sec-head { margin-bottom: 20px; }
+  /* free cards: pill and title on one line, two short lines of copy */
+  .svc:not(.svc--pay) { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 12px; padding: 16px 18px; }
+  .svc:not(.svc--pay) .kind { grid-column: 2; grid-row: 1; margin: 0; }
+  .svc:not(.svc--pay) h3 { grid-column: 1; grid-row: 1; margin: 0; }
+  .svc:not(.svc--pay) p { grid-column: 1 / -1; margin-top: 6px; }
+  .atlas-shot { aspect-ratio: 16 / 8; }
+  .atlas .fine { display: none; }
+  .atlas-n .atlas-src { display: block; }
+  .df-hero h1 { font-size: 27px; }
+  .story { padding: 20px 18px; }
+  .story-top { padding-bottom: 16px; }
+  .bigswitch { --w: 136px; --h: 68px; --k: 46px; }
+  .card .story-note { margin-top: 8px; }
+  .js #safety .more:not([open]) { display: none; }
+  .desk-sig { margin-top: 16px; }
+  .svc h3 { font-size: 19px; margin-bottom: 4px; }
+  .svc:not(.svc--pay) { padding: 18px 20px; }
+  .story-feed li { padding: 9px 0; }
+  .story-end { margin-top: 14px; font-size: 20px; }
+  /* founders: name beside the initials, both buttons on one row */
+  #cta .founder { grid-template-columns: 52px 1fr; column-gap: 14px; row-gap: 0; align-items: center; }
+  #cta .founder > div:not(.initials) { display: contents; }
+  #cta .founder .initials { grid-row: 1 / span 2; }
+  #cta .founder h3, #cta .founder .role { grid-column: 2; margin: 0; }
+  #cta .founder .btn-row { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  #cta .founder .btn-row .btn { padding: 10px 8px; font-size: 14px; min-width: 0; white-space: normal; }
+}
 </style>
 <link rel="stylesheet" href="/assets/atlas.css">
 </head>
@@ -182,7 +262,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
         <p class="lede" data-en="The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over. Switch it off and it stops within 2 minutes." data-ar="Defender يتصل أولاً. بكل عميل جديد، خلال دقائق، وبلغته. لحظة يرد، يتولّى وكيلك. أوقف المفتاح فيتوقف كل شيء خلال دقيقتين.">The Defender calls first. Every new lead, within minutes, in their language. The moment they pick up, your agent takes over. Switch it off and it stops within 2 minutes.</p>
         <div class="btn-row">
           <a class="btn" href="#try" data-magnetic data-en="Try it free for a month" data-ar="جرّبه مجاناً لمدة شهر">Try it free for a month</a>
-          <a class="btn btn--ghost" href="#free" data-en="See what's free forever" data-ar="اطّلع على المجاني دائماً">See what's free forever</a>
+          <a class="btn btn--ghost hero-2nd" href="#free" data-en="See what's free forever" data-ar="اطّلع على المجاني دائماً">See what's free forever</a>
         </div>
       </div>
 
@@ -218,7 +298,6 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
       </div>
       <div class="reveal">
         <ol class="desk-lines">
-          <li data-en="I sell property in Dubai. I still do viewings every week." data-ar="أبيع العقارات في دبي. وما زلت أقوم بمعاينات كل أسبوع.">I sell property in Dubai. I still do viewings every week.</li>
           <li data-en="A lead came in while I was showing a flat. I called back that night. He had already booked with the agent who called first." data-ar="وصلني عميل وأنا أعرض شقة. اتصلت به تلك الليلة. كان قد حجز مع الوسيط الذي اتصل أولاً.">A lead came in while I was showing a flat. I called back that night. He had already booked with the agent who called first.</li>
           <li data-en="It was a good lead. I was just second." data-ar="كان عميلاً جيداً. لكنني كنت الثاني.">It was a good lead. I was just second.</li>
           <li data-en="So I built the Defender for my own desk first. It calls while I work. I take over when they pick up." data-ar="فبنيت Defender لمكتبي أنا أولاً. يتصل بينما أعمل. وأتولّى حين يردّون.">So I built the Defender for my own desk first. It calls while I work. I take over when they pick up.</li>
@@ -235,14 +314,13 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
     <div class="sec-head reveal">
       <p class="eyebrow" data-en="What you get" data-ar="ما تحصل عليه">What you get</p>
       <h2 class="display" data-en="Two tools free, always. <br>One that calls for you." data-ar="أداتان مجانيتان دائماً. <br>وواحدة تتصل عنك.">Two tools free, always. <br>One that calls for you.</h2>
-      <p class="lede" data-en="Sign up once. You get all three for a month. After that, the first two stay free. You only pay for the Defender." data-ar="سجّل مرة واحدة. تحصل على الثلاث لمدة شهر. بعدها تبقى الأولى والثانية مجانيتين. تدفع فقط مقابل Defender.">Sign up once. You get all three for a month. After that, the first two stay free. You only pay for the Defender.</p>
+      <p class="lede" data-en="All three free for a month. After that you pay only for the Defender." data-ar="الثلاث مجاناً لمدة شهر. بعدها تدفع فقط مقابل Defender.">All three free for a month. After that you pay only for the Defender.</p>
     </div>
     <div class="offer">
       <article class="svc reveal">
         <span class="kind" data-en="Free forever" data-ar="مجاني دائماً">Free forever</span>
         <h3 data-en="Morning brief" data-ar="موجز الصباح">Morning brief</h3>
-        <p data-en="Your whole day on one page. Read it in 30 seconds: yesterday's calls and what was said, what you owe today, and which leads are about to go cold." data-ar="يومك كله في صفحة واحدة تقرؤها في 30 ثانية: مكالمات الأمس وما قيل فيها، وما عليك اليوم، وأي العملاء على وشك أن يبردوا.">Your whole day on one page. Read it in 30 seconds: yesterday's calls and what was said, what you owe today, and which leads are about to go cold.</p>
-        <p class="after" data-en="On your phone and your laptop, every morning." data-ar="على هاتفك وحاسوبك، كل صباح.">On your phone and your laptop, every morning.</p>
+        <p data-en="Your day on one page, every morning: yesterday's calls, what you owe today, and which leads are going cold." data-ar="يومك في صفحة واحدة كل صباح: مكالمات الأمس، وما عليك اليوم، وأي العملاء يبردون.">Your day on one page, every morning: yesterday's calls, what you owe today, and which leads are going cold.</p>
       </article>
 
       <article class="svc svc--pay reveal" aria-labelledby="payTitle">
@@ -263,8 +341,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
       <article class="svc reveal">
         <span class="kind" data-en="Free forever" data-ar="مجاني دائماً">Free forever</span>
         <h3 data-en="Who to call now" data-ar="بمن تتصل الآن">Who to call now</h3>
-        <p data-en="Every lead scored and sorted, so the next call is obvious. Someone opens your email twice or clicks a listing, and they move to the top while they're still reading." data-ar="كل عميل مُقيَّم ومرتّب، فتصبح مكالمتك التالية واضحة. من يفتح بريدك مرتين أو ينقر على عقار ينتقل إلى أعلى القائمة وهو ما زال يقرأ.">Every lead scored and sorted, so the next call is obvious. Someone opens your email twice or clicks a listing, and they move to the top while they're still reading.</p>
-        <p class="after" data-en="One list. The one dying first is on top." data-ar="قائمة واحدة. الأقرب إلى الضياع في الأعلى.">One list. The one dying first is on top.</p>
+        <p data-en="One sorted list. Anyone who opens your email or clicks a listing jumps to the top while they're still reading." data-ar="قائمة واحدة مرتّبة. من يفتح بريدك أو ينقر على عقار يقفز إلى الأعلى وهو ما زال يقرأ.">One sorted list. Anyone who opens your email or clicks a listing jumps to the top while they're still reading.</p>
       </article>
     </div>
   </div>
@@ -319,26 +396,6 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
   </div>
 </section>
 
-<!-- HOW IT RUNS -->
-<section class="sec sec--alt" id="how">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:0">
-      <div>
-        <p class="eyebrow" data-en="How it runs" data-ar="كيف يعمل">How it runs</p>
-        <h2 class="display" data-en="Your machine. Your phone. Your data." data-ar="جهازك. هاتفك. بياناتك.">Your machine. Your phone. Your data.</h2>
-        <p class="lede" data-en="It runs on a Mac you own, drives a handset you own and writes to files you own. Your book never sits on someone else's server." data-ar="يعمل على جهاز Mac تملكه، ويشغّل هاتفاً تملكه، ويكتب في ملفات تملكها. سجلّ عملائك لا يبقى أبداً على خادم شخص آخر.">It runs on a Mac you own, drives a handset you own and writes to files you own. Your book never sits on someone else's server.</p>
-      </div>
-    </div>
-    <div class="stats reveal" style="margin-top:48px">
-      <div class="stat"><div class="n">14</div><p class="l" data-en="Dubai communities mapped" data-ar="مجتمعاً في دبي على الخريطة">Dubai communities mapped</p></div>
-      <div class="stat"><div class="n">1,106</div><p class="l" data-en="Buildings" data-ar="مبنى">Buildings</p></div>
-      <div class="stat"><div class="n">60,968</div><p class="l" data-en="Owners on file" data-ar="مالكاً في السجل">Owners on file</p></div>
-      <div class="stat"><div class="n">24/7</div><p class="l" data-en="Runs unattended" data-ar="يعمل دون إشراف">Runs unattended</p></div>
-    </div>
-    <p class="fine" style="margin-top:14px" data-en="Source: one live Dubai desk, September 2026." data-ar="المصدر: مكتب حيّ واحد في دبي، سبتمبر 2026.">Source: one live Dubai desk, September 2026.</p>
-  </div>
-</section>
-
 <!-- OWNERS + ATLAS (merged from Lead Defence) -->
 <section class="sec" id="owners">
   <div class="wrap">
@@ -346,7 +403,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
       <div class="reveal">
         <p class="eyebrow" data-en="Owner intelligence" data-ar="معلومات الملّاك">Owner intelligence</p>
         <h2 class="display" data-en="Know which leads already own in Dubai." data-ar="اعرف أي عملائك يملك عقاراً في دبي.">Know which leads already own in Dubai.</h2>
-        <p class="lede" data-en="An owner who asks about off-plan is a different call from a first-time renter. The Defender matches every lead against owner records, so your agent opens with the right question." data-ar="المالك الذي يسأل عن مشروع على الخارطة مكالمة مختلفة تماماً عن مستأجر لأول مرة. يطابق Defender كل عميل مع سجلات الملّاك، ليبدأ وكيلك بالسؤال الصحيح.">An owner who asks about off-plan is a different call from a first-time renter. The Defender matches every lead against owner records, so your agent opens with the right question.</p>
+        <p class="lede" data-en="The Defender checks every lead against owner records, so your agent opens with the right question." data-ar="يطابق Defender كل عميل مع سجلات الملّاك، ليبدأ وكيلك بالسؤال الصحيح.">The Defender checks every lead against owner records, so your agent opens with the right question.</p>
       </div>
       <div class="tbl-wrap reveal">
         <table class="tbl">
@@ -361,7 +418,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
         </table>
       </div>
     </div>
-      <div class="atlas reveal" id="atlas" style="margin:72px 0 0">
+      <div class="atlas reveal" id="atlas">
       <figure class="atlas-shot" id="atlasShot">
         <img src="/assets/atlas-teaser.jpg" srcset="/assets/atlas-teaser-800.jpg 800w, /assets/atlas-teaser.jpg 1600w" sizes="(max-width: 960px) 100vw, 60vw" width="1600" height="1000" loading="lazy" decoding="async" alt="Owner Atlas preview: a 3D view of Business Bay with one tower highlighted, its floors drawn as a grid of units, and the owner card blurred." data-en-aria="Owner Atlas preview: a 3D view of Business Bay with one tower highlighted, its floors drawn as a grid of units, and the owner card blurred." data-ar-aria="معاينة أطلس الملّاك: منظر ثلاثي الأبعاد للخليج التجاري مع برج مميّز، وطوابقه مرسومة كشبكة وحدات، وبطاقة المالك مموّهة.">
         <figcaption class="tag" data-en="Owners hidden in this preview" data-ar="أسماء الملّاك مخفية في هذه المعاينة">Owners hidden in this preview</figcaption>
@@ -370,7 +427,8 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
         <p class="eyebrow" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</p>
         <h3 data-en="Dubai in 3D, one tower at a time." data-ar="دبي بالأبعاد الثلاثة، برجاً برجاً.">Dubai in 3D, one tower at a time.</h3>
         <p class="promise" data-en="See who owns every unit in a building. Access is by request." data-ar="اعرف مالك كل وحدة في المبنى. الوصول بطلب فقط.">See who owns every unit in a building. Access is by request.</p>
-        <p class="fine" data-en="Built from the DLD register. You get a personal code; names stay hidden until it is approved." data-ar="مبني على سجل دائرة الأراضي والأملاك. تحصل على رمز شخصي، وتبقى الأسماء مخفية حتى تتم الموافقة.">Built from the DLD register. You get a personal code; names stay hidden until it is approved.</p>
+        <p class="atlas-n"><span><b>14</b> <span data-en="communities" data-ar="مجتمعاً">communities</span></span><span><b>1,106</b> <span data-en="buildings" data-ar="مبنى">buildings</span></span><span><b>60,968</b> <span data-en="owners on file" data-ar="مالكاً في السجل">owners on file</span></span><span class="atlas-src" data-en="DLD register, Sep 2026" data-ar="سجل دائرة الأراضي، سبتمبر 2026">DLD register, Sep 2026</span></p>
+        <p class="fine" data-en="Built from the DLD register, September 2026. You get a personal code; names stay hidden until it is approved." data-ar="مبني على سجل دائرة الأراضي والأملاك، سبتمبر 2026. تحصل على رمز شخصي، وتبقى الأسماء مخفية حتى تتم الموافقة.">Built from the DLD register, September 2026. You get a personal code; names stay hidden until it is approved.</p>
         <div class="btn-row"><button class="btn" type="button" id="atlasOpen" aria-haspopup="dialog" aria-controls="atlasDlg" data-en="Request access" data-ar="اطلب الوصول">Request access</button></div>
       </div>
     </div>
@@ -401,10 +459,10 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
     <div class="sec-head reveal">
       <p class="eyebrow" data-en="Safety" data-ar="الأمان">Safety</p>
       <h2 class="display" data-en="Built by breaking it first." data-ar="بنيناه بعد أن كسرناه أولاً.">Built by breaking it first.</h2>
-      <p class="lede" data-en="Every rule below exists because something went wrong once. They are built in, not settings someone can switch off on a busy day." data-ar="كل قاعدة أدناه موجودة لأن شيئاً ما أخطأ مرة. إنها مبنية في النظام، لا إعدادات يمكن إيقافها في يوم مزدحم.">Every rule below exists because something went wrong once. They are built in, not settings someone can switch off on a busy day.</p>
+      <p class="lede" data-en="It runs on a Mac and a handset you own. Your book never sits on our server. Each rule exists because something once went wrong." data-ar="يعمل على جهاز Mac وهاتف تملكهما. سجلّ عملائك لا يبقى أبداً على خادمنا. كل قاعدة موجودة لأن شيئاً ما أخطأ مرة.">It runs on a Mac and a handset you own. Your book never sits on our server. Each rule exists because something once went wrong.</p>
     </div>
     <div class="tbl-wrap reveal">
-      <table class="tbl tbl--stack">
+      <table class="tbl tbl--stack tbl--rules" id="rules">
         <thead><tr><th scope="col" data-en="Rule" data-ar="القاعدة">Rule</th><th scope="col" data-en="What it means for you" data-ar="ماذا تعني لك">What it means for you</th></tr></thead>
         <tbody>
           <tr><th scope="row" data-en="Off means off" data-ar="الإيقاف يعني الإيقاف">Off means off</th><td data-en="The switch removes the handset itself. Nothing is left to dial with. Everything stops within 2 minutes." data-ar="المفتاح يفصل الهاتف نفسه. لا يبقى ما يُتّصل به. يتوقف كل شيء خلال دقيقتين.">The switch removes the handset itself. Nothing is left to dial with. Everything stops within 2 minutes.</td></tr>
@@ -420,8 +478,9 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
         </tbody>
       </table>
     </div>
+    <button class="btn btn--ghost rules-all" type="button" id="rulesAll" aria-controls="rules stack" aria-expanded="false" data-en="Show all 10 rules" data-ar="اعرض القواعد العشر">Show all 10 rules</button>
 
-    <details class="more reveal">
+    <details class="more reveal" id="stack">
       <summary><span data-en="What each piece touches, and where it runs" data-ar="ما يلمسه كل جزء، وأين يعمل">What each piece touches, and where it runs</span></summary>
     <div class="tbl-wrap">
       <table class="tbl tbl--stack">
@@ -445,7 +504,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
     <div class="sec-head reveal" style="margin-bottom:0">
       <p class="eyebrow" data-en="Talk to us" data-ar="تحدّث معنا">Talk to us</p>
       <h2 class="display" data-en="See it run on a real desk first." data-ar="شاهده يعمل على مكتب حقيقي أولاً.">See it run on a real desk first.</h2>
-      <p class="lede" data-en="A walkthrough takes 30 minutes on a screen-share: the live board, one call end to end, and the morning brief it writes. Bring your worst week of lost leads." data-ar="الجولة 30 دقيقة عبر مشاركة الشاشة: اللوحة الحيّة، ومكالمة واحدة من البداية للنهاية، وموجز الصباح الذي يكتبه. أحضر أسوأ أسبوع خسرت فيه عملاء.">A walkthrough takes 30 minutes on a screen-share: the live board, one call end to end, and the morning brief it writes. Bring your worst week of lost leads.</p>
+      <p class="lede" data-en="30 minutes on a screen-share: the live board and one call, end to end." data-ar="30 دقيقة عبر مشاركة الشاشة: اللوحة الحيّة ومكالمة واحدة من البداية للنهاية.">30 minutes on a screen-share: the live board and one call, end to end.</p>
     </div>
 <!-- founders:start -->
 <div class="btn-row" style="margin:28px 0 24px"><a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a></div>
@@ -503,7 +562,7 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
 
 <script src="/assets/wake.js" defer></script>
 <script src="/assets/atlas-request.js" defer></script>
-<script src="/assets/lead-form.js" defer></script>
+<script src="/assets/lead-form.js?v=20261004c" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var hero = document.getElementById('dfHero'), story = document.getElementById('story');
@@ -526,6 +585,18 @@ document.addEventListener('DOMContentLoaded', function () {
   render();
   var once = function () { if (window.scrollY > 40) { wake.set(true, 'scroll'); window.removeEventListener('scroll', once); } };
   window.addEventListener('scroll', once, { passive: true });
+
+  // Safety: 3 rules visible, the button shows all 10
+  var rules = document.getElementById('rules'), all = document.getElementById('rulesAll');
+  var RL = { en: ['Show all 10 rules', 'Show 3 rules'], ar: ['اعرض القواعد العشر', 'اعرض 3 قواعد'] };
+  function rulesLabel() { var l = document.documentElement.lang === 'ar' ? 'ar' : 'en'; all.textContent = RL[l][rules.classList.contains('is-all') ? 1 : 0]; }
+  all.addEventListener('click', function () {
+    var open = rules.classList.toggle('is-all'); all.setAttribute('aria-expanded', open); rulesLabel();
+    var more = document.querySelector('#safety .more'); if (more) more.open = open;
+    if (!open) rules.scrollIntoView({ block: 'nearest' });
+  });
+  var prevLang = window.onLangChange;
+  window.onLangChange = function () { if (prevLang) prevLang(); rulesLabel(); };
 
   // 1 · 2 · 3 strip follows the real flow
   document.addEventListener('brx:lead', function (e) {

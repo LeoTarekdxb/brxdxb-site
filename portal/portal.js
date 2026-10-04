@@ -1,6 +1,8 @@
 /* BRX Portal — static shell. Holds no data: everything comes from the API after sign-in. */
 (() => {
 "use strict";
+// iOS Safari only paints :active (the pressed state) when a touch listener exists
+document.addEventListener("touchstart", () => {}, { passive: true });
 const API = /(^|\.)brxdxb\.com$/.test(location.hostname) ? "https://defender.brxdxb.com/api/portal" : "/api/portal";
 const $ = (s, el = document) => el.querySelector(s);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));

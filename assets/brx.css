@@ -358,3 +358,12 @@ html[lang="ar"] .lead-form input, html[lang="ar"] .lead-form select { font-famil
 label small { font-size: 13px; }
 .crumb a, td a.link, .defender-line a.link { display: inline-flex; align-items: center; min-height: 44px; }
 .crumb a { min-width: 44px; }
+
+/* ── Pressed state: every tap shows at once, no transition (launch audit r3, 2026-10-04) ── */
+a, button, summary, [role="button"], label { -webkit-tap-highlight-color: transparent; }
+.btn:active, .btn--ink:active { background: var(--g2); border-color: var(--g2); box-shadow: inset 0 0 0 999px rgba(17,17,17,.14); transform: scale(.97); transition: none; }
+.btn--ghost:active { background: var(--g-soft); border-color: var(--g); box-shadow: none; transform: scale(.97); transition: none; }
+a.card:active { background: var(--g-soft); border-color: var(--g); transition: none; }
+a:not(.btn):not(.card):active { opacity: .55; transition: none; }
+button:not(.btn):not(.bigswitch):active, summary:active, [role="button"]:not(.bigswitch):active { opacity: .6; transition: none; }
+.bigswitch:active { transform: scale(.98); transition: background .5s; }

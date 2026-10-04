@@ -1,6 +1,8 @@
 /* BRX·DXB shared behaviour: language toggle, mobile sheet, active nav, reveal. No dependencies. */
 (function () {
   var root = document.documentElement;
+  // iOS Safari only paints :active (the pressed state) when a touch listener exists
+  document.addEventListener('touchstart', function () {}, { passive: true });
 
   // ── Language (same data-en / data-ar mechanism as the original homepage) ──
   window.setLang = function (lang) {

@@ -206,3 +206,9 @@ html[dir="rtl"] .toast { transform: translateX(50%); }
 .brand { min-height: 44px; }
 label.row:has(input[type="checkbox"]) { min-height: 44px; align-items: center; gap: 10px; cursor: pointer; }
 input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--g); }
+
+/* Pressed state: every tap shows at once (launch audit r3, 2026-10-04) */
+a, button, summary, [role="button"], label { -webkit-tap-highlight-color: transparent; }
+.btn:active { transform: scale(.97); filter: brightness(.92); transition: none; }
+a:not(.btn):active, button:not(.btn):active, summary:active, [role="button"]:active { opacity: .6; transition: none; }
+.cards a.card:active { transform: scale(.99); opacity: 1; border-color: var(--g2); }

@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="/assets/brx.css?v=20261004c">
+<link rel="stylesheet" href="/assets/brx.css?v=20261005a">
 <link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
@@ -133,6 +133,9 @@ html[lang="ar"] .more > summary { font-family: var(--ar); font-weight: 700; lett
 html:not(.js) .rules-all { display: none; }
 .more { margin-top: 32px; }
 
+.df-crumb { margin-bottom: 8px; }
+.promise .link { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 960px) { .df-crumb { margin: -24px 0 4px; } #atlasShot { display: none; } } /* phones: the full preview lives on /atlas/ */
 /* Owner Atlas numbers, moved here from the old "How it runs" block */
 #atlas { margin-top: 72px; }
 .atlas-n { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 14px 0 6px; font-size: 14px; color: var(--ink3); }
@@ -209,7 +212,7 @@ html:not(.js) .rules-all { display: none; }
 </style>
 <link rel="stylesheet" href="/assets/atlas.css">
 </head>
-<body data-page="defender">
+<body data-page="products">
 <!-- nav:start -->
 <a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
 <header class="site-nav" id="nav">
@@ -219,10 +222,10 @@ html:not(.js) .rules-all { display: none; }
       <b>BRX</b>
     </a>
     <nav class="nav-links" aria-label="Main">
-      <a href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
-      <a href="/agent.html" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
-      <a href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
-      <a href="/get-whitepaper.html" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+      <a href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
+      <a href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+      <a href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+      <a href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
     </nav>
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Language">
@@ -235,10 +238,19 @@ html:not(.js) .rules-all { display: none; }
   </div>
 </header>
 <div class="sheet" id="sheet" aria-hidden="true">
-  <a class="sheet-link" href="/defender/" data-nav="defender" data-en="Defender" data-ar="Defender">Defender</a>
-  <a class="sheet-link" href="/agent.html" data-nav="lab" data-en="Agents" data-ar="الوكلاء">Agents</a>
-  <a class="sheet-link" href="/flow/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
-  <a class="sheet-link" href="/get-whitepaper.html" data-nav="terminal" data-en="Terminal" data-ar="المحطة">Terminal</a>
+  <a class="sheet-link" href="/solutions/" data-nav="solutions" data-en="Solutions" data-ar="الحلول">Solutions</a>
+  <div class="sheet-sub">
+    <a href="/solutions/#agents" data-en="Agents by profession" data-ar="وكلاء حسب المهنة">Agents by profession</a>
+    <a href="/flow/" data-en="Industries" data-ar="القطاعات">Industries</a>
+  </div>
+  <a class="sheet-link" href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+  <div class="sheet-sub">
+    <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
+    <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
+    <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+  </div>
+  <a class="sheet-link" href="/ai-first/" data-nav="aifirst" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+  <a class="sheet-link" href="/savings/" data-nav="calculator" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
   <a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
   <p class="fine" data-en="BRX · Dubai" data-ar="BRX · دبي">BRX · Dubai</p>
 </div>
@@ -251,6 +263,7 @@ html:not(.js) .rules-all { display: none; }
   <div class="wake-veil" aria-hidden="true"></div>
   <canvas class="df-wall" data-wake-wall aria-hidden="true"></canvas>
   <div class="wrap">
+    <p class="crumb df-crumb"><a href="/products/" data-en="Products" data-ar="المنتجات">Products</a> / <span data-en="Defender, one BRX product" data-ar="Defender، أحد منتجات BRX">Defender, one BRX product</span> · <a href="/solutions/" data-en="See all solutions" data-ar="شاهد كل الحلول">See all solutions</a></p>
     <div class="split">
       <div>
         <h1>
@@ -425,7 +438,7 @@ html:not(.js) .rules-all { display: none; }
       <div>
         <p class="eyebrow" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</p>
         <h3 data-en="Dubai in 3D, one tower at a time." data-ar="دبي بالأبعاد الثلاثة، برجاً برجاً.">Dubai in 3D, one tower at a time.</h3>
-        <p class="promise" data-en="See who owns every unit in a building. Access is by request." data-ar="اعرف مالك كل وحدة في المبنى. الوصول بطلب فقط.">See who owns every unit in a building. Access is by request.</p>
+        <p class="promise" data-en="See who owns every unit in a building. Access is by request. &lt;a class=&quot;link&quot; href=&quot;/atlas/&quot;&gt;See the Owner Atlas&lt;/a&gt;" data-ar="اعرف مالك كل وحدة في المبنى. الوصول بطلب فقط. &lt;a class=&quot;link&quot; href=&quot;/atlas/&quot;&gt;شاهد أطلس الملّاك&lt;/a&gt;">See who owns every unit in a building. Access is by request. <a class="link" href="/atlas/">See the Owner Atlas</a></p>
         <p class="atlas-n"><span><b>14</b> <span data-en="communities" data-ar="مجتمعاً">communities</span></span><span><b>1,106</b> <span data-en="buildings" data-ar="مبنى">buildings</span></span><span><b>60,968</b> <span data-en="owners on file" data-ar="مالكاً في السجل">owners on file</span></span><span class="atlas-src" data-en="DLD register, Sep 2026" data-ar="سجل دائرة الأراضي، سبتمبر 2026">DLD register, Sep 2026</span></p>
         <p class="fine" data-en="Built from the DLD register, September 2026. You get a personal code; names stay hidden until it is approved." data-ar="مبني على سجل دائرة الأراضي والأملاك، سبتمبر 2026. تحصل على رمز شخصي، وتبقى الأسماء مخفية حتى تتم الموافقة.">Built from the DLD register, September 2026. You get a personal code; names stay hidden until it is approved.</p>
         <div class="btn-row"><button class="btn" type="button" id="atlasOpen" aria-haspopup="dialog" aria-controls="atlasDlg" data-en="Request access" data-ar="اطلب الوصول">Request access</button></div>
@@ -548,7 +561,15 @@ html:not(.js) .rules-all { display: none; }
       <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
       <b>BRX</b>
     </a>
-    <p data-en="AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ذكاء اصطناعي يتولّون العمل المتكرر، يُبنون ويعملون في دبي. © 2026 BRX Technologies.">AI agents that do the repetitive work, built and run in Dubai. © 2026 BRX Technologies.</p>
+    <p data-en="Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies." data-ar="وكلاء ووكالات ذكاء اصطناعي مصمّمة لأي عمل فيه إجراءات. تُبنى وتعمل في دبي. © 2026 BRX Technologies.">Custom AI agents and AI agencies for any business with a process. Built and run in Dubai. © 2026 BRX Technologies.</p>
+    <nav class="foot-nav" aria-label="Site" data-en-aria="Site" data-ar-aria="الموقع">
+      <a href="/solutions/" data-en="Solutions" data-ar="الحلول">Solutions</a>
+      <a href="/defender/" data-en="Defender" data-ar="Defender">Defender</a>
+      <a href="/atlas/" data-en="Owner Atlas" data-ar="أطلس الملّاك">Owner Atlas</a>
+      <a href="/get-whitepaper.html" data-en="Trading agents" data-ar="وكلاء التداول">Trading agents</a>
+      <a href="/ai-first/" data-en="AI-first company" data-ar="شركة ذاتية التشغيل">AI-first company</a>
+      <a href="/savings/" data-en="Calculator" data-ar="الحاسبة">Calculator</a>
+    </nav>
     <div class="foot-links">
       <a href="mailto:saud@brxdxb.com">saud@brxdxb.com</a>
       <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
@@ -556,7 +577,7 @@ html:not(.js) .rules-all { display: none; }
     </div>
   </div>
 </footer>
-<script src="/assets/brx.js?v=20261004c" defer></script>
+<script src="/assets/brx.js?v=20261005a" defer></script>
 <!-- foot:end -->
 
 <script src="/assets/wake.js" defer></script>

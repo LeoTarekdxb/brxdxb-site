@@ -27,7 +27,7 @@
 .sub-h { font-size: clamp(20px, 2vw, 26px); margin: 0 0 20px; }
 .sub-h + .grid-3, .sub-h + .grid-2 { margin-bottom: 48px; }
 @media (max-width: 960px) { .price-grid { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { #who .card { padding: 16px 18px; } #who .card p { font-size: 14px; line-height: 1.5; } #who .card .go { margin-top: 8px; } #who .grid-3, #who .grid-2 { gap: 12px; } }
+@media (max-width: 640px) { #who .grid-3, #who .grid-2 { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; } #who .card { padding: 14px 14px; min-height: 64px; display: flex; align-items: center; } #who .card h3 { font-size: 16px; margin: 0; } #who .card p, #who .card .go { display: none; } }
 </style>
 </head>
 <body data-page="flow">

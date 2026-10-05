@@ -11,7 +11,7 @@ fail=0
 echo "== pages ($BASE)"
 for p in $PAGES; do c=$(curl -s -o /dev/null -w "%{http_code}" "$BASE/$p?x=$RANDOM"); printf "%-26s %s\n" $p $c; [ "$c" = 200 ] || fail=1; done
 echo "== leaks (must be empty)"
-grep -rnE "C9A84C|00D4FF|#08090D|Syne|Cairo|566030347|PIN [0-9]{4}|defender\.brxdxb\.com/calls|localhost:87|Provident|Bitrix|DIFC[- ,]+(licen|regist|Dubai)|L\.L\.C|[Rr]egulated|owner-atlas-dubai\.netlify|مركز دبي المالي" --include="*.html" . 2>/dev/null | grep -v "^./\.qa\|^./v2\|^./v3\|^./defender/app\|console.html" && fail=1 || echo "clean"
+grep -rnE "C9A84C|00D4FF|#08090D|Syne|Cairo|566030347|PIN [0-9]{4}|defender\.brxdxb\.com/calls|localhost:87|Provident|Bitrix|DIFC[- ,]+(licen|regist|Dubai)|L\.L\.C|[Rr]egulated|owner-atlas-dubai\.netlify|مركز دبي المالي|\bDLD\b|Land Department|دائرة الأراضي|DXB ?Interact|Bayut|Property ?Finder" --include="*.html" . 2>/dev/null | grep -v "^./\.qa\|^./v2\|^./v3\|^./defender/app\|console.html" && fail=1 || echo "clean"
 echo "== old company names (must be empty): the company is BRXDXB"
 grep -rnE "BRX Technologies|BRX·DXB|BRX&middot;DXB" --include="*.html" --include="*.xml" --include="*.js" . 2>/dev/null | grep -v "^./\.qa\|^./v2\|^./v3\|^./card/\|^./defender/app\|^./portal/" && fail=1 || echo "clean"
 echo "== portal shell leaks (js/css too, must be empty)"

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRX CRM · demo</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Archivo:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#86BC25;--g2:#5F8F12;--ink:#16190f;--mut:#626a58;--line:#e2e6da;--paper:#f5f6f1;--blue:#2F6FA8;--amber:#C9822B;--red:#b0472b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',system-ui,sans-serif;color:var(--ink);background:var(--paper);min-height:100vh}
+header{background:#1C1F1A;color:#fff;padding:14px 28px;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:8px}.logo svg{height:26px}.logo b{font:800 24px/1 'Archivo',sans-serif;letter-spacing:-.5px}
+header .t{font-size:14px;color:#cfd6c4;margin-left:6px}
+header .pill{margin-left:auto;font:700 11px/1 'Open Sans';letter-spacing:1px;background:var(--g);color:#16190f;border-radius:99px;padding:6px 12px}
+main{max-width:1240px;margin:0 auto;padding:22px 24px 60px}
+h1{font-weight:300;font-size:30px;line-height:1.15}h1 b{font-weight:800}
+.sub{color:var(--mut);margin-top:4px;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
+.kpi{background:#fff;border:1px solid var(--line);border-top:4px solid var(--g);border-radius:8px;padding:14px 16px}
+.kpi .n{font-weight:300;font-size:40px;line-height:1;color:var(--ink);letter-spacing:-.5px}.kpi .n em{font-style:normal;color:var(--g2);font-size:22px}
+.kpi .l{font-size:13px;font-weight:600;color:var(--mut);margin-top:6px;line-height:1.3}
+.tabs{display:flex;gap:6px;margin-top:22px;flex-wrap:wrap}
+.tabs button{font:700 14px 'Open Sans';padding:10px 16px;border:1px solid var(--line);background:#fff;border-radius:99px;color:var(--mut);cursor:pointer}
+.tabs button.on{background:#1C1F1A;color:#fff;border-color:#1C1F1A}
+.panel{display:none;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:14px}
+.panel.on{display:block}
+.panel h2{font-size:18px;font-weight:700}.panel .note{font-size:13px;color:var(--mut);margin-top:2px}
+table{width:100%;border-collapse:collapse;margin-top:14px}
+th{text-align:left;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--mut);padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:11px 10px;border-bottom:1px solid var(--line);font-size:15px;vertical-align:middle}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:12px;background:#eef2e4;border-radius:6px;overflow:hidden;min-width:120px}.bar i{display:block;height:100%;background:var(--g);border-radius:6px}
+.bar.b i{background:var(--blue)}
+.tag{display:inline-block;font:700 11px/1 'Open Sans';padding:5px 9px;border-radius:99px;background:#eef5e2;color:var(--g2)}
+.tag.s{background:#1C1F1A;color:#fff}.tag.a{background:var(--g);color:#16190f}.tag.b{background:#eef0ea;color:var(--mut)}
+.stars{color:var(--amber);letter-spacing:1px;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.stage{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}
+.stage div{background:var(--paper);border-radius:8px;padding:12px;border-top:3px solid var(--g)}
+.stage .n{font-weight:300;font-size:30px;line-height:1}.stage .l{font-size:12px;color:var(--mut);margin-top:4px;font-weight:600}
+.call{display:inline-block;font:700 13px 'Open Sans';background:var(--g);color:#16190f;border-radius:99px;padding:7px 14px;text-decoration:none}
+.flag{font-size:18px;margin-right:6px}
+footer{max-width:1240px;margin:0 auto;padding:0 24px 30px;font-size:12px;color:var(--mut)}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.stage{grid-template-columns:repeat(3,1fr)}}
+</style></head><body>
+<header>
+  <div class="logo"><svg viewBox="0 0 120 92"><rect x="0" y="0" width="55" height="26" rx="4" fill="#86BC25"/><rect x="62" y="0" width="58" height="26" rx="4" fill="#BEDD8A"/><rect x="0" y="33" width="28" height="26" rx="4" fill="#D3E8AE"/><rect x="35" y="33" width="54" height="26" rx="4" fill="#86BC25"/><rect x="96" y="33" width="24" height="26" rx="4" fill="#D3E8AE"/><rect x="0" y="66" width="55" height="26" rx="4" fill="#BEDD8A"/><rect x="62" y="66" width="58" height="26" rx="4" fill="#86BC25"/></svg><b>BRX</b></div>
+  <span class="t">CRM · Demo Agency · Business Bay</span>
+  <span class="pill">SAMPLE DATA</span>
+</header>
+<main>
+  <h1>Campaign leads, <b>scored before the first call.</b></h1>
+  <p class="sub">Every lead that lands is scored 1 to 5 stars on arrival. The best go to the top of the call list, in the agent's language, in the lead's daytime.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">1,240</div><div class="l">campaign leads this month</div></div>
+    <div class="kpi"><div class="n">100<em>%</em></div><div class="l">called within 60 seconds</div></div>
+    <div class="kpi"><div class="n">186</div><div class="l">qualified · 15% of all leads</div></div>
+    <div class="kpi"><div class="n">41</div><div class="l">priority: call first today</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">languages matched to agents</div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="on" data-t="camp">Campaign leads</button>
+    <button data-t="lang">Leads by language</button>
+    <button data-t="nat">Leads by nationality</button>
+    <button data-t="qual">% qualified</button>
+    <button data-t="prio">Priority: call first</button>
+  </div>
+
+  <section class="panel on" id="camp">
+    <h2>Campaign leads · by source and stage</h2>
+    <p class="note">Where this month's 1,240 leads came from, and where each one is in the pipeline.</p>
+    <table>
+      <tr><th>Source</th><th class="r">Leads</th><th>Share</th><th class="r">Qualified</th><th class="r">Called in 60 s</th><th class="r">Meetings</th></tr>
+      <tr><td><b>Bayut</b></td><td class="r">486</td><td><div class="bar b"><i style="width:39%"></i></div></td><td class="r">84</td><td class="r">100%</td><td class="r">21</td></tr>
+      <tr><td><b>dubizzle</b></td><td class="r">298</td><td><div class="bar b"><i style="width:24%"></i></div></td><td class="r">41</td><td class="r">100%</td><td class="r">9</td></tr>
+      <tr><td><b>Meta ads</b> · off-plan campaign</td><td class="r">262</td><td><div class="bar b"><i style="width:21%"></i></div></td><td class="r">23</td><td class="r">100%</td><td class="r">4</td></tr>
+      <tr><td><b>Google</b></td><td class="r">118</td><td><div class="bar b"><i style="width:10%"></i></div></td><td class="r">26</td><td class="r">100%</td><td class="r">7</td></tr>
+      <tr><td><b>Roadshow</b> · London</td><td class="r">76</td><td><div class="bar b"><i style="width:6%"></i></div></td><td class="r">12</td><td class="r">100%</td><td class="r">6</td></tr>
+    </table>
+    <div class="stage">
+      <div><div class="n">1,240</div><div class="l">Landed</div></div>
+      <div><div class="n">1,240</div><div class="l">Called</div></div>
+      <div><div class="n">612</div><div class="l">Reached</div></div>
+      <div><div class="n">186</div><div class="l">Qualified</div></div>
+      <div><div class="n">47</div><div class="l">Meeting booked</div></div>
+      <div><div class="n">11</div><div class="l">Offer / closing</div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="lang">
+    <h2>Leads by language · matched to the right agent</h2>
+    <p class="note">A lead is routed to an agent who speaks the language and knows the culture. No more Belgian buyer with an agent who doesn't know Belgium.</p>
+    <table>
+      <tr><th>Language</th><th class="r">Leads</th><th>Share</th><th class="r">Agents who speak it</th><th class="r">Qualified</th></tr>
+      <tr><td>English</td><td class="r">498</td><td><div class="bar"><i style="width:40%"></i></div></td><td class="r">50</td><td class="r">68</td></tr>
+      <tr><td>Arabic</td><td class="r">236</td><td><div class="bar"><i style="width:19%"></i></div></td><td class="r">18</td><td class="r">41</td></tr>
+      <tr><td>Russian</td><td class="r">161</td><td><div class="bar"><i style="width:13%"></i></div></td><td class="r">6</td><td class="r">29</td></tr>
+      <tr><td>Hindi / Urdu</td><td class="r">124</td><td><div class="bar"><i style="width:10%"></i></div></td><td class="r">14</td><td class="r">17</td></tr>
+      <tr><td>French</td><td class="r">74</td><td><div class="bar"><i style="width:6%"></i></div></td><td class="r">4</td><td class="r">12</td></tr>
+      <tr><td>German</td><td class="r">62</td><td><div class="bar"><i style="width:5%"></i></div></td><td class="r">3</td><td class="r">9</td></tr>
+      <tr><td>Chinese</td><td class="r">49</td><td><div class="bar"><i style="width:4%"></i></div></td><td class="r">2</td><td class="r">6</td></tr>
+      <tr><td>Turkish, Dutch, Italian</td><td class="r">36</td><td><div class="bar"><i style="width:3%"></i></div></td><td class="r">3</td><td class="r">4</td></tr>
+    </table>
+  </section>
+
+  <section class="panel" id="nat">
+    <h2>Leads by nationality · who is buying</h2>
+    <p class="note">Nationality from the number and the form. It sets the agent, the opener, and the calling hours.</p>
+    <table>
+      <tr><th>Nationality</th><th class="r">Leads</th><th>Share</th><th class="r">Qualified</th><th class="r">Best calling window (Dubai time)</th></tr>
+      <tr><td><span class="flag">🇮🇳</span>India</td><td class="r">214</td><td><div class="bar"><i style="width:17%"></i></div></td><td class="r">27</td><td class="r">10:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇬🇧</span>United Kingdom</td><td class="r">178</td><td><div class="bar"><i style="width:14%"></i></div></td><td class="r">36</td><td class="r">13:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇷🇺</span>Russia</td><td class="r">149</td><td><div class="bar"><i style="width:12%"></i></div></td><td class="r">28</td><td class="r">10:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇦🇪</span>UAE</td><td class="r">132</td><td><div class="bar"><i style="width:11%"></i></div></td><td class="r">24</td><td class="r">09:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇸🇦</span>Saudi Arabia</td><td class="r">97</td><td><div class="bar"><i style="width:8%"></i></div></td><td class="r">19</td><td class="r">09:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇵🇰</span>Pakistan</td><td class="r">88</td><td><div class="bar"><i style="width:7%"></i></div></td><td class="r">9</td><td class="r">10:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇩🇪</span>Germany</td><td class="r">71</td><td><div class="bar"><i style="width:6%"></i></div></td><td class="r">12</td><td class="r">12:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇧🇪</span>Belgium, 🇳🇱 Netherlands</td><td class="r">58</td><td><div class="bar"><i style="width:5%"></i></div></td><td class="r">11</td><td class="r">12:00 – 18:00</td></tr>
+      <tr><td><span class="flag">🇨🇳</span>China</td><td class="r">49</td><td><div class="bar"><i style="width:4%"></i></div></td><td class="r">6</td><td class="r">09:00 – 14:00</td></tr>
+      <tr><td>Other (23 countries)</td><td class="r">204</td><td><div class="bar"><i style="width:16%"></i></div></td><td class="r">14</td><td class="r">by country</td></tr>
+    </table>
+  </section>
+
+  <section class="panel" id="qual">
+    <h2>% qualified · how the score is built</h2>
+    <p class="note">Five checks on arrival. Each adds a star. 5 stars = call first. 1 star = text, don't call.</p>
+    <div class="grid2">
+      <table>
+        <tr><th>Check on arrival</th><th class="r">Pass rate</th></tr>
+        <tr><td>Full form filled, not just a phone number</td><td class="r">44%</td></tr>
+        <tr><td>Phone country matches the name and email</td><td class="r">71%</td></tr>
+        <tr><td>Real person found online (professional profile)</td><td class="r">38%</td></tr>
+        <tr><td>Budget and area stated, and they match</td><td class="r">29%</td></tr>
+        <tr><td>Already owns in Dubai, or enquired before</td><td class="r">12%</td></tr>
+      </table>
+      <table>
+        <tr><th>Score</th><th class="r">Leads</th><th class="r">Share</th><th>What happens</th></tr>
+        <tr><td><span class="stars">★★★★★</span></td><td class="r">41</td><td class="r">3.3%</td><td><span class="tag s">Call first · today</span></td></tr>
+        <tr><td><span class="stars">★★★★</span></td><td class="r">145</td><td class="r">11.7%</td><td><span class="tag a">Call within the hour</span></td></tr>
+        <tr><td><span class="stars">★★★</span></td><td class="r">322</td><td class="r">26.0%</td><td><span class="tag">Call in daytime</span></td></tr>
+        <tr><td><span class="stars">★★</span></td><td class="r">418</td><td class="r">33.7%</td><td><span class="tag b">Text, then one call</span></td></tr>
+        <tr><td><span class="stars">★</span></td><td class="r">314</td><td class="r">25.3%</td><td><span class="tag b">Text only, nurture</span></td></tr>
+      </table>
+    </div>
+    <div class="kpis" style="margin-top:18px;grid-template-columns:repeat(3,1fr)">
+      <div class="kpi"><div class="n">15<em>%</em></div><div class="l">of leads are 4 or 5 stars: worth an agent's best hour</div></div>
+      <div class="kpi"><div class="n">85<em>%</em></div><div class="l">still get a call or a text, by the calling centre, not the agent</div></div>
+      <div class="kpi"><div class="n">0</div><div class="l">leads lost in the round robin</div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="prio">
+    <h2>Priority leads · call first today</h2>
+    <p class="note">41 five-star leads, in the order to call them. Each one shows the opener the agent should say.</p>
+    <table>
+      <tr><th>#</th><th>Lead</th><th>Wants</th><th class="r">Budget</th><th>Language · nationality</th><th>Opener</th><th></th></tr>
+      <tr><td>1</td><td><b>Lead 4471</b> · <span class="stars">★★★★★</span></td><td>2BR · Business Bay · ready</td><td class="r">AED 2.4M</td><td>English · 🇬🇧</td><td>"You asked about canal-side 2-beds. One came up on floor 24 this morning."</td><td><a class="call" href="#">Call now</a></td></tr>
+      <tr><td>2</td><td><b>Lead 4468</b> · <span class="stars">★★★★★</span></td><td>Villa · Dubai Hills</td><td class="r">AED 7–9M</td><td>Arabic · 🇸🇦</td><td>"حياك الله. شفت اهتمامك بفلل دبي هيلز، عندي خيارين جاهزين."</td><td><a class="call" href="#">Call now</a></td></tr>
+      <tr><td>3</td><td><b>Lead 4459</b> · <span class="stars">★★★★★</span></td><td>Off-plan · Creek Harbour</td><td class="r">AED 1.8M</td><td>Russian · 🇷🇺</td><td>"Вы смотрели Creek Harbour. Есть план оплаты 60/40 на запуске этой недели."</td><td><a class="call" href="#">Call now</a></td></tr>
+      <tr><td>4</td><td><b>Lead 4452</b> · <span class="stars">★★★★★</span></td><td>Studio · JVC · investment</td><td class="r">AED 650k</td><td>English · 🇮🇳</td><td>"You asked about yield in JVC. The building you picked rents at 8.1% today."</td><td><a class="call" href="#">Call now</a></td></tr>
+      <tr><td>5</td><td><b>Lead 4440</b> · <span class="stars">★★★★★</span></td><td>3BR · Palm Jumeirah</td><td class="r">AED 12M+</td><td>German · 🇩🇪</td><td>"Sie haben nach Palm-Apartments gefragt. Zwei Einheiten mit Meerblick sind frei."</td><td><a class="call" href="#">Call now</a></td></tr>
+      <tr><td>6</td><td><b>Lead 4437</b> · <span class="stars">★★★★★</span></td><td>2BR · Marina · rent-to-own</td><td class="r">AED 2.1M</td><td>French · 🇧🇪</td><td>"Vous cherchiez un 2 pièces à la Marina. Un appartement vient de se libérer."</td><td><a class="call" href="#">Call now</a></td></tr>
+      <tr><td colspan="7" style="color:var(--mut);font-size:13px">… and 35 more, in order. The list refreshes as new leads land.</td></tr>
+    </table>
+  </section>
+</main>
+<footer>Demo with sample data only. No real leads, names or numbers. BRX · www.brxdxb.com</footer>
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');
+}));
+</script>
+</body></html>

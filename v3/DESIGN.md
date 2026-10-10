@@ -75,7 +75,7 @@ pipeline.
 - No employer, brokerage, portal host or CRM vendor is named anywhere. v2's mentions of the
   employer and of specific CRM/portal vendors are all removed; capability is stated
   generically ("the CRM you already run", "portal enquiries synced in").
-- The quote is attributed to **Leo Khatib — Co-founder, BRX**. No employer title.
+- The quote is attributed to **Leo Khatib — Founder & CEO, BRX**. No employer title.
 
 ## Pricing as a table
 

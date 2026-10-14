@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRX Live Agency</title>
+<meta name="description" content="A Dubai real estate agency running live on BRX: every lead called in seconds, every owner known, every unit in 3D. Leads from Bayut and dubizzle, the Defender switch, the calling centre, the Owner Atlas.">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F1612;--bg2:#17211B;--card:#18231D;--line:#2B3A31;--ink:#EEF2E8;--soft:#C3CEC0;--mute:#8E9A8F;--g:#86B83A;--gl:#A9CF5E;--gd:#5F8F12;--b:#6FA3D6;--a:#E0A055;--r:#E06D5B}
+:root[data-theme="light"]{--bg:#F4F5EF;--bg2:#E9EDE0;--card:#FDFDFA;--line:#D6DCCB;--ink:#15201A;--soft:#3F4B43;--mute:#6B756E;--g:#5F8F12;--gl:#466B0E;--gd:#466B0E;--b:#2F6FA8;--a:#C9822B;--r:#C4472F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45}
+a{color:var(--gl)}
+h1,h2,h3,.big{font-family:'Archivo',Arial,sans-serif;letter-spacing:-.01em}
+.wrap{max-width:1360px;margin:0 auto;padding:0 16px}
+header.top{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.logo{font:900 22px 'Archivo';color:var(--gl);text-decoration:none;letter-spacing:.04em}
+.logo span{color:var(--ink);font-weight:600;font-size:14px;margin-left:10px;letter-spacing:0}
+.clock{margin-left:auto;font:500 14px 'IBM Plex Mono';color:var(--mute)}
+.live{display:inline-flex;align-items:center;gap:8px;font:600 12px 'IBM Plex Mono';letter-spacing:.12em;color:var(--gl);text-transform:uppercase}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 0 0 rgba(134,184,58,.6);animation:ping 1.6s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(134,184,58,0)}100%{box-shadow:0 0 0 0 rgba(134,184,58,0)}}
+.hero{padding:40px 0 20px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:end}
+.hero h1{font-size:clamp(30px,4.2vw,58px);line-height:1.04;font-weight:900}
+.hero h1 b{color:var(--gl)}
+.hero p.lead{font-size:clamp(15px,1.3vw,19px);color:var(--soft);margin-top:12px;max-width:620px}
+.switches{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sw{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;user-select:none}
+.sw b{font-size:15px}.sw small{display:block;color:var(--mute);font-size:12px}
+.tg{width:52px;height:30px;border-radius:99px;background:#3A4A40;position:relative;flex:0 0 auto;transition:background .3s}
+.tg:after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#F3F5EE;transition:left .3s}
+.sw.on .tg{background:var(--g)}.sw.on .tg:after{left:25px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:22px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.kpi .big{font-size:clamp(24px,2.4vw,36px);font-weight:900;color:var(--gl);line-height:1.05}
+.kpi .big.b{color:var(--b)}.kpi .big.a{color:var(--a)}
+.kpi small{color:var(--mute);font-size:12px;display:block;margin-top:4px}
+.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+section.card h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+section.card h2 small{font:500 12px 'IBM Plex Mono';color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
+.floor{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ag{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:start;position:relative;transition:box-shadow .3s,transform .3s}
+.ag.ring{box-shadow:0 0 0 2px var(--g),0 0 24px rgba(134,184,58,.35);transform:translateY(-2px)}
+.av{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font:800 14px 'Archivo';color:#F3F5EE}
+.ag b{font-size:14px;display:block}
+.st{font-size:12px;color:var(--mute);display:flex;align-items:center;gap:6px;margin-top:2px}
+.st i{width:8px;height:8px;border-radius:50%;background:var(--mute);flex:0 0 auto}
+.st.call i{background:var(--g);animation:blink 1s infinite}.st.view i{background:var(--b)}.st.write i{background:var(--a)}.st.off i{background:#555}
+@keyframes blink{50%{opacity:.3}}
+.nums{display:flex;gap:10px;font:500 11px 'IBM Plex Mono';color:var(--soft);margin-top:6px}
+.nums span b{color:var(--ink);font-weight:600}
+.spark{position:absolute;right:10px;top:12px;width:56px;height:22px}
+.feed{display:flex;flex-direction:column;gap:8px;max-height:560px;overflow:auto;padding-right:4px}
+.ev{display:grid;grid-template-columns:32px 1fr auto;gap:10px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px;animation:drop .45s cubic-bezier(.2,.75,.2,1)}
+@keyframes drop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.ev i{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:15px;font-style:normal;background:var(--gd);color:#F3F5EE}
+.ev i.b{background:var(--b)}.ev i.a{background:var(--a)}.ev i.r{background:var(--r)}
+.ev p{font-size:13px}.ev p b{font-weight:600}
+.ev time{font:500 11px 'IBM Plex Mono';color:var(--mute);white-space:nowrap}
+.flowwrap{margin-top:16px}
+.flow path.dash{stroke-dasharray:7 9;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-32}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.tower{display:flex;flex-direction:column-reverse;gap:3px;width:100%;max-width:300px}
+.fl{display:grid;grid-template-columns:repeat(8,1fr);gap:3px}
+.u{height:14px;border-radius:3px;background:#3B5A80;opacity:.85}
+.u.t2{background:var(--gd)}.u.t3{background:#9A6420}.u.hot{background:var(--a);box-shadow:0 0 10px var(--a);animation:blink .8s infinite}
+.chart{width:100%;height:150px}
+.cta{margin:30px 0 50px;background:linear-gradient(135deg,#14201A,#22322A);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center;color:#F3F5EE}
+.cta h2{font-size:clamp(22px,2.6vw,34px);font-weight:900}
+.cta p{color:#B9C7B6;margin-top:6px}
+.btn{display:inline-block;background:var(--g);color:#F3F5EE;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:12px;margin:6px 8px 0 0}
+.btn.sec{background:#2E4136}
+footer{color:var(--mute);font-size:13px;padding:0 0 40px}
+.note{font-size:12px;color:var(--mute);margin-top:10px}
+@media (max-width:980px){.hero,.grid,.two,.cta{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}.floor{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.kpis{grid-template-columns:repeat(2,1fr)}.floor{grid-template-columns:1fr 1fr}.switches{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="https://www.brxdxb.com">BRX<span>Live Agency</span></a>
+  <span class="live"><i></i> live</span>
+  <span class="clock" id="clock">--:--:-- Dubai</span>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Marina Heights Realty.<br>24 agents. <b>Running on BRX.</b></h1>
+      <p class="lead">A Dubai agency, live. Leads land from Bayut and dubizzle, get scored in seconds, and the company phones call. Every owner known in the Atlas. Every unit walkable in 3D. Every action logged for the CEO.</p>
+    </div>
+    <div class="switches" id="switches">
+      <div class="sw on" data-k="leads"><div><b>Leads</b><small>Bayut · dubizzle · site</small></div><div class="tg"></div></div>
+      <div class="sw on" data-k="offplan"><div><b>Off-plan</b><small>launch calls</small></div><div class="tg"></div></div>
+      <div class="sw on" data-k="owners"><div><b>Owners</b><small>listing calls</small></div><div class="tg"></div></div>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="big" id="k_leads">0</div><small>leads today</small></div>
+    <div class="kpi"><div class="big" id="k_fast">0%</div><small>called within 60 s</small></div>
+    <div class="kpi"><div class="big b" id="k_med">0 s</div><small>median first call</small></div>
+    <div class="kpi"><div class="big" id="k_meet">0</div><small>meetings booked</small></div>
+    <div class="kpi"><div class="big a" id="k_list">0</div><small>listings won</small></div>
+    <div class="kpi"><div class="big a" id="k_deals">0</div><small>deals this month</small></div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>The floor <small id="floorstat">24 agents · 0 on calls</small></h2>
+      <div class="floor" id="floor"></div>
+    </section>
+    <section class="card">
+      <h2>Live feed <small>newest first</small></h2>
+      <div class="feed" id="feed"></div>
+    </section>
+  </div>
+
+  <section class="card flowwrap">
+    <h2>How it connects <small>Bayut · dubizzle → BRX → people</small></h2>
+    <svg class="flow" viewBox="0 0 1200 330" style="width:100%;height:auto" aria-label="Leads from Bayut and dubizzle flow through the BRX engines to the agents, owners, buyers and the CEO">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#86B83A"/></marker></defs>
+      <g fill="none" stroke="#86B83A" stroke-width="3" marker-end="url(#ar)">
+        <path class="dash" d="M200 70 C320 70 320 120 440 120"/><path class="dash" d="M200 160 C320 160 320 160 440 160"/><path class="dash" d="M200 250 C320 250 320 200 440 200"/>
+        <path class="dash" d="M760 120 C880 120 880 70 1000 70"/><path class="dash" d="M760 160 C880 160 880 160 1000 160"/><path class="dash" d="M760 200 C880 200 880 250 1000 250"/>
+        <path class="dash" d="M1090 290 C1090 325 110 325 110 290"/>
+      </g>
+      <g font-family="IBM Plex Sans,Arial" font-size="16">
+        <rect x="40" y="40" width="160" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="120" y="66" text-anchor="middle" fill="#F3F5EE" font-weight="600">Bayut</text><text x="120" y="86" text-anchor="middle" fill="#B9C7B6" font-size="12">leads</text>
+        <rect x="40" y="130" width="160" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="120" y="156" text-anchor="middle" fill="#F3F5EE" font-weight="600">dubizzle</text><text x="120" y="176" text-anchor="middle" fill="#B9C7B6" font-size="12">leads</text>
+        <rect x="40" y="220" width="160" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="120" y="246" text-anchor="middle" fill="#F3F5EE" font-weight="600">Agency data</text><text x="120" y="266" text-anchor="middle" fill="#B9C7B6" font-size="12">CRM · Form A/B · DLD</text>
+        <rect x="440" y="40" width="320" height="240" rx="18" fill="#14201A" stroke="#2E4136"/>
+        <text x="600" y="68" text-anchor="middle" fill="#A9CF5E" font-size="12" font-weight="700" letter-spacing="2">BRX · 4 ENGINES</text>
+        <rect x="460" y="85" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="110" fill="#F3F5EE" font-weight="600">1 CRM + qualifier</text><text x="725" y="110" text-anchor="end" fill="#A9CF5E" font-size="13">score 1–5</text>
+        <rect x="460" y="133" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="158" fill="#F3F5EE" font-weight="600">2 Calling centre</text><text x="725" y="158" text-anchor="end" fill="#A9CF5E" font-size="13">AI or Galaxy</text>
+        <rect x="460" y="181" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="206" fill="#F3F5EE" font-weight="600">3 Owner Atlas twin</text><text x="725" y="206" text-anchor="end" fill="#A9CF5E" font-size="13">to the unit</text>
+        <rect x="460" y="229" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="254" fill="#F3F5EE" font-weight="600">4 3D · links · reports</text><text x="725" y="254" text-anchor="end" fill="#A9CF5E" font-size="13">48 h links</text>
+        <rect x="1000" y="40" width="170" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="1085" y="66" text-anchor="middle" fill="#F3F5EE" font-weight="600">CEO</text><text x="1085" y="86" text-anchor="middle" fill="#B9C7B6" font-size="12">one dashboard</text>
+        <rect x="1000" y="130" width="170" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="1085" y="156" text-anchor="middle" fill="#F3F5EE" font-weight="600">Agents</text><text x="1085" y="176" text-anchor="middle" fill="#B9C7B6" font-size="12">Defender app</text>
+        <rect x="1000" y="220" width="170" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="1085" y="246" text-anchor="middle" fill="#F3F5EE" font-weight="600">Owners · buyers</text><text x="1085" y="266" text-anchor="middle" fill="#B9C7B6" font-size="12">banks · developers</text>
+        <text x="600" y="315" text-anchor="middle" fill="#8E9A8F" font-size="12">every call, meeting and deal flows back: better scores, truer broker ratings, more listings</text>
+      </g>
+    </svg>
+  </section>
+
+  <div class="two">
+    <section class="card">
+      <h2>Owner Atlas <small id="towername">Marquise Square Tower</small></h2>
+      <div style="display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap">
+        <div class="tower" id="tower"></div>
+        <div style="flex:1;min-width:180px">
+          <p style="font-size:14px;color:var(--soft)" id="towernote">Tap a unit in the real Atlas to see layout, size, view, price history and the owner from the agency's own data. The unit that just changed hands lights up here.</p>
+          <p style="font-size:12px;color:var(--mute);margin-top:8px"><span style="color:#6FA3D6">■</span> 1-bed <span style="color:var(--gd)">■</span> 2-bed <span style="color:#9A6420">■</span> 3-bed <span style="color:var(--a)">■</span> changed hands</p>
+          <p style="margin-top:12px"><a class="btn" href="https://owner-atlas-dubai.netlify.app/twin.html" target="_blank" rel="noopener">Open the real Atlas</a></p>
+        </div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>CEO report <small>today</small></h2>
+      <p style="font-size:12px;color:var(--mute)">Calls per hour</p><svg class="chart" id="c1" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
+      <p style="font-size:12px;color:var(--mute);margin-top:8px">Median first-call time, last 14 days (seconds)</p><svg class="chart" id="c2" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
+    </section>
+  </div>
+
+  <div class="cta">
+    <div><h2>Switch on your agency.</h2><p>Plug and play on your own CRM and data. Live in weeks. Every lead called in seconds, every owner known, every unit in 3D.</p></div>
+    <div><a class="btn" href="https://wa.me/971558917770" target="_blank" rel="noopener">WhatsApp Leo</a><a class="btn sec" href="mailto:leo@brxdxb.com">leo@brxdxb.com</a><a class="btn sec" href="https://www.brxdxb.com/products/">See the products</a></div>
+  </div>
+  <footer>BRX · Leo Khatib, Founder &amp; CEO · Dubai · <a href="https://www.brxdxb.com">brxdxb.com</a><p class="note">Marina Heights Realty is a demonstration agency on simulated data. Every screen behind it is the real BRX, running today.</p></footer>
+</main>
+
+<script>
+(function(){
+  // seeded random so the floor looks real and repeats
+  var seed=20261014; function rnd(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296}
+  function pick(a){return a[Math.floor(rnd()*a.length)]}
+  var SW={leads:true,offplan:true,owners:true};
+  var NAMES=["Ahmed Al Mansoori","Sara Haddad","Ivan Petrov","Priya Nair","Omar Khalil","Elena Rossi","Faisal Rahman","Mei Lin","Youssef Nasser","Anna Kowalska","Rami Saad","Noor Al Ali","Daniel Okafor","Layla Hassan","Hugo Martins","Zainab Qureshi","Tariq Aziz","Chloe Dubois","Karim Fahmy","Aisha Bello","Luca Bianchi","Mona Ibrahim","Jad Khoury","Sofia Alvarez"];
+  var COL=["#5F8F12","#2F6FA8","#C9822B","#6B4FA0","#1F8A8A","#B04A5A"];
+  var STATES=[["call","On a call"],["view","At a viewing"],["write","Writing follow-ups"],["free","Available"]];
+  var agents=NAMES.map(function(n,i){var s=pick(STATES);return{n:n,c:COL[i%COL.length],s:s,calls:8+Math.floor(rnd()*30),meet:Math.floor(rnd()*4),deals:Math.floor(rnd()*3),hist:Array.from({length:10},function(){return 2+Math.floor(rnd()*10)})}});
+  var K={leads:38,fast:96,med:21,meet:11,list:3,deals:19};
+  var floor=document.getElementById('floor'),feed=document.getElementById('feed');
+  function ini(n){return n.split(' ').map(function(w){return w[0]}).slice(0,2).join('')}
+  function spark(h){var w=56,ht=22,m=Math.max.apply(null,h),pts=h.map(function(v,i){return (i*(w/(h.length-1))).toFixed(1)+','+(ht-v/m*ht).toFixed(1)}).join(' ');return '<svg class="spark" viewBox="0 0 56 22"><polyline points="'+pts+'" fill="none" stroke="#86B83A" stroke-width="2"/></svg>'}
+  function renderFloor(){floor.innerHTML=agents.map(function(a,i){return '<div class="ag" id="ag'+i+'"><div class="av" style="background:'+a.c+'">'+ini(a.n)+'</div><div><b>'+a.n+'</b><div class="st '+a.s[0]+'"><i></i>'+a.s[1]+'</div><div class="nums"><span>calls <b>'+a.calls+'</b></span><span>meet <b>'+a.meet+'</b></span><span>deals <b>'+a.deals+'</b></span></div></div>'+spark(a.hist)+'</div>'}).join('');
+    var on=agents.filter(function(a){return a.s[0]==='call'}).length;document.getElementById('floorstat').textContent='24 agents · '+on+' on calls'}
+  function kp(){document.getElementById('k_leads').textContent=K.leads;document.getElementById('k_fast').textContent=K.fast+'%';document.getElementById('k_med').textContent=K.med+' s';document.getElementById('k_meet').textContent=K.meet;document.getElementById('k_list').textContent=K.list;document.getElementById('k_deals').textContent=K.deals}
+  var UNITS=["2304","1802","1506","901","2210","705","1911","1204"],AREAS=["Dubai Marina","Business Bay","JVC","Downtown","Palm Jumeirah","Dubai Hills","Creek Harbour"],TYPES=["studio","1-bed","2-bed","3-bed"];
+  function t(){var d=new Date(),o=new Date(d.getTime()+(4*60+d.getTimezoneOffset())*60000);return o.toTimeString().slice(0,8)}
+  function ev(cls,icon,html){var e=document.createElement('div');e.className='ev';e.innerHTML='<i class="'+cls+'">'+icon+'</i><p>'+html+'</p><time>'+t()+'</time>';feed.prepend(e);while(feed.children.length>40)feed.lastChild.remove()}
+  function ring(i){var el=document.getElementById('ag'+i);if(!el)return;el.classList.add('ring');setTimeout(function(){el.classList.remove('ring')},2600)}
+  var EVENTS=[
+    function(){if(!SW.leads)return;var a=Math.floor(rnd()*24),s=3+Math.floor(rnd()*3),src=pick(["Bayut","dubizzle","Bayut","website"]);K.leads++;agents[a].s=STATES[0];ev('','★','<b>Lead from '+src+'</b> · '+pick(TYPES)+' '+pick(AREAS)+' · scored '+'★'.repeat(s)+' in '+(3+Math.floor(rnd()*6))+' s → <b>'+agents[a].n.split(' ')[0]+'</b>\'s company line rings');ring(a);K.med=18+Math.floor(rnd()*9)},
+    function(){if(!SW.leads)return;var a=Math.floor(rnd()*24);agents[a].calls++;agents[a].s=STATES[2];ev('b','✓','<b>'+agents[a].n.split(' ')[0]+'</b> finished the call · transcript and next step written to the CRM')},
+    function(){if(!SW.leads)return;var a=Math.floor(rnd()*24);agents[a].meet++;K.meet++;ev('b','📅','<b>AI voice qualified a buyer</b> · budget confirmed · meeting booked '+pick(["Thu 11:00","Sat 16:30","Tue 10:00","Mon 14:00"])+' for '+agents[a].n.split(' ')[0])},
+    function(){if(!SW.owners)return;var u=pick(UNITS);hot(u);var a=Math.floor(rnd()*24);ev('a','⌂','<b>Transaction</b> · unit '+u+' Marquise Square changed hands → owner called by '+agents[a].n.split(' ')[0]+' at '+t().slice(0,5));ring(a)},
+    function(){if(!SW.owners)return;K.list++;var a=Math.floor(rnd()*24);agents[a].deals+=0;ev('a','🏷','<b>Listing won</b> · '+pick(TYPES)+' in '+pick(AREAS)+' · Form A signed · '+agents[a].n.split(' ')[0])},
+    function(){if(!SW.offplan)return;ev('','📣','<b>Off-plan launch</b> · '+(12+Math.floor(rnd()*30))+' registered buyers called in the first 2 minutes · '+pick(["Emaar","Sobha","Damac","Nakheel"])+' '+pick(AREAS))},
+    function(){ev('b','⬡','<b>3D walk-in sent</b> · private link, 3 units, expires in 48 h · '+pick(["WhatsApp","email","iMessage"]))},
+    function(){ev('b','💬','<b>Owner replied on WhatsApp</b> · "'+pick(["Send me the valuation","Call me after 5","What can I ask for it?","Not now, in 3 months"])+'" · next reply drafted')},
+    function(){var a=Math.floor(rnd()*24);agents[a].s=STATES[1];ev('','🚗','<b>'+agents[a].n.split(' ')[0]+'</b> left for a viewing · new leads still get called')},
+    function(){if(rnd()<.35){K.deals++;ev('a','🏆','<b>Deal closed</b> · '+pick(TYPES)+' '+pick(AREAS)+' · AED '+(1.2+Math.floor(rnd()*30)/10).toFixed(1)+'M · CEO report updated')}else ev('','📊','<b>CEO report updated</b> · response time, calls, meetings, deals per agent')},
+    function(){ev('r','⏻','<b>Compliance</b> · all calls 9am–6pm from TDRA company numbers · DNCR screened · 0 breaches today')}
+  ];
+  // tower
+  var tw=document.getElementById('tower'),cells=[];var h='';for(var f=0;f<24;f++){h+='<div class="fl">';for(var c=0;c<8;c++){var t2=(c<2)?'':(c<6)?'t2':'t3';h+='<div class="u '+t2+'" data-u="'+(f+1)+''+(c+1)+'"></div>'}h+='</div>'}tw.innerHTML=h;
+  function hot(u){var els=tw.querySelectorAll('.u.hot');els.forEach(function(e){e.classList.remove('hot')});var fl=parseInt(u.slice(0,-2))||5,c=parseInt(u.slice(-2))||3;var row=tw.children[Math.min(23,Math.max(0,fl-1))];if(row){var cell=row.children[Math.min(7,Math.max(0,c-1))];if(cell)cell.classList.add('hot')}}
+  // charts
+  function bars(id,vals,color){var s=document.getElementById(id),m=Math.max.apply(null,vals),w=400/vals.length;s.innerHTML=vals.map(function(v,i){var hh=v/m*120;return '<rect x="'+(i*w+3)+'" y="'+(140-hh)+'" width="'+(w-6)+'" height="'+hh+'" rx="3" fill="'+color+'"/>'}).join('')+'<line x1="0" y1="140" x2="400" y2="140" stroke="#2B3A31"/>'}
+  function line(id,vals,color){var s=document.getElementById(id),m=Math.max.apply(null,vals),pts=vals.map(function(v,i){return (i*(400/(vals.length-1))).toFixed(1)+','+(135-v/m*120).toFixed(1)}).join(' ');s.innerHTML='<polyline points="'+pts+'" fill="none" stroke="'+color+'" stroke-width="3"/>'+vals.map(function(v,i){return '<circle cx="'+(i*(400/(vals.length-1))).toFixed(1)+'" cy="'+(135-v/m*120).toFixed(1)+'" r="3" fill="'+color+'"/>'}).join('')+'<line x1="0" y1="140" x2="400" y2="140" stroke="#2B3A31"/>'}
+  var hours=[2,4,9,14,18,17,12,15,19,16,8,3];bars('c1',hours,'#86B83A');line('c2',[1920,1500,980,640,310,120,60,42,33,28,25,23,21,21],'#6FA3D6');
+  // clock
+  setInterval(function(){document.getElementById('clock').textContent=t()+' Dubai'},1000);
+  // switches
+  document.getElementById('switches').addEventListener('click',function(e){var s=e.target.closest('.sw');if(!s)return;var k=s.dataset.k;SW[k]=!SW[k];s.classList.toggle('on',SW[k]);ev(SW[k]?'':'r','⏻','<b>'+s.querySelector('b').textContent+' switch '+(SW[k]?'ON':'OFF')+'</b> · '+(SW[k]?'the phones start calling':'every call and message on this line stops within 2 minutes'))});
+  // seed the feed and run
+  renderFloor();kp();for(var i=0;i<6;i++)EVENTS[i%EVENTS.length]();
+  setInterval(function(){pick(EVENTS)();renderFloor();kp();},3200+Math.floor(rnd()*1500));
+  setInterval(function(){hours[hours.length-1]+= (rnd()<.5?1:0);bars('c1',hours,'#86B83A')},9000);
+  // live mode: real numbers if the Defender PIN cookie is present on this browser
+  if(/[?&]live=1/.test(location.search)){fetch('https://defender.brxdxb.com/calls/now.json',{credentials:'include'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j)return;if(j.leads_today)K.leads=j.leads_today;if(j.calls_today)K.meet=j.meetings_today||K.meet;kp();ev('','⚡','<b>Live mode</b> · numbers from the real Defender')}).catch(function(){})}
+})();
+</script>
+</body>
+</html>

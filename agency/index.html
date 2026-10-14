@@ -1,233 +1,531 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BRX Live Agency</title>
-<meta name="description" content="A Dubai real estate agency running live on BRX: every lead called in seconds, every owner known, every unit in 3D. Leads from Bayut and dubizzle, the Defender switch, the calling centre, the Owner Atlas.">
-<link rel="icon" href="/assets/favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your agency. Live. A Dubai agency running on BRX | BRXDXB</title>
+<meta name="description" content="Watch a Dubai real-estate agency run on BRX in real time: 6 agents, leads from Bayut and dubizzle called in seconds, messages, Owner Atlas lookups, meetings and the CEO report.">
+<meta property="og:title" content="Your agency. Live. | BRX">
+<meta property="og:description" content="Every lead called. Every owner known. One operating system for a Dubai agency.">
+<meta property="og:image" content="https://www.brxdxb.com/agency/img/poster.jpg">
+<meta property="og:url" content="https://www.brxdxb.com/agency/">
+<link rel="canonical" href="https://www.brxdxb.com/agency/">
+<!-- head:start -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="/assets/brx.css?v=20261005r6">
+<link rel="icon" href="/assets/brx-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FFFFFF">
+<script>document.documentElement.classList.add('js')</script>
+<!-- head:end -->
+<link rel="preload" as="image" href="/agency/img/poster.jpg">
 <style>
-:root{--bg:#0F1612;--bg2:#17211B;--card:#18231D;--line:#2B3A31;--ink:#EEF2E8;--soft:#C3CEC0;--mute:#8E9A8F;--g:#86B83A;--gl:#A9CF5E;--gd:#5F8F12;--b:#6FA3D6;--a:#E0A055;--r:#E06D5B}
-:root[data-theme="light"]{--bg:#F4F5EF;--bg2:#E9EDE0;--card:#FDFDFA;--line:#D6DCCB;--ink:#15201A;--soft:#3F4B43;--mute:#6B756E;--g:#5F8F12;--gl:#466B0E;--gd:#466B0E;--b:#2F6FA8;--a:#C9822B;--r:#C4472F}
-*{box-sizing:border-box;margin:0;padding:0}
-body{overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45}
-a{color:var(--gl)}
-h1,h2,h3,.big{font-family:'Archivo',Arial,sans-serif;letter-spacing:-.01em}
-.wrap{max-width:1360px;margin:0 auto;padding:0 16px}
-header.top{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
-.logo{font:900 22px 'Archivo';color:var(--gl);text-decoration:none;letter-spacing:.04em}
-.logo span{color:var(--ink);font-weight:600;font-size:14px;margin-left:10px;letter-spacing:0}
-.clock{margin-left:auto;font:500 14px 'IBM Plex Mono';color:var(--mute)}
-.live{display:inline-flex;align-items:center;gap:8px;font:600 12px 'IBM Plex Mono';letter-spacing:.12em;color:var(--gl);text-transform:uppercase}
-.live i{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 0 0 rgba(134,184,58,.6);animation:ping 1.6s infinite}
-@keyframes ping{70%{box-shadow:0 0 0 10px rgba(134,184,58,0)}100%{box-shadow:0 0 0 0 rgba(134,184,58,0)}}
-.hero{padding:40px 0 20px;display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:end}
-.hero h1{font-size:clamp(30px,4.2vw,58px);line-height:1.04;font-weight:900}
-.hero h1 b{color:var(--gl)}
-.hero p.lead{font-size:clamp(15px,1.3vw,19px);color:var(--soft);margin-top:12px;max-width:620px}
-.switches{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.sw{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;user-select:none}
-.sw b{font-size:15px}.sw small{display:block;color:var(--mute);font-size:12px}
-.tg{width:52px;height:30px;border-radius:99px;background:#3A4A40;position:relative;flex:0 0 auto;transition:background .3s}
-.tg:after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#F3F5EE;transition:left .3s}
-.sw.on .tg{background:var(--g)}.sw.on .tg:after{left:25px}
-.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:22px 0}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.kpi .big{font-size:clamp(24px,2.4vw,36px);font-weight:900;color:var(--gl);line-height:1.05}
-.kpi .big.b{color:var(--b)}.kpi .big.a{color:var(--a)}
-.kpi small{color:var(--mute);font-size:12px;display:block;margin-top:4px}
-.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}.grid>*,.two>*,.kpi,.ag{min-width:0}
-section.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
-section.card h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:12px}
-section.card h2 small{font:500 12px 'IBM Plex Mono';color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
-.floor{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.ag{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:start;position:relative;transition:box-shadow .3s,transform .3s}
-.ag.ring{box-shadow:0 0 0 2px var(--g),0 0 24px rgba(134,184,58,.35);transform:translateY(-2px)}
-.av{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font:800 14px 'Archivo';color:#F3F5EE}
-.ag b{font-size:14px;display:block}
-.st{font-size:12px;color:var(--mute);display:flex;align-items:center;gap:6px;margin-top:2px}
-.st i{width:8px;height:8px;border-radius:50%;background:var(--mute);flex:0 0 auto}
-.st.call i{background:var(--g);animation:blink 1s infinite}.st.view i{background:var(--b)}.st.write i{background:var(--a)}.st.off i{background:#555}
-@keyframes blink{50%{opacity:.3}}
-.nums{display:flex;gap:10px;font:500 11px 'IBM Plex Mono';color:var(--soft);margin-top:6px}
-.nums span b{color:var(--ink);font-weight:600}
-.spark{position:absolute;right:10px;bottom:10px;width:48px;height:18px;opacity:.8}
-.feed{display:flex;flex-direction:column;gap:8px;max-height:560px;overflow:auto;padding-right:4px}
-.ev{display:grid;grid-template-columns:32px 1fr auto;gap:10px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px;animation:drop .45s cubic-bezier(.2,.75,.2,1)}
-@keyframes drop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
-.ev i{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:15px;font-style:normal;background:var(--gd);color:#F3F5EE}
-.ev i.b{background:var(--b)}.ev i.a{background:var(--a)}.ev i.r{background:var(--r)}
-.ev p{font-size:13px}.ev p b{font-weight:600}
-.ev time{font:500 11px 'IBM Plex Mono';color:var(--mute);white-space:nowrap}
-.flowwrap{margin-top:16px}
-.flow path.dash{stroke-dasharray:7 9;animation:dash 1.1s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-32}}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-.tower{display:flex;flex-direction:column-reverse;gap:3px;width:100%;max-width:300px}
-.fl{display:grid;grid-template-columns:repeat(8,1fr);gap:3px}
-.u{height:14px;border-radius:3px;background:#3B5A80;opacity:.85}
-.u.t2{background:var(--gd)}.u.t3{background:#9A6420}.u.hot{background:var(--a);box-shadow:0 0 10px var(--a);animation:blink .8s infinite}
-.chart{width:100%;height:150px}
-.cta{margin:30px 0 50px;background:linear-gradient(135deg,#14201A,#22322A);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center;color:#F3F5EE}
-.cta h2{font-size:clamp(22px,2.6vw,34px);font-weight:900}
-.cta p{color:#B9C7B6;margin-top:6px}
-.btn{display:inline-block;background:var(--g);color:#F3F5EE;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:12px;margin:6px 8px 0 0}
-.btn.sec{background:#2E4136}
-footer{color:var(--mute);font-size:13px;padding:0 0 40px}
-.note{font-size:12px;color:var(--mute);margin-top:10px}
-@media (max-width:980px){.hero,.grid,.two,.cta{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}.floor{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.kpis{grid-template-columns:repeat(2,1fr)}.floor{grid-template-columns:1fr 1fr}.switches{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* Agency page. Design read, decided before pixels:
+   Reader: a portal or agency executive on a phone or a projected laptop. Job: see in 60 seconds that a whole agency runs on BRX.
+   One action: "Switch it on for your agency" (WhatsApp or email Leo).
+   Type: Unbounded display + Open Sans body (site pair), system mono with tabular figures for every live number.
+   Palette: navy ground from the BRX ad end card, warm gold from the ad's ON button as the single action/heat colour,
+   BRX green only as the small "on / live" signal. Square-ish 4px radius like the rest of the site. No card walls:
+   the floor is a roster, the feed is a log, the flow is a diagram.
+   Motion budget: status lines, the feed and the flow pulses. All of it stops under prefers-reduced-motion or the Pause button. */
+.ag {
+  --n0: #0B1019; --n1: #111826; --n2: #172133; --n3: #1E2A40;
+  --ln: rgba(206,218,238,.11); --ln2: rgba(206,218,238,.2);
+  --tx: #EEF1F5; --tx2: #B9C1CE; --tx3: #8D97A8;
+  --gold: #D9A84E; --gold2: #F1C978; --gold-d: rgba(217,168,78,.14);
+  --on: #86BC25; --on-d: rgba(134,188,37,.16);
+  --sky: #86AEE0; --rose: #E58B7B;
+  --num: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  background: var(--n0); color: var(--tx2);
+}
+.ag ::selection { background: var(--gold); color: var(--n0); }
+.ag :focus-visible { outline: 2px solid var(--gold2); outline-offset: 3px; }
+.ag h1, .ag h2, .ag h3 { color: var(--tx); font-family: var(--display); font-weight: 700; letter-spacing: -.01em; line-height: 1.08; }
+.ag h2 { font-size: clamp(28px, 4.2vw, 46px); }
+.ag h3 { font-size: 17px; font-family: var(--en); letter-spacing: 0; line-height: 1.3; }
+.ag .wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px); }
+.ag section { padding: clamp(64px, 10vw, 112px) 0; border-top: 1px solid var(--ln); }
+.ag .kick { font: 600 12px/1.4 var(--num); text-transform: uppercase; letter-spacing: .14em; color: var(--gold); display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.ag .lede { font-size: clamp(17px, 1.6vw, 19px); color: var(--tx2); max-width: 620px; margin-top: 16px; }
+.ag .head { display: flex; justify-content: space-between; align-items: end; gap: 24px 48px; flex-wrap: wrap; margin-bottom: 40px; }
+.ag .num { font-family: var(--num); font-variant-numeric: tabular-nums; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--on); box-shadow: 0 0 0 0 rgba(134,188,37,.6); animation: ping 2s infinite; flex: none; }
+@keyframes ping { 70% { box-shadow: 0 0 0 8px rgba(134,188,37,0); } 100% { box-shadow: 0 0 0 0 rgba(134,188,37,0); } }
+.ag .b-gold, .ag .b-line { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 24px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s, border-color .2s, color .2s, transform .1s; }
+.ag .b-gold { background: var(--gold); color: #17110A; border: 1px solid var(--gold); }
+.ag .b-gold:hover { background: var(--gold2); border-color: var(--gold2); }
+.ag .b-line { color: var(--tx); border: 1px solid var(--ln2); background: transparent; }
+.ag .b-line:hover { border-color: var(--tx3); background: var(--n2); }
+.ag .b-gold:active, .ag .b-line:active { transform: scale(.98); }
+.ag .row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.ag .demo-tag { font: 600 11px/1 var(--num); letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); border: 1px solid var(--ln2); border-radius: 999px; padding: 7px 12px; display: inline-flex; gap: 8px; align-items: center; white-space: nowrap; }
+.ag .demo-tag.is-live { color: var(--on); border-color: var(--on); }
+.ag img, .ag video { display: block; max-width: 100%; height: auto; }
+
+/* Hero */
+.hero { padding: clamp(40px, 7vw, 88px) 0 clamp(56px, 8vw, 96px) !important; border-top: 0 !important; position: relative; overflow: hidden;
+  background: radial-gradient(900px 500px at 85% 20%, rgba(217,168,78,.10), transparent 60%), var(--n0); }
+.hero-in { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.hero h1 { font-size: clamp(44px, 8.4vw, 104px); font-weight: 800; letter-spacing: -.03em; line-height: .98; }
+.hero h1 span { color: var(--gold); }
+.hero .promise { font-size: clamp(19px, 2vw, 24px); color: var(--tx); margin-top: 22px; max-width: 560px; line-height: 1.4; }
+.hero .sub { color: var(--tx3); max-width: 540px; margin-top: 14px; font-size: 15px; }
+.strip { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 8px 36px; margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--ln); }
+.strip b { display: block; font: 600 clamp(24px, 3vw, 32px)/1.1 var(--num); color: var(--tx); font-variant-numeric: tabular-nums; }
+.strip > div > span { font-size: 13px; color: var(--tx3); display: block; }
+.phone { position: relative; justify-self: end; width: min(100%, 400px); aspect-ratio: 480 / 608; border-radius: 26px; overflow: hidden; border: 1px solid var(--ln2); background: var(--n2) url(/agency/img/poster.jpg) center / cover; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); }
+.phone video { width: 100%; height: 100%; object-fit: cover; }
+.phone .live { position: absolute; top: 14px; left: 14px; display: flex; align-items: center; gap: 8px; background: rgba(11,16,25,.72); color: var(--tx); font: 600 12px/1 var(--num); letter-spacing: .08em; padding: 8px 12px; border-radius: 999px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.toast { position: absolute; left: 14px; right: 14px; bottom: 14px; background: rgba(11,16,25,.84); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--ln2); border-radius: 14px; padding: 12px 14px; color: var(--tx); font-size: 14px; line-height: 1.35; transition: opacity .35s, transform .35s; }
+.toast small { display: block; font: 500 11px/1.4 var(--num); color: var(--gold); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; }
+.toast.out { opacity: 0; transform: translateY(8px); }
+
+/* Floor */
+.floor { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ln); border: 1px solid var(--ln); border-radius: 4px; overflow: hidden; }
+.agent { background: var(--n1); padding: 20px; display: flex; flex-direction: column; gap: 14px; min-height: 212px; position: relative; }
+.agent .who { display: flex; gap: 12px; align-items: center; }
+.agent svg.av { width: 52px; height: 52px; flex: none; border-radius: 50%; }
+.agent .who b { color: var(--tx); font-size: 16px; display: block; line-height: 1.2; }
+.agent .who span { font-size: 13px; color: var(--tx3); display: block; line-height: 1.35; }
+.agent .langs { font: 500 11px/1 var(--num); color: var(--tx3); letter-spacing: .08em; text-transform: uppercase; }
+.ag-status { margin-top: auto; border-top: 1px solid var(--ln); padding-top: 12px; min-height: 64px; }
+.ag-status .st { display: flex; align-items: center; gap: 8px; font: 600 11px/1 var(--num); letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+.ag-status .st i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+.ag-status .now-line { color: var(--tx); font-size: 15px; font-family: var(--en); font-weight: 600; letter-spacing: 0; text-transform: none; line-height: 1.35; margin-top: 7px; transition: opacity .3s; }
+.ag-status .now-line.fade { opacity: 0; }
+.agent[data-k="call"] .st { color: var(--gold); } .agent[data-k="msg"] .st { color: var(--sky); }
+.agent[data-k="atlas"] .st { color: var(--on); } .agent[data-k="meet"] .st { color: var(--gold2); } .agent[data-k="reply"] .st { color: var(--rose); }
+.agent[data-k="call"]::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--gold); }
+.agent .meta { display: flex; gap: 16px; font-size: 12px; color: var(--tx3); }
+.agent .meta b { color: var(--tx2); font-family: var(--num); font-weight: 600; }
+.mgr { background: var(--n2); grid-column: span 1; }
+.mgr dl { display: grid; grid-template-columns: 1fr auto; gap: 7px 12px; font-size: 14px; margin-top: 2px; }
+.mgr dt { color: var(--tx3); } .mgr dd { color: var(--tx); font-family: var(--num); font-variant-numeric: tabular-nums; text-align: right; }
+.wall { background: var(--n1); position: relative; min-height: 212px; }
+.wall img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; position: absolute; inset: 0; opacity: .92; }
+.wall figcaption { position: absolute; left: 12px; right: 12px; bottom: 12px; font-size: 13px; color: var(--tx); background: rgba(11,16,25,.78); padding: 8px 10px; border-radius: 4px; line-height: 1.35; }
+
+/* Feed */
+.feed-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; align-items: start; }
+.counts { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--ln); border-radius: 4px; margin-bottom: 24px; }
+.counts div { padding: 16px 18px; border-left: 1px solid var(--ln); }
+.counts div:first-child { border-left: 0; }
+.counts b { display: block; font: 600 clamp(24px, 3vw, 34px)/1.1 var(--num); color: var(--tx); font-variant-numeric: tabular-nums; }
+.counts span { font-size: 13px; color: var(--tx3); }
+.feedlog { border: 1px solid var(--ln); border-radius: 4px; background: var(--n1); height: 660px; overflow: hidden; position: relative; }
+.feedlog::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(transparent, var(--n1)); pointer-events: none; }
+.feedlog ol { list-style: none; }
+.feedlog li { font-family: var(--en); display: grid; grid-template-columns: 74px 84px 1fr; gap: 12px; align-items: baseline; padding: 11px 16px; border-bottom: 1px solid var(--ln); font-size: 14px; color: var(--tx); animation: slide .45s ease-out; }
+.feedlog li time { font: 500 12px/1.4 var(--num); color: var(--tx3); font-variant-numeric: tabular-nums; }
+.feedlog li .src { font: 600 10px/1 var(--num); letter-spacing: .08em; text-transform: uppercase; padding: 5px 7px; border-radius: 3px; border: 1px solid var(--ln2); color: var(--tx2); justify-self: start; white-space: nowrap; }
+.feedlog .src.bayut { color: #9FD27A; border-color: rgba(159,210,122,.4); } .feedlog .src.dubizzle { color: #F19A8C; border-color: rgba(241,154,140,.4); }
+.feedlog .src.web { color: var(--sky); border-color: rgba(134,174,224,.4); } .feedlog .src.call { color: var(--gold); border-color: rgba(217,168,78,.45); }
+.feedlog .src.atlas { color: var(--on); border-color: rgba(134,188,37,.45); } .feedlog .src.msg { color: var(--sky); border-color: rgba(134,174,224,.4); } .feedlog .src.crm { color: var(--tx3); }
+.feedlog li em { font-style: normal; color: var(--tx3); }
+@keyframes slide { from { opacity: 0; transform: translateY(-10px); background: var(--gold-d); } to { opacity: 1; transform: none; } }
+.journey { border: 1px solid var(--ln); border-radius: 4px; background: var(--n1); overflow: hidden; }
+.journey img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 100%; }
+.journey .in { padding: 20px; }
+.journey h3 { margin-bottom: 4px; }
+.journey .clock { font: 700 44px/1 var(--num); color: var(--gold); font-variant-numeric: tabular-nums; margin: 12px 0 2px; }
+.journey .clock small { font-size: 16px; color: var(--tx3); margin-left: 6px; }
+.jsteps { list-style: none; margin-top: 16px; display: grid; gap: 2px; }
+.jsteps li { display: grid; grid-template-columns: 18px 1fr auto; gap: 10px; align-items: center; padding: 7px 0; font-size: 14px; color: var(--tx3); transition: color .3s; }
+.jsteps li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ln2); justify-self: center; transition: background .3s, border-color .3s; }
+.jsteps li.done { color: var(--tx); } .jsteps li.done::before { background: var(--gold); border-color: var(--gold); }
+.jsteps li time { font: 500 12px var(--num); color: var(--tx3); }
+.pause { background: none; border: 1px solid var(--ln2); color: var(--tx2); border-radius: 999px; padding: 8px 14px; font: 600 12px/1 var(--num); letter-spacing: .06em; cursor: pointer; min-height: 36px; }
+.pause:hover { border-color: var(--tx3); color: var(--tx); }
+
+/* Flow */
+.flow-box { border: 1px solid var(--ln); border-radius: 4px; background: radial-gradient(700px 300px at 40% 50%, rgba(217,168,78,.06), transparent 70%), var(--n1); padding: clamp(12px, 3vw, 32px); }
+.flow-box svg { width: 100%; height: auto; display: block; }
+#flow-m { display: none; }
+.fl-edge { fill: none; stroke: var(--ln2); stroke-width: 1.4; }
+.fl-run { fill: none; stroke: var(--gold); stroke-width: 1.6; stroke-dasharray: 5 9; animation: run 1.3s linear infinite; opacity: .75; }
+@keyframes run { to { stroke-dashoffset: -28; } }
+.fl-node rect { fill: var(--n2); stroke: var(--ln2); }
+.fl-node.src rect { fill: var(--n0); }
+.fl-node.core rect { fill: #1d2232; stroke: rgba(217,168,78,.55); }
+.fl-node text { font-family: 'Open Sans', Arial, sans-serif; fill: var(--tx); font-size: 14px; font-weight: 700; }
+.fl-node text.s { fill: var(--tx3); font-size: 11px; font-weight: 400; }
+.fl-node.hit rect { stroke: var(--gold); }
+.fl-pulse { fill: var(--gold2); }
+.atlas-band { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; margin-top: 24px; align-items: stretch; }
+.atlas-pics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.atlas-pics img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+.lookup { border: 1px solid var(--ln); border-radius: 4px; background: var(--n1); padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; justify-content: center; }
+.lookup .q { font-family: var(--display); color: var(--tx); font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; }
+.lookup .ans { margin-top: 18px; border-top: 1px solid var(--ln); }
+.lookup .ans div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--ln); font-size: 14px; }
+.lookup .ans dt { color: var(--tx3); } .lookup .ans dd { color: var(--tx); text-align: right; }
+.lookup p.fine { font-size: 13px; color: var(--tx3); margin-top: 14px; }
+
+/* Reports */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--ln); border: 1px solid var(--ln); border-radius: 4px; overflow: hidden; }
+.kpi { background: var(--n1); padding: clamp(18px, 2.4vw, 28px); }
+.kpi b { display: block; font: 600 clamp(34px, 5vw, 60px)/1 var(--num); color: var(--tx); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.kpi b small { font-size: .42em; color: var(--tx3); margin-left: 4px; letter-spacing: 0; }
+.kpi > span { display: block; font-size: 14px; color: var(--tx2); margin-top: 10px; }
+.kpi em { display: block; font-style: normal; font-size: 12px; color: var(--tx3); margin-top: 4px; }
+.kpi.hot b { color: var(--gold); }
+.rep-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; margin-top: 24px; }
+.chart { border: 1px solid var(--ln); border-radius: 4px; background: var(--n1); padding: 20px; }
+.chart .ch { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 14px; }
+.chart .ch span { font-size: 13px; color: var(--tx3); }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart .bar { fill: rgba(185,193,206,.35); } .chart .bar.now { fill: var(--gold); } .chart .bar.fut { fill: none; stroke: var(--ln2); stroke-dasharray: 3 3; }
+.chart text { fill: var(--tx3); font: 10px ui-monospace, Menlo, monospace; }
+.ceo { border: 1px solid rgba(217,168,78,.35); border-radius: 4px; background: linear-gradient(180deg, rgba(217,168,78,.07), transparent 40%), var(--n1); padding: 22px; display: flex; flex-direction: column; }
+.ceo header { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--ln); margin-bottom: 14px; }
+.ceo header b { color: var(--tx); font-size: 15px; } .ceo header span { font: 500 12px var(--num); color: var(--tx3); }
+.ceo ul { list-style: none; display: grid; gap: 10px; font-size: 15px; color: var(--tx); }
+.ceo li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; line-height: 1.45; }
+.ceo li::before { content: ""; width: 6px; height: 6px; background: var(--gold); margin-top: 9px; }
+.ceo .team { margin-top: auto; display: flex; gap: 14px; align-items: center; padding-top: 18px; }
+.ceo .team img { width: 64px; height: 80px; object-fit: cover; border-radius: 4px; }
+.ceo .team p { font-size: 13px; color: var(--tx3); }
+
+/* Steps */
+.how { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.how figure { position: relative; }
+.how figure img { width: 100%; border-radius: 4px; aspect-ratio: 4 / 5; object-fit: cover; }
+.how figcaption { position: absolute; left: 14px; right: 14px; bottom: 14px; background: rgba(11,16,25,.84); color: var(--tx); padding: 12px 14px; border-radius: 4px; font-size: 15px; line-height: 1.4; }
+.how figcaption b { color: var(--gold); }
+.how ol { list-style: none; counter-reset: s; border-top: 1px solid var(--ln); margin-top: 32px; }
+.how li { counter-increment: s; display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 26px 0; border-bottom: 1px solid var(--ln); }
+.how li::before { content: "0" counter(s); font: 600 14px/1.6 var(--num); color: var(--gold); }
+.how li p { margin-top: 8px; font-size: 16px; }
+.how .note { font-size: 14px; color: var(--tx3); margin-top: 20px; }
+
+/* CTA */
+.cta { background: radial-gradient(800px 420px at 20% 40%, rgba(217,168,78,.12), transparent 65%), var(--n0); }
+.cta-in { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.cta h2 { font-size: clamp(34px, 5.6vw, 68px); font-weight: 800; letter-spacing: -.025em; }
+.cta img { width: 100%; max-width: 360px; justify-self: end; border-radius: 4px; aspect-ratio: 4 / 5; object-fit: cover; }
+.cta .fine { font-size: 14px; color: var(--tx3); margin-top: 18px; max-width: 520px; }
+
+@media (max-width: 1080px) {
+  .floor { grid-template-columns: repeat(2, 1fr); }
+  .feed-grid, .rep-grid, .atlas-band { grid-template-columns: 1fr; }
+  .journey { display: grid; grid-template-columns: .8fr 1.2fr; } .journey img { aspect-ratio: auto; height: 100%; }
+}
+@media (max-width: 820px) {
+  .hero-in, .how, .cta-in { grid-template-columns: 1fr; }
+  .phone { justify-self: start; width: 100%; max-width: 420px; }
+  #flow-d { display: none; } #flow-m { display: block; }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .counts { grid-template-columns: repeat(2, 1fr); } .counts div:nth-child(3) { border-left: 0; } .counts div:nth-child(n+3) { border-top: 1px solid var(--ln); }
+  .how figure { max-width: 420px; }
+  .cta img { justify-self: start; max-width: 100%; aspect-ratio: 16 / 10; object-position: 50% 70%; }
+}
+@media (max-width: 560px) {
+  .floor { grid-template-columns: 1fr; }
+  .agent, .wall { min-height: 0; } .wall { aspect-ratio: 4 / 3; }
+  .agent { padding: 14px 16px; gap: 8px; } .agent svg.av { width: 40px; height: 40px; } .agent .langs, .agent .meta { display: none; }
+  .agent .ag-status { min-height: 0; padding-top: 8px; } .mgr { gap: 12px; }
+  .strip { grid-template-columns: repeat(3, 1fr); gap: 8px 14px; }
+  .strip > div > span { font-size: 12px; line-height: 1.3; }
+  .feedlog { height: 420px; }
+  .feedlog li { grid-template-columns: 64px 1fr; gap: 4px 10px; padding: 10px 12px; }
+  .feedlog li .src { grid-column: 2; grid-row: 1; } .feedlog li time { grid-row: 1; } .feedlog li .tx { grid-column: 1 / -1; }
+  .journey { display: block; } .journey img { aspect-ratio: 4 / 3; height: auto; }
+  .atlas-pics img { aspect-ratio: 3 / 4; }
+  .ag .row a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dot, .fl-run, .feedlog li { animation: none !important; }
+  .toast, .ag-status p { transition: none; }
+}
 </style>
 </head>
-<body>
-<header class="top"><div class="wrap">
-  <a class="logo" href="https://www.brxdxb.com">BRX<span>Live Agency</span></a>
-  <span class="live"><i></i> live</span>
-  <span class="clock" id="clock">--:--:-- Dubai</span>
-</div></header>
-
-<main class="wrap">
-  <div class="hero">
-    <div>
-      <h1>Marina Heights Realty.<br>24 agents. <b>Running on BRX.</b></h1>
-      <p class="lead">A Dubai agency, live. Leads land from Bayut and dubizzle, get scored in seconds, and the company phones call. Every owner known in the Atlas. Every unit walkable in 3D. Every action logged for the CEO.</p>
-    </div>
-    <div class="switches" id="switches">
-      <div class="sw on" data-k="leads"><div><b>Leads</b><small>Bayut · dubizzle · site</small></div><div class="tg"></div></div>
-      <div class="sw on" data-k="offplan"><div><b>Off-plan</b><small>launch calls</small></div><div class="tg"></div></div>
-      <div class="sw on" data-k="owners"><div><b>Owners</b><small>listing calls</small></div><div class="tg"></div></div>
-    </div>
-  </div>
-
-  <div class="kpis">
-    <div class="kpi"><div class="big" id="k_leads">0</div><small>leads today</small></div>
-    <div class="kpi"><div class="big" id="k_fast">0%</div><small>called within 60 s</small></div>
-    <div class="kpi"><div class="big b" id="k_med">0 s</div><small>median first call</small></div>
-    <div class="kpi"><div class="big" id="k_meet">0</div><small>meetings booked</small></div>
-    <div class="kpi"><div class="big a" id="k_list">0</div><small>listings won</small></div>
-    <div class="kpi"><div class="big a" id="k_deals">0</div><small>deals this month</small></div>
-  </div>
-
-  <div class="grid">
-    <section class="card">
-      <h2>The floor <small id="floorstat">24 agents · 0 on calls</small></h2>
-      <div class="floor" id="floor"></div>
-    </section>
-    <section class="card">
-      <h2>Live feed <small>newest first</small></h2>
-      <div class="feed" id="feed"></div>
-    </section>
-  </div>
-
-  <section class="card flowwrap">
-    <h2>How it connects <small>Bayut · dubizzle → BRX → people</small></h2>
-    <svg class="flow" viewBox="0 0 1200 330" style="width:100%;height:auto" aria-label="Leads from Bayut and dubizzle flow through the BRX engines to the agents, owners, buyers and the CEO">
-      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#86B83A"/></marker></defs>
-      <g fill="none" stroke="#86B83A" stroke-width="3" marker-end="url(#ar)">
-        <path class="dash" d="M200 70 C320 70 320 120 440 120"/><path class="dash" d="M200 160 C320 160 320 160 440 160"/><path class="dash" d="M200 250 C320 250 320 200 440 200"/>
-        <path class="dash" d="M760 120 C880 120 880 70 1000 70"/><path class="dash" d="M760 160 C880 160 880 160 1000 160"/><path class="dash" d="M760 200 C880 200 880 250 1000 250"/>
-        <path class="dash" d="M1090 290 C1090 325 110 325 110 290"/>
-      </g>
-      <g font-family="IBM Plex Sans,Arial" font-size="16">
-        <rect x="40" y="40" width="160" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="120" y="66" text-anchor="middle" fill="#F3F5EE" font-weight="600">Bayut</text><text x="120" y="86" text-anchor="middle" fill="#B9C7B6" font-size="12">leads</text>
-        <rect x="40" y="130" width="160" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="120" y="156" text-anchor="middle" fill="#F3F5EE" font-weight="600">dubizzle</text><text x="120" y="176" text-anchor="middle" fill="#B9C7B6" font-size="12">leads</text>
-        <rect x="40" y="220" width="160" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="120" y="246" text-anchor="middle" fill="#F3F5EE" font-weight="600">Agency data</text><text x="120" y="266" text-anchor="middle" fill="#B9C7B6" font-size="12">CRM · Form A/B · DLD</text>
-        <rect x="440" y="40" width="320" height="240" rx="18" fill="#14201A" stroke="#2E4136"/>
-        <text x="600" y="68" text-anchor="middle" fill="#A9CF5E" font-size="12" font-weight="700" letter-spacing="2">BRX · 4 ENGINES</text>
-        <rect x="460" y="85" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="110" fill="#F3F5EE" font-weight="600">1 CRM + qualifier</text><text x="725" y="110" text-anchor="end" fill="#A9CF5E" font-size="13">score 1–5</text>
-        <rect x="460" y="133" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="158" fill="#F3F5EE" font-weight="600">2 Calling centre</text><text x="725" y="158" text-anchor="end" fill="#A9CF5E" font-size="13">AI or Galaxy</text>
-        <rect x="460" y="181" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="206" fill="#F3F5EE" font-weight="600">3 Owner Atlas twin</text><text x="725" y="206" text-anchor="end" fill="#A9CF5E" font-size="13">to the unit</text>
-        <rect x="460" y="229" width="280" height="40" rx="9" fill="#22322A"/><text x="475" y="254" fill="#F3F5EE" font-weight="600">4 3D · links · reports</text><text x="725" y="254" text-anchor="end" fill="#A9CF5E" font-size="13">48 h links</text>
-        <rect x="1000" y="40" width="170" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="1085" y="66" text-anchor="middle" fill="#F3F5EE" font-weight="600">CEO</text><text x="1085" y="86" text-anchor="middle" fill="#B9C7B6" font-size="12">one dashboard</text>
-        <rect x="1000" y="130" width="170" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="1085" y="156" text-anchor="middle" fill="#F3F5EE" font-weight="600">Agents</text><text x="1085" y="176" text-anchor="middle" fill="#B9C7B6" font-size="12">Defender app</text>
-        <rect x="1000" y="220" width="170" height="60" rx="12" fill="#22322A" stroke="#2E4136"/><text x="1085" y="246" text-anchor="middle" fill="#F3F5EE" font-weight="600">Owners · buyers</text><text x="1085" y="266" text-anchor="middle" fill="#B9C7B6" font-size="12">banks · developers</text>
-        <text x="600" y="315" text-anchor="middle" fill="#8E9A8F" font-size="12">every call, meeting and deal flows back: better scores, truer broker ratings, more listings</text>
-      </g>
-    </svg>
-  </section>
-
-  <div class="two">
-    <section class="card">
-      <h2>Owner Atlas <small id="towername">Marquise Square Tower</small></h2>
-      <div style="display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap">
-        <div class="tower" id="tower"></div>
-        <div style="flex:1;min-width:180px">
-          <p style="font-size:14px;color:var(--soft)" id="towernote">Tap a unit in the real Atlas to see layout, size, view, price history and the owner from the agency's own data. The unit that just changed hands lights up here.</p>
-          <p style="font-size:12px;color:var(--mute);margin-top:8px"><span style="color:#6FA3D6">■</span> 1-bed <span style="color:var(--gd)">■</span> 2-bed <span style="color:#9A6420">■</span> 3-bed <span style="color:var(--a)">■</span> changed hands</p>
-          <p style="margin-top:12px"><a class="btn" href="https://owner-atlas-dubai.netlify.app/twin.html" target="_blank" rel="noopener">Open the real Atlas</a></p>
+<body data-page="agency">
+<!-- nav:start -->
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطَّ إلى المحتوى">Skip to content</a>
+<header class="site-nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BRXDXB home" data-en-aria="BRXDXB home" data-ar-aria="BRXDXB، الصفحة الرئيسية">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <nav class="nav-links" aria-label="Main" data-en-aria="Main" data-ar-aria="الرئيسية">
+      <a href="/flow/" data-nav="flow">BRX Flow</a>
+      <div class="dd">
+        <button type="button" class="dd-btn" data-nav="products" aria-expanded="false" aria-controls="dd-products"><span data-en="Products" data-ar="المنتجات">Products</span></button>
+        <div class="dd-menu" id="dd-products">
+          <a href="/defender/"><b>BRX Defender</b><span data-en="Real-estate leads, called in minutes" data-ar="عملاء العقارات، اتصال خلال دقائق">Real-estate leads, called in minutes</span></a>
+          <a href="/atlas/"><b>BRX Atlas</b><span data-en="Owner and building data in 3D" data-ar="بيانات الملّاك والمباني بالأبعاد الثلاثة">Owner and building data in 3D</span></a>
+          <a href="/terminal/"><b>BRX Terminal</b><span data-en="Rule-based trading on your own account" data-ar="تداول قائم على القواعد على حسابك">Rule-based trading on your own account</span></a>
+          <a class="dd-all" href="/products/" data-en="Compare the 3 products" data-ar="قارن المنتجات الثلاثة">Compare the 3 products</a>
         </div>
       </div>
-    </section>
-    <section class="card">
-      <h2>CEO report <small>today</small></h2>
-      <p style="font-size:12px;color:var(--mute)">Calls per hour</p><svg class="chart" id="c1" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
-      <p style="font-size:12px;color:var(--mute);margin-top:8px">Median first-call time, last 14 days (seconds)</p><svg class="chart" id="c2" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
-    </section>
+      <a href="/launch/" data-nav="launch">BRX Launch</a>
+      <div class="dd">
+        <button type="button" class="dd-btn" data-nav="industries" aria-expanded="false" aria-controls="dd-industries"><span data-en="Industries" data-ar="القطاعات">Industries</span></button>
+        <div class="dd-menu dd-menu--2" id="dd-industries">
+          <div>
+            <p class="dd-h" data-en="Professions" data-ar="المهن">Professions</p>
+            <a href="/agents/lawyer.html" data-en="Lawyers" data-ar="المحامون">Lawyers</a>
+            <a href="/agents/advisor.html" data-en="Advisors" data-ar="المستشارون">Advisors</a>
+            <a href="/agents/wealth-manager.html" data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</a>
+            <a href="/agents/broker.html" data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</a>
+            <a href="/agents/clinic.html" data-en="Clinics" data-ar="العيادات">Clinics</a>
+            <a href="/agents/hospitality.html" data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</a>
+          </div>
+          <div>
+            <p class="dd-h" data-en="Sectors" data-ar="القطاعات">Sectors</p>
+            <a href="/flow/private-sector.html" data-en="Private companies" data-ar="الشركات الخاصة">Private companies</a>
+            <a href="/flow/public-sector.html" data-en="Public entities" data-ar="الجهات الحكومية">Public entities</a>
+            <a class="dd-all" href="/industries/" data-en="All industries" data-ar="كل القطاعات">All industries</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" class="active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button type="button" id="btn-ar" onclick="setLang('ar')" aria-pressed="false" lang="ar">AR</button>
+      </div>
+      <a class="btn btn--sm nav-cta" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
+      <button class="burger" id="burger" type="button" aria-controls="sheet" aria-expanded="false" aria-label="Menu" data-en-aria="Menu" data-ar-aria="القائمة"><span></span><span></span><span></span></button>
+    </div>
   </div>
+</header>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <a class="sheet-link" href="/flow/" data-nav="flow">BRX Flow</a>
+  <a class="sheet-link" href="/products/" data-nav="products" data-en="Products" data-ar="المنتجات">Products</a>
+  <div class="sheet-sub">
+    <a href="/defender/">BRX Defender</a>
+    <a href="/atlas/">BRX Atlas</a>
+    <a href="/terminal/">BRX Terminal</a>
+  </div>
+  <a class="sheet-link" href="/launch/" data-nav="launch">BRX Launch</a>
+  <a class="sheet-link" href="/industries/" data-nav="industries" data-en="Industries" data-ar="القطاعات">Industries</a>
+  <div class="sheet-sub sheet-sub--2">
+    <a href="/agents/lawyer.html" data-en="Lawyers" data-ar="المحامون">Lawyers</a>
+    <a href="/agents/advisor.html" data-en="Advisors" data-ar="المستشارون">Advisors</a>
+    <a href="/agents/wealth-manager.html" data-en="Wealth managers" data-ar="مديرو الثروات">Wealth managers</a>
+    <a href="/agents/broker.html" data-en="Brokers" data-ar="الوسطاء العقاريون">Brokers</a>
+    <a href="/agents/clinic.html" data-en="Clinics" data-ar="العيادات">Clinics</a>
+    <a href="/agents/hospitality.html" data-en="Restaurants and hotels" data-ar="المطاعم والفنادق">Restaurants and hotels</a>
+    <a href="/flow/private-sector.html" data-en="Private companies" data-ar="الشركات الخاصة">Private companies</a>
+    <a href="/flow/public-sector.html" data-en="Public entities" data-ar="الجهات الحكومية">Public entities</a>
+  </div>
+  <a class="btn" href="https://calendly.com/leanderkhatib/30min" target="_blank" rel="noopener" data-en="Book a demo" data-ar="احجز عرضاً">Book a demo</a>
+  <p class="fine" data-en="BRXDXB · Dubai" data-ar="BRXDXB · دبي">BRXDXB · Dubai</p>
+</div>
+<!-- nav:end -->
 
-  <div class="cta">
-    <div><h2>Switch on your agency.</h2><p>Plug and play on your own CRM and data. Live in weeks. Every lead called in seconds, every owner known, every unit in 3D.</p></div>
-    <div><a class="btn" href="https://wa.me/971558917770" target="_blank" rel="noopener">WhatsApp Leo</a><a class="btn sec" href="mailto:leo@brxdxb.com">leo@brxdxb.com</a><a class="btn sec" href="https://www.brxdxb.com/products/">See the products</a></div>
+<main id="main" class="ag">
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-in">
+    <div>
+      <p class="kick"><span class="dot" aria-hidden="true"></span><span>Live floor · Dubai <span class="num" id="clock">--:--:--</span></span></p>
+      <h1 id="h1">Your agency.<br><span>Live.</span></h1>
+      <p class="promise">Every lead called. Every owner known. One operating system.</p>
+      <p class="sub">This is a Dubai agency running on BRX this second: the agents, the leads from Bayut and dubizzle, every call, every message, every report.</p>
+      <div class="row">
+        <a class="b-gold" href="#cta">Switch it on for your agency</a>
+        <a class="b-line" href="#floor">Watch the floor</a>
+      </div>
+      <div class="strip" aria-label="Today so far">
+        <div><b><span id="h-first">19</span> s</b><span>median first call</span></div>
+        <div><b id="h-wait">0</b><span>leads left waiting</span></div>
+        <div><b id="h-leads">0</b><span>leads in today</span></div>
+      </div>
+    </div>
+    <div class="phone">
+      <video id="loop" src="/agency/img/loop.mp4" poster="/agency/img/poster.jpg" muted loop playsinline preload="auto" aria-label="An agent opens the BRX floor on her phone, high above Dubai Marina"></video>
+      <span class="live"><span class="dot" aria-hidden="true"></span>LIVE</span>
+      <div class="toast" id="toast" aria-hidden="true"><small>Bayut · just now</small>New lead, scored 5. Called in 19 s.</div>
+    </div>
   </div>
-  <footer>BRX · Leo Khatib, Founder &amp; CEO · Dubai · <a href="https://www.brxdxb.com">brxdxb.com</a><p class="note">Marina Heights Realty is a demonstration agency on simulated data. Every screen behind it is the real BRX, running today.</p></footer>
+</section>
+
+<section id="floor" aria-labelledby="h-floor">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="kick">01 · The floor</p>
+        <h2 id="h-floor">Six agents. What each one is doing right now.</h2>
+        <p class="lede">BRX takes the first call, the follow-up and the owner lookup. Your agents take the meetings.</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <span class="demo-tag" id="mode-tag"><span class="dot" aria-hidden="true"></span><span>Demo agency · simulated data</span></span>
+        <button class="pause" type="button" id="pause" aria-pressed="false">Pause</button>
+      </div>
+    </div>
+    <div class="floor" id="agents"></div>
+  </div>
+</section>
+
+<section id="feed" aria-labelledby="h-feed">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="kick">02 · The live feed</p>
+        <h2 id="h-feed">Every action, as it happens.</h2>
+        <p class="lede">A lead lands from Bayut. BRX scores it, calls in seconds, books the meeting and logs it. Nobody types a thing.</p>
+      </div>
+    </div>
+    <div class="counts" aria-label="Today so far">
+      <div><b id="c-leads">0</b><span>leads in</span></div>
+      <div><b id="c-calls">0</b><span>calls made</span></div>
+      <div><b id="c-msgs">0</b><span>messages sent</span></div>
+      <div><b id="c-atlas">0</b><span>Owner Atlas lookups</span></div>
+    </div>
+    <div class="feed-grid">
+      <div class="feedlog" role="log" aria-live="off" aria-label="Live activity log"><ol id="log"></ol></div>
+      <aside class="journey" aria-labelledby="h-journey">
+        <img src="/agency/img/phone.jpg" alt="An agent's phone ringing on a desk in an empty Marina office" width="480" height="608" loading="lazy" decoding="async">
+        <div class="in">
+          <h3 id="h-journey">Follow one lead</h3>
+          <p style="font-size:14px;color:var(--tx3)" id="j-who">Waiting for the next lead</p>
+          <p class="clock num" aria-live="polite"><span id="j-sec">0</span><small>s to first call</small></p>
+          <ol class="jsteps" id="j-steps">
+            <li>Lands from the portal<time></time></li>
+            <li>Scored by BRX<time></time></li>
+            <li>Called<time></time></li>
+            <li>Meeting booked<time></time></li>
+            <li>Logged in the CRM<time></time></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="flow" aria-labelledby="h-flow">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="kick">03 · The flow</p>
+        <h2 id="h-flow">One switch. Every channel behind it.</h2>
+        <p class="lede">Leads come in from the portals and your website. The qualifier scores them. The switch decides who calls: the AI voice or your company phones. Then messages, the Owner Atlas, client links and the report.</p>
+      </div>
+    </div>
+    <div class="flow-box">
+      <svg id="flow-d" viewBox="0 0 1220 360" role="img" aria-labelledby="flow-t"></svg>
+      <svg id="flow-m" viewBox="0 0 360 790" role="img" aria-labelledby="flow-t"></svg>
+      <p class="sr" id="flow-t">Bayut, dubizzle and website leads go to the BRX qualifier, then the switch. The switch sends calls by AI voice or company phones, and messages by iMessage, SMS, email and WhatsApp. Agents look up owners in the Owner Atlas, send client links and reports, and everything is logged in the CRM and the CEO report.</p>
+    </div>
+    <div class="atlas-band">
+      <div class="atlas-pics">
+        <img src="/agency/img/tower.jpg" alt="A gold model tower with its floors lifted apart, each floor tagged with its units" width="480" height="608" loading="lazy" decoding="async">
+        <img src="/agency/img/atlas.jpg" alt="An agent holds a phone showing the Dubai skyline in 3D" width="480" height="608" loading="lazy" decoding="async">
+      </div>
+      <div class="lookup">
+        <p class="kick">Owner Atlas</p>
+        <p class="q">Who owns unit <span class="num" id="a-unit">1802</span>?</p>
+        <dl class="ans">
+          <div><dt>Tower</dt><dd id="a-tower">Marina tower, floor 18</dd></div>
+          <div><dt>Owner</dt><dd>On file · hidden on this page</dd></div>
+          <div><dt>Contact</dt><dd id="a-contact">Verified mobile</dd></div>
+          <div><dt>Next step</dt><dd id="a-next">WhatsApp sent by the agent</dd></div>
+        </dl>
+        <p class="fine">Tap a tower. See the owners. Land Department data, mapped in 3D. Owner names and numbers never leave the agency's own login.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reports" aria-labelledby="h-rep">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="kick">04 · Reports</p>
+        <h2 id="h-rep">You know what happened to every lead.</h2>
+        <p class="lede">"400 leads. How many called in time?" Today most owners cannot answer that. With BRX it is the first line of the report.</p>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi hot"><b><span id="k-first">19</span><small>s</small></b><span>to first call, median</span><em>from lead landing to first ring</em></div>
+      <div class="kpi"><b id="k-called">0</b><span>leads called today</span><em id="k-called-of">of 0 in</em></div>
+      <div class="kpi"><b id="k-meet">0</b><span>meetings booked</span><em>in agents' calendars</em></div>
+      <div class="kpi"><b id="k-deals">0</b><span>deals moved to contract</span><em>logged in the CRM</em></div>
+    </div>
+    <div class="rep-grid">
+      <div class="chart">
+        <div class="ch"><h3>Calls per hour</h3><span>today, Dubai time</span></div>
+        <svg id="bars" viewBox="0 0 480 215" role="img" aria-label="Bar chart of calls per hour today"></svg>
+      </div>
+      <article class="ceo" aria-labelledby="h-ceo">
+        <header><b id="h-ceo">CEO report</b><span id="ceo-date">today</span></header>
+        <ul id="ceo-list"></ul>
+        <div class="team">
+          <img src="/agency/img/team.jpg" alt="" width="480" height="608" loading="lazy" decoding="async">
+          <p>Sent to the owner every evening at 21:00. One page. Plain words.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how" aria-labelledby="h-how">
+  <div class="wrap how">
+    <figure>
+      <img src="/agency/img/office.jpg" alt="Two agents at a desk overlooking Dubai Marina" width="480" height="608" loading="lazy" decoding="async">
+      <figcaption><b>400 leads.</b> How many were called in time?</figcaption>
+    </figure>
+    <div>
+      <p class="kick">05 · With Bayut and dubizzle</p>
+      <h2 id="h-how">Your listings stay. The leads get called.</h2>
+      <ol>
+        <li><div><h3>Keep listing where you list today.</h3><p>Nothing changes on Bayut or dubizzle. BRX reads the lead emails and alerts your agency already gets, the second they land.</p></div></li>
+        <li><div><h3>BRX calls in seconds, in the lead's language.</h3><p>It scores the lead, then calls: the AI voice at night, or your agent's company phone in the day. A message follows on WhatsApp, iMessage, SMS or email.</p></div></li>
+        <li><div><h3>You see every lead, every evening.</h3><p>Every call is logged in your CRM. The CEO report shows who was called, how fast, and what is booked.</p></div></li>
+      </ol>
+      <p class="note">More of your portal leads turn into conversations. That is good for your agency and for the portal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta" aria-labelledby="h-cta">
+  <div class="wrap cta-in">
+    <div>
+      <p class="kick">06 · Switch it on</p>
+      <h2 id="h-cta">Switch it on for your agency.</h2>
+      <p class="lede">Send Leo your agency name. You get a 20-minute walkthrough on your own leads, and a date to switch it on.</p>
+      <div class="row">
+        <a class="b-gold" href="https://wa.me/971558917770?text=Switch%20BRX%20on%20for%20our%20agency" target="_blank" rel="noopener">WhatsApp Leo</a>
+        <a class="b-line" href="mailto:leo@brxdxb.com?subject=Switch%20BRX%20on%20for%20our%20agency">Email Leo</a>
+      </div>
+      <p class="fine">The figures on this page are a simulated demo agency. No real lead, owner or phone number is shown.</p>
+    </div>
+    <img src="/agency/img/on.jpg" alt="A finger presses a gold ON button on a black marble desk" width="480" height="608" loading="lazy" decoding="async">
+  </div>
+</section>
+
 </main>
 
-<script>
-(function(){
-  // seeded random so the floor looks real and repeats
-  var seed=20261014; function rnd(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296}
-  function pick(a){return a[Math.floor(rnd()*a.length)]}
-  var SW={leads:true,offplan:true,owners:true};
-  var NAMES=["Ahmed Al Mansoori","Sara Haddad","Ivan Petrov","Priya Nair","Omar Khalil","Elena Rossi","Faisal Rahman","Mei Lin","Youssef Nasser","Anna Kowalska","Rami Saad","Noor Al Ali","Daniel Okafor","Layla Hassan","Hugo Martins","Zainab Qureshi","Tariq Aziz","Chloe Dubois","Karim Fahmy","Aisha Bello","Luca Bianchi","Mona Ibrahim","Jad Khoury","Sofia Alvarez"];
-  var COL=["#5F8F12","#2F6FA8","#C9822B","#6B4FA0","#1F8A8A","#B04A5A"];
-  var STATES=[["call","On a call"],["view","At a viewing"],["write","Writing follow-ups"],["free","Available"]];
-  var agents=NAMES.map(function(n,i){var s=pick(STATES);return{n:n,c:COL[i%COL.length],s:s,calls:8+Math.floor(rnd()*30),meet:Math.floor(rnd()*4),deals:Math.floor(rnd()*3),hist:Array.from({length:10},function(){return 2+Math.floor(rnd()*10)})}});
-  var K={leads:38,fast:96,med:21,meet:11,list:3,deals:19};
-  var floor=document.getElementById('floor'),feed=document.getElementById('feed');
-  function ini(n){return n.split(' ').map(function(w){return w[0]}).slice(0,2).join('')}
-  function spark(h){var w=56,ht=22,m=Math.max.apply(null,h),pts=h.map(function(v,i){return (i*(w/(h.length-1))).toFixed(1)+','+(ht-v/m*ht).toFixed(1)}).join(' ');return '<svg class="spark" viewBox="0 0 56 22"><polyline points="'+pts+'" fill="none" stroke="#86B83A" stroke-width="2"/></svg>'}
-  function renderFloor(){floor.innerHTML=agents.map(function(a,i){return '<div class="ag" id="ag'+i+'"><div class="av" style="background:'+a.c+'">'+ini(a.n)+'</div><div><b>'+a.n+'</b><div class="st '+a.s[0]+'"><i></i>'+a.s[1]+'</div><div class="nums"><span>calls <b>'+a.calls+'</b></span><span>meet <b>'+a.meet+'</b></span><span>deals <b>'+a.deals+'</b></span></div></div>'+spark(a.hist)+'</div>'}).join('');
-    var on=agents.filter(function(a){return a.s[0]==='call'}).length;document.getElementById('floorstat').textContent='24 agents · '+on+' on calls'}
-  function kp(){document.getElementById('k_leads').textContent=K.leads;document.getElementById('k_fast').textContent=K.fast+'%';document.getElementById('k_med').textContent=K.med+' s';document.getElementById('k_meet').textContent=K.meet;document.getElementById('k_list').textContent=K.list;document.getElementById('k_deals').textContent=K.deals}
-  var UNITS=["2304","1802","1506","901","2210","705","1911","1204"],AREAS=["Dubai Marina","Business Bay","JVC","Downtown","Palm Jumeirah","Dubai Hills","Creek Harbour"],TYPES=["studio","1-bed","2-bed","3-bed"];
-  function t(){return new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())}
-  function ev(cls,icon,html){var e=document.createElement('div');e.className='ev';e.innerHTML='<i class="'+cls+'">'+icon+'</i><p>'+html+'</p><time>'+t()+'</time>';feed.prepend(e);while(feed.children.length>40)feed.lastChild.remove()}
-  function ring(i){var el=document.getElementById('ag'+i);if(!el)return;el.classList.add('ring');setTimeout(function(){el.classList.remove('ring')},2600)}
-  var EVENTS=[
-    function(){if(!SW.leads)return;var a=Math.floor(rnd()*24),s=3+Math.floor(rnd()*3),src=pick(["Bayut","dubizzle","Bayut","website"]);K.leads++;agents[a].s=STATES[0];ev('','★','<b>Lead from '+src+'</b> · '+pick(TYPES)+' '+pick(AREAS)+' · scored '+'★'.repeat(s)+' in '+(3+Math.floor(rnd()*6))+' s → <b>'+agents[a].n.split(' ')[0]+'</b>\'s company line rings');ring(a);K.med=18+Math.floor(rnd()*9)},
-    function(){if(!SW.leads)return;var a=Math.floor(rnd()*24);agents[a].calls++;agents[a].s=STATES[2];ev('b','✓','<b>'+agents[a].n.split(' ')[0]+'</b> finished the call · transcript and next step written to the CRM')},
-    function(){if(!SW.leads)return;var a=Math.floor(rnd()*24);agents[a].meet++;K.meet++;ev('b','📅','<b>AI voice qualified a buyer</b> · budget confirmed · meeting booked '+pick(["Thu 11:00","Sat 16:30","Tue 10:00","Mon 14:00"])+' for '+agents[a].n.split(' ')[0])},
-    function(){if(!SW.owners)return;var u=pick(UNITS);hot(u);var a=Math.floor(rnd()*24);ev('a','⌂','<b>Transaction</b> · unit '+u+' Marquise Square changed hands → owner called by '+agents[a].n.split(' ')[0]+' at '+t().slice(0,5));ring(a)},
-    function(){if(!SW.owners)return;K.list++;var a=Math.floor(rnd()*24);agents[a].deals+=0;ev('a','🏷','<b>Listing won</b> · '+pick(TYPES)+' in '+pick(AREAS)+' · Form A signed · '+agents[a].n.split(' ')[0])},
-    function(){if(!SW.offplan)return;ev('','📣','<b>Off-plan launch</b> · '+(12+Math.floor(rnd()*30))+' registered buyers called in the first 2 minutes · '+pick(["Emaar","Sobha","Damac","Nakheel"])+' '+pick(AREAS))},
-    function(){ev('b','⬡','<b>3D walk-in sent</b> · private link, 3 units, expires in 48 h · '+pick(["WhatsApp","email","iMessage"]))},
-    function(){ev('b','💬','<b>Owner replied on WhatsApp</b> · "'+pick(["Send me the valuation","Call me after 5","What can I ask for it?","Not now, in 3 months"])+'" · next reply drafted')},
-    function(){var a=Math.floor(rnd()*24);agents[a].s=STATES[1];ev('','🚗','<b>'+agents[a].n.split(' ')[0]+'</b> left for a viewing · new leads still get called')},
-    function(){if(rnd()<.35){K.deals++;ev('a','🏆','<b>Deal closed</b> · '+pick(TYPES)+' '+pick(AREAS)+' · AED '+(1.2+Math.floor(rnd()*30)/10).toFixed(1)+'M · CEO report updated')}else ev('','📊','<b>CEO report updated</b> · response time, calls, meetings, deals per agent')},
-    function(){ev('r','⏻','<b>Compliance</b> · all calls 9am–6pm from TDRA company numbers · DNCR screened · 0 breaches today')}
-  ];
-  // tower
-  var tw=document.getElementById('tower'),cells=[];var h='';for(var f=0;f<24;f++){h+='<div class="fl">';for(var c=0;c<8;c++){var t2=(c<2)?'':(c<6)?'t2':'t3';h+='<div class="u '+t2+'" data-u="'+(f+1)+''+(c+1)+'"></div>'}h+='</div>'}tw.innerHTML=h;
-  function hot(u){var els=tw.querySelectorAll('.u.hot');els.forEach(function(e){e.classList.remove('hot')});var fl=parseInt(u.slice(0,-2))||5,c=parseInt(u.slice(-2))||3;var row=tw.children[Math.min(23,Math.max(0,fl-1))];if(row){var cell=row.children[Math.min(7,Math.max(0,c-1))];if(cell)cell.classList.add('hot')}}
-  // charts
-  function bars(id,vals,color){var s=document.getElementById(id),m=Math.max.apply(null,vals),w=400/vals.length;s.innerHTML=vals.map(function(v,i){var hh=v/m*120;return '<rect x="'+(i*w+3)+'" y="'+(140-hh)+'" width="'+(w-6)+'" height="'+hh+'" rx="3" fill="'+color+'"/>'}).join('')+'<line x1="0" y1="140" x2="400" y2="140" stroke="#2B3A31"/>'}
-  function line(id,vals,color){var s=document.getElementById(id),m=Math.max.apply(null,vals),pts=vals.map(function(v,i){return (i*(400/(vals.length-1))).toFixed(1)+','+(135-v/m*120).toFixed(1)}).join(' ');s.innerHTML='<polyline points="'+pts+'" fill="none" stroke="'+color+'" stroke-width="3"/>'+vals.map(function(v,i){return '<circle cx="'+(i*(400/(vals.length-1))).toFixed(1)+'" cy="'+(135-v/m*120).toFixed(1)+'" r="3" fill="'+color+'"/>'}).join('')+'<line x1="0" y1="140" x2="400" y2="140" stroke="#2B3A31"/>'}
-  var hours=[2,4,9,14,18,17,12,15,19,16,8,3];bars('c1',hours,'#86B83A');line('c2',[1920,1500,980,640,310,120,60,42,33,28,25,23,21,21],'#6FA3D6');
-  // clock
-  setInterval(function(){document.getElementById('clock').textContent=t()+' Dubai'},1000);
-  // switches
-  document.getElementById('switches').addEventListener('click',function(e){var s=e.target.closest('.sw');if(!s)return;var k=s.dataset.k;SW[k]=!SW[k];s.classList.toggle('on',SW[k]);ev(SW[k]?'':'r','⏻','<b>'+s.querySelector('b').textContent+' switch '+(SW[k]?'ON':'OFF')+'</b> · '+(SW[k]?'the phones start calling':'every call and message on this line stops within 2 minutes'))});
-  // seed the feed and run
-  renderFloor();kp();for(var i=0;i<6;i++)EVENTS[i%EVENTS.length]();
-  setInterval(function(){pick(EVENTS)();renderFloor();kp();},3200+Math.floor(rnd()*1500));
-  setInterval(function(){hours[hours.length-1]+= (rnd()<.5?1:0);bars('c1',hours,'#86B83A')},9000);
-  // live mode: real numbers if the Defender PIN cookie is present on this browser
-  if(/[?&]live=1/.test(location.search)){fetch('https://defender.brxdxb.com/calls/now.json',{credentials:'include'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(!j)return;if(j.leads_today)K.leads=j.leads_today;if(j.calls_today)K.meet=j.meetings_today||K.meet;kp();ev('','⚡','<b>Live mode</b> · numbers from the real Defender')}).catch(function(){})}
-})();
-</script>
+<!-- foot:start -->
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="/" aria-label="BRXDXB home" data-en-aria="BRXDXB home" data-ar-aria="BRXDXB، الصفحة الرئيسية">
+      <svg viewBox="12 10 108 70" aria-hidden="true"><path d="M28 12 H92 a26 26 0 0 1 0 52 H40 a26 26 0 0 1 -26 -26 v0 a26 26 0 0 1 26 -26 Z" fill="#86BC25"/><path d="M30 64 L30 78 L44 64 Z" fill="#86BC25"/><circle cx="86" cy="38" r="17" fill="#FFFFFF"/></svg>
+      <b>BRX</b>
+    </a>
+    <p data-en="BRXDXB builds and runs AI agents for companies and public entities. © 2026 BRXDXB · Dubai" data-ar="BRXDXB تبني وتشغّل وكلاء ذكاء اصطناعي للشركات والجهات الحكومية. © 2026 BRXDXB · دبي">BRXDXB builds and runs AI agents for companies and public entities. © 2026 BRXDXB · Dubai</p>
+    <nav class="foot-nav" aria-label="Site" data-en-aria="Site" data-ar-aria="الموقع">
+      <a href="/flow/">BRX Flow</a>
+      <a href="/defender/">BRX Defender</a>
+      <a href="/atlas/">BRX Atlas</a>
+      <a href="/terminal/">BRX Terminal</a>
+      <a href="/launch/">BRX Launch</a>
+      <a href="/industries/" data-en="Industries" data-ar="القطاعات">Industries</a>
+      <a href="/savings/" data-en="Savings calculator" data-ar="حاسبة التوفير">Savings calculator</a>
+    </nav>
+    <div class="foot-links">
+      <a href="mailto:leo@brxdxb.com">leo@brxdxb.com</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/brx.js?v=20261005r6" defer></script>
+<!-- foot:end -->
+<script src="/agency/agency.js?v=1" defer></script>
 </body>
 </html>

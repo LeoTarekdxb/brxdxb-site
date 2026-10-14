@@ -8,7 +8,7 @@ PAGES = ['index.html', 'calculator.html', 'console.html', 'table/index.html', 'd
          'flow/index.html', 'products/index.html', 'launch/index.html', 'industries/index.html', 'savings/index.html',
          'flow/public-sector.html', 'flow/private-sector.html',
          'agents/lawyer.html', 'agents/advisor.html', 'agents/wealth-manager.html', 'agents/broker.html',
-         'agents/clinic.html', 'agents/hospitality.html']
+         'agents/clinic.html', 'agents/hospitality.html', 'agency/index.html']
 for rel in PAGES:
     f = ROOT / rel
     if not f.exists():

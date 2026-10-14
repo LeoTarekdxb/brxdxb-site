@@ -27,7 +27,7 @@ const W = {
     setup_t: "Choose your password", setup_p: "This link works once. Nobody at BRX will ever know this password.", repeat: "Repeat it",
     save: "Save and sign in", mismatch: "The two passwords are not the same.", copy: "Copy", copied: "Copied",
     lists_empty: "No lists yet.", lists_empty_p: "Plug your CRM and your lists show up here, with owners counted.", lists_go: "Plug your CRM", pipe_empty: "No one in the pipeline yet.",
-    desk: "The desk", desk_p: "These pages stay on the call desk and ask for its PIN.", next: "Next", back: "Back", hi: "Good to see you, Leo.", hi_p: "Your desk, your owners, your outreach and your licensees. Numbers are live from the mini.", k_people: "People in your CRM", k_worked: "Being worked (not Prospect)", k_due: "Follow-ups due in 24 h", k_new: "New, never touched", k_req: "Requests waiting", k_lic: "Licensee accounts", pipeline: "Pipeline", lists: "Lists in your CRM", recent: "Recent imports", plug_p: "Bring every record out of your old CRM into BRX. Each one is kept exactly as it came, then matched, de-duplicated and checked against Dubai owner records. Run it again any time: nothing doubles.", drop: "Drop your CRM export here", drop_p: "CSV, Excel, JSON or XML, up to 60 MB. Or tap to pick the file.", direct: "Or connect the CRM directly", direct_p: "Paste your own key. We only read. We never write to your old CRM.", history: "History", t_leads: "Leads", t_new: "New" },
+    apps: "Apps", apps_p: "Every BRX tool, one tap away.", desk: "The desk", desk_p: "These pages stay on the call desk and ask for its PIN.", next: "Next", back: "Back", hi: "Good to see you, Leo.", hi_p: "Your desk, your owners, your outreach and your licensees. Numbers are live from the mini.", k_people: "People in your CRM", k_worked: "Being worked (not Prospect)", k_due: "Follow-ups due in 24 h", k_new: "New, never touched", k_req: "Requests waiting", k_lic: "Licensee accounts", pipeline: "Pipeline", lists: "Lists in your CRM", recent: "Recent imports", plug_p: "Bring every record out of your old CRM into BRX. Each one is kept exactly as it came, then matched, de-duplicated and checked against Dubai owner records. Run it again any time: nothing doubles.", drop: "Drop your CRM export here", drop_p: "CSV, Excel, JSON or XML, up to 60 MB. Or tap to pick the file.", direct: "Or connect the CRM directly", direct_p: "Paste your own key. We only read. We never write to your old CRM.", history: "History", t_leads: "Leads", t_new: "New" },
   ar: { signin: "تسجيل الدخول", email: "البريد الإلكتروني", password: "كلمة المرور", keep: "إبقني مسجلاً على هذا الجهاز", code: "رمز من 6 أرقام",
     tag: "مكتب مبيعاتك الذكي.", tagp: "العملاء والملاك والمكالمات والتواصل وكل نظام CRM استخدمته، في مكان خاص واحد.",
     home: "الرئيسية", leads: "العملاء", unassigned: "غير مسند / جديد", calendar: "التقويم", developers: "جهات المطورين",
@@ -37,7 +37,7 @@ const W = {
     setup_t: "اختر كلمة المرور", setup_p: "يعمل هذا الرابط مرة واحدة. لن يعرف أحد في BRX كلمة المرور.", repeat: "أعدها",
     save: "احفظ وادخل", mismatch: "كلمتا المرور غير متطابقتين.", copy: "نسخ", copied: "تم النسخ",
     lists_empty: "لا توجد قوائم بعد.", lists_empty_p: "اربط نظامك وستظهر قوائمك هنا مع عدد الملّاك.", lists_go: "اربط نظامك", pipe_empty: "لا أحد في المسار بعد.",
-    desk: "المكتب", desk_p: "هذه الصفحات على مكتب الاتصال وتطلب الرمز.", next: "التالي", back: "رجوع" } };
+    apps: "التطبيقات", apps_p: "كل أدوات BRX بلمسة واحدة.", desk: "المكتب", desk_p: "هذه الصفحات على مكتب الاتصال وتطلب الرمز.", next: "التالي", back: "رجوع" } };
 const t = k => (W[lang] && W[lang][k]) || W.en[k] || k;
 
 /* ── icons ─────────────────────────────────────────────────────────── */
@@ -165,6 +165,8 @@ V.home = async () => {
       <a class="kpi" href="#/unassigned"><div class="num">${num(d.untouched_new)}</div><div class="l">${t("k_new")}</div></a>
       <a class="kpi" href="#/requests"><div class="num">${num(d.requests)}</div><div class="l">${t("k_req")}</div></a>
       <a class="kpi" href="#/accounts"><div class="num">${num(d.tenants)}</div><div class="l">${t("k_lic")}</div></a></div>
+      ${(d.apps || []).length ? `<h2>${t("apps")}</h2><p class="muted small" style="margin:-4px 0 12px">${t("apps_p")}</p>
+      <div class="cards">${d.apps.map(l => `<a class="card" href="${esc(l.url)}" target="_blank" rel="noopener"><h3>${esc(lang === "ar" ? l.ar : l.en)}</h3><p>${esc(lang === "ar" && l.what_ar ? l.what_ar : l.what)}</p></a>`).join("")}</div>` : ""}
       <h2>${t("pipeline")}</h2>${work.length ? `<div class="bar">${work.map(([s, n]) => `<i style="width:${100 * n / tot}%;background:${STAGE_COL[s] || "#ccc"}" title="${esc(s)} ${n}"></i>`).join("")}</div>
       <div class="legend">${work.map(([s, n]) => `<span><b style="background:${STAGE_COL[s] || "#ccc"}"></b>${esc(s)} ${num(n)}</span>`).join("")}</div>` : `<p class="muted">${t("pipe_empty")}</p>`}
       <h2>${t("desk")}</h2><p class="muted small" style="margin:-4px 0 12px">${t("desk_p")}</p>

@@ -12,7 +12,7 @@
 :root{--bg:#0F1612;--bg2:#17211B;--card:#18231D;--line:#2B3A31;--ink:#EEF2E8;--soft:#C3CEC0;--mute:#8E9A8F;--g:#86B83A;--gl:#A9CF5E;--gd:#5F8F12;--b:#6FA3D6;--a:#E0A055;--r:#E06D5B}
 :root[data-theme="light"]{--bg:#F4F5EF;--bg2:#E9EDE0;--card:#FDFDFA;--line:#D6DCCB;--ink:#15201A;--soft:#3F4B43;--mute:#6B756E;--g:#5F8F12;--gl:#466B0E;--gd:#466B0E;--b:#2F6FA8;--a:#C9822B;--r:#C4472F}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45}
+body{overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45}
 a{color:var(--gl)}
 h1,h2,h3,.big{font-family:'Archivo',Arial,sans-serif;letter-spacing:-.01em}
 .wrap{max-width:1360px;margin:0 auto;padding:0 16px}
@@ -39,7 +39,7 @@ header.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
 .kpi .big{font-size:clamp(24px,2.4vw,36px);font-weight:900;color:var(--gl);line-height:1.05}
 .kpi .big.b{color:var(--b)}.kpi .big.a{color:var(--a)}
 .kpi small{color:var(--mute);font-size:12px;display:block;margin-top:4px}
-.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}.grid>*,.two>*,.kpi,.ag{min-width:0}
 section.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
 section.card h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:12px}
 section.card h2 small{font:500 12px 'IBM Plex Mono';color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
@@ -54,7 +54,7 @@ section.card h2 small{font:500 12px 'IBM Plex Mono';color:var(--mute);letter-spa
 @keyframes blink{50%{opacity:.3}}
 .nums{display:flex;gap:10px;font:500 11px 'IBM Plex Mono';color:var(--soft);margin-top:6px}
 .nums span b{color:var(--ink);font-weight:600}
-.spark{position:absolute;right:10px;top:12px;width:56px;height:22px}
+.spark{position:absolute;right:10px;bottom:10px;width:48px;height:18px;opacity:.8}
 .feed{display:flex;flex-direction:column;gap:8px;max-height:560px;overflow:auto;padding-right:4px}
 .ev{display:grid;grid-template-columns:32px 1fr auto;gap:10px;align-items:start;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px;animation:drop .45s cubic-bezier(.2,.75,.2,1)}
 @keyframes drop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
@@ -194,7 +194,7 @@ footer{color:var(--mute);font-size:13px;padding:0 0 40px}
     var on=agents.filter(function(a){return a.s[0]==='call'}).length;document.getElementById('floorstat').textContent='24 agents · '+on+' on calls'}
   function kp(){document.getElementById('k_leads').textContent=K.leads;document.getElementById('k_fast').textContent=K.fast+'%';document.getElementById('k_med').textContent=K.med+' s';document.getElementById('k_meet').textContent=K.meet;document.getElementById('k_list').textContent=K.list;document.getElementById('k_deals').textContent=K.deals}
   var UNITS=["2304","1802","1506","901","2210","705","1911","1204"],AREAS=["Dubai Marina","Business Bay","JVC","Downtown","Palm Jumeirah","Dubai Hills","Creek Harbour"],TYPES=["studio","1-bed","2-bed","3-bed"];
-  function t(){var d=new Date(),o=new Date(d.getTime()+(4*60+d.getTimezoneOffset())*60000);return o.toTimeString().slice(0,8)}
+  function t(){return new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dubai',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())}
   function ev(cls,icon,html){var e=document.createElement('div');e.className='ev';e.innerHTML='<i class="'+cls+'">'+icon+'</i><p>'+html+'</p><time>'+t()+'</time>';feed.prepend(e);while(feed.children.length>40)feed.lastChild.remove()}
   function ring(i){var el=document.getElementById('ag'+i);if(!el)return;el.classList.add('ring');setTimeout(function(){el.classList.remove('ring')},2600)}
   var EVENTS=[

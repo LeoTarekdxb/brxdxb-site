@@ -59,13 +59,24 @@ async function api(path, opt = {}) {
   if (body && !(body instanceof Blob) && !(body instanceof ArrayBuffer)) { h["Content-Type"] = "application/json"; body = JSON.stringify(body); }
   let r;
   try { r = await fetch(API + path, { method: opt.method || (body ? "POST" : "GET"), headers: h, body, cache: "no-store" }); }
-  catch (e) { throw new Error(t("offline")); }
+  catch (e) { offlineBar(); throw new Error(t("offline")); }
   if (opt.blob) { if (!r.ok) throw new Error("HTTP " + r.status); return r; }
   let j = {}; try { j = await r.json(); } catch (e) {}
   if (r.status === 401 && token && !path.startsWith("/auth/")) { signout(true); throw new Error("Sign in again."); }
-  if (r.status === 502) throw new Error(t("offline"));
+  if (r.status === 502 || r.status === 503 || r.status === 504 || r.status >= 520) { offlineBar(); throw new Error(t("offline")); }
   j._status = r.status;
   return j;
+}
+// The BRX server (Mac mini) is unreachable: the apps still open, read-only, from the offline copy.
+function offlineBar() {
+  if (document.getElementById("brx-offline")) return;
+  const a = document.createElement("a");
+  a.id = "brx-offline"; a.href = "https://brx-apps.netlify.app/go.html?to=/home2.html"; a.rel = "noopener";
+  a.textContent = L() === "ar" ? "خادم BRX غير متصل · افتح النسخة دون اتصال" : "BRX server offline · open the offline copy of your apps";
+  a.style.cssText = "position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);transform:translateX(-50%);z-index:9999;padding:9px 16px;" +
+    "border-radius:999px;background:#f59e0b;color:#1f1300;font:700 13px/1.3 -apple-system,system-ui,sans-serif;text-decoration:none;" +
+    "box-shadow:0 4px 16px rgba(0,0,0,.25);max-width:calc(100vw - 32px);text-align:center";
+  document.body.append(a);
 }
 function toast(msg) { const d = document.createElement("div"); d.className = "toast"; d.textContent = msg; document.body.append(d); setTimeout(() => d.remove(), 2600); }
 async function copy(text) { try { await navigator.clipboard.writeText(text); toast(t("copied")); } catch (e) { prompt(t("copy"), text); } }

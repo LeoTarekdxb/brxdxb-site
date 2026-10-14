@@ -236,11 +236,16 @@ V.unassigned = async () => {
 };
 
 V.calendar = async () => {
-  const d = await api("/calendar"); const ev = d.events || [];
-  const groups = {}; ev.forEach(e => { const k = e.at ? new Date(e.at * 1000).toDateString() : "Call-backs to book"; (groups[k] = groups[k] || []).push(e); });
-  return `<h1>${t("calendar")}</h1><p class="lede">Follow-ups set on your leads, and everyone who asked for a call back. Source: ${esc(d.source)}. No outside calendar is connected.</p>
-    ${Object.keys(groups).length ? Object.entries(groups).map(([g, es]) => `<h2>${esc(g)}</h2><div class="list">${es.map(e => `<button class="li" type="button" data-lead="${esc(e.key || e.id)}"><span class="t">${esc(e.name || "Lead")}</span><span class="s">${esc(e.kind)}${e.when ? " · " + esc(e.when) : ""}</span><span class="r">${esc(e.stage || "")}</span></button>`).join("")}</div>`).join("")
-      : `<div class="empty">No follow-ups are set yet. When a call result sets a follow-up date, it lands here.</div>`}`;
+  const d = await api("/calendar"); const ev = d.events || []; const gc = d.connector && d.connector.google_calendar;
+  const hm = e => e.all_day ? "All day" : new Date(e.at * 1000).toLocaleTimeString(lang === "ar" ? "ar-AE" : "en-GB", {hour: "2-digit", minute: "2-digit", timeZone: "Asia/Dubai"});
+  const dayKey = e => e.at ? new Date(e.at * 1000).toLocaleDateString(lang === "ar" ? "ar-AE" : "en-GB", {weekday: "long", day: "numeric", month: "long", timeZone: "Asia/Dubai"}) : "Call-backs to book";
+  const groups = {}; ev.forEach(e => { const k = dayKey(e); (groups[k] = groups[k] || []).push(e); });
+  const row = e => e.kind === "calendar"
+    ? `<div class="li"><span class="t" dir="auto">${esc(e.name)}</span><span class="s">${esc(hm(e))}${e.location ? " · " + esc(e.location) : ""}</span><span class="r"><span class="pill">Calendar</span></span></div>`
+    : `<button class="li" type="button" data-lead="${esc(e.key || e.id)}"><span class="t">${esc(e.name || "Lead")}</span><span class="s">${esc(e.kind)}${e.at ? " · " + esc(hm(e)) : e.when ? " · " + esc(e.when) : ""}</span><span class="r">${esc(e.stage || "")}</span></button>`;
+  return `<h1>${t("calendar")}</h1><p class="lede">${gc ? "Your Google Calendar, plus the follow-ups and call-backs from your leads. Read-only, refreshed every 5 minutes." : "Follow-ups set on your leads, and everyone who asked for a call back."}</p>
+    ${Object.keys(groups).length ? Object.entries(groups).map(([g, es]) => `<h2>${esc(g)}</h2><div class="list">${es.map(row).join("")}</div>`).join("")
+      : `<div class="empty">Nothing on the calendar in the next 45 days.</div>`}`;
 };
 
 V.developers = async (q) => {

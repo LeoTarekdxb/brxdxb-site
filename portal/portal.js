@@ -71,7 +71,7 @@ async function api(path, opt = {}) {
 function offlineBar() {
   if (document.getElementById("brx-offline")) return;
   const a = document.createElement("a");
-  a.id = "brx-offline"; a.href = "https://brx-apps.netlify.app/go.html?to=/home2.html"; a.rel = "noopener";
+  a.id = "brx-offline"; a.href = "https://brx-apps.pages.dev/go.html?to=/home2.html"; a.rel = "noopener";
   a.textContent = L() === "ar" ? "خادم BRX غير متصل · افتح النسخة دون اتصال" : "BRX server offline · open the offline copy of your apps";
   a.style.cssText = "position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);transform:translateX(-50%);z-index:9999;padding:9px 16px;" +
     "border-radius:999px;background:#f59e0b;color:#1f1300;font:700 13px/1.3 -apple-system,system-ui,sans-serif;text-decoration:none;" +

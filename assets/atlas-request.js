@@ -1,7 +1,7 @@
 /* Owner Atlas: open the request dialog, post the 4 fields, fall back to WhatsApp. No cookies, no trackers. */
 (function () {
   var ENDPOINT = 'https://defender.brxdxb.com/api/atlas-request';
-  var dlg = document.getElementById('atlasDlg'), open = document.getElementById('atlasOpen');
+  var dlg = document.getElementById('atlasDlg'), open = document.getElementById('atlasOpen') || document.querySelector('[data-atlas-open]');
   if (!dlg || !open) return;
   var form = document.getElementById('atlasForm'), done = document.getElementById('atlasDone');
   var err = document.getElementById('ar-err'), btn = document.getElementById('ar-submit');
@@ -14,7 +14,7 @@
     setTimeout(function () { (form.hidden ? done.querySelector('.x') : document.getElementById('ar-first')).focus(); }, 30);
   }
   function hide() { if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open'); open.focus(); }
-  open.addEventListener('click', show);
+  if (open.id === 'atlasOpen') open.addEventListener('click', show);
   document.querySelectorAll('[data-atlas-open]').forEach(function (b) { b.addEventListener('click', show); });
   dlg.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', hide); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) hide(); });

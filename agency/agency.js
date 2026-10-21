@@ -122,7 +122,7 @@
       '<path d="M5 53c2-11 10-16.5 21-16.5S45 42 47 53z" fill="' + a.suit + '"/><rect x="22" y="28" width="8" height="9" rx="3" fill="' + a.skin + '"/>' +
       '<circle cx="26" cy="21" r="10" fill="' + a.skin + '"/>' + hair + '<path d="M21.5 36.5l4.5 6 4.5-6" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.6"/></svg>';
   }
-  var KIND = { call: 'On a call', msg: 'Messaging', atlas: 'Owner Atlas', meet: 'Meeting', reply: 'Reply in' };
+  var KIND = { call: 'On a call', msg: 'Messaging', atlas: 'BRX Atlas', meet: 'Meeting', reply: 'Reply in' };
   var TPL = {
     call: ['calling {lead} · 5-star lead', 'on a call with {lead} · {lang}', 'calling back {lead} · {area} {type}', 'owner call · unit {unit}'],
     msg: ['sent 3D link · {area} {type}', 'iMessage to {lead} · viewing slots', 'iMessage follow-up · {lead}', 'emailed the floor plan · {area} {type}'],
@@ -245,7 +245,7 @@
     setTimeout(function () { toastEl.innerHTML = '<small></small>'; toastEl.firstChild.textContent = a; toastEl.appendChild(document.createTextNode(b)); toastEl.classList.remove('out'); }, RM ? 0 : 350);
   }
 
-  /* Owner Atlas card */
+  /* BRX Atlas card */
   function atlasCard(L) {
     $('a-unit').textContent = L.unit; $('a-tower').textContent = L.area + ' tower, floor ' + Math.floor(L.unit / 100);
     $('a-contact').textContent = pick(FR, ['Verified mobile', 'Verified mobile and email', 'Email on file']);
@@ -257,7 +257,7 @@
     'src-bayut': ['Bayut', 'portal leads', 'src'], 'src-dubizzle': ['dubizzle', 'portal leads', 'src'], 'src-web': ['Website', 'your forms', 'src'],
     q: ['BRX qualifier', 'score · language', 'core'], sw: ['Switch', 'ON', 'sw'],
     calls: ['Calls', 'AI voice · company phones', 'wide'], msgs: ['Messages', 'iMessage · SMS · email · iMessage', 'wide'],
-    atlas: ['Owner Atlas', 'digital twin · 3D', 'core'], links: ['Client links', '3D links · reports', ''],
+    atlas: ['BRX Atlas', 'digital twin · 3D', 'core'], links: ['Client links', '3D links · reports', ''],
     crm: ['CRM', 'every call logged', ''], ceo: ['CEO report', 'daily at 21:00', 'core']
   };
   var EDGES = [['src-bayut', 'q'], ['src-dubizzle', 'q'], ['src-web', 'q'], ['q', 'sw'], ['sw', 'calls'], ['sw', 'msgs'], ['calls', 'atlas'], ['msgs', 'atlas'], ['atlas', 'links'], ['links', 'crm'], ['links', 'ceo']];
@@ -316,7 +316,7 @@
       'Median first call ' + median(S.firsts) + ' s. Slowest ' + sl + '.',
       S.meet + ' meetings booked. ' + S.deals + ' deals moved to contract.',
       'Bayut ' + S.src.bayut + ' · dubizzle ' + S.src.dubizzle + ' · website ' + S.src.web + '.',
-      S.atlas + ' Owner Atlas lookups. ' + S.replies + ' owners replied.',
+      S.atlas + ' BRX Atlas lookups. ' + S.replies + ' owners replied.',
       S.agentMeet[top] ? 'Most meetings: ' + AGENTS[top].n + ' (' + S.agentMeet[top] + ').' : 'Meetings start after 09:00.'
     ];
     $('ceo-list').innerHTML = items.map(function (s) { return '<li></li>'; }).join('');
@@ -342,10 +342,10 @@
       var lab = function (id, v, t) { var el = $(id); el.dataset.v = v; el.textContent = v.toLocaleString('en-US'); el.nextElementSibling.textContent = t; };
       lab('c-leads', towers, 'towers mapped'); lab('c-calls', units, 'units mapped'); lab('c-msgs', owners, 'owners on file'); lab('c-atlas', mobiles, 'verified mobiles');
       var k = function (id, v, t, em) { var b = $(id), box = b.closest('.kpi'); b.innerHTML = ''; b.textContent = v; box.querySelector('span').textContent = t; box.querySelector('em').textContent = em; };
-      k('k-first', towers, 'towers in the Owner Atlas', 'live count'); k('k-called', units.toLocaleString('en-US'), 'units mapped', 'live count');
+      k('k-first', towers, 'towers in the BRX Atlas', 'live count'); k('k-called', units.toLocaleString('en-US'), 'units mapped', 'live count');
       k('k-meet', owners.toLocaleString('en-US'), 'owners on file', 'names stay private'); k('k-deals', now && now.active ? (now.state === 'ringing' ? 'Ringing' : 'On a call') : 'Idle', 'dialer right now', 'live state');
       log.innerHTML = '';
-      row(secNow(), 'atlas', 'Live', 'Owner Atlas · ' + towers + ' towers · ' + units.toLocaleString('en-US') + ' units mapped');
+      row(secNow(), 'atlas', 'Live', 'BRX Atlas · ' + towers + ' towers · ' + units.toLocaleString('en-US') + ' units mapped');
       var last = null;
       (function poll() {
         getJSON(B + 'now.json').then(function (n) {

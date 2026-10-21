@@ -1,4 +1,4 @@
-/* Owner Atlas: open the request dialog, post the 4 fields, fall back to iMessage. No cookies, no trackers. */
+/* BRX Atlas: open the request dialog, post the 4 fields, fall back to iMessage. No cookies, no trackers. */
 (function () {
   var ENDPOINT = 'https://defender.brxdxb.com/api/atlas-request';
   var dlg = document.getElementById('atlasDlg'), open = document.getElementById('atlasOpen') || document.querySelector('[data-atlas-open]');
@@ -47,7 +47,7 @@
         form.hidden = true; done.hidden = false; done.querySelector('.x').focus();
       })
       .catch(function () {
-        var wa = 'sms:+971558917770&body=' + encodeURIComponent('Owner Atlas access request: ' + p.first + ' ' + p.last +
+        var wa = 'sms:+971558917770&body=' + encodeURIComponent('BRX Atlas access request: ' + p.first + ' ' + p.last +
           ', ' + p.phone + ', ' + p.email + (p.seller ? '. I sell property in Dubai.' : '.'));
         err.innerHTML = (ar() ? 'تعذّر الإرسال. ' : 'Could not send. ') + '<a class="link" href="' + wa + '">' +
           (ar() ? 'أرسله عبر iMessage بدلاً من ذلك' : 'Send it on iMessage instead') + '</a>.';

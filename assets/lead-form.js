@@ -43,8 +43,9 @@
     btn.disabled = true;
     var label = btn.textContent;
     btn.textContent = ar() ? 'جارٍ الإرسال…' : 'Sending…';
-    fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-      .then(function (r) { return r.json(); })
+    var send = function () { return fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).then(function (r) { return r.json(); }); };
+    // 21 Oct: one silent retry after 2 s, so a server restart never shows "Could not send" to a buyer.
+    send().catch(function () { return new Promise(function (ok) { setTimeout(ok, 2000); }).then(send); })
       .then(function (j) {
         if (!j || !j.ok) throw new Error((j && j.message) || 'failed');
         form.hidden = true;

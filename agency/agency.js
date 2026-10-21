@@ -125,7 +125,7 @@
   var KIND = { call: 'On a call', msg: 'Messaging', atlas: 'Owner Atlas', meet: 'Meeting', reply: 'Reply in' };
   var TPL = {
     call: ['calling {lead} · 5-star lead', 'on a call with {lead} · {lang}', 'calling back {lead} · {area} {type}', 'owner call · unit {unit}'],
-    msg: ['sent 3D link · {area} {type}', 'WhatsApp to {lead} · viewing slots', 'iMessage follow-up · {lead}', 'emailed the floor plan · {area} {type}'],
+    msg: ['sent 3D link · {area} {type}', 'iMessage to {lead} · viewing slots', 'iMessage follow-up · {lead}', 'emailed the floor plan · {area} {type}'],
     atlas: ['atlas: who owns {unit}', 'atlas: {area}, floor {floor}', 'atlas: owner found for {unit}'],
     meet: ['meeting booked {time}', 'viewing in {area} · {time}', 'meeting booked {time} · {lead}'],
     reply: ['owner replied · unit {unit}', '{lead} replied · wants a viewing', 'owner replied · open to list']
@@ -184,7 +184,7 @@
     if (step === 3) {
       var r = rng(L.unit + L.t);
       if (L.outcome === 'meet') { row(t, 'call', 'Meeting', 'Meeting booked ' + slot(r) + ' · ' + A + ' · ' + L.area); S.meet++; S.agentMeet[L.agent]++; S.deals = Math.min(3, Math.floor(S.meet / 4)); }
-      else if (L.outcome === 'link') { row(t, 'msg', 'WhatsApp', '3D link sent · ' + L.area + ' ' + L.type + ' · ' + who(L)); S.msgs++; hit('msgs'); hit('links'); }
+      else if (L.outcome === 'link') { row(t, 'msg', 'iMessage', '3D link sent · ' + L.area + ' ' + L.type + ' · ' + who(L)); S.msgs++; hit('msgs'); hit('links'); }
       else if (L.outcome === 'callback') { row(t, 'msg', 'iMessage', 'Callback set ' + slot(r) + ' · ' + who(L)); S.msgs++; hit('msgs'); }
       else { row(t, 'msg', 'SMS', 'No answer · SMS sent · retry in 2 h'); S.msgs++; hit('msgs'); }
     }
@@ -209,8 +209,8 @@
     evs.slice(-12).forEach(function (e) {
       var L = e[1], A = AGENTS[L.agent].n;
       var txt = [ 'New lead · ' + L.name + ' · ' + L.type + ' to ' + L.intent + ' · ' + L.area, 'Scored ' + L.score + '/5 · ' + L.lang + ' · ' + L.why,
-        'Called ' + L.name + ' in <b>' + L.first + ' s</b> · ' + (L.voice ? 'AI voice, then ' + A : A + "'s company phone"), L.outcome === 'meet' ? 'Meeting booked · ' + A + ' · ' + L.area : 'WhatsApp follow-up · ' + L.name, 'Logged · next step set for ' + A ][e[2]];
-      var c = [[L.src[0], L.src[1]], ['call', 'BRX'], ['call', 'Call'], [L.outcome === 'meet' ? 'call' : 'msg', L.outcome === 'meet' ? 'Meeting' : 'WhatsApp'], ['crm', 'CRM']][e[2]];
+        'Called ' + L.name + ' in <b>' + L.first + ' s</b> · ' + (L.voice ? 'AI voice, then ' + A : A + "'s company phone"), L.outcome === 'meet' ? 'Meeting booked · ' + A + ' · ' + L.area : 'iMessage follow-up · ' + L.name, 'Logged · next step set for ' + A ][e[2]];
+      var c = [[L.src[0], L.src[1]], ['call', 'BRX'], ['call', 'Call'], [L.outcome === 'meet' ? 'call' : 'msg', L.outcome === 'meet' ? 'Meeting' : 'iMessage'], ['crm', 'CRM']][e[2]];
       row(e[0], c[0], c[1], txt);
     });
   }
@@ -249,14 +249,14 @@
   function atlasCard(L) {
     $('a-unit').textContent = L.unit; $('a-tower').textContent = L.area + ' tower, floor ' + Math.floor(L.unit / 100);
     $('a-contact').textContent = pick(FR, ['Verified mobile', 'Verified mobile and email', 'Email on file']);
-    $('a-next').textContent = pick(FR, ['WhatsApp sent by the agent', 'Call booked for tomorrow', 'Valuation link sent']);
+    $('a-next').textContent = pick(FR, ['iMessage sent by the agent', 'Call booked for tomorrow', 'Valuation link sent']);
   }
 
   /* ── Flow diagram ─────────────────────── */
   var NODES = {
     'src-bayut': ['Bayut', 'portal leads', 'src'], 'src-dubizzle': ['dubizzle', 'portal leads', 'src'], 'src-web': ['Website', 'your forms', 'src'],
     q: ['BRX qualifier', 'score · language', 'core'], sw: ['Switch', 'ON', 'sw'],
-    calls: ['Calls', 'AI voice · company phones', 'wide'], msgs: ['Messages', 'iMessage · SMS · email · WhatsApp', 'wide'],
+    calls: ['Calls', 'AI voice · company phones', 'wide'], msgs: ['Messages', 'iMessage · SMS · email · iMessage', 'wide'],
     atlas: ['Owner Atlas', 'digital twin · 3D', 'core'], links: ['Client links', '3D links · reports', ''],
     crm: ['CRM', 'every call logged', ''], ceo: ['CEO report', 'daily at 21:00', 'core']
   };
@@ -284,7 +284,7 @@
           '<text x="' + (x + w - 55) + '" y="' + (c[1] + 4) + '" style="font-size:10px;fill:#17110A;font-weight:800">ON</text></g>';
       } else {
         out += '<g class="fl-node ' + cls + '" data-n="' + id + '"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + H + '" rx="4"/>' +
-          '<text x="' + (x + 12) + '" y="' + (y + 24) + '">' + n[0] + '</text><text class="s" x="' + (x + 12) + '" y="' + (y + 43) + '">' + (lay.dir === 'y' && n[1].length > 24 ? n[1].replace(' · email · WhatsApp', ' · more') : n[1]) + '</text></g>';
+          '<text x="' + (x + 12) + '" y="' + (y + 24) + '">' + n[0] + '</text><text class="s" x="' + (x + 12) + '" y="' + (y + 43) + '">' + (lay.dir === 'y' && n[1].length > 24 ? n[1].replace(' · email · iMessage', ' · more') : n[1]) + '</text></g>';
       }
     });
     svg.innerHTML = out;

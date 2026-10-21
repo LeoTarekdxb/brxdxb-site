@@ -1,10 +1,10 @@
 /* BRX free-month lead form. Shared by every page that includes _partials/leadform.html.
-   One endpoint, one WhatsApp fallback, one Stripe link. No dependencies, no cookies, no tracking. */
+   One endpoint, one iMessage fallback, one Stripe link. No dependencies, no cookies, no tracking. */
 (function () {
   var LEAD_ENDPOINT = 'https://defender.brxdxb.com/api/lead';
   // Stripe Payment Link for the AED 50,000 set-up. Empty = the pay button stays hidden on every page.
   var STRIPE_SETUP_URL = '';
-  var FALLBACK_WA = 'https://wa.me/971558917770?text=';
+  var FALLBACK_WA = 'sms:+971558917770&body=';
 
   var form = document.getElementById('leadForm');
   if (!form) return;
@@ -60,8 +60,8 @@
           (payload.agents ? ' (' + payload.agents + ' agents)' : '') + '. Phone ' + payload.phone + (payload.email ? ', email ' + payload.email : '') + '.');
         err.textContent = ar() ? 'تعذّر الإرسال. ' : 'Could not send. ';
         var a = document.createElement('a');
-        a.className = 'link'; a.target = '_blank'; a.rel = 'noopener'; a.href = wa;
-        a.textContent = ar() ? 'أرسلها عبر واتساب بدلاً من ذلك' : 'Send it on WhatsApp instead';
+        a.className = 'link'; a.href = wa;
+        a.textContent = ar() ? 'أرسلها عبر iMessage بدلاً من ذلك' : 'Send it on iMessage instead';
         err.appendChild(a); err.appendChild(document.createTextNode('.'));
         err.hidden = false; btn.disabled = false; btn.textContent = label;
       });

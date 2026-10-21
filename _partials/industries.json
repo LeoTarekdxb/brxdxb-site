@@ -61,8 +61,8 @@
   "ex_steps": [
    [
     "22:10",
-    "A WhatsApp inquiry arrives in Arabic about a rental dispute.",
-    "يصل استفسار عبر واتساب بالعربية عن نزاع إيجاري."
+    "An iMessage inquiry arrives in Arabic about a rental dispute.",
+    "يصل استفسار عبر iMessage بالعربية عن نزاع إيجاري."
    ],
    [
     "22:12",
@@ -423,8 +423,8 @@
    [
     "Bookings",
     "الحجوزات",
-    "Patients book on WhatsApp or the web, in their language, at any hour.",
-    "يحجز المرضى عبر واتساب أو الموقع، بلغتهم، في أي ساعة."
+    "Patients book on iMessage or the web, in their language, at any hour.",
+    "يحجز المرضى عبر iMessage أو الموقع، بلغتهم، في أي ساعة."
    ],
    [
     "Reminders and no-shows",
@@ -466,8 +466,8 @@
   "ex_steps": [
    [
     "08:30",
-    "A patient cancels the 10:00 cleaning by WhatsApp.",
-    "مريض يلغي موعد التنظيف الساعة 10:00 عبر واتساب."
+    "A patient cancels the 10:00 cleaning by iMessage.",
+    "مريض يلغي موعد التنظيف الساعة 10:00 عبر iMessage."
    ],
    [
     "08:31",
@@ -521,8 +521,8 @@
    [
     "Reservations",
     "الحجوزات",
-    "Bookings on WhatsApp, Instagram and the web, in the guest's language.",
-    "حجوزات عبر واتساب وإنستغرام والموقع، بلغة الضيف."
+    "Bookings on iMessage, Instagram and the web, in the guest's language.",
+    "حجوزات عبر iMessage وإنستغرام والموقع، بلغة الضيف."
    ],
    [
     "Guest messages",
@@ -564,8 +564,8 @@
   "ex_steps": [
    [
     "14:00",
-    "Twelve WhatsApp requests for Friday arrive during lunch service.",
-    "يصل اثنا عشر طلب حجز ليوم الجمعة عبر واتساب أثناء الغداء."
+    "Twelve iMessage requests for Friday arrive during lunch service.",
+    "يصل اثنا عشر طلب حجز ليوم الجمعة عبر iMessage أثناء الغداء."
    ],
    [
     "14:02",
@@ -623,8 +623,8 @@
    [
     "Enquiries",
     "الاستفسارات",
-    "Every enquiry from the web, email and WhatsApp answered and routed, in Arabic or English.",
-    "كل استفسار من الموقع والبريد وواتساب يُرد عليه ويُحوَّل، بالعربية أو الإنجليزية."
+    "Every enquiry from the web, email and iMessage answered and routed, in Arabic or English.",
+    "كل استفسار من الموقع والبريد وiMessage يُرد عليه ويُحوَّل، بالعربية أو الإنجليزية."
    ],
    [
     "Quotes",
@@ -717,8 +717,8 @@
    [
     "Request intake and routing",
     "استقبال الطلبات وتوجيهها",
-    "Requests from the web, email and WhatsApp sorted and sent to the right team, Arabic first.",
-    "الطلبات من الموقع والبريد وواتساب تُفرز وتُرسل إلى الفريق الصحيح، بالعربية أولاً."
+    "Requests from the web, email and iMessage sorted and sent to the right team, Arabic first.",
+    "الطلبات من الموقع والبريد وiMessage تُفرز وتُرسل إلى الفريق الصحيح، بالعربية أولاً."
    ],
    [
     "Application checks",

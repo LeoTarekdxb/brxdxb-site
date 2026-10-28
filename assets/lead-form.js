@@ -56,7 +56,7 @@
       })
       .catch(function () {
         var wa = FALLBACK_WA + encodeURIComponent(
-          'Free month request — ' + (payload.first + ' ' + payload.last).trim() + ', ' + payload.role +
+          'Defender request — ' + (payload.first + ' ' + payload.last).trim() + ', ' + payload.role +
           (payload.agents ? ' (' + payload.agents + ' agents)' : '') + '. Phone ' + payload.phone + (payload.email ? ', email ' + payload.email : '') + '.');
         err.textContent = ar() ? 'تعذّر الإرسال. ' : 'Could not send. ';
         var a = document.createElement('a');

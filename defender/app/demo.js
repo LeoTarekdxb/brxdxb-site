@@ -65,10 +65,10 @@
   };
   document.addEventListener("DOMContentLoaded", () => {
     const b = document.createElement("div");
-    b.textContent = "DEMO · sample leads, no real clients";
-    b.style.cssText = "position:fixed;bottom:calc(env(safe-area-inset-bottom,0px) + 74px);left:50%;transform:translateX(-50%);z-index:2147483001;" +
-      "font:700 10.5px -apple-system,system-ui;letter-spacing:.06em;color:#e0b25a;background:rgba(10,14,26,.92);border:1px solid rgba(224,178,90,.35);" +
-      "padding:4px 10px;border-radius:999px;pointer-events:none;white-space:nowrap";
+    b.textContent = "DEMO — made-up sample leads. No real client is on this page.";
+    b.style.cssText = "position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:50%;transform:translateX(-50%);z-index:2147483001;" +
+      "font:800 13px -apple-system,system-ui;letter-spacing:.04em;color:#fff;background:#C0392B;border:1px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.35);" +
+      "padding:7px 14px;border-radius:999px;pointer-events:none;white-space:nowrap";
     document.body.appendChild(b);
   });
 })();

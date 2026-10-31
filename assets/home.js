@@ -144,8 +144,8 @@
 
   /* ── 6. Masked-name ticker (sample) ── */
   var N = {
-    en: [['A••••a K.', 'owns 2 units in JVC'], ['D••••i V.', 'asked about off-plan, owns in Marina'], ['M•••d S.', 'owns a villa in Arabian Ranches'], ['W•i L.', 'asked about off-plan, owns in Downtown'], ['P•••a R.', 'owns in Business Bay'], ['O•••r H.', 'owns in Dubai Hills'], ['E•••a P.', 'asked about off-plan, owns in JLT'], ['Y••f A.', 'owns on Palm Jumeirah']],
-    ar: [['A••••a K.', 'يملك وحدتين في JVC'], ['D••••i V.', 'سأل عن مشروع على الخارطة، يملك في مارينا'], ['M•••d S.', 'يملك فيلا في المرابع العربية'], ['W•i L.', 'سأل عن مشروع على الخارطة، يملك في وسط المدينة'], ['P•••a R.', 'يملك في الخليج التجاري'], ['O•••r H.', 'يملك في دبي هيلز'], ['E•••a P.', 'سأل عن مشروع على الخارطة، يملك في JLT'], ['Y••f A.', 'يملك في نخلة جميرا']]
+    en: [['Sample lead 1', 'owns 2 units in JVC'], ['Sample lead 2', 'asked about off-plan, owns in Marina'], ['Sample lead 3', 'owns a villa in Arabian Ranches'], ['Sample lead 4', 'asked about off-plan, owns in Downtown'], ['Sample lead 5', 'owns in Business Bay'], ['Sample lead 6', 'owns in Dubai Hills'], ['Sample lead 7', 'asked about off-plan, owns in JLT'], ['Sample lead 8', 'owns on Palm Jumeirah']],
+    ar: [['Sample lead 1', 'يملك وحدتين في JVC'], ['Sample lead 2', 'سأل عن مشروع على الخارطة، يملك في مارينا'], ['Sample lead 3', 'يملك فيلا في المرابع العربية'], ['Sample lead 4', 'سأل عن مشروع على الخارطة، يملك في وسط المدينة'], ['Sample lead 5', 'يملك في الخليج التجاري'], ['Sample lead 6', 'يملك في دبي هيلز'], ['Sample lead 7', 'سأل عن مشروع على الخارطة، يملك في JLT'], ['Sample lead 8', 'يملك في نخلة جميرا']]
   };
   var track = document.getElementById('namesTrack');
   function buildNames(l) {

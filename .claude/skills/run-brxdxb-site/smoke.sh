@@ -4,7 +4,7 @@
 set -u
 MODE=${1:-local}; PORT=8811; OUT=.qa/smoke; mkdir -p $OUT
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-PAGES=(index.html flow/index.html products/index.html launch/index.html industries/index.html terminal/index.html atlas/index.html savings/index.html defender/index.html agents/lawyer.html agents/advisor.html agents/wealth-manager.html agents/broker.html agents/clinic.html agents/hospitality.html flow/private-sector.html flow/public-sector.html calculator.html console.html portal/index.html solutions/index.html ai-first/index.html get-whitepaper.html agent.html agents/index.html flow/legal.html flow/hospitality.html flow/healthcare.html flow/real-estate.html sitemap.xml)
+PAGES=(index.html flow/index.html products/index.html launch/index.html industries/index.html crm/index.html atlas/index.html savings/index.html defender/index.html agents/lawyer.html agents/advisor.html agents/wealth-manager.html agents/broker.html agents/clinic.html agents/hospitality.html flow/private-sector.html flow/public-sector.html calculator.html console.html portal/index.html solutions/index.html ai-first/index.html get-whitepaper.html agent.html agents/index.html flow/legal.html flow/hospitality.html flow/healthcare.html flow/real-estate.html sitemap.xml)
 if [ "$MODE" = live ]; then BASE="https://www.brxdxb.com"; else
   lsof -i :$PORT >/dev/null 2>&1 || (python3 -m http.server $PORT >/dev/null 2>&1 &); sleep 1; BASE="http://localhost:$PORT"; fi
 fail=0

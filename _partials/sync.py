@@ -4,7 +4,7 @@ Run from anywhere: python3 _partials/sync.py   (Jekyll never publishes _partials
 import pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 P = {n: (ROOT / '_partials' / f'{n}.html').read_text().rstrip('\n') for n in ('head', 'nav', 'founders', 'foot', 'leadform')}
-PAGES = ['index.html', 'calculator.html', 'console.html', 'table/index.html', 'defender/index.html', 'atlas/index.html', 'terminal/index.html',
+PAGES = ['index.html', 'calculator.html', 'console.html', 'table/index.html', 'defender/index.html', 'atlas/index.html', 'crm/index.html', 'studio/index.html',
          'flow/index.html', 'products/index.html', 'launch/index.html', 'industries/index.html', 'savings/index.html',
          'flow/public-sector.html', 'flow/private-sector.html',
          'agents/lawyer.html', 'agents/advisor.html', 'agents/wealth-manager.html', 'agents/broker.html',

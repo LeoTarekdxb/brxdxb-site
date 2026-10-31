@@ -379,6 +379,4 @@
   if (RM) setPaused(true); else { AGENTS.forEach(function (a, i) { agentLoop(i); }); fillerLoop(); }
   journey();
   setInterval(function () { if (!paused) bars(); }, 15000);
-  if (location.hash === '#live') goLive();
-  window.addEventListener('hashchange', function () { if (location.hash === '#live' && !liveMode) goLive(); });
 })();

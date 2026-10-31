@@ -3,7 +3,7 @@
    anyone without exposing a single real client. Nothing leaves the phone; no CRM, no Galaxy. */
 (function () {
   const FIRST = ["James","Sophie","Omar","Priya","Lukas","Aisha","Daniel","Mei","Karim","Elena","Noah","Fatima","Marco","Hannah","Yusuf","Chloe","Arjun","Leila","Tom","Sara","Viktor","Nadia","Ben","Amira","Ryan","Ines","Hassan","Grace","Felix","Maya"];
-  const LAST = ["Walker","Haddad","Patel","Schmidt","Rahman","Rossi","Chen","Novak","Hughes","Khan","Silva","Morgan","Farah","Weber","Brooks","Nair","Costa","Evans","Aziz","Fischer"];
+  const LAST = ["Larkfield","Ashgrove","Brightwell","Stonebridge","Fairwood","Oakhurst","Merrowby","Thornfield","Wrenford","Kestrelle","Alderholt","Penhallow","Quillane","Rowanby","Sandellor","Tavenor","Underhallow","Vantrell","Westerby","Yarrowden"];
   const PLACES = [["United Kingdom","+44 7700 9"],["United States","+1 212 55"],["United Arab Emirates","+971 50 12"],["Germany","+49 151 2"],["India","+91 98 20"],["Italy","+39 347 1"],["Saudi Arabia","+966 55 3"]];
   const PROJ = ["Emaar Beachfront","Sobha Hartland II","Dubai Hills Estate","Palm Jebel Ali","Creek Harbour","Business Bay","Damac Lagoons","Meraas · Port de La Mer"];
   const STAGES = [["New Lead",60,10],["No Answer",1440,60],["Contacted",4320,120],["Qualified",5760,180],["Options Sent",7200,180],["Scheduled (Viewing/meeting)",21600,7200],["Offers / Final Negotiations",43200,14400]];

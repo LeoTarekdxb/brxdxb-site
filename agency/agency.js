@@ -61,7 +61,7 @@
   }
   LEADS.sort(function (a, b) { return a.t - b.t; });
 
-  var S = { leads: 0, calls: 0, msgs: 0, atlas: 0, meet: 0, deals: 0, replies: 0, firsts: [], src: { bayut: 0, Property Finder: 0, web: 0 }, perHour: [], agentCalls: [0, 0, 0, 0, 0, 0], agentMeet: [0, 0, 0, 0, 0, 0], slow: null };
+  var S = { leads: 0, calls: 0, msgs: 0, atlas: 0, meet: 0, deals: 0, replies: 0, firsts: [], src: { bayut: 0, pf: 0, web: 0 }, perHour: [], agentCalls: [0, 0, 0, 0, 0, 0], agentMeet: [0, 0, 0, 0, 0, 0], slow: null };
   for (var k = 0; k < 24; k++) S.perHour.push(0);
   function addCalls(n, t) { S.calls += n; S.perHour[Math.floor(t / 3600) % 24] += n; }
   (function seedDay() {
@@ -254,16 +254,16 @@
 
   /* ── Flow diagram ─────────────────────── */
   var NODES = {
-    'src-bayut': ['Bayut', 'portal leads', 'src'], 'src-Property Finder': ['pf', 'portal leads', 'src'], 'src-web': ['Website', 'your forms', 'src'],
+    'src-bayut': ['Bayut', 'portal leads', 'src'], 'src-pf': ['Property Finder', 'portal leads', 'src'], 'src-web': ['Website', 'your forms', 'src'],
     q: ['BRX qualifier', 'score · language', 'core'], sw: ['Switch', 'ON', 'sw'],
     calls: ['Calls', 'AI voice · company phones', 'wide'], msgs: ['Messages', 'iMessage · SMS · email · iMessage', 'wide'],
     atlas: ['BRX Atlas', 'digital twin · 3D', 'core'], links: ['Client links', '3D links · reports', ''],
     crm: ['CRM', 'every call logged', ''], ceo: ['CEO report', 'daily at 21:00', 'core']
   };
-  var EDGES = [['src-bayut', 'q'], ['src-Property Finder', 'q'], ['src-web', 'q'], ['q', 'sw'], ['sw', 'calls'], ['sw', 'msgs'], ['calls', 'atlas'], ['msgs', 'atlas'], ['atlas', 'links'], ['links', 'crm'], ['links', 'ceo']];
+  var EDGES = [['src-bayut', 'q'], ['src-pf', 'q'], ['src-web', 'q'], ['q', 'sw'], ['sw', 'calls'], ['sw', 'msgs'], ['calls', 'atlas'], ['msgs', 'atlas'], ['atlas', 'links'], ['links', 'crm'], ['links', 'ceo']];
   var LAY = {
-    d: { w: 140, h: 58, dir: 'x', p: { 'src-bayut': [75, 70], 'src-Property Finder': [75, 180], 'src-web': [75, 290], q: [250, 180], sw: [425, 180], calls: [620, 95], msgs: [620, 265], atlas: [815, 180], links: [985, 180], crm: [1145, 95], ceo: [1145, 265] } },
-    m: { w: 104, h: 58, dir: 'y', p: { 'src-bayut': [60, 40], 'src-Property Finder': [180, 40], 'src-web': [300, 40], q: [180, 150], sw: [180, 255], calls: [95, 365], msgs: [265, 365], atlas: [180, 475], links: [180, 585], crm: [95, 715], ceo: [265, 715] } }
+    d: { w: 140, h: 58, dir: 'x', p: { 'src-bayut': [75, 70], 'src-pf': [75, 180], 'src-web': [75, 290], q: [250, 180], sw: [425, 180], calls: [620, 95], msgs: [620, 265], atlas: [815, 180], links: [985, 180], crm: [1145, 95], ceo: [1145, 265] } },
+    m: { w: 104, h: 58, dir: 'y', p: { 'src-bayut': [60, 40], 'src-pf': [180, 40], 'src-web': [300, 40], q: [180, 150], sw: [180, 255], calls: [95, 365], msgs: [265, 365], atlas: [180, 475], links: [180, 585], crm: [95, 715], ceo: [265, 715] } }
   };
   var NS = 'http://www.w3.org/2000/svg';
   function flow(svgId, lay) {
@@ -315,7 +315,7 @@
       S.leads + ' leads in. ' + S.leads + ' called. 0 left waiting.',
       'Median first call ' + median(S.firsts) + ' s. Slowest ' + sl + '.',
       S.meet + ' meetings booked. ' + S.deals + ' deals moved to contract.',
-      'Bayut ' + S.src.bayut + ' · Property Finder ' + S.src.Property Finder + ' · website ' + S.src.web + '.',
+      'Bayut ' + S.src.bayut + ' · Property Finder ' + S.src.pf + ' · website ' + S.src.web + '.',
       S.atlas + ' BRX Atlas lookups. ' + S.replies + ' owners replied.',
       S.agentMeet[top] ? 'Most meetings: ' + AGENTS[top].n + ' (' + S.agentMeet[top] + ').' : 'Meetings start after 09:00.'
     ];

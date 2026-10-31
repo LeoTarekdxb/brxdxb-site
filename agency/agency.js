@@ -28,7 +28,7 @@
   var TYPES = ['studio', '1-bed', '2-bed', '2-bed', '3-bed', 'townhouse', '4-bed villa'];
   var LANGS = ['English', 'English', 'Arabic', 'Arabic', 'Russian', 'Hindi', 'French', 'Urdu', 'Mandarin'];
   var WHY = ['viewing this week', 'mortgage pre-approved', 'moving in 30 days', 'cash buyer', 'relocating from London', 'second home'];
-  var SRC = [['bayut', 'Bayut'], ['dubizzle', 'dubizzle'], ['web', 'Website']];
+  var SRC = [['bayut', 'Bayut'], ['pf', 'Property Finder'], ['web', 'Website']];
 
   var AGENTS = [
     { n: 'Omar', r: 'Senior sales · Marina & JBR', l: 'Arabic · English', skin: '#C99A73', hair: '#2A1E17', st: 'short', bg: '#25324A', suit: '#3A3F4A' },

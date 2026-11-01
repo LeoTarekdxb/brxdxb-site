@@ -1,6 +1,6 @@
-<!doctype html><html lang="en"><head><script src="demo.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0e1a">
-<title>BRX Defender — Board</title><link rel="stylesheet" href="shell.css"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Defender"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script defer src="power.js"></script><script defer src="tabbar.js"></script></head><body>
-<div class="app"><div class="side"><div class="logo"><svg width="30" height="30" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="22" fill="#2F4960"/><path d="M32 28h22c11 0 18 6 18 15 0 6-3 10-8 12 6 2 10 7 10 14 0 9-7 15-19 15H32V28zm20 26c5 0 8-2 8-6s-3-6-8-6h-8v12h8zm2 26c6 0 9-3 9-7s-3-7-9-7h-10v14h10z" fill="#fff"/></svg> <span><b>BRX</b>DEFENDER</span></div>
+<!doctype html><html lang="en"><head><script src="demo.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#FFFFFF">
+<title>BRX Defender — Board</title><link rel="stylesheet" href="shell.css?v=20261101"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Defender"><meta name="apple-mobile-web-app-status-bar-style" content="default"><script defer src="power.js"></script><script defer src="tabbar.js"></script></head><body>
+<div class="app"><div class="side"><div class="logo"><svg width="30" height="30" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="22" fill="#3F6E0E"/><path d="M32 28h22c11 0 18 6 18 15 0 6-3 10-8 12 6 2 10 7 10 14 0 9-7 15-19 15H32V28zm20 26c5 0 8-2 8-6s-3-6-8-6h-8v12h8zm2 26c6 0 9-3 9-7s-3-7-9-7h-10v14h10z" fill="#fff"/></svg> <span><b>BRX</b>DEFENDER</span></div>
 <a class="on" href="board.html"><span class="i">◧</span> Home</a>
 <div class="grp">CRM</div>
 <a class="NAV_LEADS" href="index.html"><span class="i">☰</span> Leads</a>
@@ -28,7 +28,7 @@
 .kb-tools input[type=search]{flex:1;min-width:180px;max-width:380px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;background:#fff}
 .kb-toggle{font:600 13px inherit;border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:999px;padding:8px 14px;cursor:pointer}.kb-toggle[aria-pressed=true]{background:var(--badBg);color:var(--bad);border-color:var(--bad)}.kb-chk{font-size:13px;color:var(--ink2);display:inline-flex;gap:6px;align-items:center;white-space:nowrap}.kb-chk input{width:auto!important;margin:0}
 .kb{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;align-items:flex-start}
-.col{flex:0 0 272px;background:#F1EEE8;border-radius:14px;padding:8px;scroll-snap-align:start;max-height:calc(100vh - 230px);display:flex;flex-direction:column}
+.col{flex:0 0 272px;background:#EEF1E8;border-radius:14px;padding:8px;scroll-snap-align:start;max-height:calc(100vh - 230px);display:flex;flex-direction:column}
 .col h3{display:flex;justify-content:space-between;align-items:center;margin:2px 4px 8px;font-size:13px;font-weight:700;color:var(--ink)}
 .col h3 i{font-style:normal;width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:7px}
 .col h3 small{font-weight:600;color:var(--ink2);background:#fff;border-radius:999px;padding:1px 8px;font-size:11.5px}
@@ -47,7 +47,7 @@
 <script>
 const q=id=>document.getElementById(id);
 const ORDER=["New Lead","No Answer","Contacted","Qualified","Options Sent","Scheduled (Viewing/meeting)","Done (Viewing/meeting)","Offers / Final Negotiations","Purchase on Hold For Now"];
-const COLOR={"New Lead":"#2E86DE","No Answer":"#E67E22","Contacted":"#8E44AD","Qualified":"#16A085","Options Sent":"#2980B9","Scheduled (Viewing/meeting)":"#27AE60","Done (Viewing/meeting)":"#1E7D46","Offers / Final Negotiations":"#C0392B","Purchase on Hold For Now":"#7F8C8D"};
+const COLOR={"New Lead":"#2E86DE","No Answer":"#E67E22","Contacted":"#43B02A","Qualified":"#16A085","Options Sent":"#2980B9","Scheduled (Viewing/meeting)":"#27AE60","Done (Viewing/meeting)":"#1E7D46","Offers / Final Negotiations":"#C0392B","Purchase on Hold For Now":"#7F8C8D"};
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const left=m=>m==null?"paused":m<60?Math.round(m)+"m":m<1440?Math.floor(m/60)+"h":Math.floor(m/1440)+"d";
 const cls=l=>l.left_min==null?"":l.in_crit?"crit":(l.crit_min&&l.left_min<=l.crit_min*3?"warn":"");

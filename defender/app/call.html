@@ -3,7 +3,7 @@
 <head><script src="demo.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0a0e1a">
+<meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Defender">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -11,13 +11,13 @@
 <title>Defender Calls</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&display=swap">
-<link rel="stylesheet" href="dark.css">
+<link rel="stylesheet" href="dark.css?v=20261101">
 <style>
 .lab{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:18px 2px 9px;display:flex;justify-content:space-between}
 .lab.now{color:var(--live)}
 .lab span{font-family:var(--ui);letter-spacing:0;text-transform:none;font-weight:500}
 .pc{background:var(--card);border:1px solid var(--hair);border-radius:20px;padding:16px;margin-bottom:12px}
-.pc.big{border-color:rgba(34,197,94,.55);box-shadow:0 0 0 1px rgba(34,197,94,.2),0 14px 36px -16px var(--live-glow)}
+.pc.big{border-color:rgba(134,188,37,.55);box-shadow:0 0 0 1px rgba(134,188,37,.2),0 14px 36px -16px var(--live-glow)}
 .ph{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .pn{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.01em;line-height:1.15}
 .pc.big .pn{font-size:25px}
@@ -26,7 +26,7 @@
 .pd .st{font-size:11.5px;color:var(--muted)}
 .pd .lf{font-family:var(--disp);font-weight:800;font-size:17px;font-variant-numeric:tabular-nums;margin-top:2px}
 .lf.crit{color:var(--crit)}.lf.warn{color:var(--off)}.lf.ok{color:var(--live)}
-.say{margin:13px 0 4px;padding:12px 14px;border-radius:14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.22);font-size:15px;line-height:1.45}
+.say{margin:13px 0 4px;padding:12px 14px;border-radius:14px;background:rgba(134,188,37,.08);border:1px solid rgba(134,188,37,.22);font-size:15px;line-height:1.45}
 .pc:not(.big) .say{font-size:13.5px}
 .ln{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--hair);font-size:13.5px;line-height:1.45}
 .ln:first-of-type{border-top:0}
@@ -37,7 +37,7 @@
 .ln strong{color:var(--off);font-weight:700}
 .cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 .cta a{text-align:center;text-decoration:none;font-weight:700;font-size:14px;padding:12px;border-radius:13px}
-.cta .p{background:var(--live);color:#04210f}.cta .g{background:var(--card-2);color:var(--ink);border:1px solid var(--hair)}
+.cta .p{background:var(--live-fill);color:#111}.cta .g{background:var(--card-2);color:var(--ink);border:1px solid var(--hair)}
 .wait{background:var(--card);border:1px dashed var(--hair);border-radius:20px;padding:22px 16px;text-align:center;color:var(--muted);font-size:14px}
 .wait b{display:block;color:var(--ink);font-family:var(--disp);font-size:17px;margin-bottom:4px}
 .more{display:block;width:100%;margin-top:4px;padding:12px;border-radius:14px;border:1px solid var(--hair);background:var(--card-2);color:var(--muted);font:600 13.5px var(--ui);cursor:pointer}
@@ -50,7 +50,7 @@ details.pc[open] .chev{transform:rotate(180deg)}
 <body>
 <div class="wrap">
   <header class="top">
-    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5 4 5.6v5.2c0 4.7 3.2 8.4 8 10.7 4.8-2.3 8-6 8-10.7V5.6L12 2.5Z" stroke="#7f8ca8" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.6 12.2 2.3 2.3 4.5-4.6" stroke="#22c55e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5 4 5.6v5.2c0 4.7 3.2 8.4 8 10.7 4.8-2.3 8-6 8-10.7V5.6L12 2.5Z" stroke="#3F6E0E" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.6 12.2 2.3 2.3 4.5-4.6" stroke="#86BC25" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
     <div><b>CRM calls</b><span id="gline">Loading…</span></div>
     <a class="pill" id="crmpill" href="index.html">…</a>
   </header>

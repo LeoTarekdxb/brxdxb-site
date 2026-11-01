@@ -14,10 +14,10 @@
   const T = [['index.html', 'Switch', I.sw], ['call.html', 'Calls', I.ca], ['index.html?tab=owners', 'Owners', I.ow], ['board.html', 'Board', I.bo]];
   const st = document.createElement('style');
   st.textContent = `nav.brxt{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;display:grid;grid-template-columns:repeat(4,1fr);
-    padding:7px 10px calc(env(safe-area-inset-bottom,0px) + 7px);background:rgba(10,14,26,.9);backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);border-top:1px solid #1e2740;font-family:-apple-system,system-ui,sans-serif}
-    nav.brxt a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;color:#5c6889;text-decoration:none;font-size:10.5px;font-weight:700}
-    nav.brxt a svg{width:23px;height:23px}nav.brxt a.on{color:#22c55e}
+    padding:7px 10px calc(env(safe-area-inset-bottom,0px) + 7px);background:rgba(255,255,255,.9);backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);border-top:1px solid #E3E3E3;font-family:-apple-system,system-ui,sans-serif}
+    nav.brxt a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;color:#6B7163;text-decoration:none;font-size:10.5px;font-weight:700}
+    nav.brxt a svg{width:23px;height:23px}nav.brxt a.on{color:#3F6E0E}
     body{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 78px)!important}
     @media (max-width:760px){.app{grid-template-columns:1fr!important}.app>.side{display:none!important}}@media (min-width:761px){body:has(.app>.side) nav.brxt{display:none}body:has(.app>.side){padding-bottom:0!important}}`;
   const n = document.createElement('nav'); n.className = 'brxt'; n.setAttribute('aria-label', 'Sections');
